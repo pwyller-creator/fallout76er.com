@@ -1,0 +1,213 @@
+/* tm-guide.css — shared styles for standalone treasure-map guide pages.
+   Pip-Boy amber theme, matching the Game Resources section of the archive. */
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --pb-bg:        #0c0800;
+  --pb-bright:    rgba(255,195,55,1);
+  --pb-mid:       rgba(230,168,45,0.95);
+  --pb-dim:       rgba(200,145,35,0.85);
+  --pb-faint:     rgba(175,125,25,0.65);
+  --pb-border:    rgba(200,140,25,0.5);
+  --pb-border-hi: rgba(240,175,35,0.8);
+  --pb-sel-bg:    rgba(200,140,25,0.22);
+  --pb-glow:      0 0 12px rgba(255,185,45,0.35);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { overflow-x: hidden; }
+
+body {
+  background-color: var(--pb-bg);
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(120,80,10,0.18), transparent 60%),
+    repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.22) 3px, rgba(0,0,0,0.22) 4px);
+  color: var(--pb-dim);
+  font-family: 'IM Fell English', serif;
+  min-height: 100vh;
+  line-height: 1.7;
+}
+
+.tmg-header {
+  border-bottom: 1px solid var(--pb-border);
+  padding: 16px 24px;
+  display: flex; flex-direction: column; gap: 8px;
+  background: rgba(8,5,0,0.6);
+}
+.tmg-brand {
+  font-family: 'Rye', 'Courier Prime', serif;
+  font-size: 22px; color: var(--pb-bright);
+  text-decoration: none; text-shadow: var(--pb-glow);
+  letter-spacing: 1px;
+}
+.tmg-brand span { color: var(--pb-mid); }
+.tmg-crumbs {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 1px;
+  color: var(--pb-faint); text-transform: uppercase;
+}
+.tmg-crumbs a { color: var(--pb-dim); text-decoration: none; }
+.tmg-crumbs a:hover { color: var(--pb-bright); }
+.tmg-crumbs .sep { margin: 0 7px; opacity: 0.6; }
+.tmg-crumbs .cur { color: var(--pb-bright); }
+
+.tmg-main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 32px 24px 56px;
+}
+
+.tmg-title {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 700; letter-spacing: 2px;
+  color: var(--pb-bright); text-shadow: var(--pb-glow);
+  text-transform: uppercase; line-height: 1.25;
+  margin-bottom: 10px;
+}
+.tmg-meta {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 2px;
+  color: var(--pb-faint); text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.tmg-video {
+  position: relative; width: 100%;
+  aspect-ratio: 16/9; background: #000;
+  border: 1px solid var(--pb-border);
+  overflow: hidden; cursor: pointer;
+  margin-bottom: 24px;
+}
+.tmg-poster { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.8; transition: opacity 0.2s; }
+.tmg-video:hover .tmg-poster { opacity: 1; }
+.tmg-play {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 72px; height: 72px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(12,8,0,0.7);
+  border: 2px solid var(--pb-border-hi);
+  color: var(--pb-bright); font-size: 26px; padding-left: 5px;
+  box-shadow: var(--pb-glow); cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+.tmg-video:hover .tmg-play { transform: translate(-50%,-50%) scale(1.08); background: rgba(40,26,0,0.9); }
+.tmg-video-el { width: 100%; height: 100%; display: block; background: #000; }
+
+.tmg-desc {
+  font-family: 'IM Fell English', serif;
+  font-size: 19px; line-height: 1.85;
+  color: var(--pb-dim); letter-spacing: 0.3px;
+  border-top: 1px solid var(--pb-border);
+  padding-top: 20px;
+}
+.tmg-desc p + p { margin-top: 16px; }
+
+.tmg-back { margin-top: 32px; }
+.tmg-back a {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--pb-bright); text-decoration: none;
+  border: 1px solid var(--pb-border); border-radius: 3px;
+  padding: 9px 16px; display: inline-block;
+  transition: background 0.15s, border-color 0.15s;
+}
+.tmg-back a:hover { background: var(--pb-sel-bg); border-color: var(--pb-border-hi); }
+
+.tmg-related {
+  margin-top: 36px;
+  border-top: 1px solid var(--pb-border);
+  padding-top: 20px;
+}
+.tmg-related-h {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px; font-weight: 700; letter-spacing: 2px;
+  color: var(--pb-faint); text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.tmg-related-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.tmg-related-links a {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--pb-mid); text-decoration: none;
+  border: 1px solid var(--pb-border); border-radius: 3px;
+  padding: 8px 12px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.tmg-related-links a:hover {
+  background: var(--pb-sel-bg);
+  border-color: var(--pb-border-hi);
+  color: var(--pb-bright);
+}
+
+.tmg-footer {
+  border-top: 1px solid var(--pb-border);
+  padding: 22px 24px; text-align: center;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 1px;
+  color: var(--pb-faint);
+}
+.tmg-footer a { color: var(--pb-dim); text-decoration: none; }
+.tmg-footer a:hover { color: var(--pb-bright); }
+
+@media (max-width: 600px) {
+  .tmg-main { padding: 24px 16px 40px; }
+  .tmg-desc { font-size: 18px; }
+}
+
+/* ── Guides hub (/maps/) ── */
+.tmg-hub-intro {
+  font-family: 'IM Fell English', serif;
+  font-size: 18px; line-height: 1.7;
+  color: var(--pb-dim);
+  margin-bottom: 28px; max-width: 70ch;
+}
+.tmg-hub-main { max-width: 1160px; }
+.tmg-hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+}
+.tmg-card {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--pb-border);
+  background: rgba(8,5,0,0.5);
+  text-decoration: none; overflow: hidden;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.tmg-card:hover {
+  border-color: var(--pb-border-hi);
+  transform: translateY(-2px);
+  box-shadow: var(--pb-glow);
+}
+.tmg-card-thumb { display: block; aspect-ratio: 16/9; background: #000; overflow: hidden; }
+.tmg-card-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; transition: opacity 0.15s; }
+.tmg-card:hover .tmg-card-thumb img { opacity: 1; }
+.tmg-card-body { display: block; padding: 14px 16px 16px; }
+.tmg-card-region {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--pb-faint); margin-bottom: 6px;
+}
+.tmg-card-title {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px; font-weight: 700; letter-spacing: 1px;
+  color: var(--pb-bright); text-shadow: var(--pb-glow);
+  text-transform: uppercase; line-height: 1.3; margin-bottom: 8px;
+}
+.tmg-card-teaser {
+  display: block;
+  font-family: 'IM Fell English', serif;
+  font-size: 15px; line-height: 1.5;
+  color: var(--pb-dim); margin-bottom: 12px;
+}
+.tmg-card-cta {
+  display: block;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--pb-bright);
+}

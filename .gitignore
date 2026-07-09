@@ -1,0 +1,15 @@
+# Separate project with its own GitHub repo (pwyller-creator/retirement-tripwires)
+retirement-tripwires/
+
+# Large video assets — deployed via FileZilla, never edited; not worth versioning
+*.mp4
+
+# Local-only Claude Code settings
+.claude/settings.local.json
+
+# Personal data parked in the web folder — not a site asset (also cloud-only in OneDrive, which breaks git mmap)
+All2026QAData.xlsm
+
+# OS noise
+Thumbs.db
+desktop.ini

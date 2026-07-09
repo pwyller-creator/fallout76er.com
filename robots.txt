@@ -1,0 +1,48 @@
+# fallout76er.com — robots.txt
+#
+# Search engines get full access. This is what drives Google rankings —
+# don't restrict it.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://fallout76er.com/sitemap.xml
+Sitemap: https://fallout76er.com/sitemap-creatures.xml
+
+# ──────────────────────────────────────────────────────────────────
+# OPTIONAL — opt out of AI MODEL TRAINING on your original writing.
+#
+# Everything below is turned OFF. To switch a rule on, delete the
+# leading "# " from BOTH that crawler's two lines.
+#
+# This does NOT hurt your Google Search ranking: Google-Extended is a
+# separate token from Googlebot. It also leaves the AI search/citation
+# crawlers (OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User,
+# PerplexityBot, Perplexity-User) free — they're already allowed by the
+# wildcard above, and they're the ones that fetch your page at query
+# time and can cite you, sending real visitors. Blocking those would
+# cost you AI-citation traffic, so the lines below only touch TRAINING.
+#
+# OpenAI — training
+# User-agent: GPTBot
+# Disallow: /
+#
+# Anthropic — training
+# User-agent: ClaudeBot
+# Disallow: /
+#
+# Google generative-AI training (NOT Google Search)
+# User-agent: Google-Extended
+# Disallow: /
+#
+# Apple Intelligence — training
+# User-agent: Applebot-Extended
+# Disallow: /
+#
+# Common Crawl (feeds many open-source models)
+# User-agent: CCBot
+# Disallow: /
+#
+# Meta — training
+# User-agent: Meta-ExternalAgent
+# Disallow: /

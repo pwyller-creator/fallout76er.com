@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220">
+  <defs>
+    <filter id="roughen">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="5" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+
+  <!-- Outer shield shape -->
+  <path d="M110,8 L200,40 L200,130 Q200,185 110,212 Q20,185 20,130 L20,40 Z"
+        fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="2.5" filter="url(#roughen)"/>
+
+  <!-- Inner shield inset -->
+  <path d="M110,18 L190,46 L190,130 Q190,178 110,202 Q30,178 30,130 L30,46 Z"
+        fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+
+  <!-- Camera body (simplified) -->
+  <rect x="74" y="52" width="52" height="38" rx="4" fill="none" stroke="rgba(255,255,255,0.60)" stroke-width="2"/>
+  <!-- Camera lens -->
+  <circle cx="100" cy="71" r="11" fill="none" stroke="rgba(255,255,255,0.60)" stroke-width="2"/>
+  <circle cx="100" cy="71" r="6" fill="none" stroke="rgba(255,255,255,0.40)" stroke-width="1.5"/>
+  <!-- Viewfinder bump -->
+  <rect x="88" y="46" width="16" height="8" rx="2" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.5"/>
+  <!-- Flash/detail -->
+  <rect x="116" y="56" width="8" height="6" rx="1" fill="none" stroke="rgba(255,255,255,0.40)" stroke-width="1"/>
+
+  <!-- Nuke cloud (top right of camera) -->
+  <path d="M134,58 Q134,42 148,42 Q162,42 162,54 Q170,50 170,60 Q170,70 160,70 L134,70 Q126,70 126,62 Q126,54 134,58Z"
+        fill="none" stroke="rgba(255,255,255,0.50)" stroke-width="1.5"/>
+  <!-- Nuke stem -->
+  <line x1="148" y1="70" x2="148" y2="82" stroke="rgba(255,255,255,0.40)" stroke-width="1.5"/>
+  <path d="M140,82 Q148,78 156,82" fill="none" stroke="rgba(255,255,255,0.40)" stroke-width="1.5"/>
+
+  <!-- Vault 76 badge on camera -->
+  <circle cx="100" cy="71" r="4" fill="rgba(255,255,255,0.30)"/>
+
+  <!-- FO76ER text - main -->
+  <text x="110" y="128"
+    font-family="'Arial Black', 'Impact', sans-serif"
+    font-size="34"
+    font-weight="900"
+    letter-spacing="2"
+    text-anchor="middle"
+    fill="rgba(255,255,255,0.72)"
+    filter="url(#roughen)"
+  >FO76ER</text>
+
+  <!-- Divider line above text -->
+  <line x1="45" y1="108" x2="175" y2="108" stroke="rgba(255,255,255,0.35)" stroke-width="1"/>
+
+  <!-- Cityscape silhouette bar -->
+  <g fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5" stroke-linejoin="round">
+    <!-- Left buildings -->
+    <polyline points="38,165 38,148 46,148 46,140 54,140 54,148 62,148 62,152 70,152 70,143 78,143 78,165"/>
+    <!-- Right buildings -->
+    <polyline points="122,165 122,145 130,145 130,138 138,138 138,145 146,145 146,150 154,150 154,142 162,142 162,165"/>
+    <!-- Bridge in center -->
+    <polyline points="78,165 78,158 88,152 110,152 132,152 142,158 142,165"/>
+    <line x1="88" y1="152" x2="88" y2="165" stroke="rgba(255,255,255,0.30)" stroke-width="1"/>
+    <line x1="110" y1="152" x2="110" y2="165" stroke="rgba(255,255,255,0.30)" stroke-width="1"/>
+    <line x1="132" y1="152" x2="132" y2="165" stroke="rgba(255,255,255,0.30)" stroke-width="1"/>
+  </g>
+
+  <!-- Bottom baseline -->
+  <line x1="38" y1="165" x2="182" y2="165" stroke="rgba(255,255,255,0.40)" stroke-width="1.5"/>
+
+  <!-- fallout76er.com -->
+  <text x="110" y="180"
+    font-family="'Courier New', Courier, monospace"
+    font-size="10"
+    letter-spacing="3"
+    text-anchor="middle"
+    fill="rgba(255,255,255,0.50)"
+  >FALLOUT76ER.COM</text>
+
+</svg>

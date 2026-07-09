@@ -1,0 +1,123 @@
+# ============================================================
+# fallout76er.com — Apache configuration
+# Upload to: public_html/.htaccess (your site root)
+# ============================================================
+
+# ── HTTPS Redirect ───────────────────────────────────────────
+# Force all HTTP traffic to HTTPS.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ── Browser Caching ──────────────────────────────────────────
+# Tell browsers how long to cache each file type.
+# "immutable" means the file won't change while the max-age is valid —
+# pairs with the ?v= cache-busting query strings already on your JS files.
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # HTML — short cache; you update index.html regularly
+  ExpiresByType text/html                  "access plus 1 hour"
+
+  # Images — long cache; filenames don't change once uploaded
+  ExpiresByType image/webp                 "access plus 1 year"
+  ExpiresByType image/png                  "access plus 1 year"
+  ExpiresByType image/jpeg                 "access plus 1 year"
+  ExpiresByType image/gif                  "access plus 1 year"
+  ExpiresByType image/svg+xml              "access plus 1 year"
+  ExpiresByType image/x-icon               "access plus 1 year"
+  ExpiresByType image/vnd.microsoft.icon   "access plus 1 year"
+
+  # Video — long cache; treasure map MP4s don't change
+  ExpiresByType video/mp4                  "access plus 1 year"
+  ExpiresByType video/webm                 "access plus 1 year"
+
+  # Audio — long cache; Wasteland Wonderings MP3s don't change
+  ExpiresByType audio/mpeg                 "access plus 1 year"
+  ExpiresByType audio/ogg                  "access plus 1 year"
+
+  # JavaScript — 1 week; plans-data.js uses ?v= cache-busting anyway
+  ExpiresByType text/javascript            "access plus 1 week"
+  ExpiresByType application/javascript     "access plus 1 week"
+
+  # JSON — short; spotlight.json updates when you add camps
+  ExpiresByType application/json           "access plus 1 hour"
+
+  # Fonts
+  ExpiresByType font/woff2                 "access plus 1 year"
+  ExpiresByType font/woff                  "access plus 1 year"
+  ExpiresByType application/font-woff2     "access plus 1 year"
+
+  # Web manifest and favicons
+  ExpiresByType application/manifest+json  "access plus 1 week"
+  ExpiresByType text/css                   "access plus 1 week"
+</IfModule>
+
+# ── Cache-Control headers (supplement Expires) ───────────────
+<IfModule mod_headers.c>
+  # Immutable long-lived assets (images, audio, video, fonts)
+  <FilesMatch "\.(webp|png|jpg|jpeg|gif|svg|ico|mp4|webm|mp3|ogg|woff2|woff)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # JS and CSS — versioned via query string, so 1 week is safe
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=604800"
+  </FilesMatch>
+
+  # JSON files — short TTL
+  <FilesMatch "\.json$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+
+  # HTML — always revalidate
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=3600, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# ── Gzip Compression ─────────────────────────────────────────
+# Your server already gzips HTML (confirmed in HAR).
+# This ensures it also compresses JS, CSS, JSON, and SVG.
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE image/svg+xml
+  AddOutputFilterByType DEFLATE application/manifest+json
+</IfModule>
+
+# ── Security Headers ─────────────────────────────────────────
+# Addresses the Best Practices flags from PageSpeed.
+# These won't get you to 100 because Ko-fi and GoDaddy inject
+# third-party scripts, but they improve the score and harden the site.
+
+<IfModule mod_headers.c>
+  # Prevent clickjacking — stops your page being embedded in iframes
+  Header always set X-Frame-Options "SAMEORIGIN"
+
+  # Stop browsers guessing MIME types
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Force HTTPS for 1 year once visited over HTTPS
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Basic XSS protection for older browsers
+  Header always set X-XSS-Protection "1; mode=block"
+
+  # Control referrer information sent to external sites
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ── ETags ────────────────────────────────────────────────────
+# GoDaddy already sends ETags (confirmed in HAR). Keep them.
+# They allow conditional requests so unchanged files return 304
+# even after the cache TTL expires.
+FileETag MTime Size
