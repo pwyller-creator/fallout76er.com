@@ -1,5 +1,6 @@
 # Separate project with its own GitHub repo (pwyller-creator/retirement-tripwires)
-retirement-tripwires/
+# Anchored to root so .claude/skills/retirement-tripwires/ stays tracked
+/retirement-tripwires/
 
 # Large video assets — deployed via FileZilla, never edited; not worth versioning
 *.mp4
