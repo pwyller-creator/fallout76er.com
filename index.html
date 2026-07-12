@@ -3428,8 +3428,16 @@ function showResources() {
   document.getElementById('detail-view').style.display = 'none';
   document.getElementById('bio-view').style.display = 'none';
   document.getElementById('resources-view').style.display = 'block';
-  initSpawnSelects();
-  initScrapSelects();
+  // Deep-link loads (#section=resources) reach here mid-script, before the
+  // widget data/flags declared further down exist — deferring the Pip-Boy
+  // inits to DOMContentLoaded avoids a TDZ ReferenceError that would abort
+  // the whole script (dead TM_DATA / SCRAP_DATA, empty widgets).
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { initSpawnSelects(); initScrapSelects(); });
+  } else {
+    initSpawnSelects();
+    initScrapSelects();
+  }
   if (typeof pbPlansInit === 'function') {
     const page = document.getElementById('pb-page-plans');
     if (page && page.classList.contains('pb-visible')) pbPlansInit();
@@ -4800,7 +4808,7 @@ const TM_DATA = [
   {
     id: 'toxic-valley',
     name: 'Toxic Valley',
-    img: 'tm-toxic-valley.webp',
+    img: 'tm-toxic-valley-01.webp',
     fallbackColor: '#1e2a14',
     maps: [
       {
