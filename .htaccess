@@ -74,6 +74,11 @@
     Header set Cache-Control "public, max-age=3600"
   </FilesMatch>
 
+  # XML (Atom feed, sitemaps) — short TTL so feed readers see updates
+  <FilesMatch "\.xml$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+
   # HTML — always revalidate
   <FilesMatch "\.html$">
     Header set Cache-Control "public, max-age=3600, must-revalidate"
@@ -92,7 +97,16 @@
   AddOutputFilterByType DEFLATE application/json
   AddOutputFilterByType DEFLATE image/svg+xml
   AddOutputFilterByType DEFLATE application/manifest+json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE application/atom+xml
+  AddOutputFilterByType DEFLATE text/xml
 </IfModule>
+
+# ── Atom feed MIME type ──────────────────────────────────────
+# Serve feed.xml with the proper feed content type.
+<Files "feed.xml">
+  ForceType application/atom+xml
+</Files>
 
 # ── Security Headers ─────────────────────────────────────────
 # Addresses the Best Practices flags from PageSpeed.
