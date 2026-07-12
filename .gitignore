@@ -1,12 +1,15 @@
 # Separate project with its own GitHub repo (pwyller-creator/retirement-tripwires)
-# Anchored to root so .claude/skills/retirement-tripwires/ stays tracked
 /retirement-tripwires/
 
 # Large video assets — deployed via FileZilla, never edited; not worth versioning
 *.mp4
 
-# Local-only Claude Code settings
-.claude/settings.local.json
+# Local Claude Code config, skills, and hooks — not part of the public site repo
+.claude/
+
+# Local tooling / diagnostics — not site assets
+/har.json
+/launch-claude-code.bat
 
 # Personal data parked in the web folder — not a site asset (also cloud-only in OneDrive, which breaks git mmap)
 All2026QAData.xlsm
