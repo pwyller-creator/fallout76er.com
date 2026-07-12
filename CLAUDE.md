@@ -92,6 +92,13 @@ Shape:
 - Avoid load-heavy third-party widgets (the Digits.net hit counter cost ~1,148ms and was pulled for that reason).
 - Deploy via FileZilla (SFTP) to the `public_html` web root.
 
+## GitHub
+- **Public repo**: github.com/pwyller-creator/fallout76er.com (branch `main`) — exists for authorship/provenance; the site footer links to it. Anything committed is world-readable.
+- Commit author email is the GitHub noreply address (set in repo-local `git config user.email`) — never commit with a personal email.
+- `.claude/`, `har.json`, and `launch-claude-code.bat` are deliberately gitignored (personal/local) — never track them. Same for anything else personal.
+- Push after committing — GitHub is the offsite backup and public record, so unpushed commits defeat the purpose.
+- Deployment is still FileZilla/SFTP only; pushing to GitHub does **not** deploy the site. `README.md` and `.github/` are repo-only, not uploaded to the server.
+
 ## SEO
 - Standalone crawlable pages: `/creatures/[slug].html` and `/maps/[region]-treasure-map-[num].html`.
 - Each gets a canonical URL, Open Graph tags, JSON-LD (Article + BreadcrumbList), and related internal links. The homepage footer links both hubs.
