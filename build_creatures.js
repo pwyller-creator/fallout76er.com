@@ -99,6 +99,8 @@ const foot = `
     <span aria-hidden="true">&middot;</span>
     <a href="/maps/">Treasure Maps</a>
     <span aria-hidden="true">&middot;</span>
+    <a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Wastelander Diary</a>
+    <span aria-hidden="true">&middot;</span>
     <a href="https://github.com/pwyller-creator/fallout76er.com" target="_blank" rel="noopener">GitHub</a>
   </nav>
   <p>Field-documented in Appalachia by Fallout76er. Counts vary with server population and active events.</p>
