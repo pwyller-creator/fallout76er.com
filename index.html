@@ -5239,16 +5239,17 @@ function tmShowEntry(regionId, mapNum) {
 }
 .diary-disp-stamp {
   font-family: 'Courier Prime', monospace;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 4px;
   color: var(--rust-dim);
-  opacity: 0.85;
+  opacity: 0.9;
   text-transform: uppercase;
   margin-bottom: 8px;
+  text-shadow: 0 0 8px rgba(232,220,200,0.9);
 }
 .diary-disp-title {
   font-family: 'Rye', cursive;
-  font-size: 28px;
+  font-size: 34px;
   color: var(--rust-mute);
   letter-spacing: 3px;
   text-shadow: 1px 1px 0 rgba(232,220,200,0.5);
@@ -5262,11 +5263,13 @@ function tmShowEntry(regionId, mapNum) {
 }
 .diary-disp-sub {
   font-family: 'IM Fell English', serif;
-  font-size: 15px;
+  font-size: 19px;
+  line-height: 27px;
   font-style: italic;
-  color: var(--text-mid);
+  color: var(--ink);
   margin: 12px auto 0;
-  max-width: 520px;
+  max-width: 600px;
+  text-shadow: 0 0 8px rgba(232,220,200,0.9), 0 0 16px rgba(232,220,200,0.7);
 }
 .diary-cards {
   display: flex;
@@ -5279,8 +5282,8 @@ function tmShowEntry(regionId, mapNum) {
 .diary-card {
   position: relative;
   display: block;
-  width: 290px;
-  padding: 20px 18px 16px;
+  width: 330px;
+  padding: 22px 20px 18px;
   background-color: #fffdfa;
   background-image: url('parchment.webp');
   background-size: cover;
@@ -5302,7 +5305,7 @@ function tmShowEntry(regionId, mapNum) {
 .diary-card-date {
   display: block;
   font-family: 'Courier Prime', monospace;
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 3px;
   color: var(--rust-dim);
   text-transform: uppercase;
@@ -5311,8 +5314,8 @@ function tmShowEntry(regionId, mapNum) {
 .diary-card-title {
   display: block;
   font-family: 'Rye', cursive;
-  font-size: 17px;
-  line-height: 24px;
+  font-size: 21px;
+  line-height: 29px;
   color: var(--ink);
   margin-bottom: 10px;
 }
@@ -5320,15 +5323,15 @@ function tmShowEntry(regionId, mapNum) {
   display: block;
   font-family: 'IM Fell English', serif;
   font-style: italic;
-  font-size: 15px;
-  line-height: 22px;
+  font-size: 18px;
+  line-height: 26px;
   color: var(--text-mid);
   margin-bottom: 14px;
 }
 .diary-card-read {
   display: block;
   font-family: 'Courier Prime', monospace;
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 2px;
   color: var(--rust);
   text-transform: uppercase;
@@ -5339,7 +5342,7 @@ function tmShowEntry(regionId, mapNum) {
 .diary-disp-more { margin: 36px 0 0; }
 .diary-disp-more a {
   font-family: 'Courier Prime', monospace;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 3px;
   color: var(--rust);
   text-transform: uppercase;
