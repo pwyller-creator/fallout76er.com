@@ -5210,6 +5210,150 @@ function tmShowEntry(regionId, mapNum) {
 </script>
 
 
+<!-- ── Wastelander Diary — Fireside Dispatches ────────────── -->
+<section id="diary-dispatches">
+  <div class="diary-disp-header">
+    <div class="diary-disp-stamp">Fireside Dispatches</div>
+    <h2 class="diary-disp-title">Wastelander Diary</h2>
+    <div class="diary-disp-rule"></div>
+    <p class="diary-disp-sub">The longer stories — builds, adventures, finds, and the wastelanders met along the way. Told properly, beside the fire.</p>
+  </div>
+  <div class="diary-cards">
+    <!-- DIARY:START -->
+    <a class="diary-card" style="--tilt:-1.2deg" href="https://fallout76er.substack.com/p/a-very-large-tome-to-sit-on" target="_blank" rel="noopener">
+      <span class="diary-card-date">07.13.2102</span>
+      <span class="diary-card-title">A Very Large Tome to Sit On</span>
+      <span class="diary-card-excerpt">In which a level 500 hothead confronts mortality, legacy, and inadequate campfire seating — in ascending order of importance.</span>
+      <span class="diary-card-read">Read the dispatch →</span>
+    </a>
+    <!-- DIARY:END -->
+  </div>
+  <p class="diary-disp-more"><a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Read the full diary &amp; subscribe →</a></p>
+</section>
+<style>
+/* ── Wastelander Diary — Fireside Dispatches ────────────────── */
+#diary-dispatches {
+  padding: 60px 48px 50px;
+  background: transparent;
+  text-align: center;
+}
+.diary-disp-stamp {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--rust-dim);
+  opacity: 0.85;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.diary-disp-title {
+  font-family: 'Rye', cursive;
+  font-size: 28px;
+  color: var(--rust-mute);
+  letter-spacing: 3px;
+  text-shadow: 1px 1px 0 rgba(232,220,200,0.5);
+  margin: 0;
+}
+.diary-disp-rule {
+  margin: 14px auto 0;
+  height: 2px;
+  width: 200px;
+  background: linear-gradient(90deg, transparent, var(--rust-dim), transparent);
+}
+.diary-disp-sub {
+  font-family: 'IM Fell English', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--text-mid);
+  margin: 12px auto 0;
+  max-width: 520px;
+}
+.diary-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 38px;
+  margin: 40px auto 0;
+  max-width: 1200px;
+}
+.diary-card {
+  position: relative;
+  display: block;
+  width: 290px;
+  padding: 20px 18px 16px;
+  background-color: #fffdfa;
+  background-image: url('parchment.webp');
+  background-size: cover;
+  box-shadow: 8px 12px 28px rgba(0,0,0,0.55);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: left;
+  text-decoration: none;
+}
+.diary-card:hover {
+  transform: rotate(0deg) scale(1.04);
+  box-shadow: 10px 15px 35px rgba(0,0,0,0.6);
+}
+.diary-card::before, .diary-card::after {
+  content: ''; position: absolute; width: 36px; height: 36px; background: #2a1c0e; z-index: 10;
+}
+.diary-card::before { top: -5px; left: -5px; clip-path: polygon(0 0, 100% 0, 0 100%); }
+.diary-card::after  { top: -5px; right: -5px; clip-path: polygon(0 0, 100% 0, 100% 100%); }
+.diary-card-date {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--rust-dim);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.diary-card-title {
+  display: block;
+  font-family: 'Rye', cursive;
+  font-size: 17px;
+  line-height: 24px;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.diary-card-excerpt {
+  display: block;
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--text-mid);
+  margin-bottom: 14px;
+}
+.diary-card-read {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--rust);
+  text-transform: uppercase;
+  border-top: 1px dashed var(--border-dim);
+  padding-top: 10px;
+}
+.diary-card:hover .diary-card-read { color: #c47a1e; }
+.diary-disp-more { margin: 36px 0 0; }
+.diary-disp-more a {
+  font-family: 'Courier Prime', monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  color: var(--rust);
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--rust-dim);
+  padding-bottom: 3px;
+}
+.diary-disp-more a:hover { color: var(--rust-mute); border-color: var(--rust); }
+@media (max-width: 600px) {
+  #diary-dispatches { padding: 40px 15px 40px; }
+  .diary-card { width: 100%; max-width: 340px; }
+}
+</style>
+
 <!-- ── Spotlight Tease Strip ──────────────────────────────── -->
 <div class="spotlight-tease" id="spotlight-tease" onclick="scrollToSpotlight()">
   <span class="spotlight-tease-star">★</span>
