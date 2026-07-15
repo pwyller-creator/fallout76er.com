@@ -1318,6 +1318,102 @@
     margin-top: 14px;
   }
 
+  /* ── Damage Stacker page (shares .pb-bp form styles) ── */
+  .pb-bp-select {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    letter-spacing: 1px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid var(--pb-border);
+    color: var(--pb-bright);
+    padding: 8px 10px;
+    outline: none;
+    width: 100%;
+    cursor: pointer;
+  }
+  .pb-bp-select:focus { border-color: var(--pb-border-hi); background: rgba(0,0,0,0.5); }
+  .pb-bp-select option { background: #0c0800; color: var(--pb-bright); }
+  .pb-dmg-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 0 2px;
+    border-bottom: 1px solid rgba(175,125,25,0.2);
+  }
+  .pb-dmg-scen {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pb-mid);
+  }
+  .pb-dmg-val {
+    font-size: 24px;
+    letter-spacing: 2px;
+    color: var(--pb-bright);
+    text-shadow: 0 0 14px rgba(255,185,45,0.5);
+    white-space: nowrap;
+  }
+  .pb-dmg-note {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--pb-faint);
+    text-align: right;
+    padding: 2px 0 8px;
+    border-bottom: 1px solid var(--pb-faint);
+  }
+  .pb-dmg-note:last-child { border-bottom: none; }
+
+  /* ── Field tooltips (calculator inputs) ── */
+  .pb-bp-field { position: relative; }
+  .pb-tip {
+    display: inline-block;
+    margin-left: 6px;
+    width: 14px;
+    height: 14px;
+    line-height: 13px;
+    text-align: center;
+    border: 1px solid var(--pb-faint);
+    border-radius: 50%;
+    color: var(--pb-faint);
+    font-size: 9px;
+    letter-spacing: 0;
+    vertical-align: middle;
+    cursor: help;
+  }
+  .pb-tip:hover, .pb-tip:focus {
+    color: var(--pb-bright);
+    border-color: var(--pb-border-hi);
+    outline: none;
+    text-shadow: var(--pb-glow);
+  }
+  .pb-tip::after {
+    content: attr(data-tip);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: calc(100% + 8px);
+    background: rgba(12,8,0,0.97);
+    border: 1px solid var(--pb-border);
+    box-shadow: 0 0 12px rgba(255,185,45,0.15);
+    padding: 8px 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    line-height: 1.6;
+    text-transform: none;
+    text-align: left;
+    color: var(--pb-mid);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 50;
+    pointer-events: none;
+  }
+  .pb-tip:hover::after, .pb-tip:focus::after { visibility: visible; opacity: 1; }
+
   /* ── Appalachia Clock page ── */
   .pb-clock-grid {
     display: grid;
@@ -2352,6 +2448,7 @@
         <button class="pb-menu-item pb-active" data-pb-target="pb-page-nuke" onclick="pbNav(this)">&#9762; Nuke Launch Codes</button>
         <button class="pb-menu-item" data-pb-target="pb-page-minerva" onclick="pbNav(this)">&#9670; Minerva's Emporium</button>
         <button class="pb-menu-item" data-pb-target="pb-page-bullion" onclick="pbNav(this)">&#9674; Bullion Planner</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-dmg" onclick="pbNav(this)">&#9876; Damage Stacker</button>
         <button class="pb-menu-item" data-pb-target="pb-page-clock" onclick="pbNav(this)">&#9789; Appalachia Time</button>
         <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
@@ -2397,19 +2494,19 @@
           <p class="pb-bp-intro">Minerva takes bullion. The Crater and Foundation vendors take bullion. Nobody hands it out. Punch in your ledger and find out how long the grind actually runs.</p>
           <div class="pb-bp-form">
             <div class="pb-bp-field">
-              <label class="pb-bp-label" for="bp-cost">Plan cost — bullion</label>
+              <label class="pb-bp-label" for="bp-cost">Plan cost — bullion <span class="pb-tip" tabindex="0" data-tip="What the vendor wants, in gold bullion. Minerva runs the same stock roughly 25% cheaper than the gold vendors — check her schedule one page up.">?</span></label>
               <input class="pb-bp-input" id="bp-cost" type="number" min="0" inputmode="numeric" placeholder="0" oninput="bpCalc()">
             </div>
             <div class="pb-bp-field">
-              <label class="pb-bp-label" for="bp-have">Bullion on hand</label>
+              <label class="pb-bp-label" for="bp-have">Bullion on hand <span class="pb-tip" tabindex="0" data-tip="Gold bullion already in your pockets. Check the currency tab in your Pip-Boy.">?</span></label>
               <input class="pb-bp-input" id="bp-have" type="number" min="0" inputmode="numeric" placeholder="0" oninput="bpCalc()">
             </div>
             <div class="pb-bp-field">
-              <label class="pb-bp-label" for="bp-notes">Treasury notes stashed</label>
+              <label class="pb-bp-label" for="bp-notes">Treasury notes stashed <span class="pb-tip" tabindex="0" data-tip="Notes waiting in your inventory. They press into 10 bullion each at a gold press machine, up to 40 notes a day.">?</span></label>
               <input class="pb-bp-input" id="bp-notes" type="number" min="0" inputmode="numeric" placeholder="0" oninput="bpCalc()">
             </div>
             <div class="pb-bp-field">
-              <label class="pb-bp-label" for="bp-rate">Notes earned per day</label>
+              <label class="pb-bp-label" for="bp-rate">Notes earned per day <span class="pb-tip" tabindex="0" data-tip="Honest daily average — public events pay a few notes each, dailies too. Fractions are fine: two notes every other day is 1.">?</span></label>
               <input class="pb-bp-input" id="bp-rate" type="number" min="0" step="any" inputmode="decimal" placeholder="0" oninput="bpCalc()">
             </div>
             <label class="pb-bp-checkrow" for="bp-smiley">
@@ -2422,6 +2519,66 @@
           </div>
           <div class="pb-bp-rates">Exchange intel: 1 treasury note = 10 bullion &middot; gold press machine limit 400 bullion/day &middot; Smiley sells 300/week at 20 caps apiece &middot; vault ceiling 10,000 bullion.</div>
           <div class="pb-credit" style="margin-top:14px;"><a href="https://nukaknights.com/articles/treasury-notes-reward-from-events-to-trade-for-gold.html" target="_blank" rel="noopener">Rates verified via Nuka Knights</a></div>
+        </div>
+
+        <!-- PAGE: Damage Stacker -->
+        <div class="pb-page" id="pb-page-dmg">
+          <div class="pb-page-title">Damage Stacker</div>
+          <p class="pb-bp-intro">The Pip-Boy tells you what a shot is worth on paper. It does not tell you what the wasteland deducts. Enter the sheet number, stack the bonuses the sheet can&rsquo;t see, and find out what actually lands.</p>
+          <div class="pb-bp-form">
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-paper">Pip-Boy damage (per shot) <span class="pb-tip" tabindex="0" data-tip="The per-shot number on the weapon&rsquo;s inventory card. It already counts your passive perk cards and any legendary condition currently active (Bloodied at low health, Aristocrat&rsquo;s with full caps, etc.) — so don&rsquo;t re-add those below.">?</span></label>
+              <input class="pb-bp-input" id="dmg-paper" type="number" min="0" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-bonus">Extra damage bonus % (not on sheet) <span class="pb-tip" tabindex="0" data-tip="Additive bonuses the sheet can&rsquo;t see: Adrenaline stacks, Tenderizer&rsquo;s mark, food and chem buffs. Add the percentages together and enter the total.">?</span></label>
+              <input class="pb-bp-input" id="dmg-bonus" type="number" min="0" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-wtype">Weapon class <span class="pb-tip" tabindex="0" data-tip="Decides which sneak perk applies: Covert Operative covers guns; Ninja covers melee, bows, and thrown weapons.">?</span></label>
+              <select class="pb-bp-select" id="dmg-wtype" onchange="dmgTypeChanged()">
+                <option value="ranged">Ranged (guns)</option>
+                <option value="melee">Melee / Bows / Thrown</option>
+              </select>
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-sneakrank">Sneak perk <span class="pb-tip" tabindex="0" data-tip="Sneak attacks land at 2x base damage. These perk cards raise that multiplier — pick the rank you run.">?</span></label>
+              <select class="pb-bp-select" id="dmg-sneakrank" onchange="dmgCalc()"></select>
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-bc">Better Criticals <span class="pb-tip" tabindex="0" data-tip="A V.A.T.S. critical adds a full extra hit&rsquo;s worth of damage on top. Better Criticals grows that bonus. Crits only fire in V.A.T.S.">?</span></label>
+              <select class="pb-bp-select" id="dmg-bc" onchange="dmgCalc()">
+                <option value="0">Not equipped — crit +100%</option>
+                <option value="0.5">Rank 1 — crit +150%</option>
+                <option value="0.75">Rank 2 — crit +175%</option>
+                <option value="1">Rank 3 — crit +200%</option>
+              </select>
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-critx">Extra crit damage % (legendary) <span class="pb-tip" tabindex="0" data-tip="Gear that boosts critical damage, like a +50% critical damage legendary star. Add the percentages and enter the total.">?</span></label>
+              <input class="pb-bp-input" id="dmg-critx" type="number" min="0" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-dr">Target damage resist <span class="pb-tip" tabindex="0" data-tip="The enemy&rsquo;s Damage Resistance. Rank-and-file mobs run roughly 50&ndash;150, tough elites around 300, bosses higher. Approximate is fine — the curve is forgiving.">?</span></label>
+              <input class="pb-bp-input" id="dmg-dr" type="number" min="0" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-head">Headshot multiplier <span class="pb-tip" tabindex="0" data-tip="How much extra a weak-spot hit deals — it varies by creature. 2.0 is a common head value; robots and bugs hide their weak spots elsewhere, and some enemies have none. Leave at 1.0 for body shots.">?</span></label>
+              <input class="pb-bp-input" id="dmg-head" type="number" min="0" step="any" inputmode="decimal" placeholder="1.0" oninput="dmgCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-penmod">Armor pen % — legendary/mod <span class="pb-tip" tabindex="0" data-tip="Armor the weapon itself ignores: Anti-Armor legendary = 50. Enter the percentage from the weapon&rsquo;s own effects and mods.">?</span></label>
+              <input class="pb-bp-input" id="dmg-penmod" type="number" min="0" max="100" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="dmg-penperk">Armor pen % — perk <span class="pb-tip" tabindex="0" data-tip="Armor your perk cards ignore: Tank Killer = 20/40%. Stacks with weapon penetration multiplicatively, not added together.">?</span></label>
+              <input class="pb-bp-input" id="dmg-penperk" type="number" min="0" max="100" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
+            </div>
+          </div>
+          <div class="pb-bp-result" id="dmg-result">
+            <div class="pb-bp-result-sub">— Awaiting field data — enter the sheet damage —</div>
+          </div>
+          <div class="pb-bp-rates">Model intel: One Wasteland additive formula &middot; sneak base 2x, Covert Operative +15/30/50% ranged, Ninja +50/100% melee/bows/thrown &middot; crit adds 1x base damage, Better Criticals +50/75/100% &middot; armor curve (0.15 &times; damage &divide; resist)^0.365, clamped 1&ndash;99% &middot; crits do not bypass armor &middot; Anti-Armor legendary = 50% pen, Tank Killer = 20/40% pen. Your Pip-Boy number already includes passive perks and active legendary conditions &mdash; only add what it can&rsquo;t see. Headshot multipliers vary by creature; 2.0 is a common head value.</div>
         </div>
 
         <!-- PAGE: Appalachia Clock -->
@@ -2670,6 +2827,7 @@
       <p>Fallout 76 Wasteland Intel — Pip-Boy terminal covering weekly nuke codes for Site Alpha, Site Bravo, and Site Charlie; Minerva's Emporium location tracker; a gold bullion planner calculating how many days until you can afford any bullion plan from treasury notes and Smiley purchases; live Appalachia in-game clock showing current in-game time, date, and days since the bombs fell; and spawn location intel for daily and weekly challenges throughout Appalachia.</p>
       <p>Fallout 76 nuke codes reset every Wednesday evening around 8PM ET, with new codes taking effect Thursday. Nuclear launch codes are required to access Sites Alpha, Bravo, and Charlie in the Savage Divide region of Appalachia.</p>
       <p>The Fallout 76 gold bullion planner calculates how long it takes to afford a bullion plan: treasury notes convert at 10 gold bullion each at gold press machines with a limit of 400 bullion per day, Smiley at the Wayward sells up to 300 bullion per week at 20 caps apiece, and a character can hold at most 10,000 gold bullion.</p>
+      <p>The Fallout 76 damage stacker calculates real damage per shot from your Pip-Boy sheet damage: sneak attacks deal 2x base damage rising to 2.5x with Covert Operative rank 3 for ranged weapons or 3x with Ninja rank 2 for melee, bows, and thrown weapons; V.A.T.S. critical hits add 1x base damage rising to 2x with Better Criticals rank 3; and enemy damage resistance mitigates hits on a curve of 0.15 times damage over resistance to the power 0.365, reduced by armor penetration from Anti-Armor weapons at 50% and the Tank Killer perk at 20% or 40%.</p>
       <p>Minerva's Emporium is a travelling vendor in Fallout 76 who visits Foundation, The Crater, Fort Atlas, and Whitespring Resort on a rotating schedule, offering legendary plans and rare items at reduced prices.</p>
       <p>Looking for the best Fallout 76 spawn locations for daily and weekly challenges? This guide covers where to find every common challenge enemy in Appalachia.</p>
       <p>Where to find Yao Guai in Fallout 76: The best Yao Guai spawn locations are Dolly Sods Wilderness in The Mire with two guaranteed spawns, Mountainside Bed and Breakfast in the Savage Divide with two reliable spawns along the railway tracks to the west, and High Knob Lookout in the Savage Divide with three guaranteed spawns northeast of the lookout.</p>
@@ -2907,6 +3065,69 @@ function bpCalc() {
     + `<div class="pb-bp-result-sub">Est. acquisition: ${etaLabel}</div>`
     + breakdown;
 }
+
+// ── DAMAGE STACKER ───────────────────────────────────────────────
+// Model (community-verified 2026-07, post One Wasteland / Patch 62):
+//   outgoing = paper × (1 + extra%/100) × headshot × sneakMult, plus a
+//   crit portion of paper × (1 + BetterCrits + extraCrit%) added
+//   separately (crit does not interact with the sneak multiplier).
+//   Sneak base 2x; Covert Operative +0.15/0.3/0.5 (ranged); Ninja
+//   +0.5/1.0 (melee/bows/thrown). Mitigation multiplier =
+//   clamp((0.15 × dmg ÷ DR)^0.365, 0.01, 0.99) after penetration:
+//   DR = floor(DR × (1 − modPen) × (1 − perkPen)). Crits are mitigated.
+function dmgTypeChanged() {
+  const melee = document.getElementById('dmg-wtype').value === 'melee';
+  const opts = melee
+    ? [['0', 'None — sneak 2.0x'], ['0.5', 'Ninja 1 — sneak 2.5x'], ['1', 'Ninja 2 — sneak 3.0x']]
+    : [['0', 'None — sneak 2.0x'], ['0.15', 'Covert Operative 1 — sneak 2.15x'], ['0.3', 'Covert Operative 2 — sneak 2.3x'], ['0.5', 'Covert Operative 3 — sneak 2.5x']];
+  document.getElementById('dmg-sneakrank').innerHTML =
+    opts.map(o => `<option value="${o[0]}">${o[1]}</option>`).join('');
+  dmgCalc();
+}
+
+function dmgCalc() {
+  const val = (id, dflt) => {
+    const v = parseFloat(document.getElementById(id).value);
+    return (isNaN(v) || v < 0) ? (dflt || 0) : v;
+  };
+  const out   = document.getElementById('dmg-result');
+  const paper = val('dmg-paper');
+  if (!paper) {
+    out.innerHTML = `<div class="pb-bp-result-sub">— Awaiting field data — enter the sheet damage —</div>`;
+    return;
+  }
+
+  const D        = paper * (1 + val('dmg-bonus') / 100);
+  const hs       = val('dmg-head', 1) || 1;
+  const sneakMul = 2 + parseFloat(document.getElementById('dmg-sneakrank').value || '0');
+  const critAdd  = D * (1 + parseFloat(document.getElementById('dmg-bc').value) + val('dmg-critx') / 100);
+  const dr       = val('dmg-dr');
+  const drPen    = Math.floor(dr
+    * Math.max(0, 1 - Math.min(val('dmg-penmod'), 100) / 100)
+    * Math.max(0, 1 - Math.min(val('dmg-penperk'), 100) / 100));
+
+  const mitigate = dmg => (drPen <= 0) ? 1 : Math.min(0.99, Math.max(0.01, Math.pow(0.15 * dmg / drPen, 0.365)));
+
+  const scenarios = [
+    ['Normal hit',   D * hs],
+    ['Crit',         D * hs + critAdd],
+    ['Sneak',        D * hs * sneakMul],
+    ['Sneak + Crit', D * hs * sneakMul + critAdd],
+  ];
+
+  out.innerHTML = scenarios.map(([name, o]) => {
+    const m = mitigate(o);
+    const landed = Math.round(o * m);
+    const note = (drPen <= 0)
+      ? `${Math.round(o).toLocaleString()} outgoing · nothing absorbed`
+      : `${Math.round(o).toLocaleString()} outgoing · armor absorbed ${Math.round((1 - m) * 100)}%`;
+    return `<div class="pb-dmg-row"><span class="pb-dmg-scen">${name}</span><span class="pb-dmg-val">${landed.toLocaleString()}</span></div>`
+      + `<div class="pb-dmg-note">${note}</div>`;
+  }).join('') + (dr > 0 && drPen < dr
+    ? `<div class="pb-bp-result-sub" style="margin-top:10px;">Penetration cut target resist ${dr.toLocaleString()} → ${drPen.toLocaleString()}</div>`
+    : '');
+}
+dmgTypeChanged(); // populate the sneak-perk select on load
 
 const photos = [
   {
