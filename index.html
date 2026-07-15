@@ -2524,14 +2524,14 @@
         <!-- PAGE: Damage Stacker -->
         <div class="pb-page" id="pb-page-dmg">
           <div class="pb-page-title">Damage Stacker</div>
-          <p class="pb-bp-intro">The Pip-Boy tells you what a shot is worth on paper. It does not tell you what the wasteland deducts. Enter the sheet number, stack the bonuses the sheet can&rsquo;t see, and find out what actually lands.</p>
+          <p class="pb-bp-intro">The Pip-Boy tells you what a shot is worth on paper. It does not tell you what the wasteland deducts. Enter the Pip-Boy card number, stack the bonuses the card can&rsquo;t see, and find out what actually lands.</p>
           <div class="pb-bp-form">
             <div class="pb-bp-field">
               <label class="pb-bp-label" for="dmg-paper">Pip-Boy damage (per shot) <span class="pb-tip" tabindex="0" data-tip="The per-shot number on the weapon&rsquo;s inventory card. It already counts your passive perk cards and any legendary condition currently active (Bloodied at low health, Aristocrat&rsquo;s with full caps, etc.) — so don&rsquo;t re-add those below.">?</span></label>
               <input class="pb-bp-input" id="dmg-paper" type="number" min="0" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
             </div>
             <div class="pb-bp-field">
-              <label class="pb-bp-label" for="dmg-bonus">Extra damage bonus % (not on sheet) <span class="pb-tip" tabindex="0" data-tip="Additive bonuses the sheet can&rsquo;t see: Adrenaline stacks, Tenderizer&rsquo;s mark, food and chem buffs. Add the percentages together and enter the total.">?</span></label>
+              <label class="pb-bp-label" for="dmg-bonus">Extra damage bonus % (not on card) <span class="pb-tip" tabindex="0" data-tip="Additive bonuses the Pip-Boy card can&rsquo;t see: Adrenaline stacks, Tenderizer&rsquo;s mark, food and chem buffs. Add the percentages together and enter the total.">?</span></label>
               <input class="pb-bp-input" id="dmg-bonus" type="number" min="0" inputmode="numeric" placeholder="0" oninput="dmgCalc()">
             </div>
             <div class="pb-bp-field">
@@ -2576,7 +2576,7 @@
             </div>
           </div>
           <div class="pb-bp-result" id="dmg-result">
-            <div class="pb-bp-result-sub">— Awaiting field data — enter the sheet damage —</div>
+            <div class="pb-bp-result-sub">— Awaiting field data — enter the Pip-Boy card damage —</div>
           </div>
           <div class="pb-bp-rates">Model intel: One Wasteland additive formula &middot; sneak base 2x, Covert Operative +15/30/50% ranged, Ninja +50/100% melee/bows/thrown &middot; crit adds 1x base damage, Better Criticals +50/75/100% &middot; armor curve (0.15 &times; damage &divide; resist)^0.365, clamped 1&ndash;99% &middot; crits do not bypass armor &middot; Anti-Armor legendary = 50% pen, Tank Killer = 20/40% pen. Your Pip-Boy number already includes passive perks and active legendary conditions &mdash; only add what it can&rsquo;t see. Headshot multipliers vary by creature; 2.0 is a common head value.</div>
         </div>
@@ -2827,7 +2827,7 @@
       <p>Fallout 76 Wasteland Intel — Pip-Boy terminal covering weekly nuke codes for Site Alpha, Site Bravo, and Site Charlie; Minerva's Emporium location tracker; a gold bullion planner calculating how many days until you can afford any bullion plan from treasury notes and Smiley purchases; live Appalachia in-game clock showing current in-game time, date, and days since the bombs fell; and spawn location intel for daily and weekly challenges throughout Appalachia.</p>
       <p>Fallout 76 nuke codes reset every Wednesday evening around 8PM ET, with new codes taking effect Thursday. Nuclear launch codes are required to access Sites Alpha, Bravo, and Charlie in the Savage Divide region of Appalachia.</p>
       <p>The Fallout 76 gold bullion planner calculates how long it takes to afford a bullion plan: treasury notes convert at 10 gold bullion each at gold press machines with a limit of 400 bullion per day, Smiley at the Wayward sells up to 300 bullion per week at 20 caps apiece, and a character can hold at most 10,000 gold bullion.</p>
-      <p>The Fallout 76 damage stacker calculates real damage per shot from your Pip-Boy sheet damage: sneak attacks deal 2x base damage rising to 2.5x with Covert Operative rank 3 for ranged weapons or 3x with Ninja rank 2 for melee, bows, and thrown weapons; V.A.T.S. critical hits add 1x base damage rising to 2x with Better Criticals rank 3; and enemy damage resistance mitigates hits on a curve of 0.15 times damage over resistance to the power 0.365, reduced by armor penetration from Anti-Armor weapons at 50% and the Tank Killer perk at 20% or 40%.</p>
+      <p>The Fallout 76 damage stacker calculates real damage per shot from your Pip-Boy card damage: sneak attacks deal 2x base damage rising to 2.5x with Covert Operative rank 3 for ranged weapons or 3x with Ninja rank 2 for melee, bows, and thrown weapons; V.A.T.S. critical hits add 1x base damage rising to 2x with Better Criticals rank 3; and enemy damage resistance mitigates hits on a curve of 0.15 times damage over resistance to the power 0.365, reduced by armor penetration from Anti-Armor weapons at 50% and the Tank Killer perk at 20% or 40%.</p>
       <p>Minerva's Emporium is a travelling vendor in Fallout 76 who visits Foundation, The Crater, Fort Atlas, and Whitespring Resort on a rotating schedule, offering legendary plans and rare items at reduced prices.</p>
       <p>Looking for the best Fallout 76 spawn locations for daily and weekly challenges? This guide covers where to find every common challenge enemy in Appalachia.</p>
       <p>Where to find Yao Guai in Fallout 76: The best Yao Guai spawn locations are Dolly Sods Wilderness in The Mire with two guaranteed spawns, Mountainside Bed and Breakfast in the Savage Divide with two reliable spawns along the railway tracks to the west, and High Knob Lookout in the Savage Divide with three guaranteed spawns northeast of the lookout.</p>
@@ -3093,7 +3093,7 @@ function dmgCalc() {
   const out   = document.getElementById('dmg-result');
   const paper = val('dmg-paper');
   if (!paper) {
-    out.innerHTML = `<div class="pb-bp-result-sub">— Awaiting field data — enter the sheet damage —</div>`;
+    out.innerHTML = `<div class="pb-bp-result-sub">— Awaiting field data — enter the Pip-Boy card damage —</div>`;
     return;
   }
 
