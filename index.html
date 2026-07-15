@@ -2591,10 +2591,10 @@ const playlist = ['Wasteland_Wonderings.mp3', 'Wasteland_Wonderings_2.mp3', 'Was
 <script>
 // ── NUKE CODES — Update every Monday ─────────────────────────────
 const nukeCodes = {
-  week:    'Jul 2 – Jul 8, 2026',
-  alpha:   '31780265',
-  bravo:   '37559184',
-  charlie: '86815399'
+  week:    'Jul 9 – Jul 15, 2026',
+  alpha:   '32078894',
+  bravo:   '54410637',
+  charlie: '90574792'
 };
 
 // Render codes into resources panel
@@ -2604,10 +2604,12 @@ document.getElementById('res-code-charlie').textContent = nukeCodes.charlie;
 document.getElementById('res-code-valid').textContent   = 'Valid: ' + nukeCodes.week;
 
 // ── MINERVA TRACKER ──────────────────────────────────────────────
-// Cycle: Foundation (Mon-Wed) → Crater (Mon-Wed) → Fort Atlas (Mon-Wed)
-//        → Whitespring Big Sale (Thu-Mon) → repeat
+// 35-day cycle: Foundation (Mon-Wed) → Crater (Mon-Wed) → Fort Atlas (Mon-Wed)
+//        → Whitespring Big Sale (Thu of week 4 - Mon of week 5) → off week → repeat
 // All windows open/close at 12:00 noon US Eastern.
-// Anchor: Week starting Mon Apr 28 2026 = Foundation (list 9)
+// Anchor: Mon Apr 27 2026 = Foundation cycle start
+// (verified: Foundation Jul 6, Crater Jul 13, Fort Atlas Jul 20,
+//  Big Sale Jul 30-Aug 3, Foundation Aug 10 — nukaknights.com)
 
 (function initMinerva() {
   const ANCHOR_MS = Date.UTC(2026, 3, 27, 16, 0, 0); // Apr 27 2026 16:00 UTC = noon ET Mon
@@ -2621,23 +2623,16 @@ document.getElementById('res-code-valid').textContent   = 'Valid: ' + nukeCodes.
 
   const WEEK_MS = 7 * 24 * 60 * 60 * 1000;
 
-  // The Big Sale week spans Thu-Mon so its "week slot" is longer.
-  // We model 4-week blocks: weeks 0-2 are Mon-Wed, week 3 is Thu-Mon of the NEXT week.
-  // Block duration = 4 weeks = 28 days, but the Big Sale bleeds into week 4 Mon.
-  // Simplest model: assign each sale a start offset in days from the block anchor.
-  const BLOCK_DAYS = 28;
+  // Each window is a day-offset range from the block-start Monday (noon-to-noon days).
+  // Weeks 1-3: Emporium Mon-Wed. Week 4: Big Sale Thu (day 24) → Mon noon (day 28).
+  // Week 5 (days 28-35): Minerva is off. Block repeats every 35 days.
+  const BLOCK_DAYS = 35;
   const SALE_OFFSETS = [
     { start: 0,  end: 2,  idx: 0 }, // Foundation  Mon–Wed  (days 0-2, open 12pm–12pm)
     { start: 7,  end: 9,  idx: 1 }, // Crater      Mon–Wed  (days 7-9)
     { start: 14, end: 16, idx: 2 }, // Fort Atlas  Mon–Wed  (days 14-16)
-    { start: 21, end: 25, idx: 3 }, // Whitespring Thu(+3)–Mon(+7) from block start Mon
-                                     // day 21 = Thu of week 4, day 25 = Mon noon end
+    { start: 24, end: 28, idx: 3 }, // Whitespring Thu of week 4 noon → Mon of week 5 noon
   ];
-
-  // Whitespring Big Sale starts Thursday, which is day 21+3=24 from the Monday block start?
-  // Let's recalculate: block anchor is a Monday.
-  // Week 4 Thursday = day 21. Sale runs Thu noon → Mon noon = days 21 through 25 (exclusive end at noon day 25).
-  // That matches SALE_OFFSETS[3] above. Good.
 
   const DAY_MS = 24 * 60 * 60 * 1000;
 

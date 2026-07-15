@@ -68,7 +68,7 @@ Shape:
 
 ## Nuke codes
 - Live in the `nukeCodes` object in `index.html` (`week`, `alpha`, `bravo`, `charlie`).
-- Update weekly — server reset is Monday ~8pm ET.
+- Update weekly — codes run Thursday–Wednesday; server reset is Wednesday ~8pm ET (new codes take effect Thursday).
 - Sources: nukaknights.com, falloutbuilds.com/fo76/nuke-codes/, nukacrypt.com/solved.
 
 ## Plans exchange (`plans-data.js`)
