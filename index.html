@@ -767,6 +767,8 @@
     .pb-display { padding: 14px 12px; }
     .pb-nuke-code { font-size: 20px; letter-spacing: 3px; }
     .pb-minerva-location { font-size: 22px; }
+    .pb-bp-form { grid-template-columns: 1fr; }
+    .pb-bp-result-main { font-size: 24px; }
     .pb-clock-grid { grid-template-columns: 1fr; }
     .pb-clock-cell.pb-clock-full { grid-column: 1; }
     .pb-clock-value { font-size: 22px; }
@@ -1221,6 +1223,99 @@
   .pb-minerva-unavailable {
     color: rgba(220,140,60,0.85);
     text-shadow: 0 0 10px rgba(200,110,40,0.5);
+  }
+
+  /* ── Bullion Planner page ── */
+  .pb-bp-intro {
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: var(--pb-dim);
+    letter-spacing: 1px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+  }
+  .pb-bp-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 18px;
+    margin-bottom: 18px;
+  }
+  .pb-bp-field { display: flex; flex-direction: column; gap: 6px; }
+  .pb-bp-label {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pb-dim);
+  }
+  .pb-bp-input {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    letter-spacing: 2px;
+    background: rgba(0,0,0,0.35);
+    border: 1px solid var(--pb-border);
+    color: var(--pb-bright);
+    text-shadow: var(--pb-glow);
+    padding: 8px 10px;
+    outline: none;
+    width: 100%;
+  }
+  .pb-bp-input:focus { border-color: var(--pb-border-hi); background: rgba(0,0,0,0.5); }
+  .pb-bp-input::-webkit-outer-spin-button,
+  .pb-bp-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .pb-bp-input[type=number] { -moz-appearance: textfield; appearance: textfield; }
+  .pb-bp-checkrow {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--pb-mid);
+    cursor: pointer;
+  }
+  .pb-bp-checkrow input { accent-color: #e6a82d; width: 15px; height: 15px; cursor: pointer; flex-shrink: 0; }
+  .pb-bp-result {
+    border: 1px solid var(--pb-faint);
+    background: rgba(0,0,0,0.25);
+    padding: 18px 16px;
+    text-align: center;
+  }
+  .pb-bp-result-main {
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: var(--pb-bright);
+    text-shadow: 0 0 20px rgba(255,185,45,0.6);
+    line-height: 1.2;
+  }
+  .pb-bp-result-sub {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pb-dim);
+    margin-top: 8px;
+  }
+  .pb-bp-breakdown { margin-top: 14px; border-top: 1px solid var(--pb-faint); padding-top: 10px; text-align: left; }
+  .pb-bp-brow {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--pb-mid);
+    line-height: 2;
+  }
+  .pb-bp-brow span:last-child { color: var(--pb-bright); white-space: nowrap; }
+  .pb-bp-rates {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--pb-faint);
+    line-height: 1.8;
+    margin-top: 14px;
   }
 
   /* ── Appalachia Clock page ── */
@@ -2256,6 +2351,7 @@
         <div class="pb-menu-heading">Main Menu</div>
         <button class="pb-menu-item pb-active" data-pb-target="pb-page-nuke" onclick="pbNav(this)">&#9762; Nuke Launch Codes</button>
         <button class="pb-menu-item" data-pb-target="pb-page-minerva" onclick="pbNav(this)">&#9670; Minerva's Emporium</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-bullion" onclick="pbNav(this)">&#9674; Bullion Planner</button>
         <button class="pb-menu-item" data-pb-target="pb-page-clock" onclick="pbNav(this)">&#9789; Appalachia Time</button>
         <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
@@ -2293,6 +2389,39 @@
           <div class="pb-minerva-sublabel" id="res-minerva-sublabel"></div>
           <div class="pb-minerva-status" id="res-minerva-status"></div>
           <div class="pb-credit" style="margin-top:18px;"><a href="https://fallout76.fandom.com/wiki/Minerva" target="_blank" rel="noopener">Powered by the Fallout 76 Wiki @ Fandom</a></div>
+        </div>
+
+        <!-- PAGE: Gold Bullion Planner -->
+        <div class="pb-page" id="pb-page-bullion">
+          <div class="pb-page-title">Gold Bullion Planner</div>
+          <p class="pb-bp-intro">Minerva takes bullion. The Crater and Foundation vendors take bullion. Nobody hands it out. Punch in your ledger and find out how long the grind actually runs.</p>
+          <div class="pb-bp-form">
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="bp-cost">Plan cost — bullion</label>
+              <input class="pb-bp-input" id="bp-cost" type="number" min="0" inputmode="numeric" placeholder="0" oninput="bpCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="bp-have">Bullion on hand</label>
+              <input class="pb-bp-input" id="bp-have" type="number" min="0" inputmode="numeric" placeholder="0" oninput="bpCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="bp-notes">Treasury notes stashed</label>
+              <input class="pb-bp-input" id="bp-notes" type="number" min="0" inputmode="numeric" placeholder="0" oninput="bpCalc()">
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="bp-rate">Notes earned per day</label>
+              <input class="pb-bp-input" id="bp-rate" type="number" min="0" step="any" inputmode="decimal" placeholder="0" oninput="bpCalc()">
+            </div>
+            <label class="pb-bp-checkrow" for="bp-smiley">
+              <input type="checkbox" id="bp-smiley" onchange="bpCalc()">
+              <span>Hit Smiley weekly — 300 bullion for 6,000 caps</span>
+            </label>
+          </div>
+          <div class="pb-bp-result" id="bp-result">
+            <div class="pb-bp-result-sub">— Awaiting field data — enter what the plan costs —</div>
+          </div>
+          <div class="pb-bp-rates">Exchange intel: 1 treasury note = 10 bullion &middot; gold press machine limit 400 bullion/day &middot; Smiley sells 300/week at 20 caps apiece &middot; vault ceiling 10,000 bullion.</div>
+          <div class="pb-credit" style="margin-top:14px;"><a href="https://nukaknights.com/articles/treasury-notes-reward-from-events-to-trade-for-gold.html" target="_blank" rel="noopener">Rates verified via Nuka Knights</a></div>
         </div>
 
         <!-- PAGE: Appalachia Clock -->
@@ -2538,8 +2667,9 @@
 
     <!-- SEO: visually hidden prose — preserved for search engine indexing -->
     <div class="seo-text" aria-hidden="true">
-      <p>Fallout 76 Wasteland Intel — Pip-Boy terminal covering weekly nuke codes for Site Alpha, Site Bravo, and Site Charlie; Minerva's Emporium location tracker; live Appalachia in-game clock showing current in-game time, date, and days since the bombs fell; and spawn location intel for daily and weekly challenges throughout Appalachia.</p>
-      <p>Fallout 76 nuke codes reset every Monday at 7PM ET. Nuclear launch codes are required to access Sites Alpha, Bravo, and Charlie in the Savage Divide region of Appalachia.</p>
+      <p>Fallout 76 Wasteland Intel — Pip-Boy terminal covering weekly nuke codes for Site Alpha, Site Bravo, and Site Charlie; Minerva's Emporium location tracker; a gold bullion planner calculating how many days until you can afford any bullion plan from treasury notes and Smiley purchases; live Appalachia in-game clock showing current in-game time, date, and days since the bombs fell; and spawn location intel for daily and weekly challenges throughout Appalachia.</p>
+      <p>Fallout 76 nuke codes reset every Wednesday evening around 8PM ET, with new codes taking effect Thursday. Nuclear launch codes are required to access Sites Alpha, Bravo, and Charlie in the Savage Divide region of Appalachia.</p>
+      <p>The Fallout 76 gold bullion planner calculates how long it takes to afford a bullion plan: treasury notes convert at 10 gold bullion each at gold press machines with a limit of 400 bullion per day, Smiley at the Wayward sells up to 300 bullion per week at 20 caps apiece, and a character can hold at most 10,000 gold bullion.</p>
       <p>Minerva's Emporium is a travelling vendor in Fallout 76 who visits Foundation, The Crater, Fort Atlas, and Whitespring Resort on a rotating schedule, offering legendary plans and rare items at reduced prices.</p>
       <p>Looking for the best Fallout 76 spawn locations for daily and weekly challenges? This guide covers where to find every common challenge enemy in Appalachia.</p>
       <p>Where to find Yao Guai in Fallout 76: The best Yao Guai spawn locations are Dolly Sods Wilderness in The Mire with two guaranteed spawns, Mountainside Bed and Breakfast in the Savage Divide with two reliable spawns along the railway tracks to the west, and High Knob Lookout in the Savage Divide with three guaranteed spawns northeast of the lookout.</p>
@@ -2558,8 +2688,9 @@
 
     <!-- Bottom status bar -->
     <div class="pb-statusbar">
-      <span class="pb-statusbar-text">&#9650; Nuke codes reset every Monday at 7PM ET</span>
+      <span class="pb-statusbar-text">&#9650; Nuke codes reset Wednesdays ~8PM ET</span>
       <span class="pb-statusbar-text">Minerva schedule auto-calculated</span>
+      <span class="pb-statusbar-text">&#9674; Bullion grind math automated</span>
       <span class="pb-statusbar-text">Appalachia time runs at 20:1</span>
       <span class="pb-statusbar-text">Spawn intel sourced from field observation</span>
       <span class="pb-statusbar-text">&#9670; Field Intel — 5 verified sources</span>
@@ -2704,6 +2835,78 @@ document.getElementById('res-code-valid').textContent   = 'Valid: ' + nukeCodes.
     statEl.textContent = `Arrives in ${status.daysUntil}d ${status.hoursUntil}h`;
   }
 })();
+
+// ── GOLD BULLION PLANNER ─────────────────────────────────────────
+// Rates (verified 2026-07): 1 treasury note = 10 bullion; gold press
+// machine limit 400 bullion (40 notes) per day; Smiley sells 300
+// bullion/week at 20 caps each; character holds max 10,000 bullion.
+function bpCalc() {
+  const val = id => {
+    const v = parseFloat(document.getElementById(id).value);
+    return (isNaN(v) || v < 0) ? 0 : v;
+  };
+  const cost   = val('bp-cost');
+  const smiley = document.getElementById('bp-smiley').checked;
+  const out    = document.getElementById('bp-result');
+
+  if (!cost) {
+    out.innerHTML = `<div class="pb-bp-result-sub">— Awaiting field data — enter what the plan costs —</div>`;
+    return;
+  }
+
+  const HOLD_MAX = 10000;
+  if (cost > HOLD_MAX) {
+    out.innerHTML = `<div class="pb-bp-result-main">NEVER</div>`
+      + `<div class="pb-bp-result-sub">No vault holds more than 10,000 bullion. Ambition logged.</div>`;
+    return;
+  }
+  let bullion    = Math.min(val('bp-have'), HOLD_MAX);
+  let pool       = val('bp-notes');
+  const rate     = val('bp-rate');
+  let days = 0, notesUsed = 0, smileyRuns = 0, never = false;
+
+  while (bullion < cost) {
+    const press = Math.min(Math.floor(pool), 40); // 40 notes = 400 bullion/day
+    pool     -= press;
+    notesUsed += press;
+    bullion  += press * 10;
+    if (smiley && days % 7 === 0 && bullion < cost) { bullion += 300; smileyRuns++; }
+    if (bullion > HOLD_MAX) bullion = HOLD_MAX;
+    if (bullion >= cost) break;
+    if (!smiley && rate === 0 && Math.floor(pool) === 0) { never = true; break; }
+    if (days >= 3650) { never = true; break; }
+    days++;
+    pool += rate;
+  }
+
+  const rows = [];
+  if (notesUsed > 0)  rows.push(['Treasury notes pressed', `${notesUsed} (${(notesUsed * 10).toLocaleString()} bullion)`]);
+  if (smileyRuns > 0) rows.push(['Smiley pickups', `${smileyRuns} (${(smileyRuns * 300).toLocaleString()} bullion · ${(smileyRuns * 6000).toLocaleString()} caps)`]);
+  if (!never)         rows.push(['Bullion at purchase', Math.floor(bullion).toLocaleString()]);
+  const breakdown = rows.length
+    ? `<div class="pb-bp-breakdown">` + rows.map(r => `<div class="pb-bp-brow"><span>${r[0]}</span><span>${r[1]}</span></div>`).join('') + `</div>`
+    : '';
+
+  if (never) {
+    out.innerHTML = `<div class="pb-bp-result-main">NEVER</div>`
+      + `<div class="pb-bp-result-sub">At this rate the ledger never closes. Earn notes or befriend Smiley.</div>`;
+    return;
+  }
+
+  if (days === 0) {
+    out.innerHTML = `<div class="pb-bp-result-main">TODAY</div>`
+      + `<div class="pb-bp-result-sub">Affordable right now — go, before you spend it on something dumb.</div>`
+      + breakdown;
+    return;
+  }
+
+  const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const eta = new Date(Date.now() + days * 24 * 60 * 60 * 1000);
+  const etaLabel = `${MONTHS[eta.getMonth()]} ${eta.getDate()}, ${eta.getFullYear() + 76}`;
+  out.innerHTML = `<div class="pb-bp-result-main">${days} DAY${days === 1 ? '' : 'S'}</div>`
+    + `<div class="pb-bp-result-sub">Est. acquisition: ${etaLabel}</div>`
+    + breakdown;
+}
 
 const photos = [
   {
