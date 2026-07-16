@@ -11,6 +11,9 @@
 /har.json
 /launch-claude-code.bat
 
+# Search Console coverage exports — local diagnostics, not site assets
+/fallout76er.com-Coverage-*/
+
 # Personal data parked in the web folder — not a site asset (also cloud-only in OneDrive, which breaks git mmap)
 All2026QAData.xlsm
 
