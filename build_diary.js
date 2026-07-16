@@ -83,7 +83,10 @@ function card(post, i) {
 }
 
 async function main() {
-  const res = await fetch(FEED_URL, { headers: { 'user-agent': 'fallout76er.com build_diary' } });
+  // Cache-bust: Substack's CDN serves the feed stale for a while after a new
+  // post — exactly when this script runs. A unique query param forces a miss.
+  const res = await fetch(FEED_URL + '?cb=' + Date.now(),
+    { headers: { 'user-agent': 'fallout76er.com build_diary' } });
   if (!res.ok) throw new Error('Feed fetch failed: HTTP ' + res.status);
   const xml = await res.text();
 
