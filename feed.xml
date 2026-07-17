@@ -5,12 +5,21 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-07-12T12:00:00Z</updated>
+  <updated>2026-07-17T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>It Takes Balls to Get Cork!</title>
+    <link href="https://fallout76er.com/#photo=WhitespringGolfBalls.webp" rel="alternate" type="text/html"/>
+    <id>https://fallout76er.com/#photo=WhitespringGolfBalls.webp</id>
+    <published>2026-07-17T12:00:00Z</published>
+    <updated>2026-07-17T12:00:00Z</updated>
+    <category term="Location"/>
+    <content type="html">&lt;img src="https://fallout76er.com/WhitespringGolfBalls.webp" alt="It Takes Balls to Get Cork!"/&gt;&lt;p&gt;If you're looking for cork scrap for a challenge or just really love golf balls... you know who you are! I found a great cache of them behind the Whitespring Golf Club. Look for a crazy row of golf carts parked along a retaining wall, and close by you'll find a metal shelving unit where a rectangular blue plastic tray filled with around 10 golf balls is stashed. I gotta tell ya, of all the things trashed on bomb day, golfing isn't one I shed a tear over. I know there'll be former avid-golfer wastelanders out there endlessly playing the back nine, reveling in the free golfing—maybe the ghouls will get them... Fore!&lt;/p&gt;&lt;p&gt;&lt;em&gt;WHITESPRING GOLF CLUB — SAVAGE DIVIDE · Threat: MEDIUM · Field date 07.17.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Toxic Valley Map 01 — The Becker Farm Hoard and Loot</title>
     <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-01.html" rel="alternate" type="text/html"/>
@@ -271,14 +280,5 @@
     <updated>2026-04-28T12:00:00Z</updated>
     <category term="Item"/>
     <content type="html">&lt;img src="https://fallout76er.com/Lord.webp" alt="Little Lord Fauntleroy Missed a Swing"/&gt;&lt;p&gt;A gilded portrait of a bearded Victorian gentleman in a fine dark suit leans face-out against the wainscoting of the ruined Whitespring Golf Club, having long since fallen from whatever wall it once commanded. The painting is cracked and blackened at the corners but the subject remains imperious — one hand resting on a cane, the other on his knee, staring out with the particular confidence of a man who has never once been told no. The Whitespring Golf Club hosted heads of state and titans of industry before the bombs fell. It was also where a board member pulled strings to hand his son Ryan a nine-year renovation project the boy was spectacularly unqualified for. Whether this portrait is Ryan's father, a club founder, or simply some anonymous Gilded Age grandee whose descendants stopped returning his calls around October 2077 — he ended up on the floor either way. The ghouls that now patrol these halls do not appear to have noticed him.&lt;/p&gt;&lt;p&gt;&lt;em&gt;WHITESPRING GOLF CLUB — SAVAGE DIVIDE · Threat: HIGH · Field date 04.28.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>The Last Picnic in Paris?</title>
-    <link href="https://fallout76er.com/#photo=Picnic.webp" rel="alternate" type="text/html"/>
-    <id>https://fallout76er.com/#photo=Picnic.webp</id>
-    <published>2026-04-28T12:00:00Z</published>
-    <updated>2026-04-28T12:00:00Z</updated>
-    <category term="Location"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Picnic.webp" alt="The Last Picnic in Paris?"/&gt;&lt;p&gt;I found a doomed, lovers picnic under a sun umbrella that has seen better days. A glowing cooler sits at their feet — emptied now, scavanged by some unsavory wanderer nic-ing the pic, if you will. To find them, look for a cow on the map east of Tyler County Fairground. Interestingly, just north of here, you can find an unmarked Mad Hatter's tea party at the top of a hill, complete with hats, board games, but no surviving guests.&lt;/p&gt;&lt;p&gt;&lt;em&gt;TYLER COUNTY FAIRGROUNDS — THE FOREST · Threat: NONE · Field date 04.28.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
