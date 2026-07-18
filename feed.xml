@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-07-17T12:00:00Z</updated>
+  <updated>2026-07-18T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Old Spice, the Death of a Man</title>
+    <link href="https://fallout76er.com/#photo=TheTub.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/TheTub.webp" rel="enclosure" type="image/webp" length="251658"/>
+    <media:content url="https://fallout76er.com/TheTub.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=TheTub.webp</id>
+    <published>2026-07-18T12:00:00Z</published>
+    <updated>2026-07-18T12:00:00Z</updated>
+    <category term="Location"/>
+    <content type="html">&lt;img src="https://fallout76er.com/TheTub.webp" alt="Old Spice, the Death of a Man"/&gt;&lt;p&gt;Today I had to collect a large cache of soap for Bethesda—they are a shady secret society, the real movers and shakers in Appalachia. A greedy bunch but connected well enough to really give an edge to a wastelander like myself. I know where my bread is buttered! Back to the task at hand, I had heard tell of a germophobe hoarder who, in the frantic days leading up to the Great War, while everyone else was hoarding food, weapons, and toilet paper, had apparently decided that personal hygiene and smelling like a spring meadow were his absolute top priorities. Meaning he had a genuine tubload of soap!&lt;/p&gt;&lt;p&gt;&lt;em&gt;THE FOREST · Threat: LOW · Field date 07.18.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>It Takes Balls to Get Cork!</title>
     <link href="https://fallout76er.com/#photo=WhitespringGolfBalls.webp" rel="alternate" type="text/html"/>
@@ -315,16 +326,5 @@
     <updated>2026-04-28T12:00:00Z</updated>
     <category term="NPC"/>
     <content type="html">&lt;img src="https://fallout76er.com/Wilbur.webp" alt="He Ain't Heavy, He's My Radhog!"/&gt;&lt;p&gt;Inside the raider watchtower, at my C.A.M.P., perched near Ash Cave in the smoldering heart of the Burning Springs — my pet Radhog, Wilbur, is so overjoyed I am back he wants me to carry him down stairs. He is a sweetheart, a warty, greasy, sweetheart of a hog!&lt;/p&gt;&lt;p&gt;&lt;em&gt;BURNING SPRINGS · Threat: NONE · Field date 04.28.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Little Lord Fauntleroy Missed a Swing</title>
-    <link href="https://fallout76er.com/#photo=Lord.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Lord.webp" rel="enclosure" type="image/webp" length="131280"/>
-    <media:content url="https://fallout76er.com/Lord.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Lord.webp</id>
-    <published>2026-04-28T12:00:00Z</published>
-    <updated>2026-04-28T12:00:00Z</updated>
-    <category term="Item"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Lord.webp" alt="Little Lord Fauntleroy Missed a Swing"/&gt;&lt;p&gt;A gilded portrait of a bearded Victorian gentleman in a fine dark suit leans face-out against the wainscoting of the ruined Whitespring Golf Club, having long since fallen from whatever wall it once commanded. The painting is cracked and blackened at the corners but the subject remains imperious — one hand resting on a cane, the other on his knee, staring out with the particular confidence of a man who has never once been told no. The Whitespring Golf Club hosted heads of state and titans of industry before the bombs fell. It was also where a board member pulled strings to hand his son Ryan a nine-year renovation project the boy was spectacularly unqualified for. Whether this portrait is Ryan's father, a club founder, or simply some anonymous Gilded Age grandee whose descendants stopped returning his calls around October 2077 — he ended up on the floor either way. The ghouls that now patrol these halls do not appear to have noticed him.&lt;/p&gt;&lt;p&gt;&lt;em&gt;WHITESPRING GOLF CLUB — SAVAGE DIVIDE · Threat: HIGH · Field date 04.28.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
