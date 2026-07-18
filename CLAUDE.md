@@ -30,7 +30,7 @@ Standing instructions for working on **fallout76er.com**. Read before making any
 ## Build scripts
 - `build_creatures.js` lives in the project root (tracked in git). It outputs the `/creatures/` pages and `sitemap-creatures.xml`. When creature data changes, re-run it (`node build_creatures.js`); never hand-edit the generated pages.
 - `build_guides.js` lives in the project root (tracked in git). It reads `TM_DATA` from `index.html` and outputs the `/maps/` pages, the maps hub, and the `/maps/` section of `sitemap.xml` (non-map sitemap entries are kept verbatim). When treasure-map data changes, re-run it (`node build_guides.js`); never hand-edit the generated pages. It does **not** own `tm-guide.css` — that stays hand-managed; bump `CSSVER` in the script when the CSS changes.
-- `build_feed.js` (project root, tracked) reads `photos` + `TM_DATA` from `index.html` and outputs `feed.xml` (Atom, 30 newest entries). Re-run after every new photo or newly documented treasure map. Photo entries convert in-world 2102 dates to real dates by subtracting 76 years; output is deterministic (no build timestamp).
+- `build_feed.js` (project root, tracked) reads `photos` + `TM_DATA` from `index.html` and outputs `feed.xml` (Atom, 30 newest entries). Re-run after every new photo or newly documented treasure map. Photo entries convert in-world 2102 dates to real dates by subtracting 76 years; output is deterministic (no build timestamp). Photo entries carry an enclosure link + `media:content` tag (image URL) — keep these; feed readers use them, and the Bluesky auto-post pipeline (see Social) depends on the feed's photo-entry URL shape.
 - `build_diary.js` (project root, tracked) fetches the Substack RSS feed (`fallout76er.substack.com/feed`) and bakes the 3 newest posts as static dispatch cards into `index.html` between the `<!-- DIARY:START -->` / `<!-- DIARY:END -->` markers (the "Fireside Dispatches" section above Camp Spotlight). Re-run after every new Substack post, then upload `index.html`. Post dates display in-world (+76 years). Only the marker span is generated — the section shell and its CSS are hand-managed in `index.html`.
 
 ## Design system
@@ -108,6 +108,12 @@ Shape:
 
 ## Social
 - Bluesky: bsky.app/profile/fallout76er.com (DID `did:plc:hknfh6hoeldcg373afuu3vs2`).
+- **Bluesky auto-post**: a Make.com scenario ("Integration RSS") polls `feed.xml` daily at 6 AM and posts new **photo entries** to Bluesky — image attached, clickable `fallout76er.com` link, `#Fallout76 #FO76` tags. Flow: RSS watch → filter (entry URL contains `#photo=`) → HTTP image download → Bluesky Upload media → API call (`createRecord` with a link facet at bytes 0–15 covering the literal `fallout76er.com` prefix — that prefix must stay exactly 15 ASCII bytes or the link breaks). Constraints the site must honor:
+  - Photo entry URLs in the feed must keep the `#photo=<file>` form — the filter and the image-URL derivation (`replace(url; "#photo="; "")`) both depend on it.
+  - Treasure-map guides and Substack dispatches never post (no `#photo=` in their URLs) — intentional.
+  - Archive images must stay well under Bluesky's ~1 MB image cap (standard q80 compression lands ~200–300 KB, fine).
+  - `feed.xml` must keep serving with `charset=utf-8` (set in `.htaccess`) — without it Make decodes UTF-8 as Latin-1 and mangles em dashes.
+  - New photo → upload `index.html` + image + `feed.xml` → the 6 AM poll posts it (or "Run once" in the Make scenario editor for immediate posting). Full Make module mappings live in Claude's memory, not here.
 - Lemmy for community posts.
 - **Discord: declined — do not suggest it.**
 - Watermarking via Watermark.pro (SVG watermark on file).
