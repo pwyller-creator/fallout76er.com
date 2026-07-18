@@ -49,9 +49,15 @@ function photoDate(d) {
 }
 
 function entryXml(e) {
+  // Enclosure + media:content let RSS consumers (e.g. the Make.com Bluesky
+  // scenario's "Has Image" filter) see the image without parsing content HTML.
+  const img = e.img
+    ? `\n    <link href="${esc(e.img)}" rel="enclosure" type="image/webp"${e.imgLen ? ` length="${e.imgLen}"` : ''}/>` +
+      `\n    <media:content url="${esc(e.img)}" type="image/webp" medium="image"/>`
+    : '';
   return `  <entry>
     <title>${esc(e.title)}</title>
-    <link href="${esc(e.url)}" rel="alternate" type="text/html"/>
+    <link href="${esc(e.url)}" rel="alternate" type="text/html"/>${img}
     <id>${esc(e.url)}</id>
     <published>${e.date}</published>
     <updated>${e.date}</updated>
@@ -68,11 +74,15 @@ function build() {
   const entries = [];
 
   photos.filter(p => !p.bioOnly).forEach(p => {
+    let imgLen = null;
+    try { imgLen = fs.statSync(path.join(__dirname, p.file)).size; } catch (e) {}
     entries.push({
       title: p.title,
       url: `${SITE}/#photo=${encodeURIComponent(p.file)}`,
       date: photoDate(p.date),
       category: p.tag,
+      img: `${SITE}/${p.file}`,
+      imgLen,
       html: `<img src="${SITE}/${p.file}" alt="${escAttr(p.title)}"/>` +
             `<p>${esc(p.desc)}</p>` +
             `<p><em>${esc(p.region)} · Threat: ${esc(p.threat)} · Field date ${esc(p.date)}</em></p>`
@@ -96,7 +106,7 @@ function build() {
   const updated = latest.length ? latest[0].date : '2026-01-01T12:00:00Z';
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <title>Fallout76er's Wasteland Archive</title>
   <subtitle>Field reports, photo archive updates, and treasure-map walkthroughs from Appalachia — documented so you don't have to die finding out.</subtitle>
   <link href="${FEED_URL}" rel="self" type="application/atom+xml"/>

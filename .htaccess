@@ -104,8 +104,14 @@
 
 # ── Atom feed MIME type ──────────────────────────────────────
 # Serve feed.xml with the proper feed content type.
+# Explicit charset matters: without it, consumers that ignore the XML
+# declaration (e.g. Make.com's RSS module) decode UTF-8 as Latin-1 and
+# mangle em dashes and middle dots.
 <Files "feed.xml">
   ForceType application/atom+xml
+  <IfModule mod_headers.c>
+    Header set Content-Type "application/atom+xml; charset=utf-8"
+  </IfModule>
 </Files>
 
 # ── Security Headers ─────────────────────────────────────────

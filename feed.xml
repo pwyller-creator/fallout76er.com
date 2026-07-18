@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <title>Fallout76er's Wasteland Archive</title>
   <subtitle>Field reports, photo archive updates, and treasure-map walkthroughs from Appalachia — documented so you don't have to die finding out.</subtitle>
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
@@ -14,6 +14,8 @@
   <entry>
     <title>It Takes Balls to Get Cork!</title>
     <link href="https://fallout76er.com/#photo=WhitespringGolfBalls.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/WhitespringGolfBalls.webp" rel="enclosure" type="image/webp" length="222814"/>
+    <media:content url="https://fallout76er.com/WhitespringGolfBalls.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=WhitespringGolfBalls.webp</id>
     <published>2026-07-17T12:00:00Z</published>
     <updated>2026-07-17T12:00:00Z</updated>
@@ -59,6 +61,8 @@
   <entry>
     <title>The Haunting of Freddy Fear's (and My Second Marriage)</title>
     <link href="https://fallout76er.com/#photo=EyebotAtFreddys.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/EyebotAtFreddys.webp" rel="enclosure" type="image/webp" length="107814"/>
+    <media:content url="https://fallout76er.com/EyebotAtFreddys.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=EyebotAtFreddys.webp</id>
     <published>2026-06-05T12:00:00Z</published>
     <updated>2026-06-05T12:00:00Z</updated>
@@ -68,6 +72,8 @@
   <entry>
     <title>Challenge Accepted... and Accepted, and Accepted...</title>
     <link href="https://fallout76er.com/#photo=DontOpen.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/DontOpen.webp" rel="enclosure" type="image/webp" length="72474"/>
+    <media:content url="https://fallout76er.com/DontOpen.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=DontOpen.webp</id>
     <published>2026-06-05T12:00:00Z</published>
     <updated>2026-06-05T12:00:00Z</updated>
@@ -77,6 +83,8 @@
   <entry>
     <title>The Appalachian Dumpling Gang</title>
     <link href="https://fallout76er.com/#photo=BrotherBuck.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/BrotherBuck.webp" rel="enclosure" type="image/webp" length="211060"/>
+    <media:content url="https://fallout76er.com/BrotherBuck.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=BrotherBuck.webp</id>
     <published>2026-06-05T12:00:00Z</published>
     <updated>2026-06-05T12:00:00Z</updated>
@@ -86,6 +94,8 @@
   <entry>
     <title>Drinkin' the Kool-Aid Church Social</title>
     <link href="https://fallout76er.com/#photo=JimJones.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/JimJones.webp" rel="enclosure" type="image/webp" length="195726"/>
+    <media:content url="https://fallout76er.com/JimJones.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=JimJones.webp</id>
     <published>2026-06-05T12:00:00Z</published>
     <updated>2026-06-05T12:00:00Z</updated>
@@ -95,6 +105,8 @@
   <entry>
     <title>Honk, Honk, Stab, Stab at the Drive-in</title>
     <link href="https://fallout76er.com/#photo=StarlightDriveIn.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/StarlightDriveIn.webp" rel="enclosure" type="image/webp" length="141822"/>
+    <media:content url="https://fallout76er.com/StarlightDriveIn.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=StarlightDriveIn.webp</id>
     <published>2026-06-05T12:00:00Z</published>
     <updated>2026-06-05T12:00:00Z</updated>
@@ -113,6 +125,8 @@
   <entry>
     <title>The ICE Detention Camp</title>
     <link href="https://fallout76er.com/#photo=ICE%20Detention%20Camp.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/ICE Detention Camp.webp" rel="enclosure" type="image/webp" length="103560"/>
+    <media:content url="https://fallout76er.com/ICE Detention Camp.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=ICE%20Detention%20Camp.webp</id>
     <published>2026-06-04T12:00:00Z</published>
     <updated>2026-06-04T12:00:00Z</updated>
@@ -140,6 +154,8 @@
   <entry>
     <title>The Curator of a Thousand Faces</title>
     <link href="https://fallout76er.com/#photo=KingofMasks.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/KingofMasks.webp" rel="enclosure" type="image/webp" length="197518"/>
+    <media:content url="https://fallout76er.com/KingofMasks.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=KingofMasks.webp</id>
     <published>2026-05-09T12:00:00Z</published>
     <updated>2026-05-09T12:00:00Z</updated>
@@ -149,6 +165,8 @@
   <entry>
     <title>Samuel's Corner of the Free Market</title>
     <link href="https://fallout76er.com/#photo=Samuel.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Samuel.webp" rel="enclosure" type="image/webp" length="163808"/>
+    <media:content url="https://fallout76er.com/Samuel.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Samuel.webp</id>
     <published>2026-05-09T12:00:00Z</published>
     <updated>2026-05-09T12:00:00Z</updated>
@@ -158,6 +176,8 @@
   <entry>
     <title>Drawing With Simon - Simple Simon That is</title>
     <link href="https://fallout76er.com/#photo=Crater.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Crater.webp" rel="enclosure" type="image/webp" length="81852"/>
+    <media:content url="https://fallout76er.com/Crater.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Crater.webp</id>
     <published>2026-05-09T12:00:00Z</published>
     <updated>2026-05-09T12:00:00Z</updated>
@@ -167,6 +187,8 @@
   <entry>
     <title>The Land of the Lost Bulletin Board</title>
     <link href="https://fallout76er.com/#photo=Billboard.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Billboard.webp" rel="enclosure" type="image/webp" length="430034"/>
+    <media:content url="https://fallout76er.com/Billboard.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Billboard.webp</id>
     <published>2026-05-09T12:00:00Z</published>
     <updated>2026-05-09T12:00:00Z</updated>
@@ -176,6 +198,8 @@
   <entry>
     <title>Pretty in Purple?</title>
     <link href="https://fallout76er.com/#photo=Purple_Axolotl.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Purple_Axolotl.webp" rel="enclosure" type="image/webp" length="83740"/>
+    <media:content url="https://fallout76er.com/Purple_Axolotl.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Purple_Axolotl.webp</id>
     <published>2026-05-07T12:00:00Z</published>
     <updated>2026-05-07T12:00:00Z</updated>
@@ -185,6 +209,8 @@
   <entry>
     <title>Senator Blackwell's Last Constituency</title>
     <link href="https://fallout76er.com/#photo=DMV.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/DMV.webp" rel="enclosure" type="image/webp" length="242574"/>
+    <media:content url="https://fallout76er.com/DMV.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=DMV.webp</id>
     <published>2026-05-03T12:00:00Z</published>
     <updated>2026-05-03T12:00:00Z</updated>
@@ -194,6 +220,8 @@
   <entry>
     <title>You Are Here — Probably Shouldn't Be</title>
     <link href="https://fallout76er.com/#photo=CamdenPark.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/CamdenPark.webp" rel="enclosure" type="image/webp" length="304244"/>
+    <media:content url="https://fallout76er.com/CamdenPark.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=CamdenPark.webp</id>
     <published>2026-05-03T12:00:00Z</published>
     <updated>2026-05-03T12:00:00Z</updated>
@@ -203,6 +231,8 @@
   <entry>
     <title>The Cat's Paw Trade Route</title>
     <link href="https://fallout76er.com/#photo=Mascots.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Mascots.webp" rel="enclosure" type="image/webp" length="214372"/>
+    <media:content url="https://fallout76er.com/Mascots.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Mascots.webp</id>
     <published>2026-05-03T12:00:00Z</published>
     <updated>2026-05-03T12:00:00Z</updated>
@@ -212,6 +242,8 @@
   <entry>
     <title>A Snoozer at the Slumber Mill Motel</title>
     <link href="https://fallout76er.com/#photo=Slumber_Mill_Motel_Marquee.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Slumber_Mill_Motel_Marquee.webp" rel="enclosure" type="image/webp" length="146982"/>
+    <media:content url="https://fallout76er.com/Slumber_Mill_Motel_Marquee.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Slumber_Mill_Motel_Marquee.webp</id>
     <published>2026-05-02T12:00:00Z</published>
     <updated>2026-05-02T12:00:00Z</updated>
@@ -221,6 +253,8 @@
   <entry>
     <title>Bathroom Brawl</title>
     <link href="https://fallout76er.com/#photo=NothingReal.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/NothingReal.webp" rel="enclosure" type="image/webp" length="64522"/>
+    <media:content url="https://fallout76er.com/NothingReal.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=NothingReal.webp</id>
     <published>2026-05-02T12:00:00Z</published>
     <updated>2026-05-02T12:00:00Z</updated>
@@ -230,6 +264,8 @@
   <entry>
     <title>Pipe is Life</title>
     <link href="https://fallout76er.com/#photo=Pipe_is_Life.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Pipe_is_Life.webp" rel="enclosure" type="image/webp" length="308120"/>
+    <media:content url="https://fallout76er.com/Pipe_is_Life.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Pipe_is_Life.webp</id>
     <published>2026-05-02T12:00:00Z</published>
     <updated>2026-05-02T12:00:00Z</updated>
@@ -239,6 +275,8 @@
   <entry>
     <title>X-mas Time at Morgantown Airport</title>
     <link href="https://fallout76er.com/#photo=Officer_Murphy.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Officer_Murphy.webp" rel="enclosure" type="image/webp" length="297082"/>
+    <media:content url="https://fallout76er.com/Officer_Murphy.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Officer_Murphy.webp</id>
     <published>2026-05-02T12:00:00Z</published>
     <updated>2026-05-02T12:00:00Z</updated>
@@ -248,6 +286,8 @@
   <entry>
     <title>Billboard at the Edge of Hell</title>
     <link href="https://fallout76er.com/#photo=newcamp.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/newcamp.webp" rel="enclosure" type="image/webp" length="86692"/>
+    <media:content url="https://fallout76er.com/newcamp.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=newcamp.webp</id>
     <published>2026-05-01T12:00:00Z</published>
     <updated>2026-05-01T12:00:00Z</updated>
@@ -257,6 +297,8 @@
   <entry>
     <title>Get Yourself to Rusty's And Buy Something!</title>
     <link href="https://fallout76er.com/#photo=CampMap.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/CampMap.webp" rel="enclosure" type="image/webp" length="187900"/>
+    <media:content url="https://fallout76er.com/CampMap.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=CampMap.webp</id>
     <published>2026-05-01T12:00:00Z</published>
     <updated>2026-05-01T12:00:00Z</updated>
@@ -266,6 +308,8 @@
   <entry>
     <title>He Ain't Heavy, He's My Radhog!</title>
     <link href="https://fallout76er.com/#photo=Wilbur.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Wilbur.webp" rel="enclosure" type="image/webp" length="129116"/>
+    <media:content url="https://fallout76er.com/Wilbur.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Wilbur.webp</id>
     <published>2026-04-28T12:00:00Z</published>
     <updated>2026-04-28T12:00:00Z</updated>
@@ -275,6 +319,8 @@
   <entry>
     <title>Little Lord Fauntleroy Missed a Swing</title>
     <link href="https://fallout76er.com/#photo=Lord.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Lord.webp" rel="enclosure" type="image/webp" length="131280"/>
+    <media:content url="https://fallout76er.com/Lord.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=Lord.webp</id>
     <published>2026-04-28T12:00:00Z</published>
     <updated>2026-04-28T12:00:00Z</updated>
