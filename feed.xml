@@ -5,12 +5,21 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-07-18T12:00:00Z</updated>
+  <updated>2026-07-21T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Toxic Valley Map 02 — Clarksburg Climb for Caps</title>
+    <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-02.html" rel="alternate" type="text/html"/>
+    <id>https://fallout76er.com/maps/toxic-valley-treasure-map-02.html</id>
+    <published>2026-07-21T12:00:00Z</published>
+    <updated>2026-07-21T12:00:00Z</updated>
+    <category term="Treasure Map Guide"/>
+    <content type="html">&lt;p&gt;Hello, again! The second treasure map of the Toxic Valley is one of the easiest to find. Just fast-travel to Clarksburg, which is south of Wavy Willard's Water Park and north of the Smith Farm and the Eastern Regional Penitentiary near the dried lakebed. If you're the Wastelander I think you are, you'll be familiar with the town from when you rescued Freddy Wood or solved the Picnic Panic mystery. Oh yeah, there will be a number of Feral Ghouls about. I suggest sorting them before attempting the treasure hunt.&lt;/p&gt;&lt;p&gt;Once that task is complete, head directly south-southwest uphill bearing just to the left of the visible trees. Keep the high-voltage tower in the distance on your left. Utter accuracy of position isn't as important as heading up hill toward the power pylon. Look for a spot where you can put a stand of trees in front of you on your right, the power pylon straight in front of you, and the Clarksburg water tower almost 90 degrees to your left. Search the ground there for a tell-tale gray dirt mound with black rocks littered through it. I know you don't have a cap to your name to pay for my fine directions, but somewhere in my journal I wrote down where you can buy me a cup of coffee, if you're of a mind to.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Region: Toxic Valley · Map: 02 · Status: Documented · Threat: High&lt;/em&gt; — &lt;a href="https://fallout76er.com/maps/toxic-valley-treasure-map-02.html"&gt;video walkthrough on the guide page&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Old Spice, the Death of a Man</title>
     <link href="https://fallout76er.com/#photo=TheTub.webp" rel="alternate" type="text/html"/>
@@ -313,16 +322,5 @@
     <updated>2026-05-01T12:00:00Z</updated>
     <category term="Camp"/>
     <content type="html">&lt;img src="https://fallout76er.com/newcamp.webp" alt="Billboard at the Edge of Hell"/&gt;&lt;p&gt;I finally finished my new camp — Rusty's Curios &amp;amp; Rares — and naturally I planted it in the one corner of Burning Springs where Deathclaws, Radhogs, and Rust Raiders all consider my front door a social venue. The billboard was my idea. Advertising in a death zone felt appropriately optimistic for someone of my questionable judgment.&lt;/p&gt;&lt;p&gt;&lt;em&gt;BURNING SPRINGS · Threat: EXTREME · Field date 05.01.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Get Yourself to Rusty's And Buy Something!</title>
-    <link href="https://fallout76er.com/#photo=CampMap.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/CampMap.webp" rel="enclosure" type="image/webp" length="187900"/>
-    <media:content url="https://fallout76er.com/CampMap.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=CampMap.webp</id>
-    <published>2026-05-01T12:00:00Z</published>
-    <updated>2026-05-01T12:00:00Z</updated>
-    <category term="Location"/>
-    <content type="html">&lt;img src="https://fallout76er.com/CampMap.webp" alt="Get Yourself to Rusty's And Buy Something!"/&gt;&lt;p&gt;It is on the map — wedged between Route 50 and the river, right where Burning Springs does its best work. Vendor's stocked, billboard's lit, and the map tooltip is doing more advertising than I ever could. Plenty of plans, rare items, and maybe a three-star weapon for whoever survives the commute. Just look for Fallout76er in social and join me.&lt;/p&gt;&lt;p&gt;&lt;em&gt;BURNING SPRINGS · Threat: NONE · Field date 05.01.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
