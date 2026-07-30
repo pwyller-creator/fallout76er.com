@@ -24,7 +24,7 @@ const path = require('path');
 
 const SITE   = 'https://fallout76er.com';
 const TODAY  = new Date().toISOString().slice(0, 10);   // YYYY-MM-DD
-const CSSVER = '20260706';                               // bump when tm-guide.css changes
+const CSSVER = '20260730b';                              // bump when tm-guide.css changes
 const FONTS  = 'https://fonts.googleapis.com/css2?family=Rye&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap';
 
 // ── Load TM_DATA from index.html ─────────────────────────────────────────
@@ -112,7 +112,7 @@ const header = (crumbs) => `
 
 const footer = `
 <footer class="tmg-footer">
-  Field-documented in Appalachia by Fallout76er. &nbsp;<a href="/creatures/">Creature Spawn Intel</a> &nbsp;&middot;&nbsp; <a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Wastelander Diary</a> &nbsp;&middot;&nbsp; <a href="https://github.com/pwyller-creator/fallout76er.com" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp; <a href="/">Return to the archive &rarr;</a>
+  Field-documented in Appalachia by Fallout76er. &nbsp;<a href="/creatures/">Creature Spawn Intel</a> &nbsp;&middot;&nbsp; <a href="/guides/score-challenge-faq.html">S.C.O.R.E. Challenge FAQ</a> &nbsp;&middot;&nbsp; <a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Wastelander Diary</a> &nbsp;&middot;&nbsp; <a href="https://github.com/pwyller-creator/fallout76er.com" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp; <a href="/">Return to the archive &rarr;</a>
 </footer>`;
 
 const videoScript = `

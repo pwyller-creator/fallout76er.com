@@ -157,6 +157,88 @@ body {
   .tmg-desc { font-size: 18px; }
 }
 
+/* ── FAQ guide pages (/guides/) ── */
+.tmg-intro {
+  font-family: 'IM Fell English', serif;
+  font-size: 19px; line-height: 1.85;
+  color: var(--pb-dim); letter-spacing: 0.3px;
+  border-top: 1px solid var(--pb-border);
+  padding-top: 20px; margin-bottom: 8px;
+}
+.tmg-intro p + p { margin-top: 16px; }
+
+.tmg-faq-section { margin-top: 40px; }
+.tmg-faq-section-h {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px; font-weight: 700; letter-spacing: 2px;
+  color: var(--pb-bright); text-shadow: var(--pb-glow);
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--pb-border);
+  padding-bottom: 10px; margin-bottom: 18px;
+}
+
+.tmg-faq-item {
+  border: 1px solid var(--pb-border);
+  background: rgba(8,5,0,0.5);
+  margin-bottom: 12px;
+  transition: border-color 0.15s;
+}
+.tmg-faq-item[open] { border-color: var(--pb-border-hi); }
+.tmg-faq-q {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 15px; font-weight: 700; letter-spacing: 0.5px;
+  color: var(--pb-mid);
+  padding: 14px 18px; cursor: pointer;
+  list-style: none; position: relative;
+}
+.tmg-faq-q::-webkit-details-marker { display: none; }
+.tmg-faq-q::before {
+  content: '+';
+  position: absolute; left: -2px; top: 13px;
+  color: var(--pb-faint); font-size: 16px; width: 20px; text-align: center;
+}
+.tmg-faq-item[open] .tmg-faq-q::before { content: '\2212'; color: var(--pb-bright); }
+.tmg-faq-q { padding-left: 38px; }
+.tmg-faq-item:hover .tmg-faq-q { color: var(--pb-bright); }
+.tmg-faq-a {
+  font-family: 'IM Fell English', serif;
+  font-size: 18px; line-height: 1.8;
+  color: var(--pb-dim);
+  padding: 0 18px 18px 38px;
+}
+.tmg-faq-a p + p { margin-top: 12px; }
+
+.tmg-faq-img {
+  width: 100%; max-width: 640px;
+  margin: 14px 0;
+}
+.tmg-faq-img .tmg-faq-img-frame {
+  width: 100%; aspect-ratio: 16/9;
+  border: 1px dashed var(--pb-border);
+  background: rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.tmg-faq-img[data-filled] .tmg-faq-img-frame { border-style: solid; }
+.tmg-faq-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.tmg-faq-img-label {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--pb-faint); text-align: center; padding: 0 16px;
+}
+.tmg-faq-img-caption {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 0.5px;
+  color: var(--pb-faint); text-transform: none;
+  padding: 8px 2px 0; line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .tmg-intro { font-size: 18px; }
+  .tmg-faq-q { font-size: 14px; }
+  .tmg-faq-a { font-size: 17px; }
+}
+
 /* ── Guides hub (/maps/) ── */
 .tmg-hub-intro {
   font-family: 'IM Fell English', serif;
