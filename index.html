@@ -2449,6 +2449,7 @@
         <button class="pb-menu-item" data-pb-target="pb-page-minerva" onclick="pbNav(this)">&#9670; Minerva's Emporium</button>
         <button class="pb-menu-item" data-pb-target="pb-page-bullion" onclick="pbNav(this)">&#9674; Bullion Planner</button>
         <button class="pb-menu-item" data-pb-target="pb-page-dmg" onclick="pbNav(this)">&#9876; Damage Stacker</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-legendary" onclick="pbNav(this)">&#9670; Legendary Scrap Odds</button>
         <button class="pb-menu-item" data-pb-target="pb-page-clock" onclick="pbNav(this)">&#9789; Appalachia Time</button>
         <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
@@ -2579,6 +2580,32 @@
             <div class="pb-bp-result-sub">— Awaiting field data — enter the Pip-Boy card damage —</div>
           </div>
           <div class="pb-bp-rates">Model intel: One Wasteland additive formula &middot; sneak base 2x, Covert Operative +15/30/50% ranged, Ninja +50/100% melee/bows/thrown &middot; crit adds 1x base damage, Better Criticals +50/75/100% &middot; armor curve (0.15 &times; damage &divide; resist)^0.365, clamped 1&ndash;99% &middot; crits do not bypass armor &middot; Anti-Armor legendary = 50% pen, Tank Killer = 20/40% pen. Your Pip-Boy number already includes passive perks and active legendary conditions &mdash; only add what it can&rsquo;t see. Headshot multipliers vary by creature; 2.0 is a common head value.</div>
+        </div>
+
+        <!-- PAGE: Legendary Scrap Odds -->
+        <div class="pb-page" id="pb-page-legendary">
+          <div class="pb-page-title">Legendary Scrap Odds</div>
+          <p class="pb-bp-intro">Every legendary you feed the scrapper rolls the same two dice: a shot at learning the mod&rsquo;s crafting plan, and a shot at a loose mod dropping straight into your pocket. Punch in what you&rsquo;re about to scrap and see what the wasteland actually owes you.</p>
+          <div class="pb-bp-form">
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="lg-stars">Item star rating <span class="pb-tip" tabindex="0" data-tip="Legendary star count on the item you're scrapping. Each star is an independent 1.5% roll for a loose mod; the plan-learn roll is a flat 1% per item regardless of star count.">?</span></label>
+              <select class="pb-bp-select" id="lg-stars" onchange="lgCalc()">
+                <option value="1">1-Star</option>
+                <option value="2">2-Star</option>
+                <option value="3" selected>3-Star</option>
+                <option value="4">4-Star</option>
+              </select>
+            </div>
+            <div class="pb-bp-field">
+              <label class="pb-bp-label" for="lg-count">Items to scrap <span class="pb-tip" tabindex="0" data-tip="How many of that star rating you're feeding the scrapper. Cheap, common legendaries are the usual farm fodder — the odds don't care what the item does.">?</span></label>
+              <input class="pb-bp-input" id="lg-count" type="number" min="0" inputmode="numeric" placeholder="0" oninput="lgCalc()">
+            </div>
+          </div>
+          <div class="pb-bp-result" id="lg-result">
+            <div class="pb-bp-result-sub">— Awaiting field data — enter how many you&rsquo;re scrapping —</div>
+          </div>
+          <div class="pb-bp-rates">Crafting cost intel: rolling stars costs Legendary Modules &mdash; 1&#9733; 5 &middot; 2&#9733; +10 (15 total) &middot; 3&#9733; +15 (30 total). Crafting a known mod at the Tinker&rsquo;s Workbench costs modules per mod star &mdash; 1&#9733; 15 &middot; 2&#9733; 30 &middot; 3&#9733; 60. Modules run 50 scrip each from Purveyor Murmrgh at the Rusty Pick. Swapping an existing effect starts at 10 scrip and escalates (10/15/25/45/70&hellip;), capping at 1,000 scrip from the 20th change on that slot.</div>
+          <div class="pb-credit" style="margin-top:14px;"><a href="https://nukaknights.com/articles/pts-legendary-crafting-with-effects-of-your-choice.html" target="_blank" rel="noopener">Odds &amp; costs verified via Nuka Knights</a></div>
         </div>
 
         <!-- PAGE: Appalachia Clock -->
@@ -3128,6 +3155,42 @@ function dmgCalc() {
     : '');
 }
 dmgTypeChanged(); // populate the sneak-perk select on load
+
+// ── LEGENDARY SCRAP ODDS ─────────────────────────────────────────
+// Rates (verified 2026-07 via Nuka Knights + Bethesda support, cross-checked
+// against community consensus): scrapping any legendary at a workbench rolls
+// a flat 1% chance to learn that item's mod plan (once per item, regardless
+// of star count), plus an independent 1.5% chance per star to extract a
+// loose mod. Legendary scrip earned per item by star: 1★=1, 2★=2, 3★=4, 4★=6.
+const LG_SCRIP = { 1: 1, 2: 2, 3: 4, 4: 6 };
+function lgCalc() {
+  const n     = parseInt(document.getElementById('lg-count').value, 10);
+  const stars = parseInt(document.getElementById('lg-stars').value, 10);
+  const out   = document.getElementById('lg-result');
+  if (!n || n < 0) {
+    out.innerHTML = `<div class="pb-bp-result-sub">— Awaiting field data — enter how many you're scrapping —</div>`;
+    return;
+  }
+
+  const modRolls = n * stars;
+  const probPlan = (1 - Math.pow(0.99, n)) * 100;
+  const probMod  = (1 - Math.pow(0.985, modRolls)) * 100;
+  const expPlans = n * 0.01;
+  const expMods  = modRolls * 0.015;
+  const scrip    = n * LG_SCRIP[stars];
+
+  const rows = [
+    ['Expected plans learned', expPlans.toFixed(2)],
+    ['Chance of &ge;1 loose mod', `${probMod.toFixed(1)}%`],
+    ['Expected loose mods', expMods.toFixed(2)],
+    ['Legendary scrip earned', scrip.toLocaleString()],
+  ];
+  const breakdown = `<div class="pb-bp-breakdown">` + rows.map(r => `<div class="pb-bp-brow"><span>${r[0]}</span><span>${r[1]}</span></div>`).join('') + `</div>`;
+
+  out.innerHTML = `<div class="pb-bp-result-main">${probPlan.toFixed(1)}%</div>`
+    + `<div class="pb-bp-result-sub">Chance of learning &ge;1 mod plan from ${n.toLocaleString()} ${stars}-star scrap${n === 1 ? '' : 's'}</div>`
+    + breakdown;
+}
 
 const photos = [
   {
