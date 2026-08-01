@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-07-21T12:00:00Z</updated>
+  <updated>2026-08-01T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Hard Ticket to Hot Shot</title>
+    <link href="https://fallout76er.com/#photo=HotShot.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/HotShot.webp" rel="enclosure" type="image/webp" length="125740"/>
+    <media:content url="https://fallout76er.com/HotShot.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=HotShot.webp</id>
+    <published>2026-08-01T12:00:00Z</published>
+    <updated>2026-08-01T12:00:00Z</updated>
+    <category term="Item"/>
+    <content type="html">&lt;img src="https://fallout76er.com/HotShot.webp" alt="Hard Ticket to Hot Shot"/&gt;&lt;p&gt;Turns out the price of a flame-painted 1950s Harley knockoff isn't caps, it's dignity. Five hundred tickets stood between me and the Hot Shot, and every one of them cost a Shimmy performed in front of an audience that wanted me dead. I danced through a horde of ferals at Sandy's Sock Hop, strutted past the Scorched at Camden Park, and worked the crowd at Berkeley Springs and Black Bear Lodge like a lounge act nobody asked for. Between sets I ran with ragtag posses gunning down Rust Raiders, because apparently a motorcycle also requires a body count. I even hit a stranger's camp porch for one Shimmy, let one rip, and fast-traveled out before they could process what they'd just witnessed. Ticket five hundred finally hit, I cashed out, and parked her right at the site. Two points of Charisma, two of Endurance, and not one shred of regret about how I earned it.&lt;/p&gt;&lt;p&gt;&lt;em&gt;BURNING SPRINGS · Threat: NONE · Field date 08.01.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Toxic Valley Map 02 — Clarksburg Climb for Caps</title>
     <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-02.html" rel="alternate" type="text/html"/>
@@ -311,16 +322,5 @@
     <updated>2026-05-02T12:00:00Z</updated>
     <category term="NPC"/>
     <content type="html">&lt;img src="https://fallout76er.com/Officer_Murphy.webp" alt="X-mas Time at Morgantown Airport"/&gt;&lt;p&gt;Down in the bowels of the Morgantown Airport, while hunting Spooky Scorched, I stumbled across this dead security guard. She was holding a small note in her right hand - perhaps a letter home or a final report to Maria Chavez. She’s been "working from home" in that chair for twenty-five years—talk about a dedicated employee who really knows how to quiet-quit. To celebrate her achievement, I stole her boiled water...&lt;/p&gt;&lt;p&gt;&lt;em&gt;THE FOREST · Threat: MEDIUM · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Billboard at the Edge of Hell</title>
-    <link href="https://fallout76er.com/#photo=newcamp.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/newcamp.webp" rel="enclosure" type="image/webp" length="86692"/>
-    <media:content url="https://fallout76er.com/newcamp.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=newcamp.webp</id>
-    <published>2026-05-01T12:00:00Z</published>
-    <updated>2026-05-01T12:00:00Z</updated>
-    <category term="Camp"/>
-    <content type="html">&lt;img src="https://fallout76er.com/newcamp.webp" alt="Billboard at the Edge of Hell"/&gt;&lt;p&gt;I finally finished my new camp — Rusty's Curios &amp;amp; Rares — and naturally I planted it in the one corner of Burning Springs where Deathclaws, Radhogs, and Rust Raiders all consider my front door a social venue. The billboard was my idea. Advertising in a death zone felt appropriately optimistic for someone of my questionable judgment.&lt;/p&gt;&lt;p&gt;&lt;em&gt;BURNING SPRINGS · Threat: EXTREME · Field date 05.01.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
