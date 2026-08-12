@@ -67,9 +67,10 @@ Shape:
 - New entry from a screenshot: infer region / threat / tag from the visuals, write `desc` as a survivor's field note. Pwyller makes all final copy calls and often rewrites drafts substantially.
 
 ## Nuke codes
-- Live in the `nukeCodes` object in `index.html` (`week`, `alpha`, `bravo`, `charlie`).
+- Live in the `nukeCodes` object in `nuke-codes-data.js` (`week`, `alpha`, `bravo`, `charlie`) — external file, loaded via `<script src="/nuke-codes-data.js?v=...">` in `index.html` (same `?v=` cache-bust convention as `spawn-data.js`/`plans-data.js`). `index.html` itself only holds the rendering logic now.
 - Update weekly — codes run Thursday–Wednesday; server reset is Wednesday ~8pm ET (new codes take effect Thursday).
-- Sources: nukaknights.com, falloutbuilds.com/fo76/nuke-codes/, nukacrypt.com/solved.
+- Updated by running `.claude\update-nuke-codes.ps1` manually (not scheduled). It fetches nukaknights.com + falloutbuilds.com/fo76/nuke-codes/ deterministically (regex, no LLM), requires both to agree, shows a diff, and only writes/uploads/commits+pushes after an explicit y/n. It uploads `nuke-codes-data.js` + `index.html` via FTP itself — no FileZilla needed for this specific update. `nukacrypt.com` is a React SPA behind a private GraphQL API and isn't scraped automatically; it stays as a manual-fallback reference source only.
+- FTP credential for the script lives DPAPI-encrypted at `%LOCALAPPDATA%\fallout76er-tools\ftp-credential.xml`, outside the repo and outside OneDrive sync — never in git, never shared with Claude.
 
 ## Plans exchange (`plans-data.js`)
 - `TRADE_PLANS`: items to give away — quantity ≥ 2, sorted descending by quantity.
@@ -91,14 +92,14 @@ Shape:
 ## Performance / hosting
 - `.htaccess` handles browser caching (one-year max-age + immutable for static assets), gzip via mod_deflate, and security headers.
 - Avoid load-heavy third-party widgets (the Digits.net hit counter cost ~1,148ms and was pulled for that reason).
-- Deploy via FileZilla (SFTP) to the `public_html` web root.
+- Deploy via FileZilla (plain FTP, not SFTP — confirmed from the site's FileZilla config) to the `public_html` web root. Nuke codes are the exception: `update-nuke-codes.ps1` (see Nuke codes section) uploads `index.html` + `nuke-codes-data.js` itself via FTP after an explicit approval prompt.
 
 ## GitHub
 - **Public repo**: github.com/pwyller-creator/fallout76er.com (branch `main`) — exists for authorship/provenance; the site footer links to it. Anything committed is world-readable.
 - Commit author email is the GitHub noreply address (set in repo-local `git config user.email`) — never commit with a personal email.
 - `.claude/`, `har.json`, and `launch-claude-code.bat` are deliberately gitignored (personal/local) — never track them. Same for anything else personal.
 - Push after committing — GitHub is the offsite backup and public record, so unpushed commits defeat the purpose.
-- Deployment is still FileZilla/SFTP only; pushing to GitHub does **not** deploy the site. `README.md` and `.github/` are repo-only, not uploaded to the server.
+- Deployment is FileZilla/FTP (plain FTP, not SFTP) except for nuke codes, which `update-nuke-codes.ps1` uploads itself; pushing to GitHub does **not** deploy the site. `README.md` and `.github/` are repo-only, not uploaded to the server.
 
 ## SEO
 - Standalone crawlable pages: `/creatures/[slug].html` and `/maps/[region]-treasure-map-[num].html`.
