@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-08-01T12:00:00Z</updated>
+  <updated>2026-08-14T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Bedside Manner, Black Market Prices</title>
+    <link href="https://fallout76er.com/#photo=CampAllyHardy.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/CampAllyHardy.webp" rel="enclosure" type="image/webp" length="267926"/>
+    <media:content url="https://fallout76er.com/CampAllyHardy.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=CampAllyHardy.webp</id>
+    <published>2026-08-14T12:00:00Z</published>
+    <updated>2026-08-14T12:00:00Z</updated>
+    <category term="NPC"/>
+    <content type="html">&lt;img src="https://fallout76er.com/CampAllyHardy.webp" alt="Bedside Manner, Black Market Prices"/&gt;&lt;p&gt;I've been hoarding Psychobuffs lately--no I'm not addicted! Well, maybe I am to the +25% Damage, +3 Strength, +3 Endurance, and +65 Max HP upgrade. This is a go-to chem for Commando and VATS/Rifleman like me running bounties and head-hunts for that hard-nose, ghoul Cooper. That means I'm always on the lookout for Psycho and Mentats sources. So, when I ran across a doctor at a teammate's camp, said his name was Doc Hardy, I did some fast cap negotiations. I'm not the most charismatic wanderer alive, but I usually can drive an asking price close to 60 caps apiece for those chems. We got to talkin and I learned that his sympathies lie with the Settlers, and he typically used Samuel at Foundation to line up potential wastelanders to bunk with and earn extra caps. Samuel is a grifter that takes a flat 4,000 Gold Bullion to "vet" prospects interested in Doc Hardy's services. A steep referral fee that I'd have to mull over before deciding if I needed Doc Hardy's chem supply availability. If you've got the caps and bullion burning a hole in your pocket, fast travel to Foundation and hook yourself up. Just be sure to give me a heads-up, and I'll drop by and burn some caps of my own at your place.&lt;/p&gt;&lt;p&gt;&lt;em&gt;UNKNOWN · Threat: NONE · Field date 08.14.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Hard Ticket to Hot Shot</title>
     <link href="https://fallout76er.com/#photo=HotShot.webp" rel="alternate" type="text/html"/>
@@ -311,16 +322,5 @@
     <updated>2026-05-02T12:00:00Z</updated>
     <category term="Item"/>
     <content type="html">&lt;img src="https://fallout76er.com/Pipe_is_Life.webp" alt="Pipe is Life"/&gt;&lt;p&gt;All the way south of the Slumber Mill Motel, near the map border, I found a pipe emitting a white, gaseous substance. I leaned over and gave the cloudy vapor a deep sniff, and when I came to myself again, I realized that indeed, pipe is life.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SKYLINE VALLEY · Threat: LOW · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>X-mas Time at Morgantown Airport</title>
-    <link href="https://fallout76er.com/#photo=Officer_Murphy.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Officer_Murphy.webp" rel="enclosure" type="image/webp" length="297082"/>
-    <media:content url="https://fallout76er.com/Officer_Murphy.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Officer_Murphy.webp</id>
-    <published>2026-05-02T12:00:00Z</published>
-    <updated>2026-05-02T12:00:00Z</updated>
-    <category term="NPC"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Officer_Murphy.webp" alt="X-mas Time at Morgantown Airport"/&gt;&lt;p&gt;Down in the bowels of the Morgantown Airport, while hunting Spooky Scorched, I stumbled across this dead security guard. She was holding a small note in her right hand - perhaps a letter home or a final report to Maria Chavez. She’s been "working from home" in that chair for twenty-five years—talk about a dedicated employee who really knows how to quiet-quit. To celebrate her achievement, I stole her boiled water...&lt;/p&gt;&lt;p&gt;&lt;em&gt;THE FOREST · Threat: MEDIUM · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
