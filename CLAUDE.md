@@ -16,6 +16,10 @@ Standing instructions for working on **fallout76er.com**. Read before making any
 - **Special characters as literal UTF-8** (`—`, `·`). Never use Unicode escapes like `\u2014` — they render as literal text on this server stack.
 - **Cache-busting:** when editing `spawn-data.js` or `plans-data.js`, increment the `?v=` query string on its `<script>` tag in `index.html`.
 
+## Token guardrails
+- Never rewrite `index.html` wholesale for a PHOTOS edit — patch in exact snippets only.
+- Always read `index.html` in full before any edit to it, regardless of what a read-cap hook would otherwise allow (a PreToolUse hook already forces this, but treat it as policy, not just automation).
+
 ## File map
 - `index.html` — monolithic. Photo archive (`PHOTOS` array), nuke-codes block, Minerva tracker, scrap data, Pip-Boy widgets, all widget logic.
 - `spawn-data.js` — external. `SPAWN_DATA` (creature spawns). Loaded via `<script>` with `?v=`.
