@@ -97,6 +97,7 @@ Shape:
 - `.htaccess` handles browser caching (one-year max-age + immutable for static assets), gzip via mod_deflate, and security headers.
 - Avoid load-heavy third-party widgets (the Digits.net hit counter cost ~1,148ms and was pulled for that reason).
 - Deploy via FileZilla (plain FTP, not SFTP — confirmed from the site's FileZilla config) to the `public_html` web root. Nuke codes are the exception: `update-nuke-codes.ps1` (see Nuke codes section) uploads `index.html` + `nuke-codes-data.js` itself via FTP after an explicit approval prompt.
+- `.claude\upload.ps1 -Files a,b,c` (invoke directly, never nested in another `pwsh` call — that breaks comma-array splitting) uploads an explicit file list via FTP, reusing the same DPAPI-encrypted credential as `update-nuke-codes.ps1`, then auto-runs `verify-deploy.js` against exactly those files. Hardcoded deny-list (`.claude/`, `.git/`, credentials, `.env`, `.xlsm/.xlsx`) and allow-list (known site file names/prefixes/extensions) both gate every file regardless of what's passed — an unrecognized path aborts the whole batch. No interactive prompt by design and no git commit/push; the confirmation is chat approval before invoking it, plus the tool's own permission prompt (so it must stay off any auto-allow list). `-DryRun` previews without touching the credential or network.
 
 ## GitHub
 - **Public repo**: github.com/pwyller-creator/fallout76er.com (branch `main`) — exists for authorship/provenance; the site footer links to it. Anything committed is world-readable.
