@@ -5,12 +5,21 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-08-14T12:00:00Z</updated>
+  <updated>2026-08-16T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Dead Boyscouts Tell No Tales</title>
+    <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-03.html" rel="alternate" type="text/html"/>
+    <id>https://fallout76er.com/maps/toxic-valley-treasure-map-03.html</id>
+    <published>2026-08-16T12:00:00Z</published>
+    <updated>2026-08-16T12:00:00Z</updated>
+    <category term="Treasure Map Guide"/>
+    <content type="html">&lt;p&gt;Fast travel to the Pioneer Scout Camp on Grafton Lake — it's not the cheeriest merit-badge program the Boy Scouts of America ever ran, and this itinerary proves it. Head for one of the two wooden docks jutting into the lake; either one gets you to the little cluster of islands squatting in the middle of the water. You want the specific island off the eastern dock — the one still nursing a wrecked sailing skiff on its shore, presumably from the last scoutmaster who thought "capsizing drills" sounded like fun. Once you're standing on the wreck, it's a short scramble to the black pebble mound a few paces inland. Dig, and Mr. Handy's your uncle — assuming your uncle's a homicidal robot butler who just wants you to have nice things.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Region: Toxic Valley · Map: 03 · Status: Documented · Threat: Low&lt;/em&gt; — &lt;a href="https://fallout76er.com/maps/toxic-valley-treasure-map-03.html"&gt;video walkthrough on the guide page&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Bedside Manner, Black Market Prices</title>
     <link href="https://fallout76er.com/#photo=CampAllyHardy.webp" rel="alternate" type="text/html"/>
@@ -311,16 +320,5 @@
     <updated>2026-05-02T12:00:00Z</updated>
     <category term="Location"/>
     <content type="html">&lt;img src="https://fallout76er.com/NothingReal.webp" alt="Bathroom Brawl"/&gt;&lt;p&gt;Inside the bathroom of the Slumber Mill Motel, someone took the time to scrawl NOTHING IS REAL across the wall in what I'm quite sure is blood, then lit candles beneath it like a genuine philosophical altar. Someone else — clearly unimpressed — pinned a note to the wall with a hatchet directly beneath the manifesto. The note is titled "Public Shaming." I'm reminded of the classic truism, "shit happens... in bathrooms".&lt;/p&gt;&lt;p&gt;&lt;em&gt;SLUMBER MILL MOTEL — SKYLINE VALLEY · Threat: NONE · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Pipe is Life</title>
-    <link href="https://fallout76er.com/#photo=Pipe_is_Life.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Pipe_is_Life.webp" rel="enclosure" type="image/webp" length="308120"/>
-    <media:content url="https://fallout76er.com/Pipe_is_Life.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Pipe_is_Life.webp</id>
-    <published>2026-05-02T12:00:00Z</published>
-    <updated>2026-05-02T12:00:00Z</updated>
-    <category term="Item"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Pipe_is_Life.webp" alt="Pipe is Life"/&gt;&lt;p&gt;All the way south of the Slumber Mill Motel, near the map border, I found a pipe emitting a white, gaseous substance. I leaned over and gave the cloudy vapor a deep sniff, and when I came to myself again, I realized that indeed, pipe is life.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SKYLINE VALLEY · Threat: LOW · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
