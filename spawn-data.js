@@ -40,7 +40,7 @@ const SPAWN_DATA = {
     { name: 'Site Charlie',                 region: 'Savage Divide',   count: '6–10',          note: 'Silo exterior and surrounding terrain. Scorched density increases during nuke events.', map: 'SiteCharlie.webp' },
   ],
   'Mirelurk': [
-    { name: 'Summersville',                 region: 'The Forest',      count: 'Up to 10',      note: 'Along the riverbank and inside the red-and-white house at the edge of town — softshells cluster both spots. Server-hop between the two for a fast clear.' },
+    { name: 'Summersville',                 region: 'The Forest',      count: 'Up to 10',      note: 'Along the riverbank and inside the red-and-white house at the edge of town — softshells cluster both spots. Server-hop between the two for a fast clear.', map: 'Summerville.webp' },
     { name: 'Lakeside Cabins',              region: 'The Forest',      count: '3–5',           note: 'Easy early-game location. Multiple variants including Hunters. Safe approach from the road above.', map: 'LakesideCabins.webp' },
     { name: 'Harpers Ferry',               region: 'The Mire',        count: '4–7',           note: 'Town exterior and riverbank. Often contested — go private world for a clean clear.', map: 'HarpersFerry.webp' },
   ],
@@ -52,7 +52,7 @@ const SPAWN_DATA = {
   'Radstag': [
     { name: 'Thomas Farm',                  region: 'Savage Divide',   count: '4–6',           note: 'East of Dent & Sons Construction, marked by the big barn. A busted Aerosolizer bleached this whole herd albino-white — the single most reliable Radstag farm on the map.' },
     { name: 'Whitespring Golf Club',        region: 'Savage Divide',   count: '2–3',           note: 'A small herd grazes the fairways near the clubhouse. Easy add-on if you are already running the resort for gold or silver scrap.', map: 'WhitespringGolfClub.webp' },
-    { name: 'Gauley Mine',                  region: 'The Forest',      count: '2',             note: 'Along the railroad tracks at the mine exit, southeast of Landview Lighthouse. Fast-travel straight to the landmark for a quick, low-effort clear.' },
+    { name: 'Gauley Mine',                  region: 'The Forest',      count: '2',             note: 'Along the railroad tracks at the mine exit, southeast of Landview Lighthouse. Fast-travel straight to the landmark for a quick, low-effort clear.', map: 'GauleyMine.webp' },
   ],
   'Blood Eagle': [
     { name: "Widow's Perch",                region: 'Ash Heap',        count: '4–6',           note: 'Their territory. Dense camp with guaranteed spawns. Combine with a Deathclaw check nearby.', map: 'WidowsPerch.webp' },
@@ -80,9 +80,9 @@ const SPAWN_DATA = {
     { name: 'Thunder Mountain Substation',   region: 'Cranberry Bog',   count: '3 reliable',   note: 'A patrolling group of Gulpers often draws Anglers into a fight here — let them soften each other up, then collect both for crafting. Anglers also count toward cryptid challenges.', map: 'ThunderMountainSubstation.webp' },
   ],
   'Mole Rat': [
-    { name: 'Hillfolk Hotdogs',              region: 'The Forest',      count: 'Up to 13',     note: 'South of Sunshine Meadows Industrial Farm. One of the two best Mole Rat farms in the game — well over the five needed for the daily. Stay on the ground or they burrow and vanish.' },
+    { name: 'Hillfolk Hotdogs',              region: 'The Forest',      count: 'Up to 13',     note: 'South of Sunshine Meadows Industrial Farm. One of the two best Mole Rat farms in the game — well over the five needed for the daily. Stay on the ground or they burrow and vanish.', map: 'HillfolkHotdogs.webp' },
     { name: 'Welch Station',                 region: 'Ash Heap',        count: 'Up to 13',     note: 'West along the tracks — the other premier farm, with brood mothers spawning extra rats. Easy fast-travel access. Server-hop to reset.', map: 'Welch.webp' },
-    { name: 'Green Country Lodge',           region: 'The Forest',      count: '3+',           note: 'A small reliable cluster right at the lodge entrance. Good first stop on a Forest Mole Rat loop before hitting Hillfolk Hotdogs.' },
+    { name: 'Green Country Lodge',           region: 'The Forest',      count: '3+',           note: 'A small reliable cluster right at the lodge entrance. Good first stop on a Forest Mole Rat loop before hitting Hillfolk Hotdogs.', map: 'GreenCountryLodge.webp' },
   ],
   'Mothman': [
     { name: 'Path to Enlightenment (Event)', region: 'The Forest',      count: 'Guaranteed',   note: 'Mothman has no fixed farm — it is summoned. Fast-travel to Landview Lighthouse when the event is live, fill the lamp with bioluminescent fluid from radtoads and fireflies, and the Wise Mothman spawns at the base once it is lit. The single best way to tick a Mothman challenge — commune with him after for a hefty XP buff.', map: 'LandviewLighthouse.webp' },
@@ -100,14 +100,14 @@ const SPAWN_DATA = {
     { name: 'Urban Interiors',               region: 'The Forest',      count: 'Common',       note: 'Radroaches infest sewers, basements, and ruined buildings throughout Charleston and Morgantown. Not a destination so much as a guarantee — you will trip over them clearing any city.' },
   ],
   'Wolf': [
-    { name: 'Autumn Acre Cabin',             region: 'Savage Divide',   count: 'Up to 6',      note: 'Northeast of Top of the World. A pack of six spawns reliably around the cabin — the single best wolf farm on the map. Server-hop to reset the pack.' },
+    { name: 'Autumn Acre Cabin',             region: 'Savage Divide',   count: 'Up to 6',      note: 'Northeast of Top of the World. A pack of six spawns reliably around the cabin — the single best wolf farm on the map. Server-hop to reset the pack.', map: 'AutumnAcreCabin.webp' },
     { name: 'Northwest of Widows Perch',     region: 'Ash Heap',        count: 'Up to 3',      note: 'Three wander the ridge northwest of the Perch. Combine with a Blood Eagle clear for an efficient Ash Heap circuit.', map: 'WidowsPerch.webp' },
     { name: 'Free Range (Event)',            region: 'The Forest',      count: 'Event pack',   note: 'Triggers near Tyler County Fairgrounds and opens with roughly seven wolves. The related Leader of the Pack event also guarantees packs and drops a legendary from the pack leader.' },
   ],
   'Mongrel': [
-    { name: 'Big Bend Tunnel',               region: 'Ash Heap',        count: '11 + 4 Alpha', note: 'The definitive canine farm — eleven Mongrels plus four Alpha Mongrels inside the tunnel. Clears any Kill a Canine challenge in a single pass.' },
+    { name: 'Big Bend Tunnel',               region: 'Ash Heap',        count: '11 + 4 Alpha', note: 'The definitive canine farm — eleven Mongrels plus four Alpha Mongrels inside the tunnel. Clears any Kill a Canine challenge in a single pass.', map: 'BigBendTunnelEast.webp' },
     { name: 'Aaronholt Homestead',           region: 'The Forest',      count: '5 + 5 Dogs',   note: 'Five Mongrels and five Dogs around the abandoned farm. Doubles as a Bloodbug and Bloatfly stop, so you can stack insect challenges here too.', map: 'AaronholtHomestead.webp' },
-    { name: 'Sylvie and Sons Logging Camp',  region: 'Savage Divide',   count: 'Variable',     note: 'Northeast of Fort Atlas, due east of the Sons of Dane compound. Usually a pack of canines — sometimes Wolves, sometimes Mongrels. Worth a swing-by, not a guarantee.' },
+    { name: 'Sylvie and Sons Logging Camp',  region: 'Savage Divide',   count: 'Variable',     note: 'Northeast of Fort Atlas, due east of the Sons of Dane compound. Usually a pack of canines — sometimes Wolves, sometimes Mongrels. Worth a swing-by, not a guarantee.', map: 'SylvieandSonsLoggingCamp.webp' },
   ],
   'Bloodbug': [
     { name: 'Aaronholt Homestead',           region: 'The Forest',      count: 'Reliable',     note: 'A prime insect farm — Bloodbugs and Bloatflies in numbers. Also holds Mongrels and Dogs, making it a rare two-challenge stop.', map: 'AaronholtHomestead.webp' },
@@ -116,8 +116,8 @@ const SPAWN_DATA = {
   ],
   'Stingwing': [
     { name: 'White Maintenance Building',    region: 'Savage Divide',   count: '3 fixed',      note: 'Northwest of the snake symbol near Whitespring Resort — a reliable fixed spawn of three. The most consistent Stingwing stop in the core regions.' },
-    { name: "Big B's Rest Stop",             region: 'The Mire',        count: '3 to 4',       note: 'Around the small pond southeast of the rest stop. Erratic fliers — V.A.T.S. earns its keep here.' },
-    { name: "Bleeding Kate's Grindhouse",    region: 'The Forest',      count: '2 to 3',       note: 'Nests cling to the drive-in movie screen. Watch the poison sting — it blurs your vision for a few seconds.' },
+    { name: "Big B's Rest Stop",             region: 'The Mire',        count: '3 to 4',       note: 'Around the small pond southeast of the rest stop. Erratic fliers — V.A.T.S. earns its keep here.', map: 'BigBsRestStop.webp' },
+    { name: "Bleeding Kate's Grindhouse",    region: 'The Forest',      count: '2 to 3',       note: 'Nests cling to the drive-in movie screen. Watch the poison sting — it blurs your vision for a few seconds.', map: 'BleedingKatesGrindhouse.webp' },
   ],
   'Tick': [
     { name: 'Big Maw',                       region: 'Savage Divide',   count: 'Several',      note: 'The crater hosts Ticks alongside Bloatflies and Stingwings — a mixed-insect grab bag good for the Kill Insects challenges.', map: 'BigMaw.webp' },
@@ -127,22 +127,22 @@ const SPAWN_DATA = {
   'Cave Cricket': [
     { name: 'Lucky Hole Mine',               region: 'Savage Divide',   count: 'Packs',        note: 'Swarms through the lower levels and the surrounding woods. High Damage Resistance, so bring an energy weapon; ballistics chip away slowly.', map: 'LuckyHoleMine.webp' },
     { name: 'Tanagra Town',                  region: 'The Mire',        count: '5 guaranteed', note: 'A small cave near the top of the great tree, thick with crickets — the premier Acid farm in the game, over 50 waste acid per clear with a server-hop. Maxed Perception means they are near-impossible to sneak up on — expect to fight, not ambush.', map: 'TanagraTown.webp' },
-    { name: 'Uncanny Caverns',               region: 'Cranberry Bog',   count: 'Packs',        note: 'Spread through the cave system, densest in the lower levels. A good Bog-side alternative when Lucky Hole is contested.' },
+    { name: 'Uncanny Caverns',               region: 'Cranberry Bog',   count: 'Packs',        note: 'Spread through the cave system, densest in the lower levels. A good Bog-side alternative when Lucky Hole is contested.', map: 'UncannyCaverns.webp' },
   ],
   'Radtoad': [
-    { name: 'The Sludge Hole',               region: 'Savage Divide',   count: '2 to 3',       note: 'Just west of Wendigo Cave. Two or three always sit in the waterlogged pit — the one fixed, low-threat spawn, ideal for the Critical Hit daily.' },
+    { name: 'The Sludge Hole',               region: 'Savage Divide',   count: '2 to 3',       note: 'Just west of Wendigo Cave. Two or three always sit in the waterlogged pit — the one fixed, low-threat spawn, ideal for the Critical Hit daily.', map: 'TheSludgeHole.webp' },
     { name: 'Grafton Dam',                   region: 'Toxic Valley',    count: 'Up to 5',      note: 'Around five near the water and the dam face. Denser than the Sludge Hole, but Grafton is a higher-level area — come geared.', map: 'GraftonDam.webp' },
     { name: 'Path to Enlightenment (Event)', region: 'The Forest',      count: 'Event waves',  note: 'At Landview Lighthouse. Lighting the beacon spawns guaranteed waves of Radtoads at the base — the fastest way to farm a pile of them.', map: 'LandviewLighthouse.webp' },
   ],
   'Honey Beast': [
     { name: 'South of Middle Mountain Pitstop', region: 'Savage Divide', count: '3 guaranteed', note: 'Three reliably spawn between the Pitstop and Solomon\'s Pond. The most consistent fixed Honey Beast spot — start a farming loop here.', map: 'MiddleMountainPitstop.webp' },
-    { name: "Freddy Fear's House of Scares", region: 'The Mire',        count: 'Up to 2',      note: 'In the unmarked cave to the northeast — the same cave the Stings and Things Bloatfly Gland task sends you to. Two Honey Beasts, often with Bloatflies backing them up.' },
+    { name: "Freddy Fear's House of Scares", region: 'The Mire',        count: 'Up to 2',      note: 'In the unmarked cave to the northeast — the same cave the Stings and Things Bloatfly Gland task sends you to. Two Honey Beasts, often with Bloatflies backing them up.', map: 'FreddyFearsHouseofScares.webp' },
     { name: 'Irrational Fear (Event)',       region: 'The Mire',        count: '6 to 9',       note: "Starts at Raleigh Clay's Bunker. You escort a bee-phobic Mr. Handy and fight off six to nine Honey Beasts — overkill for the daily, perfect for the weekly." },
   ],
   'Mega Sloth': [
     { name: 'Southern Belle Motel',          region: 'The Mire',        count: 'Small group',  note: 'A group hangs from the trees south of the motel. Mega Sloths are passive and do not show on the compass — listen for their low groans or pop Berry Mentats to spot them.', map: 'SouthernBelleMotel.webp' },
     { name: 'Tanagra Town',                  region: 'The Mire',        count: '1 to 2',       note: 'Wandering the clearings and hanging from the treeline around town. The Mire is their primary habitat, so this is a dependable secondary stop.', map: 'TanagraTown.webp' },
-    { name: 'Superior Sunset Farm',          region: 'Cranberry Bog',   count: 'Chance',       note: 'They drift into the Bog as well. The weekly is usually Take a Camera Picture of a Mega Sloth — line up the shot before it ambles off, since photo mode does not count.' },
+    { name: 'Superior Sunset Farm',          region: 'Cranberry Bog',   count: 'Chance',       note: 'They drift into the Bog as well. The weekly is usually Take a Camera Picture of a Mega Sloth — line up the shot before it ambles off, since photo mode does not count.', map: 'SuperiorSunsetFarm.webp' },
   ],
   'Brahmin': [
     { name: 'Flatwoods',                     region: 'The Forest',      count: '4 to 9',       note: 'Grazing around the church in the town center, directly south of Vault 76. Respawns reliably — the best and most accessible Brahmin stop, friendly to brand-new survivors.', map: 'Flatwoods.webp' },
@@ -151,7 +151,7 @@ const SPAWN_DATA = {
   ],
   'Scorchbeast': [
     { name: 'Fissure Site Prime',            region: 'Cranberry Bog',   count: '2+ in the air', note: 'Two are always circling overhead, southwest of the Glassed Cavern. This is the fissure you nuke to spawn the Scorchbeast Queen — approach the north and south rifts to draw more out.', map: 'FissureSitePrime.webp' },
-    { name: 'Fissure Site Alpha',            region: 'Cranberry Bog',   count: '1 / ~18 min',   note: 'Southeast of Survey Camp Alpha, right next to Watoga. A fresh Scorchbeast climbs out roughly every eighteen minutes — loop it with Prime and you will never wait.' },
+    { name: 'Fissure Site Alpha',            region: 'Cranberry Bog',   count: '1 / ~18 min',   note: 'Southeast of Survey Camp Alpha, right next to Watoga. A fresh Scorchbeast climbs out roughly every eighteen minutes — loop it with Prime and you will never wait.', map: 'FissureSite.webp' },
     { name: 'Surface to Air (Event)',        region: 'Cranberry Bog',   count: 'Event spawn',   note: 'The dedicated Scorchbeast farming event. Cripple the wings with Concentrated Fire to force them down, and never stand near the bright center of a fissure — falling in is instant death and your dropped loot is gone.' },
   ],
   'Behemoth': [
@@ -171,11 +171,11 @@ const SPAWN_DATA = {
   ],
   'Mister Gutsy': [
     { name: 'Camp McClintock',               region: 'The Forest',      count: 'Several',       note: 'The automated Army training camp is staffed almost entirely by Mister Gutsies and Sergeant Gutsies — the most reliable Gutsy farm in the game. You will hear the anti-communist hollering before you see them.', map: 'CampMcClintock.webp' },
-    { name: 'Dyer Chemical (Sewers)',        region: 'The Mire',        count: 'Several',       note: 'The sewers crawl with Gutsies, Protectrons, Robobrains, and the occasional Sentry Bot. A dense mixed-robot pocket, good for the generic Destroy a Robot challenge.' },
+    { name: 'Dyer Chemical (Sewers)',        region: 'The Mire',        count: 'Several',       note: 'The sewers crawl with Gutsies, Protectrons, Robobrains, and the occasional Sentry Bot. A dense mixed-robot pocket, good for the generic Destroy a Robot challenge.', map: 'DyerChemical.webp' },
     { name: 'Whitespring Resort',            region: 'Savage Divide',   count: 'Several',       note: 'Whitespring Mr. Gutsy units serve as security and merchants — passive unless provoked. Three weaponized arms and heavy plating make a high-level one a genuine threat.', map: 'WhitespringResort.webp' },
   ],
   'Grafton Monster': [
-    { name: 'Charleston Trainyard',          region: 'The Forest',      count: '1 guaranteed',  note: 'One always roams the dried riverbed near the second red train bridge, southeast of the Poseidon Energy Plant, sometimes wandering in to brawl with mole rats. The most reliable fixed cryptid spawn for a quick Kill a Cryptid.' },
+    { name: 'Charleston Trainyard',          region: 'The Forest',      count: '1 guaranteed',  note: 'One always roams the dried riverbed near the second red train bridge, southeast of the Poseidon Energy Plant, sometimes wandering in to brawl with mole rats. The most reliable fixed cryptid spawn for a quick Kill a Cryptid.', map: 'ChrlestonTrainyard.webp' },
     { name: 'Hemlock Holes',                 region: 'The Forest',      count: '1 guaranteed',  note: 'A guaranteed roamer southeast of the maintenance building, out in the open. Aim for the blowholes on its shoulders for bonus damage — it has no head to shoot.', map: 'HemlockHoles.webp' },
     { name: 'Grafton Day (Event)',           region: 'Toxic Valley',    count: 'Event boss',    note: 'The headless brute caps the parade as the end boss. Fast-travel to Grafton and there is a fifty-percent chance the event fires, cooldown permitting.', map: 'GraftonTown.webp' },
   ],
@@ -185,14 +185,14 @@ const SPAWN_DATA = {
     { name: 'Night Random Encounters',       region: 'The Forest',      count: 'Rare random',   note: 'They only appear after dark, teleporting and abducting lone wanderers — the riverbanks near Thunder Mountain are a known haunt. It mind-controls nearby enemies and vanishes in a flash if you run. Atmospheric, never dependable.' },
   ],
   'Sheepsquatch': [
-    { name: 'Trail Hill Overlook',           region: 'Skyline Valley',  count: '1 guaranteed',  note: 'A guaranteed spawn at this unmarked overlook southeast of Slumber Mill Motel — the one Sheepsquatch you can count on without an event.' },
+    { name: 'Trail Hill Overlook',           region: 'Skyline Valley',  count: '1 guaranteed',  note: 'A guaranteed spawn at this unmarked overlook southeast of Slumber Mill Motel — the one Sheepsquatch you can count on without an event.', map: 'TrailHillOverlook.webp' },
     { name: 'Free Range (Event)',            region: 'The Forest',      count: 'Event boss',    note: 'Escort three Brahmin home and one or two Sheepsquatch arrive as the boss fight. The most common event source, and it can trigger anywhere the herd is.' },
     { name: 'Primal Cuts (Ash Heap)',        region: 'Ash Heap',        count: 'Event boss',    note: 'During Meat Week, a Prime Sheepsquatch caps the Ash Heap version of the event. Duck behind cover when it rears up — that is the spine volley off its back. Aim for the head, its only weak spot.' },
   ],
   'Mirelurk Queen': [
-    { name: 'Spruce Knob Lake',              region: 'Cranberry Bog',   count: 'Queen + 9',     note: 'Nine Mirelurks, a King, and a Queen erupting from the lake — the densest single-stop Mirelurk farm. She rises from the water with a roar, so keep the shoreline at your back.' },
-    { name: 'Toxic Dried Lakebed',           region: 'Toxic Valley',    count: 'Queen + 6',     note: 'A Queen roams the island near Kiddie Corner Cabins with a half-dozen Mirelurks. Open ground makes her easy to kite, away from her poison pool.' },
-    { name: 'Quarry X3',                     region: 'Cranberry Bog',   count: '1 Queen',       note: 'A Queen lurks in the flooded quarry. Largest enemy short of the Scorchbeast Queen and a Behemoth — her spit lays an AoE pool that ramps damage the longer you stand in it. Hit the head, spouts, and legs.' },
+    { name: 'Spruce Knob Lake',              region: 'Cranberry Bog',   count: 'Queen + 9',     note: 'Nine Mirelurks, a King, and a Queen erupting from the lake — the densest single-stop Mirelurk farm. She rises from the water with a roar, so keep the shoreline at your back.', map: 'SpruceKnobLake.webp' },
+    { name: 'Toxic Dried Lakebed',           region: 'Toxic Valley',    count: 'Queen + 6',     note: 'A Queen roams the island near Kiddie Corner Cabins with a half-dozen Mirelurks. Open ground makes her easy to kite, away from her poison pool.', map: 'ToxicDriedLakebed.webp' },
+    { name: 'Quarry X3',                     region: 'Cranberry Bog',   count: '1 Queen',       note: 'A Queen lurks in the flooded quarry. Largest enemy short of the Scorchbeast Queen and a Behemoth — her spit lays an AoE pool that ramps damage the longer you stand in it. Hit the head, spouts, and legs.', map: 'QuarryX3.webp' },
   ],
   'Fog Crawler': [
     { name: 'Carleton Mine',                 region: 'Toxic Valley',    count: '1 reliable',    note: 'The only dependable fixed Fog Crawler, deep in the mine — but it only appears once you are working the raider quest Cheating Death. Find the mine too early and the crawler will not be there.', map: 'CarletonMine.webp' },
@@ -225,9 +225,9 @@ const SPAWN_DATA = {
     { name: 'Blast Zones (Nuked)',           region: 'Savage Divide',   count: 'Many',          note: 'Nuking a populated zone like Monongah, Morgantown, or Charleston turns its ghouls into Glowing Ones. The broader Glowing Creature challenge also counts glowing Mole Miners at Mount Blair and glowing Wendigos at Appalachian Antiques.' },
   ],
   'Sentry Bot': [
-    { name: '98 NAR Regional',               region: 'Savage Divide',   count: '1 reliable',    note: 'Patrols the road north of Whitespring near the cargo train — the most reliable spawn. Beware the Annihilator variant; it can one-shot a mid-level character, so come geared.' },
+    { name: '98 NAR Regional',               region: 'Savage Divide',   count: '1 reliable',    note: 'Patrols the road north of Whitespring near the cargo train — the most reliable spawn. Beware the Annihilator variant; it can one-shot a mid-level character, so come geared.', map: '98NARRegional.webp' },
     { name: 'Dyer Chemical',                 region: 'The Mire',        count: '1+',            note: 'Sentry Bots patrol the grounds as groundskeepers. If one is missing it was killed by a rampaging enemy — server-hop and it returns.', map: 'DyerChemical.webp' },
-    { name: 'Nuclear Silos',                 region: 'Savage Divide',   count: '1 each',        note: 'Each silo interior holds Sentry Bots — convenient if you are already running Alpha, Bravo, or Charlie for nuke codes. The Critical Hit a Sentry Bot challenge wants a VATS crit; cripple-arm dailies reset with a server-hop.' },
+    { name: 'Nuclear Silos',                 region: 'Savage Divide',   count: '1 each',        note: 'Each silo interior holds Sentry Bots — convenient if you are already running Alpha, Bravo, or Charlie for nuke codes. The Critical Hit a Sentry Bot challenge wants a VATS crit; cripple-arm dailies reset with a server-hop.', map: 'SiteAlpha.webp' },
   ],
   'Cultist': [
     { name: 'Point Pleasant',                region: 'The Forest',      count: '26',            note: 'Dozens cluster around the Mothman Museum — server-hop and clear for the fastest Kill a Cultist daily or weekly. Also the battleground of the seasonal Mothman Equinox.', map: 'PointPleasant.webp' },
@@ -237,7 +237,7 @@ const SPAWN_DATA = {
   'Lost': [
     { name: 'Vault 63',                      region: 'Skyline Valley',  count: 'Dense',         note: 'The electrified, ghoulified dwellers of Vault 63 are thickest in and around the vault; the main questline wades straight through them.' },
     { name: 'Skyline Valley (Storm Zones)',  region: 'Skyline Valley',  count: 'Throughout',    note: 'They roam the whole region and grow stronger when the rolling storm passes overhead, crackling with electricity. Fight them between storm fronts when you can.' },
-    { name: 'Slumber Mill Motel Roads',      region: 'Skyline Valley',  count: 'Packs',         note: 'Packs wander the roads and overlooks near the motel — convenient alongside your existing Skyline Valley field sites.' },
+    { name: 'Slumber Mill Motel Roads',      region: 'Skyline Valley',  count: 'Packs',         note: 'Packs wander the roads and overlooks near the motel — convenient alongside your existing Skyline Valley field sites.', map: 'SlumberMillMotel.webp' },
   ],
   'Blue Devil': [
     { name: 'Safe and Sound (Event)',        region: 'Savage Divide',   count: 'Event target',  note: 'The Blue Devil is the prize cryptid of this event at Middle Mountain Pitstop — the reliable way to find one, and the source of its unique plans and outfit.', map: 'MiddleMountainPitstop.webp' },
@@ -247,7 +247,7 @@ const SPAWN_DATA = {
   'Mutant Hound': [
     { name: 'West Tek Research Center',      region: 'Savage Divide',   count: 'Pack',          note: 'The FEV facility swarms with Super Mutants and the Mutant Hounds that run with them — the densest pack on the map, but a high-level area.', map: 'WestTekResearchCenter.webp' },
     { name: 'Huntersville',                  region: 'Savage Divide',   count: 'Pack',          note: 'The original mutant town; hounds patrol alongside the mutants and the occasional Behemoth. Closer and lower-level than West Tek.', map: 'Huntersville.webp' },
-    { name: 'Crevasse Dam',                  region: 'The Mire',        count: 'Pack',          note: 'A reliable mutant camp where hounds travel with the pack. They count toward Kill a Canine challenges alongside Wolves, Mongrels, and Dogs.' },
+    { name: 'Crevasse Dam',                  region: 'The Mire',        count: 'Pack',          note: 'A reliable mutant camp where hounds travel with the pack. They count toward Kill a Canine challenges alongside Wolves, Mongrels, and Dogs.', map: 'CrevasseDam.webp' },
   ],
   'Bloatfly': [
     { name: 'Aaronholt Homestead',           region: 'The Forest',      count: 'Reliable',      note: 'The all-purpose insect farm — Bloatflies and Bloodbugs in numbers, with Mongrels and Dogs for a bonus canine challenge.', map: 'AaronholtHomestead.webp' },
