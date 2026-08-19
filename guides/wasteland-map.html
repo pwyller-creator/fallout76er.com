@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fallout 76 Interactive Wasteland Map — Appalachia Landmark Locator | Fallout76er</title>
+<meta name="description" content="A hand-stitched, scrollable map of Appalachia with every documented treasure-map dig site and known landmark pinned in relative position — search a location and see what's nearby.">
+<link rel="canonical" href="https://fallout76er.com/guides/wasteland-map.html">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Fallout76er's Wasteland Map">
+<meta property="og:description" content="A hand-stitched, scrollable map of Appalachia with every documented treasure-map dig site and known landmark pinned in relative position — search a location and see what's nearby.">
+<meta property="og:url" content="https://fallout76er.com/guides/wasteland-map.html">
+<meta property="og:image" content="https://fallout76er.com/appalachia-map.webp">
+<meta property="og:site_name" content="Fallout76er's Wasteland Archive">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fallout76er's Wasteland Map">
+<meta name="twitter:description" content="A hand-stitched, scrollable map of Appalachia with every documented treasure-map dig site and known landmark pinned in relative position — search a location and see what's nearby.">
+<meta name="twitter:image" content="https://fallout76er.com/appalachia-map.webp">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rye&family=IM+Fell+English:ital@0;1&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="/tm-guide.css?v=20260730b">
+
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://fallout76er.com/guides/wasteland-map.html","name":"Fallout76er's Wasteland Map","url":"https://fallout76er.com/guides/wasteland-map.html","description":"A hand-stitched, scrollable map of Appalachia with every documented treasure-map dig site and known landmark pinned in relative position.","inLanguage":"en-US","isPartOf":{"@id":"https://fallout76er.com/#website"}},{"@type":"ItemList","name":"Documented Treasure Map Dig Sites","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"name":"Forest Map 01 — The Mothman Stash","url":"https://fallout76er.com/maps/forest-treasure-map-01.html"},{"@type":"ListItem","position":2,"name":"Toxic Valley Map 01 — The Becker Farm Hoard and Loot","url":"https://fallout76er.com/maps/toxic-valley-treasure-map-01.html"},{"@type":"ListItem","position":3,"name":"Toxic Valley Map 02 — Clarksburg Climb for Caps","url":"https://fallout76er.com/maps/toxic-valley-treasure-map-02.html"},{"@type":"ListItem","position":4,"name":"Dead Boyscouts Tell No Tales","url":"https://fallout76er.com/maps/toxic-valley-treasure-map-03.html"},{"@type":"ListItem","position":5,"name":"Toxic Valley Map 04 — Crater Overlook Cache","url":"https://fallout76er.com/maps/toxic-valley-treasure-map-04.html"},{"@type":"ListItem","position":6,"name":"Ash Heap Map 01 — The AMS Culvert Cache","url":"https://fallout76er.com/maps/ash-heap-treasure-map-01.html"},{"@type":"ListItem","position":7,"name":"Ash Heap Map 02 — The Burning Claim","url":"https://fallout76er.com/maps/ash-heap-treasure-map-02.html"},{"@type":"ListItem","position":8,"name":"Savage Divide Map 06 — No Purification Gas!","url":"https://fallout76er.com/maps/savage-divide-treasure-map-06.html"},{"@type":"ListItem","position":9,"name":"Mire Map 01 — Two Scarecrows and a Mound","url":"https://fallout76er.com/maps/mire-treasure-map-01.html"},{"@type":"ListItem","position":10,"name":"Mire Map 05 — The Bare Earth Crossing","url":"https://fallout76er.com/maps/mire-treasure-map-05.html"},{"@type":"ListItem","position":11,"name":"Cranberry Bog Map 01 — The Bridge Piling Stash","url":"https://fallout76er.com/maps/cranberry-bog-treasure-map-01.html"}]},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://fallout76er.com/"},{"@type":"ListItem","position":2,"name":"Wasteland Map","item":"https://fallout76er.com/guides/wasteland-map.html"}]}]}</script>
+
+<style>
+.wm-legend {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--pb-faint);
+  margin-bottom: 10px;
+}
+.wm-legend span { display: inline-flex; align-items: center; gap: 7px; }
+.wm-legend i {
+  display: inline-block; width: 11px; height: 11px; border-radius: 50%;
+  border: 2px solid var(--pb-border-hi); box-shadow: var(--pb-glow);
+}
+.wm-legend .wm-swatch-dig { background: var(--pb-bright); }
+.wm-legend .wm-swatch-landmark { background: transparent; border-color: var(--pb-faint); }
+
+.wm-disclaimer {
+  font-family: 'IM Fell English', serif;
+  font-size: 15px; line-height: 1.6;
+  color: var(--pb-faint);
+  border: 1px dashed var(--pb-border);
+  padding: 10px 14px;
+  margin-bottom: 20px;
+}
+
+.wm-search-wrap { margin-bottom: 14px; }
+.wm-search {
+  width: 100%;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 14px; letter-spacing: 0.5px;
+  color: var(--pb-bright);
+  background: rgba(8,5,0,0.6);
+  border: 1px solid var(--pb-border);
+  border-radius: 3px;
+  padding: 11px 14px;
+}
+.wm-search:focus { outline: none; border-color: var(--pb-border-hi); box-shadow: var(--pb-glow); }
+.wm-search::placeholder { color: var(--pb-faint); }
+
+.wm-results {
+  display: none;
+  flex-wrap: wrap; gap: 8px;
+  margin-top: 10px; margin-bottom: 4px;
+}
+.wm-results.wm-open { display: flex; }
+.wm-result {
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 12px; letter-spacing: 0.5px;
+  color: var(--pb-mid); background: rgba(8,5,0,0.5);
+  border: 1px solid var(--pb-border); border-radius: 3px;
+  padding: 7px 11px; cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.wm-result:hover, .wm-result:focus { background: var(--pb-sel-bg); border-color: var(--pb-border-hi); color: var(--pb-bright); }
+.wm-result-empty {
+  font-family: 'IM Fell English', serif; font-style: italic;
+  font-size: 14px; color: var(--pb-faint); padding: 6px 2px;
+}
+
+.wm-viewport {
+  position: relative;
+  height: 70vh; min-height: 420px;
+  overflow: auto;
+  border: 1px solid var(--pb-border);
+  background: var(--pb-bg);
+  -webkit-overflow-scrolling: touch;
+}
+.wm-canvas { position: relative; }
+.wm-map { display: block; }
+
+.wm-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 15px; height: 15px; border-radius: 50%;
+  border: 2px solid var(--pb-border-hi);
+  box-shadow: var(--pb-glow);
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.15s;
+}
+.wm-pin:hover, .wm-pin:focus { transform: translate(-50%, -50%) scale(1.4); z-index: 5; outline: none; }
+.wm-pin--dig { background: var(--pb-bright); }
+.wm-pin--landmark { background: rgba(12,8,0,0.55); border-color: var(--pb-faint); }
+.wm-pin--landmark:hover, .wm-pin--landmark:focus { border-color: var(--pb-border-hi); }
+.wm-pin--jumped { animation: wmPulse 1.5s ease-out; }
+@keyframes wmPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(255,185,45,0.9); }
+  70%  { box-shadow: 0 0 0 22px rgba(255,185,45,0); }
+  100% { box-shadow: var(--pb-glow); }
+}
+
+.wm-pin-label {
+  position: absolute; bottom: 130%; left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Courier Prime', 'Courier New', monospace;
+  font-size: 11px; letter-spacing: 0.5px;
+  color: var(--pb-bright); background: rgba(8,5,0,0.92);
+  border: 1px solid var(--pb-border-hi);
+  border-radius: 3px; padding: 4px 8px;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.15s;
+}
+.wm-pin:hover .wm-pin-label, .wm-pin:focus .wm-pin-label { opacity: 1; }
+
+@media (max-width: 600px) {
+  .wm-viewport { height: 60vh; min-height: 320px; }
+}
+</style>
+</head>
+<body>
+<header class="tmg-header">
+  <a class="tmg-brand" href="/">Fallout76er's <span>Wasteland Archive</span></a>
+  <nav class="tmg-crumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a><span class="sep">&rsaquo;</span><span class="cur">Wasteland Map</span>
+  </nav>
+</header>
+
+<main class="tmg-main tmg-hub-main">
+  <h1 class="tmg-title">The Wasteland Map</h1>
+  <p class="tmg-meta">Coverage: Appalachia, Edge-to-Edge &middot; Pins: Dig Sites + Landmarks &middot; Status: Field Draft</p>
+
+  <article class="tmg-intro">
+    <p>Stitched this together myself out of a stack of Pip-Boy map screenshots, because scrolling through eleven separate dig-site pages trying to remember which one was near which landmark was getting old. Search a location below, or just scroll around — every documented treasure hoard and every landmark I've bothered to tag is pinned here in roughly the right spot relative to everything else. That's the whole point: not "here's the exact GPS coordinate," but "here's what's actually near what."</p>
+  </article>
+
+  <div class="wm-legend">
+    <span><i class="wm-swatch-dig"></i> Documented dig site (links to the guide)</span>
+    <span><i class="wm-swatch-landmark"></i> Landmark (reference only)</span>
+  </div>
+
+  <p class="wm-disclaimer">Dig-site pins are field estimates from written directions — Fallout 76 doesn't mark treasure hoards on the map, so these are my best guess at relative position, not surveyed coordinates. Landmark pins are matched from in-game screenshots and should be close. Treat the whole thing as a draft pending a proper accuracy pass.</p>
+
+  <div class="wm-search-wrap">
+    <input type="text" id="wm-search" class="wm-search" placeholder="Search a dig site or landmark&hellip;" oninput="wmFilter()" autocomplete="off">
+    <div id="wm-results" class="wm-results"></div>
+  </div>
+
+  <div class="wm-viewport" id="wm-viewport">
+    <div class="wm-canvas" id="wm-canvas" style="width:3277px; height:2511px;">
+      <img class="wm-map" src="/appalachia-map.webp" width="3277" height="2511" alt="Hand-stitched map of Appalachia showing Fallout 76 treasure-map dig sites and landmarks">
+    </div>
+  </div>
+
+  <p class="tmg-back"><a href="/maps/">&larr; Back to all treasure map guides</a></p>
+</main>
+
+<footer class="tmg-footer">
+  Field-documented in Appalachia by Fallout76er. &nbsp;<a href="/creatures/">Creature Spawn Intel</a> &nbsp;&middot;&nbsp; <a href="/maps/">Treasure Map Guides</a> &nbsp;&middot;&nbsp; <a href="/guides/score-challenge-faq.html">S.C.O.R.E. Challenge FAQ</a> &nbsp;&middot;&nbsp; <a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Wastelander Diary</a> &nbsp;&middot;&nbsp; <a href="https://github.com/pwyller-creator/fallout76er.com" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp; <a href="/">Return to the archive &rarr;</a>
+</footer>
+
+<script>
+const WM_DIGSITES = [
+  { title: 'Forest Map 01 — The Mothman Stash', href: '/maps/forest-treasure-map-01.html', region: 'The Forest', x: 22, y: 33 },
+  { title: 'Toxic Valley Map 01 — The Becker Farm Hoard and Loot', href: '/maps/toxic-valley-treasure-map-01.html', region: 'Toxic Valley', x: 41, y: 14 },
+  { title: 'Toxic Valley Map 02 — Clarksburg Climb for Caps', href: '/maps/toxic-valley-treasure-map-02.html', region: 'Toxic Valley', x: 43, y: 19 },
+  { title: 'Dead Boyscouts Tell No Tales', href: '/maps/toxic-valley-treasure-map-03.html', region: 'Toxic Valley', x: 37, y: 23 },
+  { title: 'Toxic Valley Map 04 — Crater Overlook Cache', href: '/maps/toxic-valley-treasure-map-04.html', region: 'Toxic Valley', x: 55, y: 18 },
+  { title: 'Ash Heap Map 01 — The AMS Culvert Cache', href: '/maps/ash-heap-treasure-map-01.html', region: 'Ash Heap', x: 24, y: 73 },
+  { title: 'Ash Heap Map 02 — The Burning Claim', href: '/maps/ash-heap-treasure-map-02.html', region: 'Ash Heap', x: 21, y: 76 },
+  { title: 'Savage Divide Map 06 — No Purification Gas!', href: '/maps/savage-divide-treasure-map-06.html', region: 'Savage Divide', x: 58, y: 12 },
+  { title: 'Mire Map 01 — Two Scarecrows and a Mound', href: '/maps/mire-treasure-map-01.html', region: 'The Mire', x: 73, y: 35 },
+  { title: 'Mire Map 05 — The Bare Earth Crossing', href: '/maps/mire-treasure-map-05.html', region: 'The Mire', x: 69, y: 29 },
+  { title: 'Cranberry Bog Map 01 — The Bridge Piling Stash', href: '/maps/cranberry-bog-treasure-map-01.html', region: 'Cranberry Bog', x: 72, y: 79 }
+]; // Keep in sync with TM_DATA in index.html — add an entry whenever build_guides.js runs for a new documented map
+
+const WM_LANDMARKS = [
+  { name: 'Point Pleasant', x: 19.3, y: 32.16 },
+  { name: 'Camden Park', x: 19.39, y: 66.34 },
+  { name: 'Charleston Station', x: 30.28, y: 57.51 },
+  { name: 'New River Gorge Resort', x: 36.14, y: 46.69 },
+  { name: 'Vault 63', x: 34.03, y: 82.46 },
+  { name: 'Hemlock Holes', x: 38.32, y: 7.61 },
+  { name: 'Carlton Mine', x: 53.8, y: 13.56 },
+  { name: 'Philippi Battlefield Cemetery', x: 56.73, y: 10.49 },
+  { name: "Solomon's Pond", x: 56.18, y: 64.14 },
+  { name: 'White Maintenance Building', x: 47.4, y: 59.2 },
+  { name: 'Middle Mountain Pitstop', x: 57.46, y: 57.26 },
+  { name: 'Lake Eloise', x: 58.32, y: 84.14 },
+  { name: 'Sons of Dane', x: 67.76, y: 28.12 },
+  { name: 'Gulper Lagoon', x: 77.32, y: 24.21 },
+  { name: 'Gnarled Shallows', x: 85.14, y: 16.61 },
+  { name: 'Big Maw', x: 75.03, y: 41.35 },
+  { name: 'Tanagra Town', x: 83.2, y: 45.82 },
+  { name: 'Dabney Homestead', x: 82.36, y: 54.22 },
+  { name: 'Lucky Hole Mine', x: 66.68, y: 79.98 },
+  { name: 'Watoga Station', x: 75.02, y: 82.33 }
+];
+
+(function () {
+  const canvas = document.getElementById('wm-canvas');
+  const viewport = document.getElementById('wm-viewport');
+  const items = [];
+
+  WM_DIGSITES.forEach(function (d, i) {
+    const el = document.createElement('a');
+    el.href = d.href;
+    el.className = 'wm-pin wm-pin--dig';
+    el.id = 'wm-pin-dig-' + i;
+    el.style.left = d.x + '%';
+    el.style.top = d.y + '%';
+    el.setAttribute('aria-label', d.title + ' (' + d.region + ') — open guide');
+    const label = document.createElement('span');
+    label.className = 'wm-pin-label';
+    label.textContent = d.title;
+    el.appendChild(label);
+    canvas.appendChild(el);
+    items.push({ kind: 'dig', title: d.title, sub: d.region, x: d.x, y: d.y, el: el });
+  });
+
+  WM_LANDMARKS.forEach(function (l, i) {
+    const el = document.createElement('button');
+    el.type = 'button';
+    el.className = 'wm-pin wm-pin--landmark';
+    el.id = 'wm-pin-lm-' + i;
+    el.style.left = l.x + '%';
+    el.style.top = l.y + '%';
+    el.setAttribute('aria-label', l.name + ' — landmark');
+    const label = document.createElement('span');
+    label.className = 'wm-pin-label';
+    label.textContent = l.name;
+    el.appendChild(label);
+    canvas.appendChild(el);
+    items.push({ kind: 'landmark', title: l.name, sub: 'Landmark', x: l.x, y: l.y, el: el });
+  });
+
+  function jumpTo(item) {
+    const cw = canvas.offsetWidth, ch = canvas.offsetHeight;
+    const px = (item.x / 100) * cw, py = (item.y / 100) * ch;
+    viewport.scrollTo({
+      left: Math.max(0, px - viewport.clientWidth / 2),
+      top: Math.max(0, py - viewport.clientHeight / 2),
+      behavior: 'smooth'
+    });
+    item.el.classList.remove('wm-pin--jumped');
+    void item.el.offsetWidth;
+    item.el.classList.add('wm-pin--jumped');
+    item.el.focus({ preventScroll: true });
+  }
+
+  const searchEl = document.getElementById('wm-search');
+  const resultsEl = document.getElementById('wm-results');
+
+  window.wmFilter = function () {
+    const q = searchEl.value.trim().toLowerCase();
+    resultsEl.innerHTML = '';
+    if (!q) { resultsEl.classList.remove('wm-open'); return; }
+    const matches = items.filter(function (it) { return it.title.toLowerCase().indexOf(q) !== -1; }).slice(0, 24);
+    resultsEl.classList.add('wm-open');
+    if (!matches.length) {
+      const empty = document.createElement('div');
+      empty.className = 'wm-result-empty';
+      empty.textContent = '— The wasteland keeps that one a secret —';
+      resultsEl.appendChild(empty);
+      return;
+    }
+    matches.forEach(function (it) {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'wm-result';
+      btn.textContent = it.title + (it.kind === 'dig' ? ' (' + it.sub + ')' : '');
+      btn.addEventListener('click', function () { jumpTo(it); });
+      resultsEl.appendChild(btn);
+    });
+  };
+})();
+</script>
+</body>
+</html>

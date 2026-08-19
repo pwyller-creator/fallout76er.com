@@ -5,12 +5,21 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-08-16T12:00:00Z</updated>
+  <updated>2026-08-17T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Toxic Valley Map 04 — Crater Overlook Cache</title>
+    <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-04.html" rel="alternate" type="text/html"/>
+    <id>https://fallout76er.com/maps/toxic-valley-treasure-map-04.html</id>
+    <published>2026-08-17T12:00:00Z</published>
+    <updated>2026-08-17T12:00:00Z</updated>
+    <category term="Treasure Map Guide"/>
+    <content type="html">&lt;p&gt;I went hunting for the fourth treasure hoard hidden in the Toxic Valley — you have to be a special kind of crazy to go tramping through that blighted landscape voluntarily. Hopefully your Raider reputation is shining, because this route runs you straight past a crashed space station crawling with rads and a pack of amoral goons led by a cap-obsessed nihilist named Meg. Nothing cramps a free-spirited "live and let live, or kill or be killed, pick your poison" style quite like that. Anyway — where was I? Right, the treasure.&lt;/p&gt;&lt;p&gt;Fast-travel to The Crater — it's a free travel point, so don't let anyone charge you caps for the privilege. From the drop point, turn around and head southwest until you spot the lookout platform. Ignore the idiots on patrol; they're about as likely to shoot each other as they are to shoot you. Walk up to the platform until you're standing on the side with the stairs, then put the platform at your back and start climbing uphill. It's a rough scramble without a jetpack and a marsupial mutation, but keep at it. When you crest the second plateau, look right for a large, white dead tree — the treasure mound is sitting on the flat ground beside it.&lt;/p&gt;&lt;p&gt;Once you've loaded up, head into the Crater interior and hawk your loot to a vendor named Raf. Just watch yourself — he'll try to rob you blind if you let him.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Region: Toxic Valley · Map: 04 · Status: Documented · Threat: High&lt;/em&gt; — &lt;a href="https://fallout76er.com/maps/toxic-valley-treasure-map-04.html"&gt;video walkthrough on the guide page&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Dead Boyscouts Tell No Tales</title>
     <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-03.html" rel="alternate" type="text/html"/>
@@ -309,16 +318,5 @@
     <updated>2026-05-02T12:00:00Z</updated>
     <category term="Item"/>
     <content type="html">&lt;img src="https://fallout76er.com/Slumber_Mill_Motel_Marquee.webp" alt="A Snoozer at the Slumber Mill Motel"/&gt;&lt;p&gt;The Slumber Mill Motel is a roadside motel easily identified by its mascot: a giant, "slumbering" lumberjack statue leaning on an axe. He's not the only one sleeping - so is anyone else that reads Nash Hope's Set List. I was there looking for some Lost to kill.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SKYLINE VALLEY · Threat: NONE · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Bathroom Brawl</title>
-    <link href="https://fallout76er.com/#photo=NothingReal.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/NothingReal.webp" rel="enclosure" type="image/webp" length="64522"/>
-    <media:content url="https://fallout76er.com/NothingReal.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=NothingReal.webp</id>
-    <published>2026-05-02T12:00:00Z</published>
-    <updated>2026-05-02T12:00:00Z</updated>
-    <category term="Location"/>
-    <content type="html">&lt;img src="https://fallout76er.com/NothingReal.webp" alt="Bathroom Brawl"/&gt;&lt;p&gt;Inside the bathroom of the Slumber Mill Motel, someone took the time to scrawl NOTHING IS REAL across the wall in what I'm quite sure is blood, then lit candles beneath it like a genuine philosophical altar. Someone else — clearly unimpressed — pinned a note to the wall with a hatchet directly beneath the manifesto. The note is titled "Public Shaming." I'm reminded of the classic truism, "shit happens... in bathrooms".&lt;/p&gt;&lt;p&gt;&lt;em&gt;SLUMBER MILL MOTEL — SKYLINE VALLEY · Threat: NONE · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

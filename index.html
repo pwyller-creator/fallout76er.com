@@ -2455,6 +2455,7 @@
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-plans" onclick="pbNav(this)">&#9874; Plans Exchange</button>
         <button class="pb-menu-item" data-pb-target="pb-page-tmaps" onclick="pbNav(this)">&#9670; Treasure Maps</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-wmap" onclick="pbNav(this)">&#9670; Wasteland Map</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scorefaq" onclick="pbNav(this)">&#9670; S.C.O.R.E. Challenge FAQ</button>
         <button class="pb-menu-item" data-pb-target="pb-page-links" onclick="pbNav(this)">&#9670; Field Intelligence</button>
       </nav>
@@ -2720,6 +2721,23 @@
 
           </div>
           <div style="font-family:'Special Elite',monospace; font-size:9px; color:rgba(100,200,140,0.35); letter-spacing:1px; margin-top:14px; border-top:1px solid rgba(100,200,140,0.15); padding-top:8px;" id="pb-plans-version"></div>
+        </div>
+
+        <!-- PAGE: Wasteland Map -->
+        <div class="pb-page" id="pb-page-wmap">
+          <div class="pb-page-title">Wasteland Map</div>
+          <p style="font-family:'Courier New',monospace; font-size:13px; color:var(--pb-dim); letter-spacing:1px; margin-bottom:20px; line-height:1.8;">
+            A hand-stitched, scrollable map of Appalachia with every documented dig site and known landmark pinned in relative position. Search a location, see what's nearby.
+          </p>
+          <a href="/guides/wasteland-map.html" style="display:flex;align-items:center;gap:14px;background:rgba(200,140,25,0.06);border:1px solid var(--pb-border);padding:12px 16px;text-decoration:none;transition:border-color 0.2s,background 0.2s;"
+            onmouseover="this.style.borderColor='var(--pb-border-hi)';this.style.background='rgba(200,140,25,0.14)';"
+            onmouseout="this.style.borderColor='var(--pb-border)';this.style.background='rgba(200,140,25,0.06)';">
+            <div style="flex:1;min-width:0;">
+              <div style="font-family:'Courier New',monospace;font-size:14px;color:var(--pb-bright);letter-spacing:2px;text-transform:uppercase;text-shadow:var(--pb-glow);">The Wasteland Map</div>
+              <div style="font-family:'Courier New',monospace;font-size:12px;color:var(--pb-dim);letter-spacing:1px;margin-top:3px;">Every dig site and landmark, pinned and searchable in one scrollable map</div>
+            </div>
+            <span style="font-family:'Courier New',monospace;font-size:12px;color:var(--pb-mid);letter-spacing:2px;flex-shrink:0;">&rarr; open</span>
+          </a>
         </div>
 
         <!-- PAGE: Field Intelligence -->
@@ -5375,7 +5393,15 @@ const TM_DATA = [
         desc: `<p>Fast travel to the Pioneer Scout Camp on Grafton Lake — it's not the cheeriest merit-badge program the Boy Scouts of America ever ran, and this itinerary proves it. Head for one of the two wooden docks jutting into the lake; either one gets you to the little cluster of islands squatting in the middle of the water. You want the specific island off the eastern dock — the one still nursing a wrecked sailing skiff on its shore, presumably from the last scoutmaster who thought "capsizing drills" sounded like fun. Once you're standing on the wreck, it's a short scramble to the black pebble mound a few paces inland. Dig, and Mr. Handy's your uncle — assuming your uncle's a homicidal robot butler who just wants you to have nice things.</p>`,
         meta: 'Region: Toxic Valley · Map: 03 · Status: Documented · Threat: Low'
       },
-      { num: '04', documented: false },
+      {
+        num: '04',
+        documented: true,
+        video: 'tm-toxic-valley-04.mp4',
+        published: '2026-08-17',
+        title: 'Toxic Valley Map 04 — Crater Overlook Cache',
+        desc: `<p>I went hunting for the fourth treasure hoard hidden in the Toxic Valley — you have to be a special kind of crazy to go tramping through that blighted landscape voluntarily. Hopefully your Raider reputation is shining, because this route runs you straight past a crashed space station crawling with rads and a pack of amoral goons led by a cap-obsessed nihilist named Meg. Nothing cramps a free-spirited "live and let live, or kill or be killed, pick your poison" style quite like that. Anyway — where was I? Right, the treasure.</p><p>Fast-travel to The Crater — it's a free travel point, so don't let anyone charge you caps for the privilege. From the drop point, turn around and head southwest until you spot the lookout platform. Ignore the idiots on patrol; they're about as likely to shoot each other as they are to shoot you. Walk up to the platform until you're standing on the side with the stairs, then put the platform at your back and start climbing uphill. It's a rough scramble without a jetpack and a marsupial mutation, but keep at it. When you crest the second plateau, look right for a large, white dead tree — the treasure mound is sitting on the flat ground beside it.</p><p>Once you've loaded up, head into the Crater interior and hawk your loot to a vendor named Raf. Just watch yourself — he'll try to rob you blind if you let him.</p>`,
+        meta: 'Region: Toxic Valley · Map: 04 · Status: Documented · Threat: High'
+      },
       { num: '05', documented: false }
     ]
   },
@@ -6486,6 +6512,8 @@ window.addEventListener('orientationchange', function() {
     <a href="/">Wasteland Archive</a>
     <span aria-hidden="true">&middot;</span>
     <a href="/maps/">Treasure Map Guides</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="/guides/wasteland-map.html">Wasteland Map</a>
     <span aria-hidden="true">&middot;</span>
     <a href="/creatures/">Creature Spawn Intel</a>
     <span aria-hidden="true">&middot;</span>

@@ -112,7 +112,7 @@ const header = (crumbs) => `
 
 const footer = `
 <footer class="tmg-footer">
-  Field-documented in Appalachia by Fallout76er. &nbsp;<a href="/creatures/">Creature Spawn Intel</a> &nbsp;&middot;&nbsp; <a href="/guides/score-challenge-faq.html">S.C.O.R.E. Challenge FAQ</a> &nbsp;&middot;&nbsp; <a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Wastelander Diary</a> &nbsp;&middot;&nbsp; <a href="https://github.com/pwyller-creator/fallout76er.com" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp; <a href="/">Return to the archive &rarr;</a>
+  Field-documented in Appalachia by Fallout76er. &nbsp;<a href="/creatures/">Creature Spawn Intel</a> &nbsp;&middot;&nbsp; <a href="/guides/wasteland-map.html">Wasteland Map</a> &nbsp;&middot;&nbsp; <a href="/guides/score-challenge-faq.html">S.C.O.R.E. Challenge FAQ</a> &nbsp;&middot;&nbsp; <a href="https://fallout76er.substack.com" target="_blank" rel="noopener">Wastelander Diary</a> &nbsp;&middot;&nbsp; <a href="https://github.com/pwyller-creator/fallout76er.com" target="_blank" rel="noopener">GitHub</a> &nbsp;&middot;&nbsp; <a href="/">Return to the archive &rarr;</a>
 </footer>`;
 
 const videoScript = `
