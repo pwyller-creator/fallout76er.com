@@ -96,7 +96,9 @@
   border: 1px solid var(--pb-border);
   background: var(--pb-bg);
   -webkit-overflow-scrolling: touch;
+  cursor: grab;
 }
+.wm-viewport.wm-dragging { cursor: grabbing; user-select: none; }
 .wm-canvas { position: relative; }
 .wm-map { display: block; }
 
@@ -114,6 +116,7 @@
 .wm-pin--dig { background: var(--pb-bright); }
 .wm-pin--landmark { background: rgba(12,8,0,0.55); border-color: var(--pb-faint); }
 .wm-pin--landmark:hover, .wm-pin--landmark:focus { border-color: var(--pb-border-hi); }
+.wm-pin--landmark-live { border-color: var(--pb-mid); }
 .wm-pin--jumped { animation: wmPulse 1.5s ease-out; }
 @keyframes wmPulse {
   0%   { box-shadow: 0 0 0 0 rgba(255,185,45,0.9); }
@@ -150,7 +153,7 @@
 
 <main class="tmg-main tmg-hub-main">
   <h1 class="tmg-title">The Wasteland Map</h1>
-  <p class="tmg-meta">Coverage: Appalachia, Edge-to-Edge &middot; Pins: Dig Sites + Landmarks &middot; Status: Field Draft</p>
+  <p class="tmg-meta">Coverage: Appalachia, Edge-to-Edge &middot; Pins: Dig Sites + Landmarks + Scrap Farms &middot; Status: Field Draft</p>
 
   <article class="tmg-intro">
     <p>Stitched this together myself out of a stack of Pip-Boy map screenshots, because scrolling through eleven separate dig-site pages trying to remember which one was near which landmark was getting old. Search a location below, or just scroll around — every documented treasure hoard and every landmark I've bothered to tag is pinned here in roughly the right spot relative to everything else. That's the whole point: not "here's the exact GPS coordinate," but "here's what's actually near what."</p>
@@ -159,6 +162,7 @@
   <div class="wm-legend">
     <span><i class="wm-swatch-dig"></i> Documented dig site (links to the guide)</span>
     <span><i class="wm-swatch-landmark"></i> Landmark (reference only)</span>
+    <span>Brighter-ringed landmarks have documented creature spawns and/or scrap farming spots nearby — hover a pin, or search a creature/scrap name, to see which.</span>
   </div>
 
   <p class="wm-disclaimer">Dig-site pins are field estimates from written directions — Fallout 76 doesn't mark treasure hoards on the map, so these are my best guess at relative position, not surveyed coordinates. Landmark pins are matched from in-game screenshots and should be close. Treat the whole thing as a draft pending a proper accuracy pass.</p>
@@ -203,7 +207,7 @@ const WM_LANDMARKS = [
   { name: 'New River Gorge Resort', x: 36.14, y: 46.69 },
   { name: 'Vault 63', x: 34.03, y: 82.46 },
   { name: 'Hemlock Holes', x: 38.32, y: 7.61 },
-  { name: 'Carlton Mine', x: 53.8, y: 13.56 },
+  { name: 'Carleton Mine', x: 53.8, y: 13.56 },
   { name: 'Philippi Battlefield Cemetery', x: 56.73, y: 10.49 },
   { name: "Solomon's Pond", x: 56.18, y: 64.14 },
   { name: 'White Maintenance Building', x: 47.4, y: 59.2 },
@@ -216,8 +220,103 @@ const WM_LANDMARKS = [
   { name: 'Tanagra Town', x: 83.2, y: 45.82 },
   { name: 'Dabney Homestead', x: 82.36, y: 54.22 },
   { name: 'Lucky Hole Mine', x: 66.68, y: 79.98 },
-  { name: 'Watoga Station', x: 75.02, y: 82.33 }
+  { name: 'Watoga Station', x: 75.02, y: 82.33 },
+
+  // Scrap-farm POIs (added from SCRAP_DATA screenshot re-matching — see
+  // WM_SCRAP_BY_LANDMARK below). Coordinates from ORB feature-matching each
+  // location's spawn/scrap-card screenshot against appalachia-map.webp.
+  { name: 'Top of the World', x: 56.83, y: 45.99 },
+  { name: 'Whitespring Resort', x: 51.52, y: 60.82 },
+  { name: 'National Isolated Radio Array', x: 65.64, y: 58.12 },
+  { name: 'Fort Defiance', x: 68.38, y: 78.99 },
+  { name: 'Camp McClintock', x: 38.61, y: 51.97 },
+  { name: 'The Thorn', x: 68.85, y: 72.75 },
+  { name: 'Flatwoods', x: 30.96, y: 44.23 },
+  { name: 'Clancy Manor', x: 33.36, y: 6.95 },
+  { name: 'Abandoned Bog Town', x: 81.18, y: 69.61 },
+  { name: 'ATLAS Observatory', x: 63.53, y: 31.80 },
+  { name: 'Watoga Emergency Services', x: 74.05, y: 80.24 },
+  { name: 'Monongah Power Plant', x: 57.85, y: 32.69 },
+  { name: "Ella Ames' Bunker", x: 78.25, y: 25.67 },
+  { name: 'AVR Medical Center', x: 30.56, y: 61.17 },
+  { name: 'Glassed Cavern', x: 85.51, y: 85.76 },
+  { name: 'Fissure Site Prime', x: 84.81, y: 86.62 },
+  { name: 'Welch', x: 23.55, y: 78.56 },
+  { name: 'Blackwater Mine', x: 55.11, y: 58.91 },
+  { name: 'Whitespring Golf Club', x: 48.04, y: 60.35 },
+  { name: 'Charleston Capitol Building', x: 34.47, y: 62.05 },
+  { name: 'Morgantown Airport', x: 46.92, y: 25.83 },
+  { name: 'Grafton Town', x: 41.25, y: 15.27 }
 ];
+
+// Creature spawns whose SPAWN_DATA (spawn-data.js) location name matches a WM_LANDMARKS
+// entry above — folded into that landmark's tooltip rather than plotted as separate pins
+// (a same-coordinate pin would just stack on the landmark marker). Only exact/near-exact
+// name matches included; keep in sync if spawn-data.js location names change.
+const WM_CREATURES_BY_LANDMARK = {
+  'Point Pleasant': [ { name: 'Mothman', href: '/creatures/mothman.html' }, { name: 'Cultist', href: '/creatures/cultist.html' } ],
+  'Camden Park': [ { name: 'Glowing One', href: '/creatures/glowing-one.html' } ],
+  'New River Gorge Resort': [ { name: 'Bloodbug', href: '/creatures/bloodbug.html' } ],
+  'Vault 63': [ { name: 'Lost', href: '/creatures/lost.html' } ],
+  'Hemlock Holes': [ { name: 'Grafton Monster', href: '/creatures/grafton-monster.html' } ],
+  'Carleton Mine': [ { name: 'Radscorpion', href: '/creatures/radscorpion.html' }, { name: 'Fog Crawler', href: '/creatures/fog-crawler.html' } ],
+  'Philippi Battlefield Cemetery': [ { name: 'Bloodbug', href: '/creatures/bloodbug.html' } ],
+  "Solomon's Pond": [ { name: 'Floater', href: '/creatures/floater.html' } ],
+  'White Maintenance Building': [ { name: 'Stingwing', href: '/creatures/stingwing.html' } ],
+  'Middle Mountain Pitstop': [ { name: 'Brahmin', href: '/creatures/brahmin.html' } ],
+  'Lake Eloise': [ { name: 'Floater', href: '/creatures/floater.html' } ],
+  'Gulper Lagoon': [ { name: 'Gulper', href: '/creatures/gulper.html' } ],
+  'Gnarled Shallows': [ { name: 'Angler', href: '/creatures/angler.html' } ],
+  'Big Maw': [ { name: 'Floater', href: '/creatures/floater.html' }, { name: 'Tick', href: '/creatures/tick.html' }, { name: 'Bloatfly', href: '/creatures/bloatfly.html' } ],
+  'Tanagra Town': [ { name: 'Cave Cricket', href: '/creatures/cave-cricket.html' }, { name: 'Mega Sloth', href: '/creatures/mega-sloth.html' } ],
+  'Dabney Homestead': [ { name: 'Fog Crawler', href: '/creatures/fog-crawler.html' } ],
+  'Lucky Hole Mine': [ { name: 'Cave Cricket', href: '/creatures/cave-cricket.html' }, { name: 'Cultist', href: '/creatures/cultist.html' } ],
+  'Watoga Station': [ { name: 'Assaultron', href: '/creatures/assaultron.html' } ],
+
+  // Same name-match against SPAWN_DATA, extended to the scrap-farm POIs above
+  // (most of these buildings show up in both data sets).
+  'Whitespring Resort': [ { name: 'Glowing One', href: '/creatures/glowing-one.html' }, { name: 'Mister Gutsy', href: '/creatures/mister-gutsy.html' }, { name: 'Assaultron', href: '/creatures/assaultron.html' } ],
+  'Camp McClintock': [ { name: 'Mister Gutsy', href: '/creatures/mister-gutsy.html' } ],
+  'Flatwoods': [ { name: 'Brahmin', href: '/creatures/brahmin.html' } ],
+  'Clancy Manor': [ { name: 'Cultist', href: '/creatures/cultist.html' } ],
+  'Abandoned Bog Town': [ { name: 'Behemoth', href: '/creatures/behemoth.html' }, { name: 'Hermit Crab', href: '/creatures/hermit-crab.html' } ],
+  'Watoga Emergency Services': [ { name: 'Feral Ghoul', href: '/creatures/feral-ghoul.html' } ],
+  'Monongah Power Plant': [ { name: 'Scorched', href: '/creatures/scorched.html' } ],
+  'Welch': [ { name: 'Mole Miner', href: '/creatures/mole-miner.html' }, { name: 'Mole Rat', href: '/creatures/mole-rat.html' } ],
+  'Blackwater Mine': [ { name: 'Mole Miner', href: '/creatures/mole-miner.html' } ],
+  'Whitespring Golf Club': [ { name: 'Radstag', href: '/creatures/radstag.html' } ],
+  'Morgantown Airport': [ { name: 'Scorched', href: '/creatures/scorched.html' } ],
+  'Grafton Town': [ { name: 'Grafton Monster', href: '/creatures/grafton-monster.html' } ]
+};
+
+// SCRAP_DATA (index.html) location names matched against the same
+// screenshot-matching pass. No href — there's no deep-linkable page or
+// anchor for a single scrap category in index.html (only the general
+// #section=resources hash exists), so these render as plain text.
+const WM_SCRAP_BY_LANDMARK = {
+  'Top of the World': [ { name: 'Fiberglass' } ],
+  'Whitespring Resort': [ { name: 'Fiberglass' }, { name: 'Adhesive' }, { name: 'Silver' }, { name: 'Gold' } ],
+  'National Isolated Radio Array': [ { name: 'Fiberglass' }, { name: 'Fiber Optics' } ],
+  'Fort Defiance': [ { name: 'Ballistic Fiber' } ],
+  'Camp McClintock': [ { name: 'Ballistic Fiber' } ],
+  'The Thorn': [ { name: 'Ballistic Fiber' } ],
+  'Flatwoods': [ { name: 'Adhesive' } ],
+  'Clancy Manor': [ { name: 'Adhesive' } ],
+  'Abandoned Bog Town': [ { name: 'Circuitry' }, { name: 'Nuclear Material' } ],
+  'ATLAS Observatory': [ { name: 'Circuitry' }, { name: 'Nuclear Material' } ],
+  'Watoga Emergency Services': [ { name: 'Circuitry' } ],
+  'Monongah Power Plant': [ { name: 'Nuclear Material' } ],
+  "Ella Ames' Bunker": [ { name: 'Fiber Optics' } ],
+  'AVR Medical Center': [ { name: 'Fiber Optics' } ],
+  'Glassed Cavern': [ { name: 'Ultracite' } ],
+  'Fissure Site Prime': [ { name: 'Ultracite' } ],
+  'Welch': [ { name: 'Black Titanium' } ],
+  'Blackwater Mine': [ { name: 'Black Titanium' } ],
+  'Charleston Capitol Building': [ { name: 'Gold' } ],
+  'Whitespring Golf Club': [ { name: 'Gold' } ],
+  'Morgantown Airport': [ { name: 'Silver' } ],
+  'Grafton Town': [ { name: 'Silver' } ]
+};
 
 (function () {
   const canvas = document.getElementById('wm-canvas');
@@ -241,19 +340,40 @@ const WM_LANDMARKS = [
   });
 
   WM_LANDMARKS.forEach(function (l, i) {
+    const creatures = WM_CREATURES_BY_LANDMARK[l.name];
+    const scrap = WM_SCRAP_BY_LANDMARK[l.name];
+    const creatureNames = creatures ? creatures.map(function (c) { return c.name; }).join(', ') : '';
+    const scrapNames = scrap ? scrap.map(function (s) { return s.name; }).join(', ') : '';
+    const hasExtra = !!(creatures || scrap);
+    const tooltipParts = [scrapNames, creatureNames].filter(Boolean);
+
     const el = document.createElement('button');
     el.type = 'button';
-    el.className = 'wm-pin wm-pin--landmark';
+    el.className = 'wm-pin wm-pin--landmark' + (hasExtra ? ' wm-pin--landmark-live' : '');
     el.id = 'wm-pin-lm-' + i;
     el.style.left = l.x + '%';
     el.style.top = l.y + '%';
-    el.setAttribute('aria-label', l.name + ' — landmark');
+    const ariaParts = [];
+    if (scrap) ariaParts.push('Scrap: ' + scrapNames);
+    if (creatures) ariaParts.push('Nearby spawns: ' + creatureNames);
+    el.setAttribute('aria-label', l.name + ' — landmark' + (ariaParts.length ? '. ' + ariaParts.join('. ') : ''));
     const label = document.createElement('span');
     label.className = 'wm-pin-label';
-    label.textContent = l.name;
+    label.textContent = hasExtra ? l.name + ' — ' + tooltipParts.join(' · ') : l.name;
     el.appendChild(label);
     canvas.appendChild(el);
     items.push({ kind: 'landmark', title: l.name, sub: 'Landmark', x: l.x, y: l.y, el: el });
+
+    if (creatures) {
+      creatures.forEach(function (c) {
+        items.push({ kind: 'creature', title: c.name, sub: 'Spawns at ' + l.name, x: l.x, y: l.y, el: el });
+      });
+    }
+    if (scrap) {
+      scrap.forEach(function (s) {
+        items.push({ kind: 'scrap', title: s.name, sub: 'Scrap farm at ' + l.name, x: l.x, y: l.y, el: el });
+      });
+    }
   });
 
   function jumpTo(item) {
@@ -269,6 +389,43 @@ const WM_LANDMARKS = [
     item.el.classList.add('wm-pin--jumped');
     item.el.focus({ preventScroll: true });
   }
+
+  let dragActive = false, dragMoved = false, dragStartX = 0, dragStartY = 0, dragScrollLeft = 0, dragScrollTop = 0;
+
+  function suppressClickAfterDrag(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    viewport.removeEventListener('click', suppressClickAfterDrag, true);
+  }
+
+  viewport.addEventListener('mousedown', function (e) {
+    if (e.button !== 0) return;
+    dragActive = true;
+    dragMoved = false;
+    dragStartX = e.pageX;
+    dragStartY = e.pageY;
+    dragScrollLeft = viewport.scrollLeft;
+    dragScrollTop = viewport.scrollTop;
+    viewport.classList.add('wm-dragging');
+  });
+
+  window.addEventListener('mousemove', function (e) {
+    if (!dragActive) return;
+    const dx = e.pageX - dragStartX, dy = e.pageY - dragStartY;
+    if (!dragMoved && (Math.abs(dx) > 3 || Math.abs(dy) > 3)) dragMoved = true;
+    if (dragMoved) {
+      e.preventDefault();
+      viewport.scrollLeft = dragScrollLeft - dx;
+      viewport.scrollTop = dragScrollTop - dy;
+    }
+  });
+
+  window.addEventListener('mouseup', function () {
+    if (!dragActive) return;
+    dragActive = false;
+    viewport.classList.remove('wm-dragging');
+    if (dragMoved) viewport.addEventListener('click', suppressClickAfterDrag, true);
+  });
 
   const searchEl = document.getElementById('wm-search');
   const resultsEl = document.getElementById('wm-results');
@@ -290,7 +447,7 @@ const WM_LANDMARKS = [
       const btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'wm-result';
-      btn.textContent = it.title + (it.kind === 'dig' ? ' (' + it.sub + ')' : '');
+      btn.textContent = it.title + (it.kind !== 'landmark' ? ' (' + it.sub + ')' : '');
       btn.addEventListener('click', function () { jumpTo(it); });
       resultsEl.appendChild(btn);
     });
