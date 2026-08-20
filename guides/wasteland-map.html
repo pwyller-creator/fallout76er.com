@@ -336,7 +336,7 @@ const WM_SCRAP_BY_LANDMARK = {
     label.textContent = d.title;
     el.appendChild(label);
     canvas.appendChild(el);
-    items.push({ kind: 'dig', title: d.title, sub: d.region, x: d.x, y: d.y, el: el });
+    items.push({ kind: 'dig', title: d.title, sub: d.region, x: d.x, y: d.y, el: el, search: (d.title + ' ' + d.region + ' ' + d.href).toLowerCase() });
   });
 
   WM_LANDMARKS.forEach(function (l, i) {
@@ -362,16 +362,16 @@ const WM_SCRAP_BY_LANDMARK = {
     label.textContent = hasExtra ? l.name + ' — ' + tooltipParts.join(' · ') : l.name;
     el.appendChild(label);
     canvas.appendChild(el);
-    items.push({ kind: 'landmark', title: l.name, sub: 'Landmark', x: l.x, y: l.y, el: el });
+    items.push({ kind: 'landmark', title: l.name, sub: 'Landmark', x: l.x, y: l.y, el: el, search: l.name.toLowerCase() });
 
     if (creatures) {
       creatures.forEach(function (c) {
-        items.push({ kind: 'creature', title: c.name, sub: 'Spawns at ' + l.name, x: l.x, y: l.y, el: el });
+        items.push({ kind: 'creature', title: c.name, sub: 'Spawns at ' + l.name, x: l.x, y: l.y, el: el, search: (c.name + ' ' + l.name).toLowerCase() });
       });
     }
     if (scrap) {
       scrap.forEach(function (s) {
-        items.push({ kind: 'scrap', title: s.name, sub: 'Scrap farm at ' + l.name, x: l.x, y: l.y, el: el });
+        items.push({ kind: 'scrap', title: s.name, sub: 'Scrap farm at ' + l.name, x: l.x, y: l.y, el: el, search: (s.name + ' ' + l.name).toLowerCase() });
       });
     }
   });
@@ -434,7 +434,7 @@ const WM_SCRAP_BY_LANDMARK = {
     const q = searchEl.value.trim().toLowerCase();
     resultsEl.innerHTML = '';
     if (!q) { resultsEl.classList.remove('wm-open'); return; }
-    const matches = items.filter(function (it) { return it.title.toLowerCase().indexOf(q) !== -1; }).slice(0, 24);
+    const matches = items.filter(function (it) { return it.search.indexOf(q) !== -1; }).slice(0, 24);
     resultsEl.classList.add('wm-open');
     if (!matches.length) {
       const empty = document.createElement('div');
