@@ -201,6 +201,7 @@ const WM_DIGSITES = [
 ]; // Keep in sync with TM_DATA in index.html — add an entry whenever build_guides.js runs for a new documented map
 
 const WM_LANDMARKS = [
+  { name: 'Aaronholt Homestead', x: 28.46, y: 9.06 },
   { name: 'Point Pleasant', x: 19.3, y: 32.16 },
   { name: 'Camden Park', x: 19.39, y: 66.34 },
   { name: 'Charleston Station', x: 30.28, y: 57.51 },
@@ -254,6 +255,7 @@ const WM_LANDMARKS = [
 // (a same-coordinate pin would just stack on the landmark marker). Only exact/near-exact
 // name matches included; keep in sync if spawn-data.js location names change.
 const WM_CREATURES_BY_LANDMARK = {
+  'Aaronholt Homestead': [ { name: 'Mongrel', href: '/creatures/mongrel.html' }, { name: 'Bloatfly', href: '/creatures/bloatfly.html' }, { name: 'Bloodbug', href: '/creatures/bloodbug.html' } ],
   'Point Pleasant': [ { name: 'Mothman', href: '/creatures/mothman.html' }, { name: 'Cultist', href: '/creatures/cultist.html' } ],
   'Camden Park': [ { name: 'Glowing One', href: '/creatures/glowing-one.html' } ],
   'New River Gorge Resort': [ { name: 'Bloodbug', href: '/creatures/bloodbug.html' } ],

@@ -65,7 +65,7 @@ const SPAWN_DATA = {
     { name: 'Flooded Trainyard',            region: 'Cranberry Bog',   count: 'Up to 7 Snallygasters', note: 'Overkill for a daily, ideal for weekly. Clear the whole yard in one go.', map: 'FloodedTrainyard.webp' },
   ],
   'Floater': [
-    { name: 'Lake Eloise',                  region: 'Cranberry Bog',   count: 'Up to 6',      note: 'South of Spruce Knob Campground, east of Vault 96. Six around the lake and the small campground in mixed Gnasher, Freezer, and Flamer variants. Watch for antennas poking out of the dirt — that is a buried Floater waiting to ambush.', map: 'LakeEloise.webp' },
+    { name: 'Lake Eloise',                  region: 'Savage Divide',   count: 'Up to 6',      note: 'South of Spruce Knob Campground, east of Vault 96. Six around the lake and the small campground in mixed Gnasher, Freezer, and Flamer variants. Watch for antennas poking out of the dirt — that is a buried Floater waiting to ambush.', map: 'LakeEloise.webp' },
     { name: 'Big Maw',                       region: 'Savage Divide',   count: 'Up to 6',      note: 'The crater rim hosts a reliable cluster, often alongside the Super Mutants who keep Floaters as pets. Open ground makes them easy to spot once they surface.', map: 'BigMaw.webp' },
     { name: "Solomon's Pond",                region: 'Savage Divide',   count: 'Up to 5',      note: 'Directly east of Whitespring Resort — a free fast-travel hop away. Five around the water. Server-hop here for fast daily clears.', map: 'SolomonsPond.webp' },
   ],
