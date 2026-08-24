@@ -1,0 +1,81 @@
+# Fallout76er's Wasteland Archive
+
+> A field-documented Fallout 76 archive written in-character as sardonic survivor field notes: creature spawn-location intel, treasure-map dig-site walkthroughs, weekly nuke codes, a plans-exchange trading depot, and a photo archive. In-game identity: level 491 character "Fallout76er," vendor camp "Rusty Curios & Rares" in Burning Springs, Appalachia.
+
+## Core Pages
+- [Wasteland Archive Homepage](https://fallout76er.com/): Photo archive, weekly nuke codes, Minerva tracker, scrap-farming data, Pip-Boy calculators (Gold Bullion Planner, Legendary Scrap Odds, Damage Stacker), and the plans-exchange trading depot.
+- [Interactive Wasteland Map](https://fallout76er.com/guides/wasteland-map.html): Clickable full map of Appalachia with dig-site, landmark, and scrap-farm pins.
+- [S.C.O.R.E. Challenge FAQ](https://fallout76er.com/guides/score-challenge-faq.html): Field-verified answers to which creatures and items count toward S.C.O.R.E. challenges, plus known bugs and fast-farm routes.
+- [Wastelander Diary](https://fallout76er.substack.com): Substack field-journal dispatches.
+
+## Creature Spawn Intel
+- [Creature Spawn Intel Hub](https://fallout76er.com/creatures/): Every documented creature spawn-location guide in Fallout 76 (52 creatures).
+- [Angler](https://fallout76er.com/creatures/angler.html): 3 field-verified spawn locations across The Mire and Cranberry Bog.
+- [Assaultron](https://fallout76er.com/creatures/assaultron.html): 3 field-verified spawn locations across Cranberry Bog, Toxic Valley, and Savage Divide.
+- [Behemoth](https://fallout76er.com/creatures/behemoth.html): 3 field-verified spawn locations across Savage Divide and Cranberry Bog.
+- [Bloatfly](https://fallout76er.com/creatures/bloatfly.html): 3 field-verified spawn locations across The Forest and The Mire.
+- [Blood Eagle](https://fallout76er.com/creatures/blood-eagle.html): 3 field-verified spawn locations across Ash Heap.
+- [Bloodbug](https://fallout76er.com/creatures/bloodbug.html): 3 field-verified spawn locations across The Forest and Toxic Valley.
+- [Blue Devil](https://fallout76er.com/creatures/blue-devil.html): 3 field-verified spawn locations across Savage Divide and The Forest.
+- [Brahmin](https://fallout76er.com/creatures/brahmin.html): 3 field-verified spawn locations across The Forest, Ash Heap, and Savage Divide.
+- [Cave Cricket](https://fallout76er.com/creatures/cave-cricket.html): 3 field-verified spawn locations across Savage Divide, The Mire, and Cranberry Bog.
+- [Critters (Small Game)](https://fallout76er.com/creatures/critters-small-game.html): 3 field-verified spawn locations across The Forest, Savage Divide, and The Mire.
+- [Cryptid (Any)](https://fallout76er.com/creatures/cryptid-any.html): 3 field-verified spawn locations across Savage Divide, The Mire, and Cranberry Bog.
+- [Cultist](https://fallout76er.com/creatures/cultist.html): 3 field-verified spawn locations across The Forest, Savage Divide, and Toxic Valley.
+- [Deathclaw](https://fallout76er.com/creatures/deathclaw.html): 3 field-verified spawn locations across The Forest, Cranberry Bog, and The Mire.
+- [Earle Williams](https://fallout76er.com/creatures/earle-williams.html): 2 field-verified spawn locations across Savage Divide and Cranberry Bog.
+- [Feral Ghoul](https://fallout76er.com/creatures/feral-ghoul.html): 3 field-verified spawn locations across Cranberry Bog, The Forest, and Toxic Valley.
+- [Flatwoods Monster](https://fallout76er.com/creatures/flatwoods-monster.html): 3 field-verified spawn locations across Events, The Mire, and The Forest.
+- [Floater](https://fallout76er.com/creatures/floater.html): 3 field-verified spawn locations across Savage Divide and The Mire.
+- [Fog Crawler](https://fallout76er.com/creatures/fog-crawler.html): 3 field-verified spawn locations across Toxic Valley and The Mire.
+- [Glowing One](https://fallout76er.com/creatures/glowing-one.html): 3 field-verified spawn locations across Savage Divide and Ash Heap.
+- [Grafton Monster](https://fallout76er.com/creatures/grafton-monster.html): 3 field-verified spawn locations across The Forest and Toxic Valley.
+- [Gulper](https://fallout76er.com/creatures/gulper.html): 3 field-verified spawn locations across The Mire.
+- [Hermit Crab](https://fallout76er.com/creatures/hermit-crab.html): 3 field-verified spawn locations across The Mire and Cranberry Bog.
+- [Honey Beast](https://fallout76er.com/creatures/honey-beast.html): 3 field-verified spawn locations across Savage Divide and The Mire.
+- [Jersey Devil](https://fallout76er.com/creatures/jersey-devil.html): 3 field-verified spawn locations across Atlantic City.
+- [Lost](https://fallout76er.com/creatures/lost.html): 3 field-verified spawn locations across Skyline Valley.
+- [Mega Sloth](https://fallout76er.com/creatures/mega-sloth.html): 3 field-verified spawn locations across The Mire and Cranberry Bog.
+- [Mirelurk](https://fallout76er.com/creatures/mirelurk.html): 3 field-verified spawn locations across The Forest and The Mire.
+- [Mirelurk Queen](https://fallout76er.com/creatures/mirelurk-queen.html): 3 field-verified spawn locations across Cranberry Bog and Toxic Valley.
+- [Mister Gutsy](https://fallout76er.com/creatures/mister-gutsy.html): 3 field-verified spawn locations across The Forest, The Mire, and Savage Divide.
+- [Mole Miner](https://fallout76er.com/creatures/mole-miner.html): 3 field-verified spawn locations across Ash Heap and Savage Divide.
+- [Mole Rat](https://fallout76er.com/creatures/mole-rat.html): 3 field-verified spawn locations across The Forest and Ash Heap.
+- [Mongrel](https://fallout76er.com/creatures/mongrel.html): 3 field-verified spawn locations across Ash Heap, The Forest, and Savage Divide.
+- [Mothman](https://fallout76er.com/creatures/mothman.html): 3 field-verified spawn locations across The Forest and The Mire.
+- [Mutant Hound](https://fallout76er.com/creatures/mutant-hound.html): 3 field-verified spawn locations across Savage Divide and The Mire.
+- [Ogua](https://fallout76er.com/creatures/ogua.html): 3 field-verified spawn locations across Cranberry Bog, Skyline Valley, and Savage Divide.
+- [Radroach](https://fallout76er.com/creatures/radroach.html): 3 field-verified spawn locations across The Mire and The Forest.
+- [Radscorpion](https://fallout76er.com/creatures/radscorpion.html): 3 field-verified spawn locations across Toxic Valley, Burning Springs, and Skyline Valley.
+- [Radstag](https://fallout76er.com/creatures/radstag.html): 3 field-verified spawn locations across Savage Divide and The Forest.
+- [Radtoad](https://fallout76er.com/creatures/radtoad.html): 3 field-verified spawn locations across Savage Divide, Toxic Valley, and The Forest.
+- [Scorchbeast](https://fallout76er.com/creatures/scorchbeast.html): 3 field-verified spawn locations across Cranberry Bog.
+- [Scorchbeast Queen](https://fallout76er.com/creatures/scorchbeast-queen.html): 1 field-verified spawn location across Cranberry Bog.
+- [Scorched](https://fallout76er.com/creatures/scorched.html): 3 field-verified spawn locations across Savage Divide and The Forest.
+- [Sentry Bot](https://fallout76er.com/creatures/sentry-bot.html): 3 field-verified spawn locations across Savage Divide and The Mire.
+- [Sheepsquatch](https://fallout76er.com/creatures/sheepsquatch.html): 3 field-verified spawn locations across Skyline Valley, The Forest, and Ash Heap.
+- [Snallygaster](https://fallout76er.com/creatures/snallygaster.html): 3 field-verified spawn locations across Cranberry Bog, Savage Divide, and The Forest.
+- [Stingwing](https://fallout76er.com/creatures/stingwing.html): 3 field-verified spawn locations across Savage Divide, The Mire, and The Forest.
+- [Super Mutant](https://fallout76er.com/creatures/super-mutant.html): 3 field-verified spawn locations across Savage Divide and Toxic Valley.
+- [Tick](https://fallout76er.com/creatures/tick.html): 3 field-verified spawn locations across The Mire and The Forest.
+- [Ultracite Titan](https://fallout76er.com/creatures/ultracite-titan.html): 1 field-verified spawn location across Ash Heap.
+- [Wendigo](https://fallout76er.com/creatures/wendigo.html): 3 field-verified spawn locations across The Mire and Savage Divide.
+- [Wolf](https://fallout76er.com/creatures/wolf.html): 3 field-verified spawn locations across Savage Divide, Ash Heap, and The Forest.
+- [Yao Guai](https://fallout76er.com/creatures/yao-guai.html): 3 field-verified spawn locations across The Mire, Savage Divide, and Skyline Valley.
+
+## Treasure Map Guides
+- [Treasure Map Guides Hub](https://fallout76er.com/maps/): Every documented Fallout 76 treasure-map dig site, with video walkthroughs (11 guides).
+- [Forest Map 01 — The Mothman Stash](https://fallout76er.com/maps/forest-treasure-map-01.html): The Forest, Treasure Map 01. To get to the first treasure map of the Forest region, I fast travelled from my camp to the Vault 79 location. It's a free fast travel point…
+- [Toxic Valley Map 01 — The Becker Farm Hoard and Loot](https://fallout76er.com/maps/toxic-valley-treasure-map-01.html): Toxic Valley, Treasure Map 01. From wherever you are, fast travel to the Becker Farm. A close, free fast travel point is The Crater. Once you arrive at the farm, be…
+- [Toxic Valley Map 02 — Clarksburg Climb for Caps](https://fallout76er.com/maps/toxic-valley-treasure-map-02.html): Toxic Valley, Treasure Map 02. Hello, again! The second treasure map of the Toxic Valley is one of the easiest to find. Just fast-travel to Clarksburg, which is south of…
+- [Dead Boyscouts Tell No Tales](https://fallout76er.com/maps/toxic-valley-treasure-map-03.html): Toxic Valley, Treasure Map 03. Fast travel to the Pioneer Scout Camp on Grafton Lake — it's not the cheeriest merit-badge program the Boy Scouts of America ever ran, and…
+- [Toxic Valley Map 04 — Crater Overlook Cache](https://fallout76er.com/maps/toxic-valley-treasure-map-04.html): Toxic Valley, Treasure Map 04. I went hunting for the fourth treasure hoard hidden in the Toxic Valley — you have to be a special kind of crazy to go tramping through that…
+- [Ash Heap Map 01 — The AMS Culvert Cache](https://fallout76er.com/maps/ash-heap-treasure-map-01.html): Ash Heap, Treasure Map 01. To get to the first treasure map of the Ash Heap region, I fast travelled from my camp to the exterior of The Rusty Pick. Again, never…
+- [Ash Heap Map 02 — The Burning Claim](https://fallout76er.com/maps/ash-heap-treasure-map-02.html): Ash Heap, Treasure Map 02. To get to the second treasure map of the Ash Heap region, I fast travelled from my camp to the exterior of The Rusty Pick. It's a free fast…
+- [Savage Divide Map 06 — No Purification Gas!](https://fallout76er.com/maps/savage-divide-treasure-map-06.html): Savage Divide, Treasure Map 06. When you're looking for the Savage Divide Treasure Map #6, you need to fast travel to the Palace of the Winding Path. Said palace was…
+- [Mire Map 01 — Two Scarecrows and a Mound](https://fallout76er.com/maps/mire-treasure-map-01.html): The Mire, Treasure Map 01. To get to the first treasure map of the Mire region, I first fast travel to Fort Atlas, which is a free travel spot — a cap saved is more to…
+- [Mire Map 05 — The Bare Earth Crossing](https://fallout76er.com/maps/mire-treasure-map-05.html): The Mire, Treasure Map 05. From wherever you are, fast travel to Ella Ames' Bunker. From where it drops you, spin your view until you're facing east — you should see a…
+- [Cranberry Bog Map 01 — The Bridge Piling Stash](https://fallout76er.com/maps/cranberry-bog-treasure-map-01.html): Cranberry Bog, Treasure Map 01. To get to the first treasure map of the Cranberry Bog region, I fast travel from my camp to the Foundation free fast travel location —…
+
+## Optional
+- [GitHub Repository](https://github.com/pwyller-creator/fallout76er.com): Source code and authorship provenance.
