@@ -19,7 +19,7 @@ const path = require('path');
 const SITE   = 'https://fallout76er.com';
 const OGIMG  = SITE + '/newcamp.png';
 const TODAY  = new Date().toISOString().slice(0, 10);   // YYYY-MM-DD
-const CSSVER = '20260629';                               // bump when creatures.css changes
+const CSSVER = '20260824';                               // bump when creatures.css changes
 const FONTS  = 'https://fonts.googleapis.com/css2?family=Rye&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap';
 
 // ── Load SPAWN_DATA from the external data file ──────────────────────────
@@ -51,6 +51,29 @@ function listProse(items) {
   if (items.length === 1) return items[0];
   if (items.length === 2) return items[0] + ' and ' + items[1];
   return items.slice(0, -1).join(', ') + ', and ' + items[items.length - 1];
+}
+
+// ── FAQ (visible Q&A generated from real spawn data — backs the FAQPage schema) ──
+function faqFor(name, spawns, regions) {
+  const n = spawns.length;
+  const top = spawns[0];
+  const faqs = [
+    {
+      q: `Where does the ${name} spawn in Fallout 76?`,
+      a: `The ${name} has ${n} field-verified spawn ${n === 1 ? 'location' : 'locations'} in Fallout 76${regions.length === 1 ? ' (' + regions[0] + ')' : ', across ' + listProse(regions)}. The most reliable spot is ${top.name} in ${top.region}.`
+    },
+    {
+      q: `What's the best place to farm the ${name} in Fallout 76?`,
+      a: `${top.name} in ${top.region} (${top.count}). ${top.note}`
+    }
+  ];
+  if (n > 1) {
+    faqs.push({
+      q: `Are there other reliable ${name} spawn locations?`,
+      a: `Yes — ${listProse(spawns.slice(1).map(s => s.name))} ${n - 1 === 1 ? 'is' : 'are'} also documented spawn ${n - 1 === 1 ? 'location' : 'locations'} for the ${name}.`
+    });
+  }
+  return faqs;
 }
 
 // ── Per-page <head> ──────────────────────────────────────────────────────
@@ -146,6 +169,12 @@ function creaturePage(name, spawns, related, prev, next) {
     `<a class="pager prev" href="/creatures/${slug(prev)}.html" rel="prev">&larr; ${esc(prev)}</a>` +
     `<a class="pager next" href="/creatures/${slug(next)}.html" rel="next">${esc(next)} &rarr;</a>`;
 
+  const faqs = faqFor(name, spawns, regions);
+  const faqHtml = faqs.map(f => `      <details class="faq-item">
+        <summary class="faq-q">${esc(f.q)}</summary>
+        <div class="faq-a">${esc(f.a)}</div>
+      </details>`).join('\n');
+
   const jsonld = {
     "@context": "https://schema.org",
     "@graph": [
@@ -159,6 +188,14 @@ function creaturePage(name, spawns, related, prev, next) {
         "mainEntityOfPage": { "@type": "WebPage", "@id": canonical },
         "author": { "@type": "Organization", "name": "Fallout76er's Wasteland Archive", "url": SITE + "/" },
         "publisher": { "@type": "Organization", "name": "Fallout76er's Wasteland Archive", "url": SITE + "/" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a }
+        }))
       },
       {
         "@type": "BreadcrumbList",
@@ -186,6 +223,11 @@ ${chrome}
 
   <section class="locations" aria-label="${escAttr(name)} spawn locations">
 ${cards}
+  </section>
+
+  <section class="faq" aria-label="${escAttr(name)} frequently asked questions">
+    <h2 class="faq-h">Frequently Asked</h2>
+${faqHtml}
   </section>
 
   <section class="related" aria-label="Related intel">
@@ -338,6 +380,16 @@ main{max-width:880px; margin:0 auto}
 .loc-map{display:block; width:100%; max-width:440px; margin-top:14px; border:1px solid var(--pb-border); border-radius:3px; filter:sepia(0.12); transition:filter .15s}
 .loc-map:hover{filter:sepia(0)}
 .loc-map-pending{display:flex; align-items:center; justify-content:center; width:100%; max-width:440px; min-height:88px; margin-top:14px; border:1px dashed var(--pb-border); border-radius:3px; color:var(--pb-faint); font-size:11px; letter-spacing:3px; text-transform:uppercase}
+
+.faq{margin-top:40px}
+.faq-h{font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--pb-faint); margin-bottom:16px}
+.faq-item{border:1px solid var(--pb-border); border-radius:4px; background:var(--pb-panel);
+  margin-bottom:10px; box-shadow:inset 0 0 24px rgba(0,0,0,0.5)}
+.faq-q{cursor:pointer; padding:14px 18px; color:var(--pb-bright); font-weight:700; list-style:none}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q::before{content:'▸  '; color:var(--pb-faint)}
+.faq-item[open] .faq-q::before{content:'▾  '}
+.faq-item .faq-a{padding:0 18px 16px; color:var(--pb-dim)}
 
 .related{margin-top:48px; border-top:1px solid var(--pb-border); padding-top:26px}
 .related-h{font-size:13px; letter-spacing:3px; text-transform:uppercase; color:var(--pb-faint); margin-bottom:16px}
