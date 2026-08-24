@@ -68,6 +68,27 @@ const regionShort = (name) => name.replace(/^The /, '');
 const fileFor = (region, map) => `${region.id}-treasure-map-${map.num}.html`;
 const posterFor = (region, map) => map.img || region.img;
 
+// ── FAQ (visible Q&A built only from reliable fields + a verbatim excerpt of
+//    the author's own walkthrough text — never an inferred start point, so
+//    a bad extraction can't send anyone digging in the wrong spot) ──────────
+function faqFor(region, map, text) {
+  const threatMatch = /Threat:\s*([A-Za-z]+)/.exec(map.meta);
+  const threat = threatMatch ? threatMatch[1] : null;
+  const faqs = [
+    {
+      q: `How do I find the ${region.name} Treasure Map ${map.num} dig site in Fallout 76?`,
+      a: `${teaser(text)} Full step-by-step directions and the video walkthrough are on this page.`
+    }
+  ];
+  if (threat) {
+    faqs.push({
+      q: `How dangerous is the ${region.name} Treasure Map ${map.num} dig site?`,
+      a: `The Wasteland Archive rates the "${map.title}" dig site as ${threat} threat.`
+    });
+  }
+  return faqs;
+}
+
 // every documented map, flattened in TM_DATA order
 function documentedMaps(data) {
   const out = [];
@@ -157,6 +178,12 @@ function guidePage(region, map, allDocs) {
 <meta name="twitter:image" content="${SITE}/${poster}">
 `;
 
+  const faqs = faqFor(region, map, text);
+  const faqHtml = faqs.map(f => `      <details class="tmg-faq-item">
+        <summary class="tmg-faq-q">${f.q}</summary>
+        <div class="tmg-faq-a"><p>${f.a}</p></div>
+      </details>`).join('\n');
+
   const jsonld = {
     "@context": "https://schema.org",
     "@graph": [
@@ -173,6 +200,14 @@ function guidePage(region, map, allDocs) {
         "creator": { "@type": "Person", "name": "Fallout76er" },
         "publisher": { "@type": "Person", "name": "Fallout76er" },
         "about": `Fallout 76 ${region.name} treasure map dig site walkthrough`
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(f => ({
+          "@type": "Question",
+          "name": f.q,
+          "acceptedAnswer": { "@type": "Answer", "text": f.a }
+        }))
       },
       {
         "@type": "BreadcrumbList",
@@ -208,6 +243,11 @@ function guidePage(region, map, allDocs) {
   <article class="tmg-desc">
     ${map.desc}
   </article>
+
+  <section class="tmg-faq-section" aria-label="Dig site FAQ">
+    <h2 class="tmg-faq-section-h">Dig Site FAQ</h2>
+${faqHtml}
+  </section>
 
   <section class="tmg-related" aria-label="More dig sites">
     <h2 class="tmg-related-h">More Documented Dig Sites</h2>
