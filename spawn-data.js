@@ -66,7 +66,7 @@ const SPAWN_DATA = {
   ],
   'Floater': [
     { name: 'Lake Eloise',                  region: 'Savage Divide',   count: 'Up to 6',      note: 'South of Spruce Knob Campground, east of Vault 96. Six around the lake and the small campground in mixed Gnasher, Freezer, and Flamer variants. Watch for antennas poking out of the dirt — that is a buried Floater waiting to ambush.', map: 'LakeEloise.webp' },
-    { name: 'Big Maw',                       region: 'Savage Divide',   count: 'Up to 6',      note: 'The crater rim hosts a reliable cluster, often alongside the Super Mutants who keep Floaters as pets. Open ground makes them easy to spot once they surface.', map: 'BigMaw.webp' },
+    { name: 'Big Maw',                       region: 'The Mire',        count: 'Up to 6',      note: 'The crater rim hosts a reliable cluster, often alongside the Super Mutants who keep Floaters as pets. Open ground makes them easy to spot once they surface.', map: 'BigMaw.webp' },
     { name: "Solomon's Pond",                region: 'Savage Divide',   count: 'Up to 5',      note: 'Directly east of Whitespring Resort — a free fast-travel hop away. Five around the water. Server-hop here for fast daily clears.', map: 'SolomonsPond.webp' },
   ],
   'Gulper': [
@@ -120,7 +120,7 @@ const SPAWN_DATA = {
     { name: "Bleeding Kate's Grindhouse",    region: 'The Forest',      count: '2 to 3',       note: 'Nests cling to the drive-in movie screen. Watch the poison sting — it blurs your vision for a few seconds.', map: 'BleedingKatesGrindhouse.webp' },
   ],
   'Tick': [
-    { name: 'Big Maw',                       region: 'Savage Divide',   count: 'Several',      note: 'The crater hosts Ticks alongside Bloatflies and Stingwings — a mixed-insect grab bag good for the Kill Insects challenges.', map: 'BigMaw.webp' },
+    { name: 'Big Maw',                       region: 'The Mire',        count: 'Several',      note: 'The crater hosts Ticks alongside Bloatflies and Stingwings — a mixed-insect grab bag good for the Kill Insects challenges.', map: 'BigMaw.webp' },
     { name: 'Stings and Things (Daily)',     region: 'The Mire',        count: 'Quest spawn',  note: 'The daily insect quest from Dolly Sods Wilderness will sometimes task you with Ticks and spawn them on the path. The most directed way to find them.' },
     { name: 'Tea Time (Event)',              region: 'The Forest',      count: 'Event spawn',  note: 'Runs at The Giant Teapot and throws Ticks, Bloodbugs, and Ants. Ticks have no great fixed farm, so events and the insect daily are your best bet.' },
   ],
@@ -251,7 +251,7 @@ const SPAWN_DATA = {
   ],
   'Bloatfly': [
     { name: 'Aaronholt Homestead',           region: 'The Forest',      count: 'Reliable',      note: 'The all-purpose insect farm — Bloatflies and Bloodbugs in numbers, with Mongrels and Dogs for a bonus canine challenge.', map: 'AaronholtHomestead.webp' },
-    { name: 'Big Maw',                       region: 'Savage Divide',   count: 'Several',       note: 'Bloatflies share the crater with Ticks and Stingwings — a one-stop grab bag for the Kill Insects challenges.', map: 'BigMaw.webp' },
+    { name: 'Big Maw',                       region: 'The Mire',        count: 'Several',       note: 'Bloatflies share the crater with Ticks and Stingwings — a one-stop grab bag for the Kill Insects challenges.', map: 'BigMaw.webp' },
     { name: 'Honey Beast Dens',              region: 'The Mire',        count: 'Escort',        note: "Bloatflies almost always escort Honey Beasts, such as the cave northeast of Freddy Fear's. Slow gas-bags that burst on death — pop them at range." },
   ],
   'Critters (Small Game)': [
