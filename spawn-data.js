@@ -50,7 +50,7 @@ const SPAWN_DATA = {
     { name: 'KMAX Transmission',            region: 'The Mire',        count: '1–2',           note: 'Transmission tower with consistent Wendigo presence. Quieter than Abbie\'s — good fallback if that area is cleared.', map: 'KMAXTransmission.webp' },
   ],
   'Radstag': [
-    { name: 'Thomas Farm',                  region: 'Savage Divide',   count: '4–6',           note: 'East of Dent & Sons Construction, marked by the big barn. A busted Aerosolizer bleached this whole herd albino-white — the single most reliable Radstag farm on the map.' },
+    { name: 'Thomas Farm',                  region: 'Savage Divide',   count: '4–6',           note: 'East of Dent & Sons Construction, marked by the big barn. A busted Aerosolizer bleached this whole herd albino-white — the single most reliable Radstag farm on the map.', map: 'ThomasFarm.webp' },
     { name: 'Whitespring Golf Club',        region: 'Savage Divide',   count: '2–3',           note: 'A small herd grazes the fairways near the clubhouse. Easy add-on if you are already running the resort for gold or silver scrap.', map: 'WhitespringGolfClub.webp' },
     { name: 'Gauley Mine',                  region: 'The Forest',      count: '2',             note: 'Along the railroad tracks at the mine exit, southeast of Landview Lighthouse. Fast-travel straight to the landmark for a quick, low-effort clear.', map: 'GauleyMine.webp' },
   ],

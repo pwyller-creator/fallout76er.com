@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-08-17T12:00:00Z</updated>
+  <updated>2026-08-20T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>The Cure Was Worse Than the Disease</title>
+    <link href="https://fallout76er.com/#photo=AlbinoRadstag.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/AlbinoRadstag.webp" rel="enclosure" type="image/webp" length="310876"/>
+    <media:content url="https://fallout76er.com/AlbinoRadstag.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=AlbinoRadstag.webp</id>
+    <published>2026-08-20T12:00:00Z</published>
+    <updated>2026-08-20T12:00:00Z</updated>
+    <category term="Encounter"/>
+    <content type="html">&lt;img src="https://fallout76er.com/AlbinoRadstag.webp" alt="The Cure Was Worse Than the Disease"/&gt;&lt;p&gt;Rummaging around in the city, I came across an article in the Charleston Herald about albino radstag being sighted near a local farmstead--a guy named Bill Thomas. Turns out this dumb sod thought he'd cure his sick hound by dosing his crop aerosolizer with dog stims or some such nonsense. Didn't fix the damn dog, but it turned the whole nearby radstag herd feral and albino-white. Anyone who's met me will tell you I love a plate of seared venison with berries, especially before hitting the slots--call it superstition, but a gut full of radstag meat and berries just feels lucky. Finding Bill Thomas's farm was a chore in itself: fast-travel to Dent &amp;amp; Sons Construction in the Savage Divide, head east up the road until you spot a flatbed hauling a big yellow shovel tractor, turn south and hold the line between the road and the cliff, then cut east again until the farm's aerosolizer comes into view. Once you're in the yard, the herd finds you as often as you find it. I bagged six. Good hunting, fellow Wastelander.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SAVAGE DIVIDE · Threat: LOW · Field date 08.20.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Toxic Valley Map 04 — Crater Overlook Cache</title>
     <link href="https://fallout76er.com/maps/toxic-valley-treasure-map-04.html" rel="alternate" type="text/html"/>
@@ -307,16 +318,5 @@
     <updated>2026-05-03T12:00:00Z</updated>
     <category term="Player"/>
     <content type="html">&lt;img src="https://fallout76er.com/Mascots.webp" alt="The Cat's Paw Trade Route"/&gt;&lt;p&gt;I did not come to Camden Park planning to become Mr. Fuzzy. And yet. Here I am — full mascot head, pointing at a Trading Post sign like I am on the clock. Another survivor made the same life choices, which either validates my judgment or condemns us both equally. Mr. Fuzzy grins from the wall behind us. He knew. He always knew. Camden Park gets into your head — and then puts its head on yours.&lt;/p&gt;&lt;p&gt;&lt;em&gt;CAMDEN PARK — THE FOREST · Threat: LOW · Field date 05.03.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>A Snoozer at the Slumber Mill Motel</title>
-    <link href="https://fallout76er.com/#photo=Slumber_Mill_Motel_Marquee.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Slumber_Mill_Motel_Marquee.webp" rel="enclosure" type="image/webp" length="146982"/>
-    <media:content url="https://fallout76er.com/Slumber_Mill_Motel_Marquee.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Slumber_Mill_Motel_Marquee.webp</id>
-    <published>2026-05-02T12:00:00Z</published>
-    <updated>2026-05-02T12:00:00Z</updated>
-    <category term="Item"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Slumber_Mill_Motel_Marquee.webp" alt="A Snoozer at the Slumber Mill Motel"/&gt;&lt;p&gt;The Slumber Mill Motel is a roadside motel easily identified by its mascot: a giant, "slumbering" lumberjack statue leaning on an axe. He's not the only one sleeping - so is anyone else that reads Nash Hope's Set List. I was there looking for some Lost to kill.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SKYLINE VALLEY · Threat: NONE · Field date 05.02.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
