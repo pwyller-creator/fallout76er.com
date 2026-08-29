@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-08-20T12:00:00Z</updated>
+  <updated>2026-08-21T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Blood Eagle Mirelurk Fetish Revealed</title>
+    <link href="https://fallout76er.com/#photo=BloodEagleMirelurks.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/BloodEagleMirelurks.webp" rel="enclosure" type="image/webp" length="237886"/>
+    <media:content url="https://fallout76er.com/BloodEagleMirelurks.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=BloodEagleMirelurks.webp</id>
+    <published>2026-08-21T12:00:00Z</published>
+    <updated>2026-08-21T12:00:00Z</updated>
+    <category term="Location"/>
+    <content type="html">&lt;img src="https://fallout76er.com/BloodEagleMirelurks.webp" alt="Blood Eagle Mirelurk Fetish Revealed"/&gt;&lt;p&gt;I found this mysterious cave while wandering through the northeastern part of the Savage Divide. Now, normally I avoid caves like a feral ghoul avoids breathmints, but I hadn't found a good loot stash for a while. For me, greed and caution run in an inverse relationship--like sex appeal and fear of crazy. I never said I was a stable fellow, so make of that what you will. In any event, the cave was crazy, what with the suicidal Blood Eagles and secret keypad locked door leading god knows where. It was sexy too, if your kink is skewered mirelurk queen corpses and rotting mirelurk bits... But there was a bit of a real-world payoff. I scavenged 3 Combat Shotguns (one automatic), an Automatic Combat Rifle, a Marksman's Sniper Rifle, one Stealth Boy, a three-star Assassin's Botsmith Chest Piece, and a Short Laser Pistol. Plus the cave tunnels were full of brain and glowing fungus. Oh! There was one cap stash, but I cleaned that out. No mystery there, friends.&lt;/p&gt;&lt;p&gt;&lt;em&gt;MYSTERIOUS CAVE — SAVAGE DIVIDE · Threat: HIGH · Field date 08.21.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>The Cure Was Worse Than the Disease</title>
     <link href="https://fallout76er.com/#photo=AlbinoRadstag.webp" rel="alternate" type="text/html"/>
@@ -307,16 +318,5 @@
     <updated>2026-05-03T12:00:00Z</updated>
     <category term="Location"/>
     <content type="html">&lt;img src="https://fallout76er.com/CamdenPark.webp" alt="You Are Here — Probably Shouldn't Be"/&gt;&lt;p&gt;I came to Camden Park to hunt Spooky Scorched. I left wearing a giant Mr. Fuzzy mask. Somewhere between the Dross Toss and my fourth hot dog, things took a turn. This naked mannequin studying the park map was the last normal thing I saw. The abandoned wheelchair by the ticket booth should have been a warning. The Widow Maker coaster looming overhead definitely should have been a warning. I have no one to blame but myself and whoever thought a hot dog eating contest was a reasonable activity in a nuclear wasteland.&lt;/p&gt;&lt;p&gt;&lt;em&gt;CAMDEN PARK — THE FOREST · Threat: MEDIUM · Field date 05.03.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>The Cat's Paw Trade Route</title>
-    <link href="https://fallout76er.com/#photo=Mascots.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Mascots.webp" rel="enclosure" type="image/webp" length="214372"/>
-    <media:content url="https://fallout76er.com/Mascots.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Mascots.webp</id>
-    <published>2026-05-03T12:00:00Z</published>
-    <updated>2026-05-03T12:00:00Z</updated>
-    <category term="Player"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Mascots.webp" alt="The Cat's Paw Trade Route"/&gt;&lt;p&gt;I did not come to Camden Park planning to become Mr. Fuzzy. And yet. Here I am — full mascot head, pointing at a Trading Post sign like I am on the clock. Another survivor made the same life choices, which either validates my judgment or condemns us both equally. Mr. Fuzzy grins from the wall behind us. He knew. He always knew. Camden Park gets into your head — and then puts its head on yours.&lt;/p&gt;&lt;p&gt;&lt;em&gt;CAMDEN PARK — THE FOREST · Threat: LOW · Field date 05.03.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
