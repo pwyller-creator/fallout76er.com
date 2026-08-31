@@ -5046,7 +5046,7 @@ function evRunBoot() {
     if (finished) return;
     if (li >= lines.length) {
       out.innerHTML = buf + '<span class="cur">_</span>';
-      setTimeout(finish, 2000);
+      setTimeout(finish, 1700);
       return;
     }
     const line = lines[li];
@@ -5054,11 +5054,11 @@ function evRunBoot() {
       buf = lines.slice(0, li).join('\n') + (li ? '\n' : '') + line.slice(0, ci);
       out.innerHTML = buf + '<span class="cur">▊</span>';
       ci++;
-      setTimeout(type, 42);
+      setTimeout(type, 36);
     } else {
       buf = lines.slice(0, li + 1).join('\n') + '\n';
       li++; ci = 0;
-      setTimeout(type, 480);
+      setTimeout(type, 408);
     }
   })();
 }
