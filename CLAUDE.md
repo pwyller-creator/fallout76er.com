@@ -64,11 +64,13 @@ Shape:
   tag: 'Location',        // Location | Encounter | NPC | Player | Item | Camp
   threat: 'MEDIUM',       // NONE | LOW | MEDIUM | HIGH | EXTREME
   region: 'REGION NAME',  // a sub-region or named place after a dash is fine
+  alt: 'Literal visual description — REGION NAME',  // image-SEO/accessibility alt text; see fo76-photo-entry skill
   desc: 'Atmospheric in-world field note.'
 }
 ```
 - Images are `.webp` throughout (favicon / apple-touch icons stay `.png`).
 - `bioOnly: true` flags a bio image so it's excluded from the main archive grid.
+- Every non-`bioOnly` entry also needs a 640px-wide grid thumbnail at `thumbs/<file>` (same filename) — the grid template loads from `thumbs/`, not the full-res file, so a missing thumbnail 404s silently in the grid. Generate via `node .claude/generate-thumb.js <file> --force` after watermarking; ship both files together. See fo76-photo-entry skill for the full pipeline.
 - Month tabs build dynamically from photo dates; tag filter buttons are hardcoded in the filter bar.
 - New entry from a screenshot: infer region / threat / tag from the visuals, write `desc` as a survivor's field note. Pwyller makes all final copy calls and often rewrites drafts substantially.
 
