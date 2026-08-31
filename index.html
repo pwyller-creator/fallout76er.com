@@ -635,18 +635,28 @@
   .threat-NONE    { color: #1a7a1a; }
 
   .audio-persist-container {
-    position: fixed; 
-    top: 20px; 
-    right: 20px; 
-    background: rgba(0,0,0,0.8); 
-    padding: 12px; 
-    border-radius: 8px; 
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.8);
+    padding: 12px;
+    border-radius: 8px;
     z-index: 99999;
     isolation: isolate;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
     border: 1px solid var(--rust);
     box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    opacity: 0.45;
+    transition: opacity 0.25s ease;
+  }
+
+  /* Fades to a low-key presence while idle so it stops competing with body
+     copy it scrolls over; full opacity on hover/focus so it's never a fight
+     to see or use when the visitor actually wants it. */
+  .audio-persist-container:hover,
+  .audio-persist-container:focus-within {
+    opacity: 1;
   }
 
   /* Reserve the fixed audio player's corner so header nav buttons never slide under it */
@@ -3931,7 +3941,7 @@ function updateHash() {
   const st = history.state;
   if (st && st.view === 'entry') return;                  // keep the entry URL clean
   const cur = (st && st.view) ? st : { view: 'archive' };
-  history.replaceState(cur, '', stateUrl({ view: 'archive' }));
+  history.replaceState(cur, '', stateUrl(cur));
 }
 
 function readHash() {
