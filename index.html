@@ -2154,9 +2154,9 @@
 
   <!-- Section nav — routes into the SPA views -->
   <nav class="ev-nav" aria-label="Choose a section">
-    <a href="javascript:void(0)" onclick="entryGoTo('archive')"><span class="ico">📷</span> Photo Archive</a>
-    <a href="javascript:void(0)" onclick="entryGoTo('diary')"><span class="ico">⚔</span> About Me &amp; Build</a>
-    <a href="javascript:void(0)" onclick="entryGoTo('resources')"><span class="ico">☢</span> Game Resources</a>
+    <a href="#section=archive" onclick="entryGoTo('archive'); return false;"><span class="ico">📷</span> Photo Archive</a>
+    <a href="#section=diary" onclick="entryGoTo('diary'); return false;"><span class="ico">⚔</span> About Me &amp; Build</a>
+    <a href="#section=resources" onclick="entryGoTo('resources'); return false;"><span class="ico">☢</span> Game Resources</a>
   </nav>
 
   <div class="ev-hint" id="ev-hint">— choose a section to enter —</div>
@@ -2167,12 +2167,12 @@
   <div style="flex:1; min-width:0;">
     <h1 class="site-heading">Fallout76er's <span>Wasteland Archive</span></h1>
     <nav style="margin-top:8px; display:flex; gap:6px; flex-wrap:wrap;">
-      <a class="diary-link" href="javascript:void(0)" onclick="showEntryScreen()" style="font-size:12px; padding:4px 12px; opacity:0.75;" title="Return to journal home">&#128218; Journal Home</a>
-      <a class="diary-link" href="javascript:void(0)" id="archive-link-btn" onclick="showGrid()">&#128247; Photo Archive</a>
-      <a class="diary-link" href="javascript:void(0)" id="diary-link-btn" onclick="showBio()">&#128213; About Me &amp; Build</a>
-      <a class="diary-link" href="javascript:void(0)" id="resources-link-btn" onclick="showResources()">&#9762; Game Resources</a>
-      <a class="diary-link" href="javascript:void(0)" onclick="scrollToDiary()" title="Latest from the Wastelander Diary">&#128293; Diary</a>
-      <a class="diary-link spotlight-nav-badge" href="javascript:void(0)" onclick="scrollToSpotlight()">&#9733; Camp Spotlight</a>
+      <a class="diary-link" href="/" onclick="showEntryScreen(); return false;" style="font-size:12px; padding:4px 12px; opacity:0.75;" title="Return to journal home">&#128218; Journal Home</a>
+      <a class="diary-link" href="#section=archive" id="archive-link-btn" onclick="showGrid(); return false;">&#128247; Photo Archive</a>
+      <a class="diary-link" href="#section=diary" id="diary-link-btn" onclick="showBio(); return false;">&#128213; About Me &amp; Build</a>
+      <a class="diary-link" href="#section=resources" id="resources-link-btn" onclick="showResources(); return false;">&#9762; Game Resources</a>
+      <a class="diary-link" href="#diary-dispatches" onclick="scrollToDiary(); return false;" title="Latest from the Wastelander Diary">&#128293; Diary</a>
+      <a class="diary-link spotlight-nav-badge" href="#camp-spotlight" onclick="scrollToSpotlight(); return false;">&#9733; Camp Spotlight</a>
     </nav>
   </div>
 </header>
