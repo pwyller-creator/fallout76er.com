@@ -3967,7 +3967,7 @@ function buildGrid(data) {
     const delay = Math.min(index * 55, 600);
     card.style.setProperty('--card-delay', `${delay}ms`);
     card.style.setProperty('--card-tilt', `${tilt}deg`);
-    card.innerHTML = `<img src="${p.file}" loading="lazy" alt="${p.alt}"><div class="card-title-overlay">${p.title}</div>`;
+    card.innerHTML = `<img src="thumbs/${p.file}" loading="lazy" alt="${p.alt}"><div class="card-title-overlay">${p.title}</div>`;
     card.onclick = () => {
       currentPhotoIndex = index;
       detailBackTarget = 'grid';
@@ -6513,6 +6513,17 @@ function scrollToDiary() {
     'floating-chat.donateButton.background-color': '#7a3010',
     'floating-chat.donateButton.text-color': '#f0e6d0'
   });
+  (function() {
+    var attempts = 0;
+    var kofiTitleInterval = setInterval(function() {
+      attempts++;
+      var frames = document.querySelectorAll('iframe[id^="kofi-wo-container"]');
+      if (frames.length) {
+        frames.forEach(function(frame) { frame.title = 'Support Fallout76er on Ko-fi'; });
+      }
+      if (attempts >= 40) clearInterval(kofiTitleInterval); // give up after ~10s
+    }, 250);
+  })();
 </script>
 <div id="landscape-hint">
   <div id="landscape-hint-icon">&#8635;</div>
