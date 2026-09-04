@@ -659,6 +659,9 @@
     opacity: 1;
   }
 
+  /* Collapse-to-icon toggle only exists on mobile (see max-width:768px below) */
+  .audio-toggle-btn { display: none; }
+
   /* Reserve the fixed audio player's corner so header nav buttons never slide under it */
   @media (min-width: 769px) {
     header { padding-right: 290px; }
@@ -686,7 +689,10 @@
       align-items: center;
     }
 
-    /* Audio player — move to bottom, cap width so it never overflows narrow phones */
+    /* Audio player — move to bottom, cap width so it never overflows narrow
+       phones, and default to a collapsed icon-only pill (tap to reveal the
+       full player) so it doesn't sit on top of scrolled widget/page content
+       underneath it while idle. */
     .audio-persist-container {
       top: auto !important;
       bottom: 12px !important;
@@ -694,7 +700,28 @@
       left: auto !important;
       width: auto !important;
       max-width: calc(100vw - 20px);
+      padding: 0;
+      border-radius: 50%;
     }
+    .audio-persist-container.audio-expanded {
+      padding: 12px;
+      border-radius: 8px;
+    }
+    .audio-toggle-btn {
+      display: flex;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--rust, #c47a1e);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .audio-persist-container.audio-expanded .audio-toggle-btn { display: none; }
+    .audio-persist-container:not(.audio-expanded) p,
+    .audio-persist-container:not(.audio-expanded) #bg-audio { display: none; }
     #bg-audio { width: 100%; }
 
     /* Filter bar — 44px min tap targets on buttons */
@@ -3037,7 +3064,8 @@
   </div><!-- end pb-frame -->
 </div><!-- end resources-view -->
 
-<div class="audio-persist-container">
+<div class="audio-persist-container" id="audio-widget">
+  <button type="button" class="audio-toggle-btn" id="audio-toggle-btn" aria-expanded="false" aria-controls="bg-audio" aria-label="Show music player">&#9834;</button>
   <p style="font-family: 'Courier Prime'; font-size: 10px; color: var(--paper); margin-bottom: 8px; letter-spacing: 1px;">Old Timey Music</p>
   <audio id="bg-audio" controls preload="none" style="height: 30px; width: 220px;">
     <source src="Wasteland_Wonderings.mp3" type="audio/mpeg">
@@ -3052,6 +3080,15 @@ const playlist = ['Wasteland_Wonderings.mp3', 'Wasteland_Wonderings_2.mp3', 'Was
     trackIndex = (trackIndex + 1) % playlist.length;
     audio.src = playlist[trackIndex];
     audio.play();
+  });
+
+  // Mobile: starts collapsed to a small icon so it doesn't sit on top of
+  // scrolled content underneath; tap toggles the full player open/closed.
+  const widget = document.getElementById('audio-widget');
+  const toggleBtn = document.getElementById('audio-toggle-btn');
+  toggleBtn.addEventListener('click', () => {
+    const expanded = widget.classList.toggle('audio-expanded');
+    toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
   });
 })();
 </script>
