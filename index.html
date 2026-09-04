@@ -745,47 +745,6 @@
     .bio-body { padding: 24px 14px 40px 14px; }
     .bio-nav  { padding-left: 14px; padding-right: 14px; }
     .bio-stamp { display: none; }
-
-    /* Pipboy — horizontal scrolling tab row instead of wrapping */
-    .pb-frame { padding: 10px 10px 60px; }
-    .pb-topbar { display: none; }
-    .pb-layout { grid-template-columns: 1fr; min-height: auto; }
-    .pb-menu {
-      display: flex; flex-direction: row; flex-wrap: nowrap;
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      border-right: none;
-      border-bottom: 1px solid var(--pb-border);
-      padding: 4px 0;
-    }
-    .pb-menu-heading { display: none; }
-    .pb-menu-item {
-      padding: 10px 10px;
-      font-size: 11px;
-      border-left: none;
-      border-bottom: 2px solid transparent;
-      display: inline-block;
-      width: auto;
-      flex-shrink: 0;
-      min-height: 44px;
-      white-space: nowrap;
-    }
-    .pb-menu-item.pb-active {
-      border-left: none;
-      border-bottom-color: var(--pb-bright);
-    }
-    .pb-menu-item.pb-active::before { display: none; }
-    .pb-display { padding: 14px 12px; }
-    .pb-nuke-code { font-size: 20px; letter-spacing: 3px; }
-    .pb-minerva-location { font-size: 22px; }
-    .pb-bp-form { grid-template-columns: 1fr; }
-    .pb-bp-result-main { font-size: 24px; }
-    .pb-clock-grid { grid-template-columns: 1fr; }
-    .pb-clock-cell.pb-clock-full { grid-column: 1; }
-    .pb-clock-value { font-size: 22px; }
-    .pb-spawn-layout { grid-template-columns: 1fr; }
-    .pb-spawn-menu { border-right: none; border-bottom: 1px solid var(--pb-faint); }
-    .pb-spawn-detail { grid-template-columns: 1fr; }
-    .pb-statusbar { flex-direction: column; gap: 3px; }
   }
 
   /* Landscape phones: right-pad header so audio widget doesn't overlap */
@@ -1896,6 +1855,56 @@
     letter-spacing: 2px;
     color: var(--pb-dim);
     text-transform: uppercase;
+  }
+
+  /* ── Mobile: two-pane widget collapses into a horizontal-scrolling
+     tab row + full-width display pane. Deliberately placed after every
+     unconditional .pb-* rule above — a duplicate of these overrides used
+     to live inside the earlier (max-width:768px) block near the top of
+     this stylesheet, but same-specificity rules defined later in source
+     order win regardless of the media query, so it was silently losing
+     to the desktop two-column grid on real mobile widths (nuke codes
+     clipped off-screen, nav column reduced to its unreadable min-width). ── */
+  @media (max-width: 768px) {
+    .pb-frame { padding: 10px 10px 60px; }
+    .pb-topbar { display: none; }
+    .pb-layout { grid-template-columns: 1fr; min-height: auto; }
+    .pb-menu {
+      display: flex; flex-direction: row; flex-wrap: nowrap;
+      overflow-x: auto; -webkit-overflow-scrolling: touch;
+      border-right: none;
+      border-bottom: 1px solid var(--pb-border);
+      padding: 4px 0;
+    }
+    .pb-menu-heading { display: none; }
+    .pb-menu-item {
+      padding: 10px 10px;
+      font-size: 11px;
+      border-left: none;
+      border-bottom: 2px solid transparent;
+      display: inline-block;
+      width: auto;
+      flex-shrink: 0;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+    .pb-menu-item.pb-active {
+      border-left: none;
+      border-bottom-color: var(--pb-bright);
+    }
+    .pb-menu-item.pb-active::before { display: none; }
+    .pb-display { padding: 14px 12px; }
+    .pb-nuke-code { font-size: 20px; letter-spacing: 3px; }
+    .pb-minerva-location { font-size: 22px; }
+    .pb-bp-form { grid-template-columns: 1fr; }
+    .pb-bp-result-main { font-size: 24px; }
+    .pb-clock-grid { grid-template-columns: 1fr; }
+    .pb-clock-cell.pb-clock-full { grid-column: 1; }
+    .pb-clock-value { font-size: 22px; }
+    .pb-spawn-layout { grid-template-columns: 1fr; }
+    .pb-spawn-menu { border-right: none; border-bottom: 1px solid var(--pb-faint); }
+    .pb-spawn-detail { grid-template-columns: 1fr; }
+    .pb-statusbar { flex-direction: column; gap: 3px; }
   }
 
   /* ── SEO hidden text ── */
