@@ -2205,7 +2205,7 @@
     <a href="#section=resources" onclick="entryGoTo('resources'); return false;"><span class="ico">☢</span> Game Resources</a>
   </nav>
 
-  <div class="ev-hint" id="ev-hint">— choose a section to enter —</div>
+  <div class="ev-hint" id="ev-hint">— choose a section, or scroll down —</div>
 </div>
 <!-- ── end entry screen ── -->
 
@@ -5320,6 +5320,29 @@ function showEntryScreen(skipBoot) {
   }
   pushView('entry');
 }
+
+// The entry hero is a fixed, non-scrolling overlay (see body.entry-locked),
+// so a visitor's first instinct — scroll down — used to do nothing at all.
+// Treat a downward wheel/trackpad scroll the same as clicking "Photo
+// Archive": it's the default section and the one most visitors want.
+// Gated on ev-booting the same way the nav links are (pointer-events:none
+// during the boot-terminal typing animation) so scroll and click behave
+// consistently. Touch devices are untouched — the mobile entry screen
+// already works fine with taps.
+(function initEntryScroll() {
+  const ev = document.getElementById('entry-view');
+  if (!ev) return;
+  let dismissed = false;
+  ev.addEventListener('wheel', function(e) {
+    if (dismissed) return;
+    if (!document.body.classList.contains('entry-locked')) return;
+    if (document.body.classList.contains('ev-booting')) return;
+    if (e.deltaY > 0) {
+      dismissed = true;
+      entryGoTo('archive');
+    }
+  }, { passive: true });
+})();
 
 // ── Init ─────────────────────────────────────────────────────────
 (function init() {
