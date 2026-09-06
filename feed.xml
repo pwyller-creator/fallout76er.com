@@ -5,16 +5,38 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-08-21T12:00:00Z</updated>
+  <updated>2026-09-06T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
   <entry>
+    <title>The Mystery of the Observant Radstag</title>
+    <link href="https://fallout76er.com/#photo=ObservantRadstag.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/ObservantRadstag.webp" rel="enclosure" type="image/webp" length="216070"/>
+    <media:content url="https://fallout76er.com/ObservantRadstag.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=ObservantRadstag.webp</id>
+    <published>2026-09-06T12:00:00Z</published>
+    <updated>2026-09-06T12:00:00Z</updated>
+    <category term="Encounter"/>
+    <content type="html">&lt;img src="https://fallout76er.com/ObservantRadstag.webp" alt="The Mystery of the Observant Radstag"/&gt;&lt;p&gt;I stumbled across an abandoned bunker up near the Black Mountain Ordnance Works in the Forest Region west of Route 88. I couldn't get into the bunker, but I did find a keycard reader. And I remembered talking with some old campaigners during the Alien Invasion about a lone, crazy man who called himself "The Emissary". The way these old timers told it, he had a working keycard that would give access to the TNT Dome 8. Now, there are two things in life that will get me all sparked up, one of those things is a mystery, and the other is a pile of loot. This here tale had both! So, I knew I had to find The Emissary and relieve him of the burden of carrying that keycard. The invasion veterans informed me The Emissary was often spotted near the Charleston Station, so I headed there first. I didn't find The Emissary there, but I did spot this strangely docile, albino radstag. I got the strangest feeling he was lookin' for something—triggering my Scoobee Doo, Pavlovian response. I followed that weird, pale, mutated stag for about a mile, back and forth in a seemingly random path. My diligence did pay off, the loony beast led me to a blasted tree stump full of loot! 24 caps, plans to craft a .38 hunting rifle, a tasty bloatfly recipe, and a list of ingredients to cook up a healing salve! So, if you run across a strangely behaved, albino radstag, don't shoot it for a quick meal. Follow it, and maybe you'll find some goodies too... Then shoot it, and cook it up in your stewpot.&lt;/p&gt;&lt;p&gt;&lt;em&gt;CHARLESTON STATION — THE FOREST · Threat: LOW · Field date 09.06.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Level 5-by-5</title>
+    <link href="https://fallout76er.com/#photo=Level555.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/Level555.webp" rel="enclosure" type="image/webp" length="155550"/>
+    <media:content url="https://fallout76er.com/Level555.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=Level555.webp</id>
+    <published>2026-09-05T12:00:00Z</published>
+    <updated>2026-09-05T12:00:00Z</updated>
+    <category term="Encounter"/>
+    <content type="html">&lt;img src="https://fallout76er.com/Level555.webp" alt="Level 5-by-5"/&gt;&lt;p&gt;While out scavenging the Forest Region today, I hit a personal milestone. I was awarded—by the cabalistic weirdos that call themselves 'Bethesda'—level 555. I call this out because those that know me know I'm a super fan of the old, pre-war movie 'Aliens,' and I often quote the characters in that flick. One of my oft-repeated quotes is saying that everything is, "Five by five," and that is why level 555 is so cool to me. And it has mostly nothing to do with the fact that I may have completely missed it when I hit level 500... mostly.&lt;/p&gt;&lt;p&gt;&lt;em&gt;THE FOREST · Threat: LOW · Field date 09.05.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
     <title>Blood Eagle Mirelurk Fetish Revealed</title>
     <link href="https://fallout76er.com/#photo=BloodEagleMirelurks.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/BloodEagleMirelurks.webp" rel="enclosure" type="image/webp" length="237886"/>
+    <link href="https://fallout76er.com/BloodEagleMirelurks.webp" rel="enclosure" type="image/webp" length="202984"/>
     <media:content url="https://fallout76er.com/BloodEagleMirelurks.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=BloodEagleMirelurks.webp</id>
     <published>2026-08-21T12:00:00Z</published>
@@ -25,7 +47,7 @@
   <entry>
     <title>The Cure Was Worse Than the Disease</title>
     <link href="https://fallout76er.com/#photo=AlbinoRadstag.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/AlbinoRadstag.webp" rel="enclosure" type="image/webp" length="310876"/>
+    <link href="https://fallout76er.com/AlbinoRadstag.webp" rel="enclosure" type="image/webp" length="313766"/>
     <media:content url="https://fallout76er.com/AlbinoRadstag.webp" type="image/webp" medium="image"/>
     <id>https://fallout76er.com/#photo=AlbinoRadstag.webp</id>
     <published>2026-08-20T12:00:00Z</published>
@@ -296,27 +318,5 @@
     <updated>2026-05-07T12:00:00Z</updated>
     <category term="Item"/>
     <content type="html">&lt;img src="https://fallout76er.com/Purple_Axolotl.webp" alt="Pretty in Purple?"/&gt;&lt;p&gt;I caught this one in the lake near Rapian Camp — a Purple Axolotl, which is called a "Small Fish" as if that is the most interesting thing about it. It is not a fish. It is a lavender salamander with hot pink gill-plumes and the general energy of something that has no idea the world ended. Two rads, ten HP, a 0.37 disease chance, and five caps of value — frankly insulting for the only genuinely beautiful creature left in Appalachia. That didn't stop me from mounting it on my camp wall.&lt;/p&gt;&lt;p&gt;&lt;em&gt;RAPIAN CAMP — SKYLINE VALLEY · Threat: NONE · Field date 05.07.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Senator Blackwell's Last Constituency</title>
-    <link href="https://fallout76er.com/#photo=DMV.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/DMV.webp" rel="enclosure" type="image/webp" length="242574"/>
-    <media:content url="https://fallout76er.com/DMV.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=DMV.webp</id>
-    <published>2026-05-03T12:00:00Z</published>
-    <updated>2026-05-03T12:00:00Z</updated>
-    <category term="Location"/>
-    <content type="html">&lt;img src="https://fallout76er.com/DMV.webp" alt="Senator Blackwell's Last Constituency"/&gt;&lt;p&gt;The Charleston government offices have that particular quality shared by all DMVs across history — the soul-crushing certainty that the person behind the counter left for lunch in 1987 and simply never came back. A Special Election poster still hangs in its frame, calling Appalachian voters to fill the seat vacated by one Sam Blackwell on November 2nd, 2077. Someone has since amended the official record: the brass nameplate beside the door now reads "traitor!" in scratched white letters. The door itself carries a message in the same hand: LIVE FREE OR DIE. Whatever happened in that back office in the final weeks before the war, the locals had formed a strong opinion about it. The folding chair in front of the door suggests someone intended to wait for answers. They may still be waiting — though at a DMV, that's hardly unusual.&lt;/p&gt;&lt;p&gt;&lt;em&gt;CHARLESTON — THE FOREST · Threat: MEDIUM · Field date 05.03.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>You Are Here — Probably Shouldn't Be</title>
-    <link href="https://fallout76er.com/#photo=CamdenPark.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/CamdenPark.webp" rel="enclosure" type="image/webp" length="304244"/>
-    <media:content url="https://fallout76er.com/CamdenPark.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=CamdenPark.webp</id>
-    <published>2026-05-03T12:00:00Z</published>
-    <updated>2026-05-03T12:00:00Z</updated>
-    <category term="Location"/>
-    <content type="html">&lt;img src="https://fallout76er.com/CamdenPark.webp" alt="You Are Here — Probably Shouldn't Be"/&gt;&lt;p&gt;I came to Camden Park to hunt Spooky Scorched. I left wearing a giant Mr. Fuzzy mask. Somewhere between the Dross Toss and my fourth hot dog, things took a turn. This naked mannequin studying the park map was the last normal thing I saw. The abandoned wheelchair by the ticket booth should have been a warning. The Widow Maker coaster looming overhead definitely should have been a warning. I have no one to blame but myself and whoever thought a hot dog eating contest was a reasonable activity in a nuclear wasteland.&lt;/p&gt;&lt;p&gt;&lt;em&gt;CAMDEN PARK — THE FOREST · Threat: MEDIUM · Field date 05.03.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
