@@ -634,39 +634,6 @@
   .threat-LOW     { color: #4a7a00; }
   .threat-NONE    { color: #1a7a1a; }
 
-  .audio-persist-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: rgba(0,0,0,0.8);
-    padding: 12px;
-    border-radius: 8px;
-    z-index: 99999;
-    isolation: isolate;
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    border: 1px solid var(--rust);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-    opacity: 0.45;
-    transition: opacity 0.25s ease;
-  }
-
-  /* Fades to a low-key presence while idle so it stops competing with body
-     copy it scrolls over; full opacity on hover/focus so it's never a fight
-     to see or use when the visitor actually wants it. */
-  .audio-persist-container:hover,
-  .audio-persist-container:focus-within {
-    opacity: 1;
-  }
-
-  /* Collapse-to-icon toggle only exists on mobile (see max-width:768px below) */
-  .audio-toggle-btn { display: none; }
-
-  /* Reserve the fixed audio player's corner so header nav buttons never slide under it */
-  @media (min-width: 769px) {
-    header { padding-right: 290px; }
-  }
-
   @media (max-width: 768px) {
     /* Header */
     header {
@@ -688,41 +655,6 @@
       display: inline-flex;
       align-items: center;
     }
-
-    /* Audio player — move to bottom, cap width so it never overflows narrow
-       phones, and default to a collapsed icon-only pill (tap to reveal the
-       full player) so it doesn't sit on top of scrolled widget/page content
-       underneath it while idle. */
-    .audio-persist-container {
-      top: auto !important;
-      bottom: 12px !important;
-      right: 10px !important;
-      left: auto !important;
-      width: auto !important;
-      max-width: calc(100vw - 20px);
-      padding: 0;
-      border-radius: 50%;
-    }
-    .audio-persist-container.audio-expanded {
-      padding: 12px;
-      border-radius: 8px;
-    }
-    .audio-toggle-btn {
-      display: flex;
-      width: 44px;
-      height: 44px;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      color: var(--rust, #c47a1e);
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    .audio-persist-container.audio-expanded .audio-toggle-btn { display: none; }
-    .audio-persist-container:not(.audio-expanded) p,
-    .audio-persist-container:not(.audio-expanded) #bg-audio { display: none; }
-    #bg-audio { width: 100%; }
 
     /* Filter bar — 44px min tap targets on buttons */
     .filter-bar { padding: 8px 12px; gap: 6px; }
@@ -772,18 +704,6 @@
     .bio-body { padding: 24px 14px 40px 14px; }
     .bio-nav  { padding-left: 14px; padding-right: 14px; }
     .bio-stamp { display: none; }
-  }
-
-  /* Landscape phones: right-pad header so audio widget doesn't overlap */
-  @media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
-    .audio-persist-container {
-      top: auto !important;
-      bottom: 10px !important;
-      right: 10px !important;
-      left: auto !important;
-      width: auto !important;
-    }
-    header { padding-right: 260px; }
   }
 
   /* ── Diary Link ── */
@@ -1464,6 +1384,112 @@
     border-top: 1px solid var(--pb-faint);
     padding-top: 14px;
     margin-top: 4px;
+  }
+
+  /* ── Pip-Boy Radio page ── */
+  .pb-radio-unit {
+    border: 1px solid var(--pb-faint);
+    background: rgba(8,5,0,0.5);
+    padding: 26px 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .pb-radio-freq {
+    font-family: 'Courier New', monospace;
+    font-size: 40px;
+    letter-spacing: 2px;
+    color: var(--pb-bright);
+    text-shadow: 0 0 16px rgba(255,185,45,0.5);
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .pb-radio-freq-unit {
+    font-size: 15px;
+    letter-spacing: 3px;
+    margin-left: 6px;
+    color: var(--pb-dim);
+    vertical-align: super;
+  }
+  .pb-radio-signal {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 4px;
+    height: 20px;
+    margin: 12px 0 4px;
+  }
+  .pb-radio-signal span {
+    width: 4px;
+    background: var(--pb-faint);
+    opacity: 0.5;
+    transform: scaleY(0.4);
+    transform-origin: bottom;
+  }
+  .pb-radio-signal span:nth-child(1) { height: 8px; }
+  .pb-radio-signal span:nth-child(2) { height: 14px; }
+  .pb-radio-signal span:nth-child(3) { height: 20px; }
+  .pb-radio-signal span:nth-child(4) { height: 14px; }
+  .pb-radio-signal span:nth-child(5) { height: 8px; }
+  .pb-radio-unit.pb-radio-playing .pb-radio-signal span {
+    background: var(--pb-bright);
+    opacity: 1;
+    animation: pbRadioBar 1s ease-in-out infinite;
+  }
+  .pb-radio-unit.pb-radio-playing .pb-radio-signal span:nth-child(2) { animation-delay: 0.15s; }
+  .pb-radio-unit.pb-radio-playing .pb-radio-signal span:nth-child(3) { animation-delay: 0.3s; }
+  .pb-radio-unit.pb-radio-playing .pb-radio-signal span:nth-child(4) { animation-delay: 0.45s; }
+  .pb-radio-unit.pb-radio-playing .pb-radio-signal span:nth-child(5) { animation-delay: 0.6s; }
+  @keyframes pbRadioBar {
+    0%, 100% { transform: scaleY(0.35); }
+    50% { transform: scaleY(1); }
+  }
+  .pb-radio-station {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--pb-dim);
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .pb-radio-track {
+    font-family: 'Courier New', monospace;
+    font-size: 17px;
+    letter-spacing: 1px;
+    color: var(--pb-bright);
+    text-shadow: var(--pb-glow);
+    margin-bottom: 20px;
+  }
+  .pb-radio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+  }
+  .pb-radio-btn {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pb-bright);
+    background: transparent;
+    border: 1px solid var(--pb-border);
+    padding: 9px 20px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .pb-radio-btn:hover { border-color: var(--pb-border-hi); background: var(--pb-sel-bg); }
+  .pb-radio-tracklist { margin-top: 4px; }
+  .pb-radio-tracklist-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: var(--pb-dim);
+    text-transform: uppercase;
+    padding: 9px 4px;
+    border-bottom: 1px solid rgba(200,140,25,0.15);
+  }
+  .pb-radio-tracklist-item.pb-active {
+    color: var(--pb-bright);
+    text-shadow: var(--pb-glow);
   }
 
   /* ── Spawn Intel page ── */
@@ -2594,6 +2620,7 @@
         <button class="pb-menu-item" data-pb-target="pb-page-dmg" onclick="pbNav(this)">&#9876; Damage Stacker</button>
         <button class="pb-menu-item" data-pb-target="pb-page-legendary" onclick="pbNav(this)">&#9670; Legendary Scrap Odds</button>
         <button class="pb-menu-item" data-pb-target="pb-page-clock" onclick="pbNav(this)">&#9789; Appalachia Time</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-radio" onclick="pbNav(this)">&#9834; Pip-Boy Radio</button>
         <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-plans" onclick="pbNav(this)">&#9874; Plans Exchange</button>
@@ -2794,6 +2821,26 @@
             A full Appalachian day/night cycle completes every 72 real-world minutes.
             The Great War is scheduled for October 23rd, 2077. Enjoy the time you have left.
           </div>
+        </div>
+
+        <!-- PAGE: Pip-Boy Radio -->
+        <div class="pb-page" id="pb-page-radio">
+          <div class="pb-page-title">WAFO 100.76 &mdash; Wasteland Ballads</div>
+          <div class="pb-radio-unit" id="pb-radio-unit">
+            <div class="pb-radio-freq">100.76<span class="pb-radio-freq-unit">FM</span></div>
+            <div class="pb-radio-signal" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="pb-radio-station">WAFO &middot; Wasteland Ballads</div>
+            <div class="pb-radio-track" id="pb-radio-track">&mdash; Tuned In, Nothing Spinning &mdash;</div>
+            <div class="pb-radio-controls">
+              <button type="button" class="pb-radio-btn" id="pb-radio-playbtn" onclick="pbRadioToggle()">&#9654; Play</button>
+              <button type="button" class="pb-radio-btn" onclick="pbRadioSkip()">&#9193; Next</button>
+            </div>
+          </div>
+          <div class="pb-radio-tracklist" id="pb-radio-tracklist"></div>
+          <div class="pb-clock-lore">
+            &#9650; Somewhere past the static, WAFO keeps spinning the same three reels like the world didn't end. No DJ, no ads, no news at the top of the hour &mdash; just enough music to make a camp feel less alone.
+          </div>
+          <audio id="pb-radio-audio" preload="none" style="display:none;"></audio>
         </div>
 
         <!-- PAGE: Creature Spawn Intel -->
@@ -3064,32 +3111,74 @@
   </div><!-- end pb-frame -->
 </div><!-- end resources-view -->
 
-<div class="audio-persist-container" id="audio-widget">
-  <button type="button" class="audio-toggle-btn" id="audio-toggle-btn" aria-expanded="false" aria-controls="bg-audio" aria-label="Show music player">&#9834;</button>
-  <p style="font-family: 'Courier Prime'; font-size: 10px; color: var(--paper); margin-bottom: 8px; letter-spacing: 1px;">Old Timey Music</p>
-  <audio id="bg-audio" controls preload="none" style="height: 30px; width: 220px;">
-    <source src="Wasteland_Wonderings.mp3" type="audio/mpeg">
-  </audio>
-</div>
 <script>
+// ── Pip-Boy Radio (WAFO 100.76) ──────────────────────────────────
 (function() {
-const playlist = ['Wasteland_Wonderings.mp3', 'Wasteland_Wonderings_2.mp3', 'Wasteland_Wonderings_3.mp3'];
+  const TRACKS = [
+    { file: 'Wasteland_Wonderings.mp3',   title: "Wanderer's Interlude" },
+    { file: 'Wasteland_Wonderings_2.mp3', title: 'Appalachia Afternoon' },
+    { file: 'Wasteland_Wonderings_3.mp3', title: 'Hardtimes Holler' }
+  ];
   let trackIndex = 0;
-  const audio = document.getElementById('bg-audio');
+  let hasStarted = false;
+
+  const audio    = document.getElementById('pb-radio-audio');
+  const unit     = document.getElementById('pb-radio-unit');
+  const trackEl  = document.getElementById('pb-radio-track');
+  const playBtn  = document.getElementById('pb-radio-playbtn');
+  const listEl   = document.getElementById('pb-radio-tracklist');
+
+  listEl.innerHTML = TRACKS.map((t, i) =>
+    `<div class="pb-radio-tracklist-item" data-idx="${i}"><span>${t.title}</span><span>&#9834;</span></div>`
+  ).join('');
+  const itemEls = listEl.querySelectorAll('.pb-radio-tracklist-item');
+
+  function renderTrack() {
+    trackEl.textContent = TRACKS[trackIndex].title;
+    itemEls.forEach((el, i) => el.classList.toggle('pb-active', i === trackIndex));
+  }
+
+  function loadTrack(i) {
+    trackIndex = i;
+    audio.src = TRACKS[trackIndex].file;
+    renderTrack();
+  }
+
+  audio.addEventListener('play',  () => {
+    unit.classList.add('pb-radio-playing');
+    playBtn.innerHTML = '&#10074;&#10074; Pause';
+  });
+  audio.addEventListener('pause', () => {
+    unit.classList.remove('pb-radio-playing');
+    playBtn.innerHTML = '&#9654; Play';
+  });
   audio.addEventListener('ended', () => {
-    trackIndex = (trackIndex + 1) % playlist.length;
-    audio.src = playlist[trackIndex];
+    loadTrack((trackIndex + 1) % TRACKS.length);
     audio.play();
   });
 
-  // Mobile: starts collapsed to a small icon so it doesn't sit on top of
-  // scrolled content underneath; tap toggles the full player open/closed.
-  const widget = document.getElementById('audio-widget');
-  const toggleBtn = document.getElementById('audio-toggle-btn');
-  toggleBtn.addEventListener('click', () => {
-    const expanded = widget.classList.toggle('audio-expanded');
-    toggleBtn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  listEl.addEventListener('click', (e) => {
+    const item = e.target.closest('.pb-radio-tracklist-item');
+    if (!item) return;
+    hasStarted = true;
+    loadTrack(Number(item.dataset.idx));
+    audio.play();
   });
+
+  window.pbRadioToggle = function() {
+    if (!hasStarted) {
+      hasStarted = true;
+      loadTrack(0);
+    }
+    if (audio.paused) audio.play();
+    else audio.pause();
+  };
+
+  window.pbRadioSkip = function() {
+    hasStarted = true;
+    loadTrack((trackIndex + 1) % TRACKS.length);
+    audio.play();
+  };
 })();
 </script>
 
