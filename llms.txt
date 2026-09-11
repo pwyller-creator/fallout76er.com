@@ -9,7 +9,7 @@
 - [Wastelander Diary](https://fallout76er.substack.com): Substack field-journal dispatches.
 
 ## Creature Spawn Intel
-- [Creature Spawn Intel Hub](https://fallout76er.com/creatures/): Every documented creature spawn-location guide in Fallout 76 (52 creatures).
+- [Creature Spawn Intel Hub](https://fallout76er.com/creatures/): Every documented creature spawn-location guide in Fallout 76 (56 creatures).
 - [Angler](https://fallout76er.com/creatures/angler.html): 3 field-verified spawn locations across The Mire and Cranberry Bog.
 - [Assaultron](https://fallout76er.com/creatures/assaultron.html): 3 field-verified spawn locations across Cranberry Bog, Toxic Valley, and Savage Divide.
 - [Behemoth](https://fallout76er.com/creatures/behemoth.html): 3 field-verified spawn locations across Savage Divide and Cranberry Bog.
@@ -18,6 +18,7 @@
 - [Bloodbug](https://fallout76er.com/creatures/bloodbug.html): 3 field-verified spawn locations across The Forest and Toxic Valley.
 - [Blue Devil](https://fallout76er.com/creatures/blue-devil.html): 3 field-verified spawn locations across Savage Divide and The Forest.
 - [Brahmin](https://fallout76er.com/creatures/brahmin.html): 3 field-verified spawn locations across The Forest, Ash Heap, and Savage Divide.
+- [Cat](https://fallout76er.com/creatures/cat.html): 3 field-verified spawn locations across The Mire, The Forest, and Savage Divide.
 - [Cave Cricket](https://fallout76er.com/creatures/cave-cricket.html): 3 field-verified spawn locations across Savage Divide, The Mire, and Cranberry Bog.
 - [Critters (Small Game)](https://fallout76er.com/creatures/critters-small-game.html): 3 field-verified spawn locations across The Forest, Savage Divide, and The Mire.
 - [Cryptid (Any)](https://fallout76er.com/creatures/cryptid-any.html): 3 field-verified spawn locations across Savage Divide, The Mire, and Cranberry Bog.
@@ -45,10 +46,13 @@
 - [Mothman](https://fallout76er.com/creatures/mothman.html): 3 field-verified spawn locations across The Forest and The Mire.
 - [Mutant Hound](https://fallout76er.com/creatures/mutant-hound.html): 3 field-verified spawn locations across Savage Divide and The Mire.
 - [Ogua](https://fallout76er.com/creatures/ogua.html): 3 field-verified spawn locations across Cranberry Bog, Skyline Valley, and Savage Divide.
+- [Rabbit](https://fallout76er.com/creatures/rabbit.html): 3 field-verified spawn locations across Savage Divide.
+- [Rad Ant](https://fallout76er.com/creatures/rad-ant.html): 3 field-verified spawn locations across Cranberry Bog.
 - [Radroach](https://fallout76er.com/creatures/radroach.html): 3 field-verified spawn locations across The Mire and The Forest.
 - [Radscorpion](https://fallout76er.com/creatures/radscorpion.html): 3 field-verified spawn locations across Toxic Valley, Burning Springs, and Skyline Valley.
 - [Radstag](https://fallout76er.com/creatures/radstag.html): 3 field-verified spawn locations across Savage Divide and The Forest.
 - [Radtoad](https://fallout76er.com/creatures/radtoad.html): 3 field-verified spawn locations across Savage Divide, Toxic Valley, and The Forest.
+- [Robobrain](https://fallout76er.com/creatures/robobrain.html): 3 field-verified spawn locations across Cranberry Bog, Ash Heap, and The Mire.
 - [Scorchbeast](https://fallout76er.com/creatures/scorchbeast.html): 3 field-verified spawn locations across Cranberry Bog.
 - [Scorchbeast Queen](https://fallout76er.com/creatures/scorchbeast-queen.html): 1 field-verified spawn location across Cranberry Bog.
 - [Scorched](https://fallout76er.com/creatures/scorched.html): 3 field-verified spawn locations across Savage Divide and The Forest.
