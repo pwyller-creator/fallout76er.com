@@ -5,7 +5,7 @@ Standing instructions for working on **fallout76er.com**. Read before making any
 ## What this is
 - Personal Fallout 76 fan site: "Fallout76er's Wasteland Archive" — photo archive, field journal, creature spawn intel, scrap-farming guide, treasure-map walkthroughs, and a plans-exchange depot.
 - Voice throughout: sardonic, deadpan, first-person wasteland-explorer field notes.
-- In-game identity: level 491 character "Fallout76er", vendor camp "Rusty Curios & Rares" in Burning Springs.
+- In-game identity: level 555 character "Fallout76er", vendor camp "Rusty Curios & Rares" in Burning Springs.
 
 ## Hard constraints (never violate)
 - **Vanilla HTML/CSS/JS only.** Never add frameworks, build tools, npm packages, or external dependencies beyond what's already in the files.
