@@ -46,8 +46,8 @@ const SPAWN_DATA = {
   ],
   'Cat': [
     { name: "Scoot's Shack",                  region: 'The Mire',        count: '2 guaranteed', note: 'South of the Southern Belle Motel. The single most reliable cat spot on the map — two guaranteed every visit.', map: 'SouthernBelleMotel.webp' },
-    { name: 'Wixon Homestead',                region: 'The Forest',      count: '1 named',       note: "Cheswick II, a gray tabby, wanders the homestead just south of Vault 76 — an easy first stop for a brand-new survivor's photo or kill quota." },
-    { name: 'Beckwith Farm',                  region: 'Savage Divide',   count: '1',             note: 'One perches on the billboard west of the farm, right at the cliff edge. Approach quietly — loud weapons and footsteps send it bolting.' },
+    { name: 'Wixon Homestead',                region: 'The Forest',      count: '1 named',       note: "Cheswick II, a gray tabby, wanders the homestead just south of Vault 76 — an easy first stop for a brand-new survivor's photo or kill quota.", map: 'WixonHomestead.webp' },
+    { name: 'Beckwith Farm',                  region: 'Savage Divide',   count: '1',             note: 'One perches on the billboard west of the farm, right at the cliff edge. Approach quietly — loud weapons and footsteps send it bolting.', map: 'BeckwithFarm.webp' },
   ],
   'Cave Cricket': [
     { name: 'Lucky Hole Mine',               region: 'Savage Divide',   count: 'Packs',        note: 'Swarms through the lower levels and the surrounding woods. High Damage Resistance, so bring an energy weapon; ballistics chip away slowly.', map: 'LuckyHoleMine.webp' },
