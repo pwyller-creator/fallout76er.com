@@ -184,14 +184,14 @@ const SPAWN_DATA = {
     { name: 'Roadside Scenes (Random)',      region: 'Savage Divide',   count: 'Rare random',   note: 'Turns up at wrecked-car encounters, often mid-fight with a Blue Devil or Mothman cultists. Introduced in Once in a Blue Moon; counts toward Kill a Cryptid.' },
   ],
   'Rabbit': [
-    { name: 'Whitespring Service Entrance',   region: 'Savage Divide',   count: 'Reliable',      note: 'The hill above the service entrance doors is the single best rabbit spot in Appalachia — woodland critters spawn there consistently, rabbits included.' },
-    { name: 'Central Mountain Lookout',       region: 'Savage Divide',   count: 'Reliable',      note: 'East of Top of the World and the Pleasant Valley Ski Resort, up in the hills. A dependable second stop for the Hoppy Hunter daily.' },
+    { name: 'Whitespring Service Entrance',   region: 'Savage Divide',   count: 'Reliable',      note: 'The hill above the service entrance doors is the single best rabbit spot in Appalachia — woodland critters spawn there consistently, rabbits included.', map: 'WhitespringServiceEntrance.webp' },
+    { name: 'Central Mountain Lookout',       region: 'Savage Divide',   count: 'Reliable',      note: 'East of Top of the World and the Pleasant Valley Ski Resort, up in the hills. A dependable second stop for the Hoppy Hunter daily.', map: 'CentralMountainLookout.webp' },
     { name: 'Wendigo Cave',                   region: 'Savage Divide',   count: 'Chance',        note: 'If Central Mountain Lookout comes up empty, head due north to the area around the cave entrance for another pass at a rabbit.', map: 'WendigoCave.webp' },
   ],
   'Rad Ant': [
     { name: 'Fort Defiance',                  region: 'Cranberry Bog',   count: 'Reliable',      note: 'Ants turn up alongside the usual Scorched garrison in the north wing — a natural add-on if you are already there for ballistic fiber.', map: 'FortDefiance.webp' },
     { name: 'Thunder Mountain Substation',    region: 'Cranberry Bog',   count: 'Reliable',      note: 'A colony works the substation grounds, often already brawling with a Deathclaw that wanders through — let them soften each other up first.', map: 'ThunderMountainSubstation.webp' },
-    { name: 'Watoga High School',             region: 'Cranberry Bog',   count: 'Reliable',      note: "Part of a southeast Cranberry Bog loop with Appalachian Antiques and Lucky Hole Mine — rotate through all three off a nearby C.A.M.P. for a full clear." },
+    { name: 'Watoga High School',             region: 'Cranberry Bog',   count: 'Reliable',      note: "Part of a southeast Cranberry Bog loop with Appalachian Antiques and Lucky Hole Mine — rotate through all three off a nearby C.A.M.P. for a full clear.", map: 'WatogaHighSchool.webp' },
   ],
   'Radroach': [
     { name: "Abbie's Bunker",                region: 'The Mire',        count: 'Up to 5',      note: 'Five inside the bunker, reliable and low-threat. Quickest grab for the Kill Insects daily if you are already in the Mire.', map: 'AbbiesBunker.webp' },
