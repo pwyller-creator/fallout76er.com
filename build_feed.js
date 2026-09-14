@@ -21,6 +21,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const SITE = 'https://fallout76er.com';
 const FEED_URL = SITE + '/feed.xml';
@@ -33,8 +34,10 @@ function extractArray(src, decl) {
   if (start === -1) throw new Error(decl + ' not found in index.html');
   const end = src.indexOf('\n];', start);
   if (end === -1) throw new Error('closing "];" not found for ' + decl);
-  // eslint-disable-next-line no-eval
-  return eval(src.slice(start + decl.length - 1, end + 3));
+  // Sandboxed (no require/process/fs in scope) so a corrupted data literal
+  // can't reach the filesystem or network even if it ever contained anything
+  // beyond an array literal.
+  return vm.runInNewContext(src.slice(start + decl.length - 1, end + 3), Object.create(null));
 }
 
 const esc = (s) => String(s)

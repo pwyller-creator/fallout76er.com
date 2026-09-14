@@ -21,6 +21,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const SITE   = 'https://fallout76er.com';
 const TODAY  = new Date().toISOString().slice(0, 10);   // YYYY-MM-DD
@@ -34,8 +35,10 @@ function loadTmData() {
   if (start === -1) throw new Error('TM_DATA not found in index.html');
   const end = src.indexOf('\n];', start);
   if (end === -1) throw new Error('TM_DATA closing "];" not found');
-  // eslint-disable-next-line no-eval
-  return eval(src.slice(start + 'const TM_DATA ='.length, end + 3));
+  // Sandboxed (no require/process/fs in scope) so a corrupted data literal
+  // can't reach the filesystem or network even if it ever contained anything
+  // beyond an array literal.
+  return vm.runInNewContext(src.slice(start + 'const TM_DATA ='.length, end + 3), Object.create(null));
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────

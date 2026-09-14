@@ -15,6 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const SITE   = 'https://fallout76er.com';
 const OGIMG  = SITE + '/newcamp.png';
@@ -27,8 +28,10 @@ function loadSpawnData() {
   let src = fs.readFileSync(path.join(__dirname, 'spawn-data.js'), 'utf8');
   src = src.slice(src.indexOf('{'));            // drop leading comments + "const SPAWN_DATA ="
   src = src.replace(/;\s*$/, '');               // drop trailing semicolon
-  // eslint-disable-next-line no-eval
-  return eval('(' + src + ')');
+  // Sandboxed (no require/process/fs in scope) so a corrupted data literal
+  // can't reach the filesystem or network even if it ever contained anything
+  // beyond an object literal.
+  return vm.runInNewContext('(' + src + ')', Object.create(null));
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────

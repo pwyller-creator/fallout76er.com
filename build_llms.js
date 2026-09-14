@@ -15,16 +15,21 @@
 
 const fs = require('fs');
 const path = require('path');
+const vm = require('vm');
 
 const SITE = 'https://fallout76er.com';
+
+// Sandboxed (no require/process/fs in scope) so a corrupted data literal
+// can't reach the filesystem or network even if it ever contained anything
+// beyond an object/array literal.
+const evalLiteral = (code) => vm.runInNewContext(code, Object.create(null));
 
 // ── Load SPAWN_DATA from the external data file ──────────────────────────
 function loadSpawnData() {
   let src = fs.readFileSync(path.join(__dirname, 'spawn-data.js'), 'utf8');
   src = src.slice(src.indexOf('{'));
   src = src.replace(/;\s*$/, '');
-  // eslint-disable-next-line no-eval
-  return eval('(' + src + ')');
+  return evalLiteral('(' + src + ')');
 }
 
 // ── Load TM_DATA from index.html ─────────────────────────────────────────
@@ -34,8 +39,7 @@ function loadTmData() {
   if (start === -1) throw new Error('TM_DATA not found in index.html');
   const end = src.indexOf('\n];', start);
   if (end === -1) throw new Error('TM_DATA closing "];" not found');
-  // eslint-disable-next-line no-eval
-  return eval(src.slice(start + 'const TM_DATA ='.length, end + 3));
+  return evalLiteral(src.slice(start + 'const TM_DATA ='.length, end + 3));
 }
 
 // ── Helpers ──────────────────────────────────────────────────────────────
