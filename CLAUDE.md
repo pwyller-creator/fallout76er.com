@@ -125,6 +125,7 @@ Shape:
   - `feed.xml` must keep serving with `charset=utf-8` (set in `.htaccess`) — without it Make decodes UTF-8 as Latin-1 and mangles em dashes.
   - New photo → upload `index.html` + image + `feed.xml` → the 6 AM poll posts it (or "Run once" in the Make scenario editor for immediate posting). Full Make module mappings live in Claude's memory, not here.
 - Lemmy for community posts.
+- **Tumblr**: fallout76er.tumblr.com. Manual/on-request, same as Lemmy — never automatic like Bluesky. Post via `.claude\post-tumblr.ps1` (OAuth 1.0a, DPAPI-encrypted credential from a one-time `.claude\tumblr-oauth-setup.ps1` run); delete via `.claude\delete-tumblr-post.ps1`. Offer a Tumblr post alongside the Lemmy ask for any new archive/photo/creature/treasure-map entry.
 - **Discord: declined — do not suggest it.**
 - Watermarking via Watermark.pro (SVG watermark on file).
 
