@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-09-06T12:00:00Z</updated>
+  <updated>2026-09-14T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>The End May Come, But Corporate Marketing is Forever!</title>
+    <link href="https://fallout76er.com/#photo=WavyWillardBot.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/WavyWillardBot.webp" rel="enclosure" type="image/webp" length="389944"/>
+    <media:content url="https://fallout76er.com/WavyWillardBot.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=WavyWillardBot.webp</id>
+    <published>2026-09-14T12:00:00Z</published>
+    <updated>2026-09-14T12:00:00Z</updated>
+    <category term="Encounter"/>
+    <content type="html">&lt;img src="https://fallout76er.com/WavyWillardBot.webp" alt="The End May Come, But Corporate Marketing is Forever!"/&gt;&lt;p&gt;While still hunting the elusive Emissary and the TNT Dome 8 keycard around the WV Lumber Co., I came across this robotic refugee, Wavy Willard's Protectron, serial number WW-8802. This misguided agent of post-war advertising had spent nearly two decades trudging south along the Ohio River, completely oblivious to the fact that Wavy Willard's was now an irradiated ruin, with a target audience of Super Mutants, Blood Eagles, and feral ghouls. The sorry sot then proceeded to scan my radiation-soaked gear, and offer me a crisp, pre-war discount coupon for the Slime Blowout water slide—entirely unbothered by the fact that the park's green glow could barely be seen at the horizon. I tried to tell the wayward bot about his wasted efforts, but its logic loop refused to compute "apocalypse." It politely reminded me that sunscreen is mandatory at Wavy Willard's, warned me about line-jumping, and plodded right past a pile of rusted cars toward the next "potential customer."&lt;/p&gt;&lt;p&gt;&lt;em&gt;WV LUMBER CO. — THE FOREST · Threat: LOW · Field date 09.14.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>The Mystery of the Observant Radstag</title>
     <link href="https://fallout76er.com/#photo=ObservantRadstag.webp" rel="alternate" type="text/html"/>
@@ -307,16 +318,5 @@
     <updated>2026-05-09T12:00:00Z</updated>
     <category term="Location"/>
     <content type="html">&lt;img src="https://fallout76er.com/Billboard.webp" alt="The Land of the Lost Bulletin Board"/&gt;&lt;p&gt;During my attempts to locate "Lost Boys" to kill for the daily challenge, I stopped at a bulletin board at The Trading Post. Some enterprising frat girl pinned a hand-scrawled Pi Mu sorority flyer for a "Wild Eviction Party" — I could only surmise they were intent on evicting brain cells and possibly their virtue.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SKYLINE VALLEY — TRADING POST · Threat: NONE · Field date 05.09.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Pretty in Purple?</title>
-    <link href="https://fallout76er.com/#photo=Purple_Axolotl.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Purple_Axolotl.webp" rel="enclosure" type="image/webp" length="83740"/>
-    <media:content url="https://fallout76er.com/Purple_Axolotl.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Purple_Axolotl.webp</id>
-    <published>2026-05-07T12:00:00Z</published>
-    <updated>2026-05-07T12:00:00Z</updated>
-    <category term="Item"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Purple_Axolotl.webp" alt="Pretty in Purple?"/&gt;&lt;p&gt;I caught this one in the lake near Rapian Camp — a Purple Axolotl, which is called a "Small Fish" as if that is the most interesting thing about it. It is not a fish. It is a lavender salamander with hot pink gill-plumes and the general energy of something that has no idea the world ended. Two rads, ten HP, a 0.37 disease chance, and five caps of value — frankly insulting for the only genuinely beautiful creature left in Appalachia. That didn't stop me from mounting it on my camp wall.&lt;/p&gt;&lt;p&gt;&lt;em&gt;RAPIAN CAMP — SKYLINE VALLEY · Threat: NONE · Field date 05.07.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
