@@ -112,7 +112,7 @@ Shape:
 - Commit author email is the GitHub noreply address (set in repo-local `git config user.email`) — never commit with a personal email.
 - `.claude/`, `har.json`, and `launch-claude-code.bat` are deliberately gitignored (personal/local) — never track them. Same for anything else personal.
 - Push after committing — GitHub is the offsite backup and public record, so unpushed commits defeat the purpose.
-- Deployment is `.claude\upload.ps1` over SFTP (SSH-key auth) except for nuke codes, which `update-nuke-codes.ps1` uploads itself the same way; pushing to GitHub does **not** deploy the site. `README.md` and `.github/` are repo-only, not uploaded to the server. FileZilla remains configured as a manual fallback — its site entry should be updated to SFTP/port 22/key auth too, not left pointed at the retired plain-FTP login.
+- Deployment is `.claude\upload.ps1` over SFTP (SSH-key auth) except for nuke codes, which `update-nuke-codes.ps1` uploads itself the same way; pushing to GitHub does **not** deploy the site. `README.md` and `.github/` are repo-only, not uploaded to the server. FileZilla remains configured as a manual fallback (its "fallout76er" site entry was updated to SFTP/port 22/key auth 2026-09-15, key file at `%LOCALAPPDATA%\fallout76er-tools\fallout76er_deploy.filezilla-key` — no password stored anymore, unlike the old plain-FTP entry).
 
 ## SEO
 - Standalone crawlable pages: `/creatures/[slug].html` and `/maps/[region]-treasure-map-[num].html`.
