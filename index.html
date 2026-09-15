@@ -2803,6 +2803,7 @@
         <button class="pb-menu-item" data-pb-target="pb-page-radio" onclick="pbNav(this)">&#9834; Pip-Boy Radio</button>
         <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-ingredients" onclick="pbNav(this)">&#9670; Ingredient Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-plans" onclick="pbNav(this)">&#9874; Plans Exchange</button>
         <button class="pb-menu-item" data-pb-target="pb-page-tmaps" onclick="pbNav(this)">&#9670; Treasure Maps</button>
         <button class="pb-menu-item" data-pb-target="pb-page-wmap" onclick="pbNav(this)">&#9670; Wasteland Map</button>
@@ -3048,6 +3049,20 @@
             </nav>
             <div class="pb-spawn-detail" id="pb-scrap-detail">
               <div class="pb-spawn-detail-placeholder">Select a scrap type to receive field intelligence.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE: Ingredient Spawn Intel -->
+        <div class="pb-page" id="pb-page-ingredients">
+          <div class="pb-page-title">Ingredient Spawn Intel — Farming Routes</div>
+          <div class="pb-spawn-layout">
+            <nav class="pb-spawn-menu" aria-label="Ingredient types">
+              <div class="pb-spawn-menu-heading">Ingredient</div>
+              <div id="pb-ingredient-nav"></div>
+            </nav>
+            <div class="pb-spawn-detail" id="pb-ingredient-detail">
+              <div class="pb-spawn-detail-placeholder">Select an ingredient to receive field intelligence.</div>
             </div>
           </div>
         </div>
@@ -3299,7 +3314,7 @@
      resources.js. defer, not click-gated, so it still renders automatically
      into the resources-view markup on every load (no SEO/crawlability change),
      it just doesn't block the critical path. -->
-<script defer src="/resources.js?v=20260911"></script>
+<script defer src="/resources.js?v=20260915f"></script>
 <script>
 
 const photos = [
@@ -4472,10 +4487,11 @@ function showResources() {
   // inits to DOMContentLoaded avoids a TDZ ReferenceError that would abort
   // the whole script (dead TM_DATA / SCRAP_DATA, empty widgets).
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { initSpawnSelects(); initScrapSelects(); });
+    document.addEventListener('DOMContentLoaded', function () { initSpawnSelects(); initScrapSelects(); initIngredientSelects(); });
   } else {
     initSpawnSelects();
     initScrapSelects();
+    initIngredientSelects();
   }
   if (typeof pbPlansInit === 'function') {
     const page = document.getElementById('pb-page-plans');
@@ -4498,6 +4514,44 @@ function showResources() {
   if (rl) rl.classList.add('active-view');
   window.scrollTo(0, 0);
   pushView('resources');
+}
+
+// Deep-link into a specific Pip-Boy Spawn Intel card, e.g.
+// #section=resources&spawn=deathclaw, &scrap=gold, or &ingredient=brain-fungus
+// — used for backlinks from off-site posts (Substack captions, socials)
+// straight to a specific card instead of just the general Resources view.
+function slugifyPbKey(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+// Top-level `const` data blocks (SPAWN_DATA etc.) don't attach to `window`,
+// so each kind resolves its identifier directly via a `typeof` guard —
+// safe even before that data's <script> has run (no TDZ ReferenceError).
+const PB_DEEPLINK_KINDS = {
+  spawn:      { data: () => (typeof SPAWN_DATA !== 'undefined' ? SPAWN_DATA : undefined),           pageTarget: 'pb-page-spawn',       navId: 'pb-spawn-nav' },
+  scrap:      { data: () => (typeof SCRAP_DATA !== 'undefined' ? SCRAP_DATA : undefined),           pageTarget: 'pb-page-scrap',       navId: 'pb-scrap-nav' },
+  ingredient: { data: () => (typeof INGREDIENT_DATA !== 'undefined' ? INGREDIENT_DATA : undefined), pageTarget: 'pb-page-ingredients', navId: 'pb-ingredient-nav' },
+};
+
+function deepLinkPipBoy(kind, slug) {
+  const cfg = PB_DEEPLINK_KINDS[kind];
+  if (!cfg || !slug) return;
+  function run() {
+    const data = cfg.data();
+    if (typeof data === 'undefined' || typeof pbNav !== 'function') return;
+    const key = Object.keys(data).find(k => slugifyPbKey(k) === slug);
+    if (!key) return;
+    const navBtn = document.querySelector(`[data-pb-target="${cfg.pageTarget}"]`);
+    if (navBtn) pbNav(navBtn);
+    const itemBtn = [...document.querySelectorAll('#' + cfg.navId + ' .pb-spawn-item')]
+      .find(b => b.textContent.trim() === key);
+    if (itemBtn) itemBtn.click();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
 }
 
 function showDetailByFile(filename) {
@@ -5399,6 +5453,11 @@ let evFinishBoot = null;
     dismissEntry(deepSection, true);
     const vmap = { diary: 'diary', resources: 'resources' };
     history.replaceState({ view: vmap[deepSection] || 'archive' }, '');
+    if (deepSection === 'resources') {
+      if (params.spawn) deepLinkPipBoy('spawn', params.spawn);
+      else if (params.scrap) deepLinkPipBoy('scrap', params.scrap);
+      else if (params.ingredient) deepLinkPipBoy('ingredient', params.ingredient);
+    }
   } else if (params.photo) {
     dismissEntry('archive', true);
     const dp = photos.find(ph => ph.file === decodeURIComponent(params.photo));

@@ -452,6 +452,62 @@ function renderScrapDetail(key) {
   }).join('');
 }
 
+// ── Ingredient Intel sub-menu ─────────────────────────────────────
+const INGREDIENT_DATA = {
+  'Starlight Berry': [
+    { name: 'The Deep', region: 'The Forest', count: 'High + bonus Brain Fungus', note: 'Starlight Berries grow in bush clusters throughout this flooded subterranean facility (the Motherlode Acquisition Facility) under the mountain west of Whitespring Resort — reach the main chamber through an underwater passage from the entrance. The complex also holds bonus Brain Fungus patches, making it a two-ingredient stop on a Berry Mentats run. Watch for cave crickets in the dark and Liberators patrolling the catwalks.', map: 'TheDeep.webp' },
+  ],
+  'Brain Fungus': [
+    { name: 'Big Bend Tunnel', region: 'Cranberry Bog', count: 'Moderate', note: 'Pale Brain Fungus clusters cling to the walls along the run from the west entrance through to the east passage — a dark, damp stretch. Mole miners and molerats are the real obstacle here, not the harvest; clear a path in before circling back for the fungus. Stack this with a Deep run for a two-location Brain Fungus haul on the same Berry Mentats trip.', map: null },
+  ],
+  'Firecracker Berry': [
+    { name: 'Arktos Pharma (NW Parking Lot)', region: 'The Forest', count: 'High', note: "A slew of Firecracker Berries grow in the ground northwest of the Arktos Pharma parking lot, in soil still touched by Project Paradise — the mutation leaves the berries oversized and easy to spot from a distance. Fast-travel to Sutton and head north to the building's north face. Low-hazard and quick to clear, making it a solid opening stop on a Berry Mentats run.", map: null },
+  ],
+};
+
+let ingredientSelectsInit = false;
+function initIngredientSelects() {
+  if (ingredientSelectsInit) return;
+  ingredientSelectsInit = true;
+  const nav = document.getElementById('pb-ingredient-nav');
+  if (!nav) return;
+  Object.keys(INGREDIENT_DATA).forEach(k => {
+    const btn = document.createElement('button');
+    btn.className = 'pb-spawn-item';
+    btn.textContent = k;
+    btn.onclick = () => {
+      document.querySelectorAll('#pb-ingredient-nav .pb-spawn-item').forEach(b => b.classList.remove('pb-active'));
+      btn.classList.add('pb-active');
+      renderIngredientDetail(k);
+      document.getElementById('pb-ingredient-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    nav.appendChild(btn);
+  });
+}
+
+function renderIngredientDetail(key) {
+  const detail = document.getElementById('pb-ingredient-detail');
+  if (!key || !INGREDIENT_DATA[key]) {
+    detail.innerHTML = '<div class="pb-spawn-detail-placeholder">Select an ingredient to receive field intelligence.</div>';
+    return;
+  }
+  const spots = INGREDIENT_DATA[key];
+  const ranks = ['01', '02', '03'];
+  detail.innerHTML = spots.map((s, i) => {
+    const mapImg = s.map
+      ? `<img src="${s.map}" class="pb-spawn-map" alt="Map — ${s.name}" onclick="this.classList.toggle('pb-spawn-map-expanded')">`
+      : `<div class="pb-spawn-map" style="display:flex;align-items:center;justify-content:center;opacity:0.35;font-family:'Courier Prime',monospace;font-size:9px;letter-spacing:2px;color:var(--pb-mid);border:1px dashed var(--pb-border);cursor:default;">MAP PENDING</div>`;
+    return `<div class="pb-spawn-card">
+      <div class="pb-spawn-rank">${ranks[i]}</div>
+      ${mapImg}
+      <div class="pb-spawn-name">${s.name}</div>
+      <div class="pb-spawn-region">${s.region}</div>
+      <div class="pb-spawn-count">${s.count}</div>
+      <div class="pb-spawn-note">${s.note}</div>
+    </div>`;
+  }).join('');
+}
+
 // ── Pip-Boy navigation ───────────────────────────────────────────
 function pbNav(btn) {
   document.querySelectorAll('.pb-menu-item').forEach(b => b.classList.remove('pb-active'));
@@ -463,6 +519,7 @@ function pbNav(btn) {
   if (targetId === 'pb-page-plans') pbPlansInit();
   if (targetId === 'pb-page-spawn') initSpawnSelects();
   if (targetId === 'pb-page-scrap') initScrapSelects();
+  if (targetId === 'pb-page-ingredients') initIngredientSelects();
   if (targetId === 'pb-page-tmaps') tmInit();
 }
 
