@@ -41,7 +41,7 @@ const SPAWN_DATA = {
   ],
   'Brahmin': [
     { name: 'Flatwoods',                     region: 'The Forest',      count: '4 to 9',       note: 'Grazing around the church in the town center, directly south of Vault 76. Respawns reliably — the best and most accessible Brahmin stop, friendly to brand-new survivors.', map: 'Flatwoods.webp' },
-    { name: 'Big Bend Tunnel East',          region: 'Ash Heap',        count: 'Up to 3',      note: 'Three right at the fast-travel point. Quick and easy, though other players on the server may have beaten you to them — check back in fifteen minutes or hop servers.', map: 'BigBendTunnelEast.webp' },
+    { name: 'Big Bend Tunnel East',          region: 'Cranberry Bog',   count: 'Up to 3',      note: 'Three right at the fast-travel point. Quick and easy, though other players on the server may have beaten you to them — check back in fifteen minutes or hop servers.', map: 'BigBendTunnelEast.webp' },
     { name: 'Middle Mountain Pitstop',       region: 'Savage Divide',   count: 'Up to 4',      note: 'Four around the pitstop. Brahmin are peaceful — the daily needs only two kills, but you can milk them for Brahmin Milk instead if you would rather keep them for recipes.', map: 'MiddleMountainPitstop.webp' },
   ],
   'Cat': [
@@ -164,7 +164,7 @@ const SPAWN_DATA = {
     { name: 'Green Country Lodge',           region: 'The Forest',      count: '3+',           note: 'A small reliable cluster right at the lodge entrance. Good first stop on a Forest Mole Rat loop before hitting Hillfolk Hotdogs.', map: 'GreenCountryLodge.webp' },
   ],
   'Mongrel': [
-    { name: 'Big Bend Tunnel',               region: 'Ash Heap',        count: '11 + 4 Alpha', note: 'The definitive canine farm — eleven Mongrels plus four Alpha Mongrels inside the tunnel. Clears any Kill a Canine challenge in a single pass.', map: 'BigBendTunnelEast.webp' },
+    { name: 'Big Bend Tunnel',               region: 'Cranberry Bog',   count: '11 + 4 Alpha', note: 'The definitive canine farm — eleven Mongrels plus four Alpha Mongrels inside the tunnel. Clears any Kill a Canine challenge in a single pass.', map: 'BigBendTunnelEast.webp' },
     { name: 'Aaronholt Homestead',           region: 'The Forest',      count: '5 + 5 Dogs',   note: 'Five Mongrels and five Dogs around the abandoned farm. Doubles as a Bloodbug and Bloatfly stop, so you can stack insect challenges here too.', map: 'AaronholtHomestead.webp' },
     { name: 'Sylvie and Sons Logging Camp',  region: 'Savage Divide',   count: 'Variable',     note: 'Northeast of Fort Atlas, due east of the Sons of Dane compound. Usually a pack of canines — sometimes Wolves, sometimes Mongrels. Worth a swing-by, not a guarantee.', map: 'SylvieandSonsLoggingCamp.webp' },
   ],
