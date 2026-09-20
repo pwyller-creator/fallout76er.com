@@ -3432,7 +3432,7 @@ const photos = [
     file: 'Mutations1.webp',
     bioOnly: true,
     title: 'Pip-Boy Effects — Mutations I',
-    date: '05.11.2105',
+    date: '05.11.2102',
     tag: 'Player',
     threat: 'NONE',
     region: 'PIP-BOY — STAT / EFFECTS',
@@ -3443,7 +3443,7 @@ const photos = [
     file: 'Mutations2.webp',
     bioOnly: true,
     title: 'Pip-Boy Effects — Mutations II',
-    date: '05.11.2105',
+    date: '05.11.2102',
     tag: 'Player',
     threat: 'NONE',
     region: 'PIP-BOY — STAT / EFFECTS',
@@ -4375,6 +4375,14 @@ function readHash() {
   return params;
 }
 
+// ── Attribute-safe text ──────────────────────────────────────────
+// Several alt strings quote on-screen text ("NOTHING IS REAL", a chalkboard
+// message). Interpolated raw into alt="...", the first inner double quote ended
+// the attribute early and truncated the alt text; escape before interpolating.
+function escAttr(s) {
+  return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+}
+
 // ── Build Grid ───────────────────────────────────────────────────
 function buildGrid(data) {
   const grid = document.getElementById('photo-grid');
@@ -4398,7 +4406,7 @@ function buildGrid(data) {
     const delay = Math.min(index * 55, 600);
     card.style.setProperty('--card-delay', `${delay}ms`);
     card.style.setProperty('--card-tilt', `${tilt}deg`);
-    card.innerHTML = `<img src="thumbs/${p.file}" loading="lazy" alt="${p.alt}"><div class="card-title-overlay">${p.title}</div>`;
+    card.innerHTML = `<img src="thumbs/${p.file}" loading="lazy" alt="${escAttr(p.alt)}"><div class="card-title-overlay">${p.title}</div>`;
     card.onclick = () => {
       currentPhotoIndex = index;
       detailBackTarget = 'grid';
@@ -4418,7 +4426,7 @@ function showDetail(p) {
   if (al) al.style.display = 'none';
   document.getElementById('photo-container-target').innerHTML = `
     <div class="photo-attachment-container">
-      <img src="${p.file}" alt="${p.alt}">
+      <img src="${p.file}" alt="${escAttr(p.alt)}">
       <div class="corner-tab-bottom"></div>
     </div>
   `;
