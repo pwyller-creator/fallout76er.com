@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-09-14T12:00:00Z</updated>
+  <updated>2026-09-20T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Trope-ing Through Morgantown</title>
+    <link href="https://fallout76er.com/#photo=KidsToday.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/KidsToday.webp" rel="enclosure" type="image/webp" length="214776"/>
+    <media:content url="https://fallout76er.com/KidsToday.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=KidsToday.webp</id>
+    <published>2026-09-20T12:00:00Z</published>
+    <updated>2026-09-20T12:00:00Z</updated>
+    <category term="Encounter"/>
+    <content type="html">&lt;img src="https://fallout76er.com/KidsToday.webp" alt="Trope-ing Through Morgantown"/&gt;&lt;p&gt;You know, you always hear old people say, "I don't understand young people today! In my day we were healthy, brave, clean, and dumb!" Or some other type of baloney talk like that. I heard it when I was young, and I told myself I'd not be that way when I got older. Well, we all know the saw about 'never say never'. While I was out scouring Morgantown houses for loot, I was viciously attacked by these tropes, along with a crazed pint-sized teen wearing a bloodied clown outfit, a red bandana, and wielding a fireman's axe. The whole time this crazed mini-clown was chopping away at me, she spouted dogma like, "Slash, slash, slash! Blood for the Slasher!" And "You can't hide from the mask!" After I put her down and searched her cooling corpse, I surprised myself by musing, "Teens today are into weird crap! When I was that age, I was interested in caps and showing my peers I had deathclaw eggs, not some homicidal cult!" Troped again. An odd note fell out of her pocket when I dropped her. It said something like, "The clown! The clown! He's going to kill us all," The note ended with a comma for some reason. Perhaps the writer had been distracted by a Fireman's axe...&lt;/p&gt;&lt;p&gt;&lt;em&gt;THE FOREST · Threat: HIGH · Field date 09.20.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>The End May Come, But Corporate Marketing is Forever!</title>
     <link href="https://fallout76er.com/#photo=WavyWillardBot.webp" rel="alternate" type="text/html"/>
@@ -307,16 +318,5 @@
     <updated>2026-05-09T12:00:00Z</updated>
     <category term="NPC"/>
     <content type="html">&lt;img src="https://fallout76er.com/Samuel.webp" alt="Samuel's Corner of the Free Market"/&gt;&lt;p&gt;I found Samuel at his post in Foundation — baseball cap on, arms crossed, the quiet body language of a solid friend of Bill and Ted. He looks like a dealer and he is--his poison is semi-sort of rare plans that he'll trade for gold bullion. Bullion is harder to come by than bottle caps, but when you're jonesing for fix, you'll roll Smiley like a bowling ball... not that I do that sort of thing!&lt;/p&gt;&lt;p&gt;&lt;em&gt;SAVAGE DIVIDE — FOUNDATION · Threat: NONE · Field date 05.09.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Drawing With Simon - Simple Simon That is</title>
-    <link href="https://fallout76er.com/#photo=Crater.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Crater.webp" rel="enclosure" type="image/webp" length="81852"/>
-    <media:content url="https://fallout76er.com/Crater.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Crater.webp</id>
-    <published>2026-05-09T12:00:00Z</published>
-    <updated>2026-05-09T12:00:00Z</updated>
-    <category term="Location"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Crater.webp" alt="Drawing With Simon - Simple Simon That is"/&gt;&lt;p&gt;Deep inside Meg's operation, bolted to the rusted red wall of the Crater's interior, someone has set up a chalkboard beside a single lit candle. The message reads: "Honor means nothing. Survival means EVERYTHING." I watched a Raider in full combat armor painfully working out each syllable. Apparently remedial reading also means nothing to Meg's homicidal Raiders.&lt;/p&gt;&lt;p&gt;&lt;em&gt;THE MIRE — THE CRATER · Threat: HIGH · Field date 05.09.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
