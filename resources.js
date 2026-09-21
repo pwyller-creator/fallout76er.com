@@ -591,9 +591,6 @@ const MASK_DATA = {
       'Southeast storage building.',
       'Bunkhouse Phoenix.',
     ] },
-    { name: 'Fissure Site Sigma', where: 'North of Hopewell Cave. The spot has no map marker.', masks: [
-      'At the unmarked Halloween fright farm, directly north of the fissure site and south-southwest of the Pumpkin House.',
-    ] },
     { name: "Sunday Brothers' Cabin", where: 'South of Berkeley Springs Station (~200 m); west of Harpers Ferry (~350 m).', masks: [
       'Blue shipping container to the north.',
       'Main cabin basement, back-room shower area.',
@@ -618,6 +615,9 @@ const MASK_DATA = {
     ] },
     { name: 'Sylvie & Sons Logging Camp', where: 'East of Sons of Dane Compound (~200 m); south of Hopewell Cave (~300 m).', masks: [
       'At a broken truck.',
+    ] },
+    { name: 'Fissure Site Sigma', where: 'At the unmarked Halloween Fright Farm, southwest of the Pumpkin House and north of Hopewell Cave, with Fissure Site Sigma just to the west. The spot has no map marker.', masks: [
+      'At the unmarked Halloween fright farm, directly north of the fissure site and south-southwest of the Pumpkin House.',
     ] },
     { name: 'Bastion Park', where: 'Northeast of Big Bend Tunnel West (~350 m); west of Site Charlie (~350 m).', masks: [
       'Southeast fountain.',
