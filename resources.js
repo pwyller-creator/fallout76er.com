@@ -508,6 +508,401 @@ function renderIngredientDetail(key) {
   }).join('');
 }
 
+// ── SLASHER MASK INTEL DATA (Pint-Sized Slasher Masks — 108 masked corpses, 61 locations) ──
+// Per location: `masks` = one placement string per corpse; `where` = how to reach the spot from named
+// map landmarks (bearings and distances computed from Mappalachia game-world marker coordinates).
+const MASK_QUEST_NEED = 10;            // "The Slasher: Masked Truth"
+const MASK_TIERS = [3, 10, 30, 50];       // challenge tiers (93 total)
+const MASK_DATA = {
+  'The Forest': [
+    { name: 'Flatwoods Lookout', where: 'Southwest of Wixon Homestead (~200 m); north of Green Country Lodge (~250 m).', masks: [
+      'Inside the cabin just northeast of the tower.',
+    ] },
+    { name: 'Isolated Cabin', where: 'Northeast of Wixon Homestead (~200 m); southwest of Landview Lighthouse (~200 m); southeast of Vault 76 (~450 m).', masks: [
+      'Inside the cabin.',
+    ] },
+    { name: 'Groves Family Cabin', where: 'West of Aaronholt Homestead (~200 m); southwest of Vault 51 (~450 m).', masks: [
+      'On a dead body on the top bunk of the southern cabin.',
+    ] },
+    { name: 'Alpine River Cabins', where: 'Southwest of Gilman Lumber Mill (~400 m); west of Wixon Homestead (~450 m).', masks: [
+      'In the northeast cabin.',
+      'In the southwest cabin.',
+      'In the northwest cabin.',
+    ] },
+    { name: 'Camp McClintock', where: 'West of Summersville (~350 m); south of Sutton Station (~400 m); northeast of Charleston (~750 m).', masks: [
+      'North lookout tower.',
+      'South barracks.',
+      'Portable toilet.',
+    ] },
+    { name: 'Giant Teapot', where: 'North of Poseidon Energy Plant WV-06 (~150 m); west of Charleston Station (~250 m).', masks: [
+      'By the slide, to the west.',
+    ] },
+    { name: 'Camp Adams', where: 'Northwest of Poseidon Energy Plant WV-06 (~350 m); south of Silva Homestead (~400 m).', masks: [
+      'Southwest cabin.',
+      'Lookout tower.',
+    ] },
+    { name: 'Tyler County Fairgrounds', where: 'Northwest of Anchor Farm (~500 m); southwest of Aaronholt Homestead (~600 m).', masks: [
+      'East slide.',
+      'Carousel.',
+      'Blue seat ride to the north.',
+    ] },
+    { name: 'North Kanawha Lookout', where: 'East of Vault 76 (~300 m); north of Landview Lighthouse (~350 m); northwest of Gauley Mine (~650 m).', masks: [
+      'Northwest corner of the tower balcony.',
+    ] },
+    { name: 'East Kanawha Lookout', where: "Southeast of Overseer's Home (~200 m); northwest of Tygart Water Treatment (~250 m).", masks: [
+      'Top of the tower, eastern side of the balcony.',
+    ] },
+    { name: 'Twin Pine Cabins', where: "West of Wilson Brother's Auto Repair (~250 m); southwest of Grafton Station (~450 m).", masks: [
+      'On the wall of the westernmost cabin.',
+      'Top bunk of the easternmost cabin.',
+    ] },
+    { name: 'Lakeside Cabins', where: 'North of New Gad (~200 m); southwest of Summersville (~250 m); northeast of Charleston (~700 m).', masks: [
+      'Lounge chair on the back deck of the southern house.',
+    ] },
+    { name: 'New River Gorge Resort', where: 'West of Sutton Station (~300 m); southwest of Sutton (~350 m).', masks: [
+      'On a bed inside the southern cabin, the one with a black couch on its entrance stairs.',
+      'On a lounge chair at the pool area to the northeast.',
+      'Second-floor bedroom of the large barricaded cabin to the southeast.',
+    ] },
+    { name: 'Overlook Cabin', where: 'Northeast of Sugarmaple (~100 m); north of Hornwright Summer Villa (~100 m).', masks: [
+      'Inside the bathroom on the second floor.',
+    ] },
+  ],
+  'The Mire': [
+    { name: "Freddy Fear's House of Scares", where: 'Northeast of Vault 94 (~300 m); north of Abandoned Bunker (~350 m); northeast of Pumpkin House (~550 m).', masks: [
+      'In a cafe booth.',
+      'In the same cafe booth.',
+    ] },
+    { name: 'Dolly Sods Campground', where: 'Northwest of Carson Family Bunker (~100 m); east of Mosstown (~250 m).', masks: [
+      'Pavilion picnic table.',
+      'Red tent.',
+      'Green tent.',
+    ] },
+    { name: 'Dolly Sods Wilderness', where: "North of Carson Family Bunker (~250 m); southwest of Ella Ames' Bunker (~300 m).", masks: [
+      'First-floor bathroom of the ranger station.',
+    ] },
+    { name: 'Dolly Sods Lookout', where: "Southwest of Ella Ames' Bunker (~250 m); north of Carson Family Bunker (~300 m).", masks: [
+      "On the stairs going up to the tower's top.",
+    ] },
+    { name: 'East Ridge Lookout', where: 'Northwest of Abandoned Bunker (~50 m); southeast of Vault 94 (~150 m).', masks: [
+      'Top of the tower, on the balcony.',
+    ] },
+    { name: 'Camp Venture', where: 'North of Firebase LT (~250 m); northeast of Firebase Major (~400 m); south of Harpers Ferry (~600 m).', masks: [
+      'Southeast storage building.',
+      'Bunkhouse Phoenix.',
+    ] },
+    { name: 'Fissure Site Sigma', where: 'North of Hopewell Cave. The spot has no map marker.', masks: [
+      'At the unmarked Halloween fright farm, directly north of the fissure site and south-southwest of the Pumpkin House.',
+    ] },
+    { name: "Sunday Brothers' Cabin", where: 'South of Berkeley Springs Station (~200 m); west of Harpers Ferry (~350 m).', masks: [
+      'Blue shipping container to the north.',
+      'Main cabin basement, back-room shower area.',
+      'On a toilet down the stairs behind the bootlegging shack to the southeast.',
+    ] },
+  ],
+  'Savage Divide': [
+    { name: "Investigator's Cabin", where: "Northwest of Huntersville (~350 m); northwest of Devil's Backbone (~450 m).", masks: [
+      'Inside the cabin.',
+    ] },
+    { name: 'Bailey Family Cabin', where: 'Southwest of Vault 79 (~200 m); south of Mysterious Cave (~350 m).', masks: [
+      'Inside the cabin.',
+      'In the outhouse.',
+    ] },
+    { name: 'Autumn Acre Cabin', where: 'East of Wendigo Cave (~200 m); northwest of Berkeley Springs (~450 m); east of Seneca Rocks (~500 m).', masks: [
+      'In the bathtub inside.',
+      'On a lounge chair outside.',
+    ] },
+    { name: 'Old Danielson Cabin', where: 'West of Hillside Cavern (~200 m); southwest of Radiant Hills (~350 m).', masks: [
+      'In the main cabin.',
+      'In a small cabin.',
+    ] },
+    { name: 'Sylvie & Sons Logging Camp', where: 'East of Sons of Dane Compound (~200 m); south of Hopewell Cave (~300 m).', masks: [
+      'At a broken truck.',
+    ] },
+    { name: 'Bastion Park', where: 'Northeast of Big Bend Tunnel West (~350 m); west of Site Charlie (~350 m).', masks: [
+      'Southeast fountain.',
+      'Stone stairs to the northwest.',
+      'Slide to the west.',
+    ] },
+    { name: 'Central Mountain Lookout', where: 'East of Pleasant Valley Station (~400 m); southwest of Wendigo Cave (~400 m); east of Top of the World (~550 m).', masks: [
+      'Top of the tower, on the floor of the single room.',
+    ] },
+    { name: 'East Mountain Lookout', where: 'West of Kerwood Mine (~200 m); east of US-13C Bivouac (~250 m).', masks: [
+      'Inside a portable toilet at the base of the tower.',
+    ] },
+    { name: 'Whitespring Lookout', where: 'West of The Whitespring Golf Club (~200 m); south of The Deep (~250 m).', masks: [
+      'Top of the tower, on the balcony, lying down facing east.',
+    ] },
+    { name: 'South Mountain Lookout', where: 'Southwest of Huntersville (~500 m); east of R&G Station (~600 m); southeast of Foundation (~350 m).', masks: [
+      'Red shed at the base of the tower.',
+    ] },
+    { name: 'NW of Seneca Gang Camp', where: 'Northwest of Seneca Gang Camp, along Highway 63. The spot has no map marker.', masks: [
+      'Next to a car on Highway 63.',
+    ] },
+    { name: 'North Mountain Lookout', where: 'North of Hopewell Cave (~450 m); northeast of Sunnytop Station (~500 m).', masks: [
+      "On the stairs going up to the tower's top, next to a ham radio.",
+    ] },
+    { name: 'Pleasant Valley Cabins', where: 'North of Pleasant Valley Ski Resort (~150 m); north of Pleasant Valley Station (~250 m).', masks: [
+      'On a sofa on the first floor of the cabin with a billiards table.',
+      'At the motel exterior perched on a cliff, on the outside of a boarded-up room.',
+    ] },
+    { name: 'Seneca Rocks Visitor Center', where: 'West of Seneca Rocks (~150 m); southeast of Monongah Power Plant (~350 m).', masks: [
+      'In the blue house with a fridge on its porch, among the houses south of the visitor center.',
+      'Inside the green-trim cabin to the southeast, overlooking the visitor center.',
+    ] },
+    { name: 'South Cutthroat Camp', where: 'Southwest of Pleasant Valley Station (~100 m); southwest of Pleasant Valley Ski Resort (~150 m); southeast of Top of the World (~100 m).', masks: [
+      'Northeastern edge of the camp, propped up at a makeshift dining table under an umbrella.',
+    ] },
+    { name: 'Spruce Knob Lake', where: 'Northeast of R&G Station (~400 m); east of R & G Processing Services (~450 m).', masks: [
+      'Picnic table west of Spruce Knob Boat Rental.',
+      'Partially sunken rowboat at the broken docks southwest of the boat rental.',
+      'Campsite reached by following the trail east behind the boat rental.',
+    ] },
+    { name: 'Sunnytop Ski Lanes', where: 'East of Sunnytop Station (~150 m); northwest of Hopewell Cave (~450 m).', masks: [
+      'On a bunk bed behind a chained door in the northernmost building.',
+      'In a lounge chair by a fire pit, south of the long building.',
+      'In a bed on the second floor of a green-and-white building, west side, south of the entrance sign.',
+    ] },
+    { name: 'Sunnytop Ski Lanes Base Lodge', where: 'Northeast of Sunnytop Station (~400 m); northwest of Hopewell Cave (~500 m).', masks: [
+      "First-floor men's bathroom, by the urinal.",
+      'On a ski lift seat directly behind (south of) the lodge.',
+    ] },
+    { name: "Trapper's Camp", where: "Northeast of Devil's Backbone, at the Trappers' camp. The spot has no map marker.", masks: [
+      'South side of the camp, on a lookout buttress.',
+    ] },
+    { name: 'Vault 96', where: 'Northwest of the Vault 96 map marker.', masks: [
+      "Northwest of the Vault's map marker, up on the cliff at the unmarked Settlers' camp from the quest Here to Stay. Look for a white Brotherhood flag pole.",
+    ] },
+  ],
+  'Toxic Valley': [
+    { name: 'Hemlock Holes', where: 'Northwest of Woods Estate (~400 m); northeast of Makeshift Vault (~400 m).', masks: [
+      'Truck bed in the parking lot.',
+      'Diner booth.',
+    ] },
+    { name: 'Kiddie Corner Cabins', where: 'West of Black Bear Lodge (~200 m); north of Clarksburg Shooting Club (~250 m).', masks: [
+      'Southeast cabin.',
+      'Behind the northwest cabin.',
+    ] },
+    { name: "Wavy Willard's Water Park", where: 'West of Crater Watchstation (~350 m); northeast of Woods Estate (~350 m).', masks: [
+      'Zebra cart to the northwest.',
+      'Top of the Ssslither slide.',
+      "Knock 'Em Down stall.",
+    ] },
+    { name: 'Pioneer Scout Camp', where: 'West of Grafton Steel (~250 m); southwest of Carleton Mine (~400 m).', masks: [
+      'Cabin B01 near the lake, next to bunk beds.',
+      'On a raft near the docks in the middle of the camp.',
+      'Cabin A01 in the northeast part of the camp, at a table.',
+    ] },
+    { name: 'Pioneer Scout Lookout', where: 'West of Grafton Steel (~350 m); southeast of Clarksburg Shooting Club (~450 m).', masks: [
+      'Top of the tower, on the balcony, leaning against the western railing.',
+    ] },
+  ],
+  'Ash Heap': [
+    { name: 'Camden Park', where: 'West of Brim Quarry (~300 m); northwest of Hornwright Testing Site #04 (~350 m).', masks: [
+      'In one of the Widowmaker roller coaster cars.',
+      'In the other Widowmaker roller coaster car.',
+      'White boat on the Ohio River.',
+    ] },
+    { name: 'Rollins Labor Camp', where: 'Southwest of The Burning Mine (~250 m); north of Abandoned Mine Shaft 2 (~300 m).', masks: [
+      'Outside the camp, in a porta-potty.',
+    ] },
+    { name: 'Nuka-World on Tour', where: 'Southeast of The Burning Mine (~200 m); northwest of Lake Reynolds (~200 m).', masks: [
+      'Hoop Toss stall to the west.',
+      'Against the wall of the southwestern exit gate.',
+      'Nuka-Launcher roller coaster to the east, at the top of the main entrance ramp.',
+    ] },
+  ],
+  'Cranberry Bog': [
+    { name: 'Ranger Lookout', where: 'Northeast of Ranger District Office (~50 m); northeast of Drop Site G3 (~350 m).', masks: [
+      'Top of the tower, on the balcony, leaning against the wall.',
+    ] },
+  ],
+  'Skyline Valley': [
+    { name: 'Makeout Point', where: 'Southeast of Ranger Station Bunker (~200 m); east of Shenandoah Visitor Center (~400 m); southeast of Vault 96 (~600 m).', masks: [
+      'In the bathroom.',
+    ] },
+    { name: 'Naked Creek', where: 'Northeast of Old Crimora Mines (~200 m); southeast of Grindstone Arch (~350 m).', masks: [
+      'Inside a Blue Caravan Company trailer.',
+    ] },
+    { name: 'Camp Liberty', where: 'Southwest of Shining Creek Cavern (~450 m); southeast of The Trading Post (~500 m).', masks: [
+      'Inside the southern Expedition Leader cabin.',
+      'On a golf cart in the parking lot just outside the main entrance, to the south.',
+      'In the southeast corner behind the stage, in a small shack with a doghouse.',
+    ] },
+    { name: 'Rapidan Camp', where: 'North of Big Meadows Gas Well (~300 m); northwest of Slumber Mill Motel (~350 m); southwest of Dark Hollow Manor (~350 m).', masks: [
+      "Inside the Prime Minister's Cabin, main central room.",
+      'In a gazebo overlooking the lake, central southeast.',
+      'At the Vertibot landing pad, inside the wide trailer to the north.',
+    ] },
+  ],
+  'Burning Springs': [
+    { name: 'Dino Peaks Mini Golf', where: 'Northeast of Super Duper Mart (~400 m); east of Athens (~600 m).', masks: [
+      'Off-road vehicle on the raised cliff.',
+      'Bench near Hole 3.',
+      "Maintenance shed in the dinosaur's jaws.",
+    ] },
+    { name: "Cobby's Corner", where: 'West of World of Corn. The spot has no map marker.', masks: [
+      'Playground west of World of Corn.',
+    ] },
+    { name: 'World of Corn', where: 'Southwest of Albany (~200 m); southeast of Hocking Hills Train Station (~500 m).', masks: [
+      'Under the stairs to the rooftop.',
+      'On a picnic table at the bottom of the stone stairs leading to the museum.',
+    ] },
+    { name: 'Starlight Drive-in', where: 'North of Checkpoint Canyon (~450 m); southeast of Super Duper Mart (~450 m).', masks: [
+      'In the ticket booth at the front entrance.',
+      'Inside the saucer playground structure in the northwest corner.',
+    ] },
+    { name: 'Strouds Run State Park', where: 'East of Athens, near Route 50, just before the bridge. The spot has no map marker.', masks: [
+      'Unmarked spot east of Athens, near Route 50, right before the bridge.',
+    ] },
+    { name: 'Tycoon Lake', where: 'East of The Rust Kingdom (~500 m); west of Silva Homestead (~600 m).', masks: [
+      'On a beach chair near the fast travel point.',
+      'In an outhouse to the north, behind the wooden shack near the fast travel point.',
+    ] },
+  ],
+};
+
+// ── Slasher Mask Intel sub-menu + progress checklist ─────────────
+// Progress lives only in this browser (localStorage) — nothing is sent anywhere.
+// Nav buttons keep their text equal to the region key so deepLinkPipBoy('masks', slug) can find them.
+const MASK_STORE_KEY = 'f76er-slasher-masks';
+const MASK_TOTAL = Object.values(MASK_DATA).reduce((n, locs) => n + locs.reduce((m, l) => m + l.masks.length, 0), 0);
+let maskSelectsInit = false;
+let maskCurrent = null;
+let maskClearArmed = false;
+let maskSet = null;
+
+function maskEsc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+function maskGet() {
+  if (!maskSet) {
+    try { maskSet = new Set(JSON.parse(localStorage.getItem(MASK_STORE_KEY) || '[]')); }
+    catch (e) { maskSet = new Set(); }
+  }
+  return maskSet;
+}
+function maskSave() {
+  try { localStorage.setItem(MASK_STORE_KEY, JSON.stringify([...maskGet()])); } catch (e) { /* storage blocked: progress lasts this visit only */ }
+}
+function maskKey(region, name, i) { return region + '|' + name + '|' + i; }
+function maskRegionTotal(region) { return MASK_DATA[region].reduce((n, l) => n + l.masks.length, 0); }
+function maskRegionDone(region) {
+  const set = maskGet();
+  let n = 0;
+  MASK_DATA[region].forEach(l => l.masks.forEach((_, i) => { if (set.has(maskKey(region, l.name, i))) n++; }));
+  return n;
+}
+function maskDoneTotal() {
+  return Object.keys(MASK_DATA).reduce((n, r) => n + maskRegionDone(r), 0);
+}
+
+function maskChipsHTML(done) {
+  let cum = 0;
+  const chips = [];
+  MASK_TIERS.forEach((t, i) => {
+    cum += t;
+    chips.push({ label: 'Tier ' + (i + 1), need: cum, tip: 'Challenge tier ' + (i + 1) + ' completes at ' + cum + ' masks collected in all' });
+  });
+  return chips.map(c => {
+    const ok = done >= c.need;
+    return '<span class="pb-mask-chip' + (ok ? ' pb-done' : '') + '" title="' + maskEsc(c.tip) + '">' + c.label + ' · ' + c.need + (ok ? ' ✓' : '') + '</span>';
+  }).join('');
+}
+
+function maskHeadHTML() {
+  const done = maskDoneTotal();
+  return '<div class="pb-mask-head">' +
+    '<div class="pb-mask-total"><span id="pb-mask-done">' + done + '</span> / ' + MASK_TOTAL + ' <small>masks collected</small></div>' +
+    '<div class="pb-mask-chips" id="pb-mask-chips">' + maskChipsHTML(done) + '</div>' +
+    '<div class="pb-mask-tools"><a href="/guides/pint-sized-slasher-mask-locations.html">Read the full guide &rarr;</a>' +
+    '<button type="button" class="pb-mask-clear" id="pb-mask-clear" onclick="maskClear()">Clear progress</button></div>' +
+    '</div>';
+}
+
+function maskCardsHTML(region) {
+  const set = maskGet();
+  return MASK_DATA[region].map(l => {
+    const rows = l.masks.map((m, i) => {
+      const k = maskKey(region, l.name, i);
+      const on = set.has(k);
+      return '<label class="pb-mask-row' + (on ? ' pb-done' : '') + '"><input type="checkbox" data-k="' + maskEsc(k) + '"' +
+        (on ? ' checked' : '') + ' onchange="maskToggle(this)"><span>' + maskEsc(m) + '</span></label>';
+    }).join('');
+    return '<div class="pb-spawn-card pb-mask-card"><div class="pb-spawn-rank">' + l.masks.length + '</div>' +
+      '<div class="pb-spawn-name">' + maskEsc(l.name) + '</div>' +
+      '<div class="pb-spawn-region">' + maskEsc(region) + '</div>' +
+      '<div class="pb-mask-where">' + maskEsc(l.where) + '</div>' + rows + '</div>';
+  }).join('');
+}
+
+function renderMaskDetail(region) {
+  const detail = document.getElementById('pb-mask-detail');
+  if (!detail) return;
+  maskClearArmed = false;
+  maskCurrent = (region && MASK_DATA[region]) ? region : null;
+  detail.innerHTML = maskHeadHTML() + (maskCurrent
+    ? maskCardsHTML(maskCurrent)
+    : '<div class="pb-spawn-detail-placeholder">Select a region to see where the Phantoms left their dead.</div>');
+}
+
+function maskRefresh() {
+  const done = maskDoneTotal();
+  const el = document.getElementById('pb-mask-done');
+  if (el) el.textContent = done;
+  const chips = document.getElementById('pb-mask-chips');
+  if (chips) chips.innerHTML = maskChipsHTML(done);
+  document.querySelectorAll('#pb-mask-nav .pb-spawn-item').forEach(b => {
+    const r = b.dataset.region;
+    const d = maskRegionDone(r), t = maskRegionTotal(r);
+    b.dataset.count = d + '/' + t;
+    b.classList.toggle('pb-mask-nav-done', d === t);
+  });
+}
+
+function maskToggle(input) {
+  const set = maskGet();
+  if (input.checked) set.add(input.dataset.k); else set.delete(input.dataset.k);
+  maskSave();
+  if (input.parentNode) input.parentNode.classList.toggle('pb-done', input.checked);
+  maskRefresh();
+}
+
+function maskClear() {
+  const btn = document.getElementById('pb-mask-clear');
+  if (!maskClearArmed) {
+    maskClearArmed = true;
+    if (btn) btn.textContent = 'Really clear? Click again';
+    return;
+  }
+  maskSet = new Set();
+  maskSave();
+  renderMaskDetail(maskCurrent);
+  maskRefresh();
+}
+
+function initMaskSelects() {
+  if (maskSelectsInit) return;
+  maskSelectsInit = true;
+  const nav = document.getElementById('pb-mask-nav');
+  if (!nav) return;
+  Object.keys(MASK_DATA).forEach(k => {
+    const btn = document.createElement('button');
+    btn.className = 'pb-spawn-item pb-mask-nav-item';
+    btn.textContent = k;
+    btn.dataset.region = k;
+    btn.onclick = () => {
+      document.querySelectorAll('#pb-mask-nav .pb-spawn-item').forEach(b => b.classList.remove('pb-active'));
+      btn.classList.add('pb-active');
+      renderMaskDetail(k);
+      document.getElementById('pb-mask-detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+    nav.appendChild(btn);
+  });
+  renderMaskDetail(null);
+  maskRefresh();
+}
+
 // ── Pip-Boy navigation ───────────────────────────────────────────
 function pbNav(btn) {
   document.querySelectorAll('.pb-menu-item').forEach(b => b.classList.remove('pb-active'));
@@ -520,6 +915,7 @@ function pbNav(btn) {
   if (targetId === 'pb-page-spawn') initSpawnSelects();
   if (targetId === 'pb-page-scrap') initScrapSelects();
   if (targetId === 'pb-page-ingredients') initIngredientSelects();
+  if (targetId === 'pb-page-masks') initMaskSelects();
   if (targetId === 'pb-page-tmaps') tmInit();
 }
 

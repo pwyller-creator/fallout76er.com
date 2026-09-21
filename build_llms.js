@@ -91,6 +91,7 @@ function build() {
   lines.push(`- [Wasteland Archive Homepage](${SITE}/): Photo archive, weekly nuke codes, Minerva tracker, scrap-farming data, Pip-Boy calculators (Gold Bullion Planner, Legendary Scrap Odds, Damage Stacker), and the plans-exchange trading depot.`);
   lines.push(`- [Interactive Wasteland Map](${SITE}/guides/wasteland-map.html): Clickable full map of Appalachia with dig-site, landmark, and scrap-farm pins.`);
   lines.push(`- [S.C.O.R.E. Challenge FAQ](${SITE}/guides/score-challenge-faq.html): Field-verified answers to which creatures and items count toward S.C.O.R.E. challenges, plus known bugs and fast-farm routes.`);
+  lines.push(`- [Pint-Sized Slasher Mask Locations](${SITE}/guides/pint-sized-slasher-mask-locations.html): All 108 masked-corpse locations from the Slasher Update, with landmark and compass directions and exactly where each mask sits.`);
   lines.push(`- [Wastelander Diary](https://fallout76er.substack.com): Substack field-journal dispatches.`);
   lines.push('');
   lines.push(`## Creature Spawn Intel`);

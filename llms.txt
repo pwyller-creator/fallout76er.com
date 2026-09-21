@@ -6,6 +6,7 @@
 - [Wasteland Archive Homepage](https://fallout76er.com/): Photo archive, weekly nuke codes, Minerva tracker, scrap-farming data, Pip-Boy calculators (Gold Bullion Planner, Legendary Scrap Odds, Damage Stacker), and the plans-exchange trading depot.
 - [Interactive Wasteland Map](https://fallout76er.com/guides/wasteland-map.html): Clickable full map of Appalachia with dig-site, landmark, and scrap-farm pins.
 - [S.C.O.R.E. Challenge FAQ](https://fallout76er.com/guides/score-challenge-faq.html): Field-verified answers to which creatures and items count toward S.C.O.R.E. challenges, plus known bugs and fast-farm routes.
+- [Pint-Sized Slasher Mask Locations](https://fallout76er.com/guides/pint-sized-slasher-mask-locations.html): All 108 masked-corpse locations from the Slasher Update, with landmark and compass directions and exactly where each mask sits.
 - [Wastelander Diary](https://fallout76er.substack.com): Substack field-journal dispatches.
 
 ## Creature Spawn Intel

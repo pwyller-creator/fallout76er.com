@@ -1629,6 +1629,77 @@
     flex: 1;
   }
 
+  /* ── Slasher Mask checklist (reuses .pb-spawn-* layout) ── */
+  .pb-spawn-item.pb-mask-nav-item::after {
+    content: attr(data-count);
+    float: right;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--pb-faint);
+  }
+  .pb-spawn-item.pb-mask-nav-item.pb-mask-nav-done::after { color: rgba(160,240,120,0.95); }
+  .pb-mask-head {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--pb-faint);
+    padding-bottom: 12px;
+    margin-bottom: 2px;
+  }
+  .pb-mask-total {
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--pb-bright);
+    text-shadow: var(--pb-glow);
+    text-transform: uppercase;
+  }
+  .pb-mask-total small { font-size: 11px; letter-spacing: 2px; color: var(--pb-dim); }
+  .pb-mask-chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 10px; }
+  .pb-mask-chip {
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: var(--pb-dim);
+    border: 1px solid var(--pb-faint);
+    padding: 2px 8px;
+    text-transform: uppercase;
+  }
+  .pb-mask-chip.pb-done {
+    color: rgba(160,240,120,0.95);
+    border-color: rgba(140,220,100,0.45);
+  }
+  .pb-mask-tools { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 11px; letter-spacing: 1px; }
+  .pb-mask-tools a, .pb-mask-clear {
+    color: var(--pb-mid);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-decoration: underline;
+    text-transform: uppercase;
+  }
+  .pb-mask-tools a:hover, .pb-mask-clear:hover { color: var(--pb-bright); }
+  .pb-mask-card .pb-spawn-name { padding-right: 28px; }
+  .pb-mask-where {
+    font-size: 11px;
+    color: var(--pb-mid);
+    letter-spacing: 0.5px;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .pb-mask-row {
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 12px;
+    color: var(--pb-dim);
+    line-height: 1.45;
+    padding: 3px 0;
+    cursor: pointer;
+  }
+  .pb-mask-row input { accent-color: rgba(200,140,25,1); margin-top: 2px; flex-shrink: 0; cursor: pointer; }
+  .pb-mask-row.pb-done { color: var(--pb-faint); text-decoration: line-through; }
+
   /* ── Treasure Maps ── */
   .tm-region-grid {
     display: grid;
@@ -2804,6 +2875,7 @@
         <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
         <button class="pb-menu-item" data-pb-target="pb-page-ingredients" onclick="pbNav(this)">&#9670; Ingredient Spawn Intel</button>
+        <button class="pb-menu-item" data-pb-target="pb-page-masks" onclick="pbNav(this)">&#9760; Slasher Mask Locations</button>
         <button class="pb-menu-item" data-pb-target="pb-page-plans" onclick="pbNav(this)">&#9874; Plans Exchange</button>
         <button class="pb-menu-item" data-pb-target="pb-page-tmaps" onclick="pbNav(this)">&#9670; Treasure Maps</button>
         <button class="pb-menu-item" data-pb-target="pb-page-wmap" onclick="pbNav(this)">&#9670; Wasteland Map</button>
@@ -3067,6 +3139,23 @@
           </div>
         </div>
 
+        <!-- PAGE: Slasher Mask Locations -->
+        <div class="pb-page" id="pb-page-masks">
+          <div class="pb-page-title">Slasher Mask Locations — All 108 Masked Corpses</div>
+          <p style="font-family:'Courier New',monospace; font-size:13px; color:var(--pb-dim); letter-spacing:1px; margin-bottom:16px; line-height:1.8;">
+            Every Pint-Sized Slasher Mask in Appalachia, by region, with directions and a checklist that remembers your progress. The <a href="/guides/pint-sized-slasher-mask-locations.html" style="color:var(--pb-mid);">full guide</a> has all 61 locations on one page.
+          </p>
+          <div class="pb-spawn-layout">
+            <nav class="pb-spawn-menu" aria-label="Regions">
+              <div class="pb-spawn-menu-heading">Region</div>
+              <div id="pb-mask-nav"></div>
+            </nav>
+            <div class="pb-spawn-detail" id="pb-mask-detail">
+              <div class="pb-spawn-detail-placeholder">Select a region to see where the Phantoms left their dead.</div>
+            </div>
+          </div>
+        </div>
+
         <!-- PAGE: Plans Exchange -->
         <div class="pb-page" id="pb-page-plans">
           <div class="pb-page-title">Plans Exchange — Rusty's Curios &amp; Rares</div>
@@ -3314,7 +3403,7 @@
      resources.js. defer, not click-gated, so it still renders automatically
      into the resources-view markup on every load (no SEO/crawlability change),
      it just doesn't block the critical path. -->
-<script defer src="/resources.js?v=20260915f"></script>
+<script defer src="/resources.js?v=20260921"></script>
 <script>
 
 const photos = [
@@ -4549,6 +4638,7 @@ const PB_DEEPLINK_KINDS = {
   spawn:      { data: () => (typeof SPAWN_DATA !== 'undefined' ? SPAWN_DATA : undefined),           pageTarget: 'pb-page-spawn',       navId: 'pb-spawn-nav' },
   scrap:      { data: () => (typeof SCRAP_DATA !== 'undefined' ? SCRAP_DATA : undefined),           pageTarget: 'pb-page-scrap',       navId: 'pb-scrap-nav' },
   ingredient: { data: () => (typeof INGREDIENT_DATA !== 'undefined' ? INGREDIENT_DATA : undefined), pageTarget: 'pb-page-ingredients', navId: 'pb-ingredient-nav' },
+  masks:      { data: () => (typeof MASK_DATA !== 'undefined' ? MASK_DATA : undefined),             pageTarget: 'pb-page-masks',       navId: 'pb-mask-nav' },
 };
 
 function deepLinkPipBoy(kind, slug) {
@@ -5475,6 +5565,7 @@ let evFinishBoot = null;
       if (params.spawn) deepLinkPipBoy('spawn', params.spawn);
       else if (params.scrap) deepLinkPipBoy('scrap', params.scrap);
       else if (params.ingredient) deepLinkPipBoy('ingredient', params.ingredient);
+      else if (params.masks) deepLinkPipBoy('masks', params.masks);
     }
   } else if (params.photo) {
     dismissEntry('archive', true);
@@ -6592,6 +6683,8 @@ function scrollToDiary() {
     <a href="/maps/">Treasure Map Guides</a>
     <span aria-hidden="true">&middot;</span>
     <a href="/guides/wasteland-map.html">Wasteland Map</a>
+    <span aria-hidden="true">&middot;</span>
+    <a href="/guides/pint-sized-slasher-mask-locations.html">Slasher Mask Locations</a>
     <span aria-hidden="true">&middot;</span>
     <a href="/creatures/">Creature Spawn Intel</a>
     <span aria-hidden="true">&middot;</span>
