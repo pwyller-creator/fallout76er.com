@@ -109,8 +109,10 @@ async function main() {
   const a = html.indexOf(START), b = html.indexOf(END);
   if (a === -1 || b === -1 || b < a) throw new Error('DIARY markers not found in index.html');
 
-  const cards = posts.map(card).join('\n');
-  const out = html.slice(0, a + START.length) + '\n' + cards + '\n    ' + html.slice(b);
+  // index.html is CRLF; match its line endings so the baked block doesn't leave the file mixed.
+  const eol = html.includes('\r\n') ? '\r\n' : '\n';
+  const block = ('\n' + posts.map(card).join('\n') + '\n    ').replace(/\r?\n/g, eol);
+  const out = html.slice(0, a + START.length) + block + html.slice(b);
   fs.writeFileSync(INDEX, out);
 
   console.log('Baked ' + posts.length + ' diary dispatch' + (posts.length === 1 ? '' : 'es') + ' into index.html:');
