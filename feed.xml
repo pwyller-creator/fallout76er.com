@@ -5,12 +5,23 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-09-20T12:00:00Z</updated>
+  <updated>2026-09-24T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>On Top of Old Sparky</title>
+    <link href="https://fallout76er.com/#photo=PapaMidniteChair.webp" rel="alternate" type="text/html"/>
+    <link href="https://fallout76er.com/PapaMidniteChair.webp" rel="enclosure" type="image/webp" length="229838"/>
+    <media:content url="https://fallout76er.com/PapaMidniteChair.webp" type="image/webp" medium="image"/>
+    <id>https://fallout76er.com/#photo=PapaMidniteChair.webp</id>
+    <published>2026-09-24T12:00:00Z</published>
+    <updated>2026-09-24T12:00:00Z</updated>
+    <category term="Item"/>
+    <content type="html">&lt;img src="https://fallout76er.com/PapaMidniteChair.webp" alt="On Top of Old Sparky"/&gt;&lt;p&gt;I don't know if you've seen the Keanu Reeves flick Constantine, but I have. I haven't spent my entire life haunting the blasted ruins of Appalachia. I just ended up stuck here because I was at a General Atomics International: Modern Mechanics Expo in Charleston when the bombs dropped. In any event, when I ran across Old Sparky sitting on the rooftop of the main building at RobCo Research Center in the Cranberry Bog (just north of Watoga), I stopped short. This killing device looked exactly like "two hundred souls had passed through its wood and steel"—like to give me a raging case of the collywobbles it did! If you find it as you pass through the Bog, see if you're brave enough to take a seat and place your haunches in the well-worn indentations of former victims... I, ahhh, I was!&lt;/p&gt;&lt;p&gt;&lt;em&gt;ROBCO RESEARCH CENTER — CRANBERRY BOG · Threat: LOW · Field date 09.24.2102&lt;/em&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Trope-ing Through Morgantown</title>
     <link href="https://fallout76er.com/#photo=KidsToday.webp" rel="alternate" type="text/html"/>
@@ -307,16 +318,5 @@
     <updated>2026-05-09T12:00:00Z</updated>
     <category term="Camp"/>
     <content type="html">&lt;img src="https://fallout76er.com/KingofMasks.webp" alt="The Curator of a Thousand Faces"/&gt;&lt;p&gt;Wedged between Uncanny Caverns and the Whitespring Resort, highlevelnord39012 has built what can only be described as the most unsettling gift shop in post-nuclear West Virginia. Wall-to-wall wooden shelving units display an absurd number of masks — Mirelurk, Demon, Clown, Ghoul, Brahmin — each staring outward with the patient, hollow confidence of a thing that has never needed to blink. A "Rip Daring and the Cryptid Hunt" pinball machine anchors the left wall, presumably for when browsing the collection becomes too emotionally exhausting. I spent fifteen minutes in here and left feeling watched. I bought nothing - hoarders never sell their shit.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SAVAGE DIVIDE · Threat: NONE · Field date 05.09.2102&lt;/em&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Samuel's Corner of the Free Market</title>
-    <link href="https://fallout76er.com/#photo=Samuel.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/Samuel.webp" rel="enclosure" type="image/webp" length="163808"/>
-    <media:content url="https://fallout76er.com/Samuel.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=Samuel.webp</id>
-    <published>2026-05-09T12:00:00Z</published>
-    <updated>2026-05-09T12:00:00Z</updated>
-    <category term="NPC"/>
-    <content type="html">&lt;img src="https://fallout76er.com/Samuel.webp" alt="Samuel's Corner of the Free Market"/&gt;&lt;p&gt;I found Samuel at his post in Foundation — baseball cap on, arms crossed, the quiet body language of a solid friend of Bill and Ted. He looks like a dealer and he is--his poison is semi-sort of rare plans that he'll trade for gold bullion. Bullion is harder to come by than bottle caps, but when you're jonesing for fix, you'll roll Smiley like a bowling ball... not that I do that sort of thing!&lt;/p&gt;&lt;p&gt;&lt;em&gt;SAVAGE DIVIDE — FOUNDATION · Threat: NONE · Field date 05.09.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
