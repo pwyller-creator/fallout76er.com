@@ -44,6 +44,10 @@ const SPAWN_DATA = {
     { name: 'Big Bend Tunnel East',          region: 'Cranberry Bog',   count: 'Up to 3',      note: 'Three right at the fast-travel point. Quick and easy, though other players on the server may have beaten you to them — check back in fifteen minutes or hop servers.', map: 'BigBendTunnelEast.webp' },
     { name: 'Middle Mountain Pitstop',       region: 'Savage Divide',   count: 'Up to 4',      note: 'Four around the pitstop. Brahmin are peaceful — the daily needs only two kills, but you can milk them for Brahmin Milk instead if you would rather keep them for recipes.', map: 'MiddleMountainPitstop.webp' },
   ],
+  'Burning Radscorpion': [
+    { name: 'World of Corn',                 region: 'Burning Springs', count: '4 reliable',   note: 'A colony has dug into the mound at the museum — four erupt from the sand pits scattered with bones, so expect a fight when you climb it. Every scorpion here is the Burning variant; ordinary Radscorpions have their own listing.' },
+    { name: 'Super Duper Mart',              region: 'Burning Springs', count: '4 reliable',   note: 'Four in and around the ruined supermarket. Burning Radscorpions are a Burning Springs regional variant, so do not bother hunting them back in Appalachia proper.' },
+  ],
   'Cat': [
     { name: "Scoot's Shack",                  region: 'The Mire',        count: '2 guaranteed', note: 'South of the Southern Belle Motel. The single most reliable cat spot on the map — two guaranteed every visit.', map: 'SouthernBelleMotel.webp' },
     { name: 'Wixon Homestead',                region: 'The Forest',      count: '1 named',       note: "Cheswick II, a gray tabby, wanders the homestead just south of Vault 76 — an easy first stop for a brand-new survivor's photo or kill quota.", map: 'WixonHomestead.webp' },
@@ -200,8 +204,8 @@ const SPAWN_DATA = {
   ],
   'Radscorpion': [
     { name: 'Carleton Mine',                 region: 'Toxic Valley',    count: 'Up to 5',      note: 'Five reliably inside, both during and after the Wastelanders quest Cheating Death. Burrowers — they erupt from the floor as you move through the tunnels, so keep moving and watch your flanks.', map: 'CarletonMine.webp' },
-    { name: 'World of Corn',                 region: 'Burning Springs', count: 'Up to 5',      note: 'Nests scattered among the corn sculptures around the museum. The Burning Radscorpion variants here count the same toward kill challenges.' },
-    { name: 'Sinkhole Solutions',            region: 'Skyline Valley',  count: 'Event waves',  note: 'The public event throws dozens of Radscorpions at you in waves, with a guaranteed legendary in the final wave. Overkill for a daily, the fastest weekly clear there is.' },
+    { name: 'Smith Farm',                    region: 'Toxic Valley',    count: '4 reliable',   note: 'Four reliably at the farm. The scorched-red Burning variants that live in Burning Springs have their own listing.' },
+    { name: 'Sinkhole Solutions',            region: 'Skyline Valley',  count: 'Event waves', note: 'The public event throws dozens of Radscorpions at you in waves, with a guaranteed legendary in the final wave. Overkill for a daily, the fastest weekly clear there is.' },
   ],
   'Radstag': [
     { name: 'Thomas Farm',                  region: 'Savage Divide',   count: '4–6',           note: 'East of Dent & Sons Construction, marked by the big barn. A busted Aerosolizer bleached this whole herd albino-white — the single most reliable Radstag farm on the map.', map: 'ThomasFarm.webp' },
