@@ -1141,6 +1141,25 @@
     text-shadow: 0 0 10px rgba(200,110,40,0.5);
   }
 
+  .pb-minerva-stock { margin-top: 18px; }
+  .pb-mstock { border: 1px solid var(--pb-border); background: rgba(200,140,25,0.06); margin-top: 10px; }
+  .pb-mstock > summary {
+    cursor: pointer; list-style: none; padding: 10px 12px;
+    font-family: 'Courier New', monospace; font-size: 13px; letter-spacing: 2px;
+    color: var(--pb-bright); text-transform: uppercase;
+  }
+  .pb-mstock > summary::-webkit-details-marker { display: none; }
+  .pb-mstock > summary::before { content: '▸ '; color: var(--pb-dim); }
+  .pb-mstock[open] > summary::before { content: '▾ '; }
+  .pb-mstock-when { display: block; margin: 4px 0 0 16px; font-size: 11px; letter-spacing: 1.5px; color: var(--pb-dim); text-transform: none; }
+  .pb-mstock-row {
+    display: flex; justify-content: space-between; gap: 14px; padding: 5px 12px;
+    border-top: 1px dotted var(--pb-faint); font-family: 'Courier New', monospace;
+    font-size: 13px; color: var(--pb-mid);
+  }
+  .pb-mstock-price { color: var(--pb-bright); white-space: nowrap; }
+  .pb-mstock-note { margin-top: 10px; font-family: 'Courier New', monospace; font-size: 11px; letter-spacing: 1px; color: var(--pb-dim); text-align: center; }
+
   /* ── Bullion Planner page ── */
   .pb-bp-intro {
     font-family: 'Courier New', monospace;
@@ -2911,7 +2930,9 @@
           <div class="pb-minerva-location" id="res-minerva-location"></div>
           <div class="pb-minerva-sublabel" id="res-minerva-sublabel"></div>
           <div class="pb-minerva-status" id="res-minerva-status"></div>
+          <div class="pb-minerva-stock" id="res-minerva-stock"></div>
           <div class="pb-credit" style="margin-top:18px;"><a href="https://fallout76.fandom.com/wiki/Minerva" target="_blank" rel="noopener">Powered by the Fallout 76 Wiki @ Fandom</a></div>
+          <div class="pb-credit"><a href="https://fallout.wiki/wiki/Minerva%27s_Emporium" target="_blank" rel="noopener">Fallout Wiki</a> <a href="https://www.falloutbuilds.com/fo76/minerva/" target="_blank" rel="noopener">falloutbuilds.com</a> <a href="https://nukaknights.com/minerva-dates-inventory.html" target="_blank" rel="noopener">Nuka Knights</a></div>
         </div>
 
         <!-- PAGE: Gold Bullion Planner -->
@@ -3403,7 +3424,7 @@
      resources.js. defer, not click-gated, so it still renders automatically
      into the resources-view markup on every load (no SEO/crawlability change),
      it just doesn't block the critical path. -->
-<script defer src="/resources.js?v=20260921b"></script>
+<script defer src="/resources.js?v=20260924a"></script>
 <script>
 
 const photos = [
