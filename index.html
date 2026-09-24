@@ -4656,6 +4656,7 @@ function showResources() {
 
 // Deep-link into a specific Pip-Boy Spawn Intel card, e.g.
 // #section=resources&spawn=deathclaw, &scrap=gold, or &ingredient=brain-fungus
+// (whole pages without a card list use &page=..., see deepLinkPipBoyPage below)
 // — used for backlinks from off-site posts (Substack captions, socials)
 // straight to a specific card instead of just the general Resources view.
 function slugifyPbKey(name) {
@@ -4685,6 +4686,27 @@ function deepLinkPipBoy(kind, slug) {
     const itemBtn = [...document.querySelectorAll('#' + cfg.navId + ' .pb-spawn-item')]
       .find(b => b.textContent.trim() === key);
     if (itemBtn) itemBtn.click();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', run);
+  } else {
+    run();
+  }
+}
+
+// Deep-link to a whole Pip-Boy page that has no item list to pick from, e.g.
+// #section=resources&page=minerva (the value must be a key of PB_DEEPLINK_PAGES).
+const PB_DEEPLINK_PAGES = {
+  minerva: 'pb-page-minerva',
+};
+
+function deepLinkPipBoyPage(slug) {
+  const target = PB_DEEPLINK_PAGES[slug];
+  if (!target) return;
+  function run() {
+    if (typeof pbNav !== 'function') return;
+    const navBtn = document.querySelector(`[data-pb-target="${target}"]`);
+    if (navBtn) pbNav(navBtn);
   }
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', run);
@@ -5597,6 +5619,7 @@ let evFinishBoot = null;
       else if (params.scrap) deepLinkPipBoy('scrap', params.scrap);
       else if (params.ingredient) deepLinkPipBoy('ingredient', params.ingredient);
       else if (params.masks) deepLinkPipBoy('masks', params.masks);
+      else if (params.page) deepLinkPipBoyPage(params.page);
     }
   } else if (params.photo) {
     dismissEntry('archive', true);
