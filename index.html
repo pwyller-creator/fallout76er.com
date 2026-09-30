@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fallout76er's Wasteland Archive — Appalachia Field Log</title>
-<meta name="description" content="A Fallout 76 survivor's field log: photo archive, nuke codes, Minerva tracker, plans exchange, treasure maps, and the Rusty Curios &amp; Rares vendor camp.">
+<meta name="description" content="A Fallout 76 survivor's field log: photo archive, nuke codes, Minerva tracker, treasure maps, and the Rusty Curios &amp; Rares vendor camp.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://fallout76er.com/">
 <link rel="alternate" type="application/atom+xml" title="Fallout76er's Wasteland Archive — new field reports &amp; guides" href="/feed.xml">
@@ -57,7 +57,7 @@
   "name": "Fallout76er's Wasteland Archive",
   "alternateName": "FO76er Field Log",
   "url": "https://fallout76er.com/",
-  "description": "A Fallout 76 survivor's field log covering Appalachian locations, encounters, camps, NPCs, items, creature spawn intel and rare scrap farming locations for daily and weekly challenges, weekly nuke codes, Minerva vendor tracker, and plans exchange.",
+  "description": "A Fallout 76 survivor's field log covering Appalachian locations, encounters, camps, NPCs, items, creature spawn intel and rare scrap farming locations for daily and weekly challenges, weekly nuke codes, and Minerva vendor tracker.",
   "inLanguage": "en-US",
   "author": {
     "@type": "Person",
@@ -725,6 +725,24 @@
   .diary-link:hover { background: rgba(196,122,30,0.18); border-color: rgba(196,122,30,0.65); color: #f0c060; }
   .diary-link.active-view { background: rgba(139,58,26,0.35); border-color: var(--rust); color: #f0c060; }
 
+  /* ── "Jump" links — scroll to a section on the current page (Diary,
+     Camp Spotlight) rather than switching the SPA view like the other
+     header links. Dashed border + trailing arrow signal "you'll stay on
+     this page" at rest, before the first click reveals the difference. ── */
+  .diary-link.nav-jump {
+    background: transparent;
+    border-style: dashed;
+  }
+  .diary-link.nav-jump::after {
+    content: '\2193';
+    margin-left: 7px;
+    font-size: 10px;
+    opacity: 0.55;
+  }
+  .diary-link.nav-jump:hover {
+    background: rgba(196,122,30,0.1);
+  }
+
   /* ── Bio View ── */
   #bio-view { display: none; min-height: 100vh; width: 100%; }
 
@@ -934,98 +952,138 @@
   }
   @keyframes pbDotBlink { 0%,100%{opacity:1;} 50%{opacity:0.2;} }
 
-  /* ── Main two-pane layout ── */
-  .pb-layout {
-    display: grid;
-    grid-template-columns: clamp(160px, 20vw, 220px) 1fr;
-    gap: 0;
-    border: 1px solid var(--pb-border);
-    min-height: 600px;
+  /* ── CRT monitor housing for the two-level nav (group top tabs +
+     item sub-tabs) + display pane. Prefixed pbr- throughout to avoid
+     colliding with the unrelated #ev-term boot-terminal .pb-frame/.pb-screen
+     bezel declared later in this stylesheet (same class names, different
+     rules — see fo76-site-workflow notes if touching either). ── */
+  .pbr-bezel {
     position: relative;
+    background: linear-gradient(160deg, #332c22 0%, #171209 50%, #241c12 100%);
+    border-radius: 22px;
+    padding: 18px;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.7),
+      0 20px 50px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,235,190,0.06);
   }
-  /* scanline overlay over entire layout */
-  .pb-layout::before {
-    content: '';
-    position: absolute; inset: 0;
-    background: repeating-linear-gradient(
-      0deg, transparent, transparent 3px,
-      rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
-    );
-    pointer-events: none;
-    z-index: 10;
+  .pbr-screw {
+    position: absolute; width: 6px; height: 6px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #857357, #14100a 75%);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.6);
   }
-  /* subtle CRT vignette */
-  .pb-layout::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 50% 50%, transparent 60%, rgba(0,0,0,0.45) 100%);
-    pointer-events: none;
-    z-index: 11;
+  .pbr-screw.tl { top: 9px; left: 11px; }
+  .pbr-screw.tr { top: 9px; right: 11px; }
+  .pbr-screw.bl { bottom: 9px; left: 11px; }
+  .pbr-screw.br { bottom: 9px; right: 11px; }
+
+  .pbr-screen {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    min-height: 600px;
+    background: radial-gradient(120% 100% at 50% 0%, #120b00 0%, #0a0600 70%);
+    box-shadow:
+      0 0 0 1px var(--pb-border),
+      0 0 46px 6px rgba(255,175,45,0.16),
+      inset 0 0 70px rgba(255,175,45,0.07),
+      inset 0 0 0 1px rgba(0,0,0,0.6);
+    animation: pbrFlicker 6.5s infinite steps(1);
+  }
+  @keyframes pbrFlicker {
+    0%, 92%, 100% { filter: brightness(1); }
+    93% { filter: brightness(0.95); }
+    94.5% { filter: brightness(1.04); }
+    96% { filter: brightness(0.985); }
+  }
+  /* scanline texture, static */
+  .pbr-screen::before {
+    content: ''; position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0,0,0,0.1) 3px, rgba(0,0,0,0.1) 4px);
+    pointer-events: none; z-index: 10;
+  }
+  /* CRT vignette */
+  .pbr-screen::after {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 45%, transparent 55%, rgba(0,0,0,0.55) 100%);
+    pointer-events: none; z-index: 11;
+  }
+  /* moving scan sweep */
+  .pbr-sweep {
+    position: absolute; left: 0; right: 0; height: 140px; top: -140px;
+    background: linear-gradient(to bottom, transparent, rgba(255,200,60,0.05) 45%, rgba(255,200,60,0.1) 50%, rgba(255,200,60,0.05) 55%, transparent);
+    pointer-events: none; z-index: 9;
+    animation: pbrSweep 6s linear infinite;
+  }
+  @keyframes pbrSweep { to { top: 100%; } }
+  @media (prefers-reduced-motion: reduce) {
+    .pbr-screen { animation: none; }
+    .pbr-sweep { display: none; }
   }
 
-  /* ── Left menu column ── */
-  .pb-menu {
-    border-right: 1px solid var(--pb-border);
-    padding: 16px 0;
-    background: rgba(8,5,0,0.6);
-    position: relative;
-    z-index: 5;
+  .pbr-screen-inner { position: relative; z-index: 5; }
+
+  /* ── Top tabs (groups) ── */
+  .pbr-toptabs {
+    display: flex; flex-wrap: wrap;
+    border-bottom: 1px solid var(--pb-border);
   }
-  .pb-menu-heading {
-    font-size: 8px;
-    letter-spacing: 3px;
-    color: var(--pb-faint);
-    text-transform: uppercase;
-    padding: 0 16px 10px;
-    border-bottom: 1px solid var(--pb-faint);
-    margin-bottom: 4px;
-  }
-  .pb-menu-item {
-    display: block;
-    width: 100%;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    text-align: left;
-    padding: 11px 16px 11px 20px;
+  .pbr-toptab {
+    flex: 1 1 auto; min-width: 150px; text-align: center;
+    background: transparent; border: none; cursor: pointer;
     font-family: 'Courier New', monospace;
-    font-size: 13px;
-    letter-spacing: 1.5px;
+    font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase;
     color: var(--pb-dim);
-    text-transform: uppercase;
-    border-left: 3px solid transparent;
-    transition: color 0.1s, background 0.1s, border-color 0.1s;
-    line-height: 1.4;
-    position: relative;
+    padding: 17px 14px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.15s, background 0.15s, border-color 0.15s;
   }
-  .pb-menu-item:hover {
-    color: var(--pb-mid);
-    background: rgba(200,140,25,0.07);
+  .pbr-toptab:hover:not(.pb-active) { color: var(--pb-mid); background: rgba(200,140,25,0.08); }
+  .pbr-toptab.pb-active {
+    color: var(--pb-bright); background: var(--pb-sel-bg);
+    border-bottom-color: var(--pb-bright);
+    animation: pbrTabGlow 2.6s ease-in-out infinite;
   }
-  .pb-menu-item.pb-active {
-    color: var(--pb-bright);
-    background: var(--pb-sel-bg);
-    border-left-color: var(--pb-bright);
-    text-shadow: var(--pb-glow);
+  @keyframes pbrTabGlow {
+    0%, 100% { text-shadow: 0 0 10px rgba(255,185,45,0.3); }
+    50% { text-shadow: 0 0 18px rgba(255,185,45,0.65); }
   }
-  .pb-menu-item.pb-active::before {
-    content: '▶';
-    position: absolute;
-    left: 6px;
-    font-size: 8px;
-    color: var(--pb-bright);
-    top: 50%;
-    transform: translateY(-50%);
+  @media (prefers-reduced-motion: reduce) {
+    .pbr-toptab.pb-active { animation: none; text-shadow: var(--pb-glow); }
   }
-  .pb-menu-item.pb-coming-soon {
+
+  /* ── Sub-tabs (items within the active group) ── */
+  .pbr-subtabs {
+    display: none;
+    flex-wrap: wrap;
+    background: rgba(12,8,0,0.5);
+    border-bottom: 1px solid var(--pb-faint);
+  }
+  .pbr-subtabs.pb-visible { display: flex; }
+  .pbr-subtab {
+    background: transparent; border: none; cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase;
     color: var(--pb-faint);
-    cursor: default;
-    font-style: italic;
+    padding: 11px 18px;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
   }
-  .pb-menu-item.pb-coming-soon:hover {
-    background: transparent;
-    color: var(--pb-faint);
+  .pbr-subtab:hover:not(.pb-active) { color: var(--pb-mid); }
+  .pbr-subtab.pb-active { color: var(--pb-bright); border-bottom-color: var(--pb-bright); text-shadow: var(--pb-glow); }
+  .pbr-subtab.pb-coming-soon { color: var(--pb-faint); cursor: default; font-style: italic; }
+  .pbr-subtab.pb-coming-soon:hover { color: var(--pb-faint); }
+
+  /* "refocus" flicker played on every tab/page switch */
+  .pbr-content-flicker { animation: pbrContentIn 0.4s steps(3) both; }
+  @keyframes pbrContentIn {
+    0%   { opacity: 0.25; filter: brightness(1.7); letter-spacing: 2px; }
+    35%  { opacity: 1;    filter: brightness(0.8); }
+    70%  { opacity: 0.85; filter: brightness(1.15); }
+    100% { opacity: 1;    filter: brightness(1); letter-spacing: normal; }
   }
+  @media (prefers-reduced-motion: reduce) { .pbr-content-flicker { animation: none; } }
 
   /* ── Right display pane ── */
   .pb-display {
@@ -2011,31 +2069,11 @@
   @media (max-width: 768px) {
     .pb-frame { padding: 10px 10px 60px; }
     .pb-topbar { display: none; }
-    .pb-layout { grid-template-columns: 1fr; min-height: auto; }
-    .pb-menu {
-      display: flex; flex-direction: row; flex-wrap: nowrap;
-      overflow-x: auto; -webkit-overflow-scrolling: touch;
-      border-right: none;
-      border-bottom: 1px solid var(--pb-border);
-      padding: 4px 0;
-    }
-    .pb-menu-heading { display: none; }
-    .pb-menu-item {
-      padding: 10px 10px;
-      font-size: 11px;
-      border-left: none;
-      border-bottom: 2px solid transparent;
-      display: inline-block;
-      width: auto;
-      flex-shrink: 0;
-      min-height: 44px;
-      white-space: nowrap;
-    }
-    .pb-menu-item.pb-active {
-      border-left: none;
-      border-bottom-color: var(--pb-bright);
-    }
-    .pb-menu-item.pb-active::before { display: none; }
+    .pbr-bezel { border-radius: 16px; padding: 10px; }
+    .pbr-screen { min-height: auto; }
+    .pbr-toptab { min-width: 96px; font-size: 10px; padding: 13px 8px; letter-spacing: 1.5px; }
+    .pbr-subtabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; }
+    .pbr-subtab { flex-shrink: 0; }
     .pb-display { padding: 14px 12px; }
     .pb-nuke-code { font-size: 20px; letter-spacing: 3px; }
     .pb-minerva-location { font-size: 22px; }
@@ -2354,8 +2392,8 @@
       <a class="diary-link" href="#section=archive" id="archive-link-btn" onclick="showGrid(); return false;">&#128247; Photo Archive</a>
       <a class="diary-link" href="#section=diary" id="diary-link-btn" onclick="showBio(); return false;">&#128213; About Me &amp; Build</a>
       <a class="diary-link" href="#section=resources" id="resources-link-btn" onclick="showResources(); return false;">&#9762; Game Resources</a>
-      <a class="diary-link" href="#diary-dispatches" onclick="scrollToDiary(); return false;" title="Latest from the Wastelander Diary">&#128293; Diary</a>
-      <a class="diary-link spotlight-nav-badge" href="#camp-spotlight" onclick="scrollToSpotlight(); return false;">&#9733; Camp Spotlight</a>
+      <a class="diary-link nav-jump" href="#diary-dispatches" onclick="scrollToDiary(); return false;" title="Jump to Fireside Dispatches on this page">&#128293; Diary</a>
+      <a class="diary-link nav-jump spotlight-nav-badge" href="#camp-spotlight" onclick="scrollToSpotlight(); return false;" title="Jump to Camp Spotlight on this page">&#9733; Camp Spotlight</a>
     </nav>
   </div>
 </header>
@@ -2872,37 +2910,52 @@
 <div id="resources-view">
   <div class="pb-frame">
 
-    <!-- Top chrome bar -->
-    <div class="pb-topbar">
-      <span class="pb-model">Pip-Boy 3000 Mk. IV &nbsp;·&nbsp; Appalachia Field Terminal</span>
-      <span class="pb-status-strip"><span class="pb-status-dot"></span>System Online &nbsp;·&nbsp; Wasteland Intel v2.1</span>
-    </div>
+    <div class="pbr-bezel">
+      <span class="pbr-screw tl"></span><span class="pbr-screw tr"></span>
+      <span class="pbr-screw bl"></span><span class="pbr-screw br"></span>
+      <div class="pbr-screen">
+        <div class="pbr-sweep"></div>
+        <div class="pbr-screen-inner">
 
-    <!-- Main two-pane layout -->
-    <div class="pb-layout">
+          <!-- Top chrome bar -->
+          <div class="pb-topbar">
+            <span class="pb-model">Pip-Boy 3000 Mk. IV &nbsp;·&nbsp; Appalachia Field Terminal</span>
+            <span class="pb-status-strip"><span class="pb-status-dot"></span>System Online &nbsp;·&nbsp; Wasteland Intel v2.1</span>
+          </div>
 
-      <!-- Left menu -->
-      <nav class="pb-menu" aria-label="Pip-Boy menu">
-        <div class="pb-menu-heading">Main Menu</div>
-        <button class="pb-menu-item pb-active" data-pb-target="pb-page-nuke" onclick="pbNav(this)">&#9762; Nuke Launch Codes</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-minerva" onclick="pbNav(this)">&#9670; Minerva's Emporium</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-bullion" onclick="pbNav(this)">&#9674; Bullion Planner</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-dmg" onclick="pbNav(this)">&#9876; Damage Stacker</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-legendary" onclick="pbNav(this)">&#9670; Legendary Scrap Odds</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-clock" onclick="pbNav(this)">&#9789; Appalachia Time</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-radio" onclick="pbNav(this)">&#9834; Pip-Boy Radio</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-ingredients" onclick="pbNav(this)">&#9670; Ingredient Spawn Intel</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-masks" onclick="pbNav(this)">&#9760; Slasher Mask Locations</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-plans" onclick="pbNav(this)">&#9874; Plans Exchange</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-tmaps" onclick="pbNav(this)">&#9670; Treasure Maps</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-wmap" onclick="pbNav(this)">&#9670; Wasteland Map</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-scorefaq" onclick="pbNav(this)">&#9670; S.C.O.R.E. Challenge FAQ</button>
-        <button class="pb-menu-item" data-pb-target="pb-page-links" onclick="pbNav(this)">&#9670; Field Intelligence</button>
-      </nav>
+          <!-- Group top tabs -->
+          <div class="pbr-toptabs" role="tablist" aria-label="Pip-Boy menu groups">
+            <button class="pbr-toptab pb-active" data-pbr-group="daily" onclick="pbSelectGroup(this)">Daily Intel</button>
+            <button class="pbr-toptab" data-pbr-group="spawn" onclick="pbSelectGroup(this)">Spawn Intel</button>
+            <button class="pbr-toptab" data-pbr-group="calc" onclick="pbSelectGroup(this)">Calculators</button>
+            <button class="pbr-toptab" data-pbr-group="guides" onclick="pbSelectGroup(this)">Guides &amp; Trade</button>
+          </div>
 
-      <!-- Right display -->
+          <!-- Item sub-tabs, one row per group -->
+          <nav class="pbr-subtabs pb-visible" data-pbr-group="daily" aria-label="Daily Intel pages">
+            <button class="pbr-subtab pb-active" data-pb-target="pb-page-nuke" onclick="pbNav(this)">&#9762; Nuke Launch Codes</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-minerva" onclick="pbNav(this)">&#9670; Minerva's Emporium</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-clock" onclick="pbNav(this)">&#9789; Appalachia Time</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-radio" onclick="pbNav(this)">&#9834; Pip-Boy Radio</button>
+          </nav>
+          <nav class="pbr-subtabs" data-pbr-group="spawn" aria-label="Spawn Intel pages">
+            <button class="pbr-subtab" data-pb-target="pb-page-spawn" onclick="pbNav(this)">&#9655; Creature Spawn Intel</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-scrap" onclick="pbNav(this)">&#9670; Scrap Spawn Intel</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-ingredients" onclick="pbNav(this)">&#9670; Ingredient Spawn Intel</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-masks" onclick="pbNav(this)">&#9760; Slasher Mask Locations</button>
+          </nav>
+          <nav class="pbr-subtabs" data-pbr-group="calc" aria-label="Calculator pages">
+            <button class="pbr-subtab" data-pb-target="pb-page-bullion" onclick="pbNav(this)">&#9674; Bullion Planner</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-dmg" onclick="pbNav(this)">&#9876; Damage Stacker</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-legendary" onclick="pbNav(this)">&#9670; Legendary Scrap Odds</button>
+          </nav>
+          <nav class="pbr-subtabs" data-pbr-group="guides" aria-label="Guides &amp; Trade pages">
+            <button class="pbr-subtab" data-pb-target="pb-page-tmaps" onclick="pbNav(this)">&#9670; Treasure Maps</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-wmap" onclick="pbNav(this)">&#9670; Wasteland Map</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-scorefaq" onclick="pbNav(this)">&#9670; S.C.O.R.E. Challenge FAQ</button>
+            <button class="pbr-subtab" data-pb-target="pb-page-links" onclick="pbNav(this)">&#9670; Field Intelligence</button>
+          </nav>
+
       <div class="pb-display">
 
         <!-- PAGE: Nuke Launch Codes -->
@@ -2921,7 +2974,7 @@
             <span class="pb-nuke-code" id="res-code-charlie"></span>
           </div>
           <div class="pb-nuke-valid" id="res-code-valid"></div>
-          <div class="pb-credit"><a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener">Spot a bad code? Flag it on Bluesky</a></div>
+          <div class="pb-credit">Spot a bad code? <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener">Flag it on Bluesky</a> <a href="mailto:contact@fallout76er.com">Email contact@fallout76er.com</a></div>
         </div>
 
         <!-- PAGE: Minerva's Emporium -->
@@ -3130,6 +3183,7 @@
               <div class="pb-spawn-detail-placeholder">Select an enemy type to receive field intelligence.</div>
             </div>
           </div>
+          <div class="pb-credit">Spotted a bad spawn location? <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener">Flag it on Bluesky</a> <a href="mailto:contact@fallout76er.com">Email contact@fallout76er.com</a></div>
         </div>
 
         <!-- PAGE: Scrap Spawn Intel -->
@@ -3144,6 +3198,7 @@
               <div class="pb-spawn-detail-placeholder">Select a scrap type to receive field intelligence.</div>
             </div>
           </div>
+          <div class="pb-credit">Spotted a bad scrap location? <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener">Flag it on Bluesky</a> <a href="mailto:contact@fallout76er.com">Email contact@fallout76er.com</a></div>
         </div>
 
         <!-- PAGE: Ingredient Spawn Intel -->
@@ -3158,6 +3213,7 @@
               <div class="pb-spawn-detail-placeholder">Select an ingredient to receive field intelligence.</div>
             </div>
           </div>
+          <div class="pb-credit">Spotted a bad ingredient location? <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener">Flag it on Bluesky</a> <a href="mailto:contact@fallout76er.com">Email contact@fallout76er.com</a></div>
         </div>
 
         <!-- PAGE: Slasher Mask Locations -->
@@ -3175,47 +3231,6 @@
               <div class="pb-spawn-detail-placeholder">Select a region to see where the Phantoms left their dead.</div>
             </div>
           </div>
-        </div>
-
-        <!-- PAGE: Plans Exchange -->
-        <div class="pb-page" id="pb-page-plans">
-          <div class="pb-page-title">Plans Exchange — Rusty's Curios &amp; Rares</div>
-          <p style="font-family:'Special Elite',monospace; font-size:11px; color:var(--pb-text-dim,#82b49a); letter-spacing:1px; margin-bottom:18px; line-height:1.8;">
-            Find me in Social as <strong style="color:var(--pb-text,#a0e8c0)">Fallout76er</strong> or on
-            <a href="https://bsky.app/profile/did:plc:hknfh6hoeldcg373afuu3vs2" target="_blank" rel="noopener" style="color:var(--pb-accent,#7ec8a0);">Bluesky</a>
-            to arrange a trade or sale.
-          </p>
-
-          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-
-            <!-- HAVE FOR TRADE -->
-            <div>
-              <div style="font-family:'Special Elite',monospace; font-size:10px; letter-spacing:2px; color:var(--pb-text,#a0e8c0); border-bottom:1px solid rgba(100,200,140,0.25); padding-bottom:8px; margin-bottom:10px; display:flex; justify-content:space-between;">
-                <span>&#9650; Available for Trade</span>
-                <span id="pb-trade-count" style="color:var(--pb-text-dim,#82b49a);"></span>
-              </div>
-              <input type="text" id="pb-trade-search" placeholder="Search..."
-                oninput="pbPlansFilter('trade')"
-                style="width:100%; font-family:'Special Elite',monospace; font-size:10px; background:rgba(0,0,0,0.35); border:1px solid rgba(100,200,140,0.25); color:var(--pb-text,#a0e8c0); padding:5px 8px; letter-spacing:1px; margin-bottom:8px; outline:none; box-sizing:border-box;">
-              <div id="pb-trade-list" style="max-height:340px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(100,200,140,0.3) transparent;"></div>
-              <div id="pb-trade-empty" style="display:none; font-family:'Special Elite',monospace; font-size:10px; color:rgba(100,200,140,0.4); letter-spacing:1px; padding:16px 0; text-align:center;">— No matching entries —</div>
-            </div>
-
-            <!-- PLANS I NEED -->
-            <div>
-              <div style="font-family:'Special Elite',monospace; font-size:10px; letter-spacing:2px; color:var(--pb-text,#a0e8c0); border-bottom:1px solid rgba(100,200,140,0.25); padding-bottom:8px; margin-bottom:10px; display:flex; justify-content:space-between;">
-                <span>&#9651; Looking For</span>
-                <span id="pb-want-count" style="color:var(--pb-text-dim,#82b49a);"></span>
-              </div>
-              <input type="text" id="pb-want-search" placeholder="Search..."
-                oninput="pbPlansFilter('want')"
-                style="width:100%; font-family:'Special Elite',monospace; font-size:10px; background:rgba(0,0,0,0.35); border:1px solid rgba(100,200,140,0.25); color:var(--pb-text,#a0e8c0); padding:5px 8px; letter-spacing:1px; margin-bottom:8px; outline:none; box-sizing:border-box;">
-              <div id="pb-want-list" style="max-height:340px; overflow-y:auto; scrollbar-width:thin; scrollbar-color:rgba(100,200,140,0.3) transparent;"></div>
-              <div id="pb-want-empty" style="display:none; font-family:'Special Elite',monospace; font-size:10px; color:rgba(100,200,140,0.4); letter-spacing:1px; padding:16px 0; text-align:center;">— No matching entries —</div>
-            </div>
-
-          </div>
-          <div style="font-family:'Special Elite',monospace; font-size:9px; color:rgba(100,200,140,0.35); letter-spacing:1px; margin-top:14px; border-top:1px solid rgba(100,200,140,0.15); padding-top:8px;" id="pb-plans-version"></div>
         </div>
 
         <!-- PAGE: Wasteland Map -->
@@ -3318,7 +3333,7 @@
 
           </div>
           <div style="font-family:'Courier New',monospace;font-size:11px;color:var(--pb-faint);letter-spacing:1px;margin-top:18px;border-top:1px solid var(--pb-border);padding-top:10px;text-transform:uppercase;">
-            Field Intel module · Send new resource suggestions via <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener noreferrer" style="color:var(--pb-mid);text-decoration:none;border-bottom:1px solid var(--pb-border);transition:color 0.2s,border-color 0.2s;" onmouseover="this.style.color='var(--pb-bright)';this.style.borderColor='var(--pb-border-hi)';" onmouseout="this.style.color='var(--pb-mid)';this.style.borderColor='var(--pb-border)';">Bluesky</a>
+            Field Intel module · Send new resource suggestions via <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener noreferrer" style="color:var(--pb-mid);text-decoration:none;border-bottom:1px solid var(--pb-border);transition:color 0.2s,border-color 0.2s;" onmouseover="this.style.color='var(--pb-bright)';this.style.borderColor='var(--pb-border-hi)';" onmouseout="this.style.color='var(--pb-mid)';this.style.borderColor='var(--pb-border)';">Bluesky</a> or <a href="mailto:contact@fallout76er.com" style="color:var(--pb-mid);text-decoration:none;border-bottom:1px solid var(--pb-border);transition:color 0.2s,border-color 0.2s;" onmouseover="this.style.color='var(--pb-bright)';this.style.borderColor='var(--pb-border-hi)';" onmouseout="this.style.color='var(--pb-mid)';this.style.borderColor='var(--pb-border)';">email</a>
           </div>
         </div>
 
@@ -3361,6 +3376,8 @@
             <div class="tm-entry-meta" id="tm-entry-meta"></div>
             <a class="tm-entry-guide-link" id="tm-entry-guide-link" rel="bookmark"></a>
           </div>
+
+          <div class="pb-credit">Spotted an error in a map guide? <a href="https://bsky.app/profile/fallout76er.com" target="_blank" rel="noopener">Flag it on Bluesky</a> <a href="mailto:contact@fallout76er.com">Email contact@fallout76er.com</a></div>
         </div>
 
         <!-- PAGE: Coming Soon -->
@@ -3379,7 +3396,10 @@
         </div>
 
       </div><!-- end pb-display -->
-    </div><!-- end pb-layout -->
+
+        </div><!-- end pbr-screen-inner -->
+      </div><!-- end pbr-screen -->
+    </div><!-- end pbr-bezel -->
 
     <!-- SEO: visually hidden prose — preserved for search engine indexing -->
     <div class="seo-text" aria-hidden="true">
@@ -3419,12 +3439,12 @@
 <script src="/spawn-data.js?v=20260924a"></script>
 <script src="/nuke-codes-data.js?v=20260928"></script>
 <!-- Resources-only widget logic (Radio, nuke codes, Minerva, calculators,
-     scrap/spawn/treasure-map widgets, plans exchange, clock): deferred so a
+     scrap/spawn/treasure-map widgets, clock): deferred so a
      photo-archive-only visit doesn't parse/execute it — see CLAUDE.md and
      resources.js. defer, not click-gated, so it still renders automatically
      into the resources-view markup on every load (no SEO/crawlability change),
      it just doesn't block the critical path. -->
-<script defer src="/resources.js?v=20260924a"></script>
+<script defer src="/resources.js?v=20260930c"></script>
 <script>
 
 const photos = [
@@ -4424,6 +4444,22 @@ function applyFilters() {
   });
   buildGrid(filteredPhotos);
   updateHash();
+  saveArchivePrefs();
+}
+
+// ── Archive Prefs (localStorage) ──────────────────────────────────
+// Remembers the last tag filter + month tab across visits (not sent
+// anywhere) so a returning reader lands back where they left off instead
+// of always defaulting to the earliest month. Hash-based deep links still
+// take priority — see init() below.
+const ARCHIVE_PREFS_KEY = 'f76er-archive-prefs';
+function saveArchivePrefs() {
+  try { localStorage.setItem(ARCHIVE_PREFS_KEY, JSON.stringify({ tag: activeTag, month: activeMonth })); }
+  catch (e) { /* storage blocked: pref lasts this visit only */ }
+}
+function loadArchivePrefs() {
+  try { return JSON.parse(localStorage.getItem(ARCHIVE_PREFS_KEY) || 'null'); }
+  catch (e) { return null; }
 }
 
 // ── SPA history (Back / Forward navigation) ──────────────────────
@@ -4625,15 +4661,15 @@ function showResources() {
   // inits to DOMContentLoaded avoids a TDZ ReferenceError that would abort
   // the whole script (dead TM_DATA / SCRAP_DATA, empty widgets).
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function () { initSpawnSelects(); initScrapSelects(); initIngredientSelects(); });
+    document.addEventListener('DOMContentLoaded', function () {
+      initSpawnSelects(); initScrapSelects(); initIngredientSelects();
+      if (typeof pbRestoreLastPage === 'function') pbRestoreLastPage();
+    });
   } else {
     initSpawnSelects();
     initScrapSelects();
     initIngredientSelects();
-  }
-  if (typeof pbPlansInit === 'function') {
-    const page = document.getElementById('pb-page-plans');
-    if (page && page.classList.contains('pb-visible')) pbPlansInit();
+    if (typeof pbRestoreLastPage === 'function') pbRestoreLastPage();
   }
   // restore default prev/next behaviour
   document.getElementById('prev-btn').onclick = () => {
@@ -5786,25 +5822,30 @@ function showEntryScreen(skipBoot) {
   const availableMonths = getAvailableMonths();
   buildMonthBar(availableMonths);
 
-  // Read URL hash for persisted state
+  // Read URL hash for persisted state (deep links always win over saved prefs)
   const params = readHash();
+  const savedPrefs = loadArchivePrefs();
 
-  // Resolve month from hash or default to first available
+  // Resolve month from hash, else last saved month, else default to first available
   let startMonth = availableMonths[0];
   if (params.month && params.month !== 'all') {
     const idx = MONTH_NAMES.findIndex(n => n.toLowerCase() === params.month.toLowerCase());
     if (idx !== -1 && availableMonths.includes(idx + 1)) startMonth = idx + 1;
+  } else if (!params.month && savedPrefs && savedPrefs.month && availableMonths.includes(savedPrefs.month)) {
+    startMonth = savedPrefs.month;
   }
 
-  // Resolve tag from hash
+  // Resolve tag from hash, else last saved tag
   if (params.tag) {
     activeTag = params.tag;
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      const btnTag = btn.getAttribute('onclick')?.match(/filterCards\('([^']+)'/)?.[1];
-      if (btnTag === activeTag) btn.classList.add('active');
-      else btn.classList.remove('active');
-    });
+  } else if (savedPrefs && savedPrefs.tag) {
+    activeTag = savedPrefs.tag;
   }
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    const btnTag = btn.getAttribute('onclick')?.match(/filterCards\('([^']+)'/)?.[1];
+    if (btnTag === activeTag) btn.classList.add('active');
+    else btn.classList.remove('active');
+  });
 
   // Set active month tab
   activeMonth = startMonth;
@@ -6709,28 +6750,6 @@ function scrollToDiary() {
 })();
 </script>
 
-
-<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-<script>
-  kofiWidgetOverlay.draw('fallout76er', {
-    'type': 'floating-chat',
-    'floating-chat.donateButton.text': 'Support Me',
-    'floating-chat.donateButton.background-color': '#7a3010',
-    'floating-chat.donateButton.text-color': '#f0e6d0'
-  });
-  (function() {
-    var attempts = 0;
-    var kofiTitleInterval = setInterval(function() {
-      attempts++;
-      var frames = document.querySelectorAll('iframe[id^="kofi-wo-container"]');
-      if (frames.length) {
-        frames.forEach(function(frame) { frame.title = 'Support Fallout76er on Ko-fi'; });
-      }
-      if (attempts >= 40) clearInterval(kofiTitleInterval); // give up after ~10s
-    }, 250);
-  })();
-</script>
-
 <footer class="site-footer">
   <nav aria-label="Site">
     <a href="/">Wasteland Archive</a>
@@ -6779,6 +6798,5 @@ function scrollToDiary() {
 }
 </style>
 
-<script src="plans-data.js?v=20260528"></script>
 </body>
 </html>

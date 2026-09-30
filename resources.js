@@ -1,6 +1,6 @@
 // Game Resources widget logic — Pip-Boy Radio, nuke codes, Minerva tracker,
-// calculators, scrap/creature spawn intel, plans exchange, treasure-map
-// guide widget, Appalachia clock. Loaded with `defer` from index.html so a
+// calculators, scrap/creature spawn intel, treasure-map guide widget,
+// Appalachia clock. Loaded with `defer` from index.html so a
 // photo-archive-only visitor isn't parsing/executing this on every visit —
 // see CLAUDE.md. Runs automatically on every load (not click-gated): the
 // resources-view markup stays inline in index.html and this just renders
@@ -1007,94 +1007,70 @@ function initMaskSelects() {
 }
 
 // ── Pip-Boy navigation ───────────────────────────────────────────
-function pbNav(btn) {
-  document.querySelectorAll('.pb-menu-item').forEach(b => b.classList.remove('pb-active'));
+// Two-level nav: .pbr-toptab (group) + .pbr-subtab (item within that
+// group). pbNav() always re-syncs the parent group tab/row from whichever
+// item it's given, so it stays correct whether it's called from a click
+// inside the current group, a deep link (deepLinkPipBoy/Page in index.html),
+// or pbRestoreLastPage() below — none of those know the group in advance.
+const PB_LAST_PAGE_KEY = 'f76er-pb-last-page';
+
+function pbSelectGroup(btn) {
+  document.querySelectorAll('.pbr-toptab').forEach(b => b.classList.remove('pb-active'));
   btn.classList.add('pb-active');
+  const group = btn.dataset.pbrGroup;
+  document.querySelectorAll('.pbr-subtabs').forEach(s => s.classList.toggle('pb-visible', s.dataset.pbrGroup === group));
+  const activeItem = document.querySelector('.pbr-subtab.pb-active');
+  const stillInGroup = activeItem && activeItem.closest('.pbr-subtabs').dataset.pbrGroup === group;
+  if (!stillInGroup) {
+    const firstItem = document.querySelector(`.pbr-subtabs[data-pbr-group="${group}"] .pbr-subtab`);
+    if (firstItem) pbNav(firstItem);
+  }
+}
+
+function pbNav(btn) {
+  document.querySelectorAll('.pbr-subtab').forEach(b => b.classList.remove('pb-active'));
+  btn.classList.add('pb-active');
+
+  const parentSubtabs = btn.closest('.pbr-subtabs');
+  if (parentSubtabs) {
+    const group = parentSubtabs.dataset.pbrGroup;
+    document.querySelectorAll('.pbr-toptab').forEach(b => b.classList.toggle('pb-active', b.dataset.pbrGroup === group));
+    document.querySelectorAll('.pbr-subtabs').forEach(s => s.classList.toggle('pb-visible', s.dataset.pbrGroup === group));
+  }
+
   const targetId = btn.dataset.pbTarget;
   document.querySelectorAll('.pb-page').forEach(p => p.classList.remove('pb-visible'));
   const target = document.getElementById(targetId);
   if (target) target.classList.add('pb-visible');
-  if (targetId === 'pb-page-plans') pbPlansInit();
   if (targetId === 'pb-page-spawn') initSpawnSelects();
   if (targetId === 'pb-page-scrap') initScrapSelects();
   if (targetId === 'pb-page-ingredients') initIngredientSelects();
   if (targetId === 'pb-page-masks') initMaskSelects();
   if (targetId === 'pb-page-tmaps') tmInit();
-}
 
-// ── Pip-Boy Plans Exchange ───────────────────────────────────────
-(function() {
-  function pbBuildList(containerId, emptyId, countId, data, isTradeList) {
-    const container = document.getElementById(containerId);
-    const empty     = document.getElementById(emptyId);
-    const countEl   = document.getElementById(countId);
-    if (!container) return;
-    container.innerHTML = '';
-    if (!data || data.length === 0) {
-      if (empty) empty.style.display = 'block';
-      if (countEl) countEl.textContent = '0';
-      return;
-    }
-    if (empty) empty.style.display = 'none';
-    if (countEl) countEl.textContent = data.length;
-    const BATCH = 100;
-    let i = 0;
-    function renderBatch() {
-      const frag = document.createDocumentFragment();
-      const end  = Math.min(i + BATCH, data.length);
-      for (; i < end; i++) {
-        const entry = data[i];
-        const name  = isTradeList ? entry[0] : entry;
-        const qty   = isTradeList ? entry[1] : null;
-        const div   = document.createElement('div');
-        div.style.cssText = 'display:flex;justify-content:space-between;align-items:center;padding:4px 6px;border-bottom:1px solid rgba(100,200,140,0.08);font-family:\'Special Elite\',monospace;font-size:10px;color:rgba(160,232,192,0.85);letter-spacing:0.5px;';
-        div.innerHTML = '<span>' + name + '</span>' +
-          (qty ? '<span style="color:rgba(100,200,140,0.7);font-size:9px;min-width:24px;text-align:right;">x' + qty + '</span>' : '');
-        frag.appendChild(div);
-      }
-      container.appendChild(frag);
-      if (i < data.length) requestAnimationFrame(renderBatch);
-    }
-    renderBatch();
+  // CRT "refocus" flicker on every page change — retrigger by forcing reflow.
+  const displayPane = document.querySelector('.pb-display');
+  if (displayPane) {
+    displayPane.classList.remove('pbr-content-flicker');
+    void displayPane.offsetWidth;
+    displayPane.classList.add('pbr-content-flicker');
   }
 
-  window.pbPlansFilter = function(panel) {
-    if (typeof TRADE_PLANS === 'undefined' || typeof WANT_PLANS === 'undefined') return;
-    const query = document.getElementById('pb-' + panel + '-search').value.toLowerCase().trim();
-    if (panel === 'trade') {
-      const filtered = query ? TRADE_PLANS.filter(e => e[0].toLowerCase().includes(query)) : TRADE_PLANS;
-      pbBuildList('pb-trade-list', 'pb-trade-empty', 'pb-trade-count', filtered, true);
-    } else {
-      const filtered = query ? WANT_PLANS.filter(e => e.toLowerCase().includes(query)) : WANT_PLANS;
-      pbBuildList('pb-want-list', 'pb-want-empty', 'pb-want-count', filtered, false);
-    }
-  };
+  // Remembers the last-viewed Pip-Boy page across visits (not sent anywhere)
+  // so a returning reader lands back where they left off. See pbRestoreLastPage().
+  try { localStorage.setItem(PB_LAST_PAGE_KEY, targetId); } catch (e) { /* storage blocked: pref lasts this visit only */ }
+}
 
-  let pbPlansInitDone = false;
-  window.pbPlansInit = function() {
-    if (pbPlansInitDone) return;
-    pbPlansInitDone = true;
-    if (typeof TRADE_PLANS === 'undefined' || typeof WANT_PLANS === 'undefined') {
-      ['pb-trade-list','pb-want-list'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.innerHTML = '<div style="font-family:\'Special Elite\',monospace;font-size:10px;color:rgba(100,200,140,0.4);padding:20px 0;text-align:center;">— DATA FILE NOT LOADED —</div>';
-      });
-      return;
-    }
-    if (typeof PLANS_DB_VERSION !== 'undefined') {
-      const ver = document.getElementById('pb-plans-version');
-      if (ver) ver.textContent = 'Data: ' + PLANS_DB_VERSION;
-    }
-    pbBuildList('pb-trade-list', 'pb-trade-empty', 'pb-trade-count', TRADE_PLANS, true);
-    pbBuildList('pb-want-list',  'pb-want-empty',  'pb-want-count',  WANT_PLANS,  false);
-  };
-
-  // Init immediately if Plans page is already visible on load
-  document.addEventListener('DOMContentLoaded', function() {
-    const page = document.getElementById('pb-page-plans');
-    if (page && page.classList.contains('pb-visible')) pbPlansInit();
-  });
-})();
+// Called from showResources() in index.html on every entry into the Resources
+// section. Any explicit deep link (#spawn=, &page=, etc.) that follows in the
+// same load overrides this by calling pbNav() again — see deepLinkPipBoy(Page).
+function pbRestoreLastPage() {
+  let lastId = null;
+  try { lastId = localStorage.getItem(PB_LAST_PAGE_KEY); } catch (e) { /* storage blocked */ }
+  if (!lastId) return;
+  const navBtn = document.querySelector(`.pbr-subtab[data-pb-target="${lastId}"]`);
+  if (navBtn) pbNav(navBtn);
+}
 
 // ── Spawn Intel sub-menu ─────────────────────────────────────────
 let spawnSelectsInit = false;

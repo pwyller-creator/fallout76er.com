@@ -12,7 +12,7 @@ A personal Fallout 76 fan site, presented as a survivor's field journal recovere
 - **Field Diary & Build** — character bio, gear loadout, and running commentary.
 - **Creature Spawn Intel** — a Pip-Boy-styled lookup of where creatures reliably spawn, with per-creature crawlable pages under [`/creatures/`](https://fallout76er.com/creatures/).
 - **Treasure Map Guides** — video walkthroughs for each map, with step-by-step pages under [`/maps/`](https://fallout76er.com/maps/).
-- **Scrap Guide, Nuke Codes, Minerva Tracker, Plans Exchange** — the practical stuff, updated as the wasteland demands.
+- **Scrap Guide, Nuke Codes, Minerva Tracker** — the practical stuff, updated as the wasteland demands.
 
 ## How it's built
 
@@ -22,7 +22,6 @@ Vanilla HTML, CSS, and JavaScript. No frameworks, no npm dependencies, no build 
 |---|---|
 | `index.html` | The whole site, essentially — all core content, styling, and logic in one monolithic page |
 | `spawn-data.js` | Creature spawn dataset (`SPAWN_DATA`) |
-| `plans-data.js` | Plans-exchange dataset (`TRADE_PLANS` / `WANT_PLANS`) |
 | `build_creatures.js` | Generates the `/creatures/` pages, hub, `creatures.css`, and `sitemap-creatures.xml` from `spawn-data.js` |
 | `build_guides.js` | Generates the `/maps/` pages and hub from `TM_DATA` in `index.html`, and refreshes the `/maps/` section of `sitemap.xml` |
 | `build_feed.js` | Generates `feed.xml` (Atom) from the photo archive and map guides |

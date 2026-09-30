@@ -40,7 +40,7 @@
   ExpiresByType audio/mpeg                 "access plus 1 year"
   ExpiresByType audio/ogg                  "access plus 1 year"
 
-  # JavaScript — 1 week; plans-data.js uses ?v= cache-busting anyway
+  # JavaScript — 1 week; data files use ?v= cache-busting anyway
   ExpiresByType text/javascript            "access plus 1 week"
   ExpiresByType application/javascript     "access plus 1 week"
 
@@ -116,7 +116,7 @@
 
 # ── Security Headers ─────────────────────────────────────────
 # Addresses the Best Practices flags from PageSpeed.
-# These won't get you to 100 because Ko-fi and GoDaddy inject
+# These won't get you to 100 because GoDaddy injects
 # third-party scripts, but they improve the score and harden the site.
 
 <IfModule mod_headers.c>
