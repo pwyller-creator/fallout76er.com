@@ -5,12 +5,21 @@
   <link href="https://fallout76er.com/feed.xml" rel="self" type="application/atom+xml"/>
   <link href="https://fallout76er.com/" rel="alternate" type="text/html"/>
   <id>https://fallout76er.com/</id>
-  <updated>2026-09-24T12:00:00Z</updated>
+  <updated>2026-10-02T12:00:00Z</updated>
   <icon>https://fallout76er.com/favicon-96x96.png</icon>
   <author>
     <name>Fallout76er</name>
     <uri>https://fallout76er.com/</uri>
   </author>
+  <entry>
+    <title>Cranberry Bog Map 02 — The Ranger Station Bridge Cache</title>
+    <link href="https://fallout76er.com/maps/cranberry-bog-treasure-map-02.html" rel="alternate" type="text/html"/>
+    <id>https://fallout76er.com/maps/cranberry-bog-treasure-map-02.html</id>
+    <published>2026-10-02T12:00:00Z</published>
+    <updated>2026-10-02T12:00:00Z</updated>
+    <category term="Treasure Map Guide"/>
+    <content type="html">&lt;p&gt;Unfortunately, the closest free fast travel point to the Cranberry Bog Treasure Map #2 is The Foundation location in the Savage Divide. So, I fast travel there, and then fast travel again from Foundation to the Ranger District Office — the Ranger location is in the top northern part of Cranberry Bog. The Ranger Office and the Lookout are dead next to each other on the map, meaning either is a viable fast travel pick. You could save the caps and slog there on foot, but I paid caps rather than ‘run time’ for the trip. Once I arrived at the Office, I headed west toward the Ranger Station. When I got to the fence, I went up and over. I could've gone a few more steps and simply walked through an opening, but I never really grew up. I ran into a fair number of Scorched, and I took a detour up to the station top for a Slasher mask. I found nothing hugely valuable or dangerous beyond a few hostiles and some scrap junk.&lt;/p&gt;&lt;p&gt;After the detour, I put the tower to my back so I was facing east. From there I ran along the dried-up riverbank, keeping it on my left. Once I came to a wooden bridge over the no-longer-flowing waterway, I crawled underneath it. The Cranberry Bog Treasure Map #2 is directly under that bridge, next to a patch of Brain Fungus — I hear it has adaptogenic or maybe hallucinogenic properties, either could be why I can't remember which... The treasure mound is dark brown with gray rocks in it. I filled my backpack near to bursting and headed to Watoga Station to settle up with a friendly vendor bot there.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Region: Cranberry Bog · Map: 02 · Status: Documented · Threat: Medium&lt;/em&gt; — &lt;a href="https://fallout76er.com/maps/cranberry-bog-treasure-map-02.html"&gt;video walkthrough on the guide page&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>On Top of Old Sparky</title>
     <link href="https://fallout76er.com/#photo=PapaMidniteChair.webp" rel="alternate" type="text/html"/>
@@ -307,16 +316,5 @@
     <updated>2026-06-02T12:00:00Z</updated>
     <category term="Treasure Map Guide"/>
     <content type="html">&lt;p&gt;To get to the second treasure map of the Ash Heap region, I fast travelled from my camp to the exterior of The Rusty Pick.  It's a free fast travel point I'm guessing because, well, it's a heap of ash populated by molerats, mole miners, and the local merchant mumbles so badly, no one is really sure how to say his name. From there I travelled southwest past a large generator, a square concrete building, and a lakeside cabin, until the second lakeside cabin was a few paces away on my left. Then I searched the ground for the telltale mound of uniform, gray rubble that marks the treasure site. Once I dig and score a suitable stash of loot, I'm overencumbered and cannot fast travel. So I follow the railroad tracks heading North-Northwest from the Pick until I get to the Charleston Fire Department vendor, where I can sell said loot for a backpack full of caps. Rinse and repeat, until Vendor Bot Mack is dry.&lt;/p&gt;&lt;p&gt;&lt;em&gt;Region: Ash Heap · Map: 02 · Status: Documented · Threat: High&lt;/em&gt; — &lt;a href="https://fallout76er.com/maps/ash-heap-treasure-map-02.html"&gt;video walkthrough on the guide page&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>The Curator of a Thousand Faces</title>
-    <link href="https://fallout76er.com/#photo=KingofMasks.webp" rel="alternate" type="text/html"/>
-    <link href="https://fallout76er.com/KingofMasks.webp" rel="enclosure" type="image/webp" length="197518"/>
-    <media:content url="https://fallout76er.com/KingofMasks.webp" type="image/webp" medium="image"/>
-    <id>https://fallout76er.com/#photo=KingofMasks.webp</id>
-    <published>2026-05-09T12:00:00Z</published>
-    <updated>2026-05-09T12:00:00Z</updated>
-    <category term="Camp"/>
-    <content type="html">&lt;img src="https://fallout76er.com/KingofMasks.webp" alt="The Curator of a Thousand Faces"/&gt;&lt;p&gt;Wedged between Uncanny Caverns and the Whitespring Resort, highlevelnord39012 has built what can only be described as the most unsettling gift shop in post-nuclear West Virginia. Wall-to-wall wooden shelving units display an absurd number of masks — Mirelurk, Demon, Clown, Ghoul, Brahmin — each staring outward with the patient, hollow confidence of a thing that has never needed to blink. A "Rip Daring and the Cryptid Hunt" pinball machine anchors the left wall, presumably for when browsing the collection becomes too emotionally exhausting. I spent fifteen minutes in here and left feeling watched. I bought nothing - hoarders never sell their shit.&lt;/p&gt;&lt;p&gt;&lt;em&gt;SAVAGE DIVIDE · Threat: NONE · Field date 05.09.2102&lt;/em&gt;&lt;/p&gt;</content>
   </entry>
 </feed>
