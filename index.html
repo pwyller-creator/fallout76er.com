@@ -2322,6 +2322,16 @@
 
 
 </style>
+<!-- Google Analytics 4 · Consent Mode: denied until the visitor accepts -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MH0CB49417"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag('consent', 'default', { analytics_storage: 'denied', ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied' });
+try { if (localStorage.getItem('f76-consent') === 'granted') gtag('consent', 'update', { analytics_storage: 'granted' }); } catch (e) {}
+gtag('js', new Date());
+gtag('config', 'G-MH0CB49417');
+</script>
 </head>
 <body class="entry-locked ev-booting">
 <script>
@@ -6787,5 +6797,32 @@ function scrollToDiary() {
 }
 </style>
 
+<div id="cookie-consent" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;padding:14px 16px;background:#1a1408;color:#e8d9b0;border-top:2px solid #af7d19;font-family:'Courier Prime',monospace;font-size:13px;line-height:1.5;">
+  <div style="max-width:880px;margin:0 auto;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;">
+    <p style="margin:0;flex:1 1 360px;">This site uses Google Analytics to count visits. Accept and it counts you; decline and it counts nothing personal.</p>
+    <div style="display:flex;gap:8px;">
+      <button id="cc-decline" type="button" style="background:transparent;color:#e8d9b0;border:1px solid #af7d19;padding:6px 14px;cursor:pointer;font:inherit;">Decline</button>
+      <button id="cc-accept" type="button" style="background:#af7d19;color:#1a1408;border:1px solid #af7d19;padding:6px 14px;cursor:pointer;font:inherit;">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'f76-consent';
+  var bar = document.getElementById('cookie-consent');
+  function read() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function save(v) { try { localStorage.setItem(KEY, v); } catch (e) {} }
+  if (!read()) bar.style.display = 'block';
+  document.getElementById('cc-accept').onclick = function () {
+    save('granted');
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    bar.style.display = 'none';
+  };
+  document.getElementById('cc-decline').onclick = function () {
+    save('denied');
+    bar.style.display = 'none';
+  };
+})();
+</script>
 </body>
 </html>
