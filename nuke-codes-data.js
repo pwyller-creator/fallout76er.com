@@ -1,7 +1,7 @@
 // ── NUKE CODES DATA — updated via .claude\update-nuke-codes.ps1 ──
 const nukeCodes = {
-  week:    'Oct 9 – Oct 15, 2026',
-  alpha:   '04490528',
-  bravo:   '45988885',
-  charlie: '56178122'
+  week:    'Oct 16 – Oct 22, 2026',
+  alpha:   '08322063',
+  bravo:   '53088112',
+  charlie: '32058791'
 };
