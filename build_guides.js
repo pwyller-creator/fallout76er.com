@@ -41,6 +41,31 @@ function loadTmData() {
   return vm.runInNewContext(src.slice(start + 'const TM_DATA ='.length, end + 3), Object.create(null));
 }
 
+// ── Load SPAWN_DATA from spawn-data.js (for the "Threats in the Area" cross-links) ──
+function loadSpawnData() {
+  let src = fs.readFileSync(path.join(__dirname, 'spawn-data.js'), 'utf8');
+  src = src.slice(src.indexOf('{'));
+  src = src.replace(/;\s*$/, '');
+  return vm.runInNewContext('(' + src + ')', Object.create(null));
+}
+
+// same slug rule build_creatures.js uses — must match its output exactly
+const creatureSlug = (name) => name.toLowerCase()
+  .replace(/&/g, ' and ')
+  .replace(/[()'".,]/g, '')
+  .trim()
+  .replace(/\s+/g, '-');
+
+// up to 6 creatures (by spawn-location count in this region, descending) that share the map's region
+function threatsForRegion(regionName, spawnData) {
+  return Object.keys(spawnData)
+    .map(name => ({ name, count: spawnData[name].filter(sp => sp.region === regionName).length }))
+    .filter(x => x.count > 0)
+    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name))
+    .slice(0, 6)
+    .map(x => x.name);
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────────
 const escAttr = (s) => String(s)
   .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -159,7 +184,7 @@ const videoScript = `
 </script>`;
 
 // ── Guide page ───────────────────────────────────────────────────────────
-function guidePage(region, map, allDocs) {
+function guidePage(region, map, allDocs, threats) {
   const file = fileFor(region, map);
   const canonical = `${SITE}/maps/${file}`;
   const poster = posterFor(region, map);
@@ -231,6 +256,18 @@ function guidePage(region, map, allDocs) {
     .map(d => `      <a href="/maps/${fileFor(d.region, d.map)}">${d.map.title}</a>`)
     .join('\n');
 
+  const threatLinks = threats
+    .map(name => `      <a href="/creatures/${creatureSlug(name)}.html">${escAttr(name)}</a>`)
+    .join('\n');
+  const threatsSection = threats.length ? `
+  <section class="tmg-related" aria-label="Creatures that spawn near this dig site">
+    <h2 class="tmg-related-h">Threats in ${region.name}</h2>
+    <div class="tmg-related-links">
+${threatLinks}
+    </div>
+  </section>
+` : '';
+
   return head({ title: pageTitle, desc: metaDesc, canonical, og, jsonld }) + `
 <body>${header(crumbs)}
 
@@ -251,7 +288,7 @@ function guidePage(region, map, allDocs) {
     <h2 class="tmg-faq-section-h">Dig Site FAQ</h2>
 ${faqHtml}
   </section>
-
+${threatsSection}
   <section class="tmg-related" aria-label="More dig sites">
     <h2 class="tmg-related-h">More Documented Dig Sites</h2>
     <div class="tmg-related-links">
@@ -383,6 +420,7 @@ ${[...kept, ...mapsBlocks].join('\n')}
 function build() {
   const data = loadTmData();
   const allDocs = documentedMaps(data);
+  const spawnData = loadSpawnData();
 
   for (const { region, map } of allDocs) {
     const missing = ['video', 'title', 'desc', 'meta', 'published'].filter(k => !map[k]);
@@ -395,7 +433,8 @@ function build() {
   fs.mkdirSync(outDir, { recursive: true });
 
   allDocs.forEach(({ region, map }) => {
-    fs.writeFileSync(path.join(outDir, fileFor(region, map)), guidePage(region, map, allDocs));
+    const threats = threatsForRegion(region.name, spawnData);
+    fs.writeFileSync(path.join(outDir, fileFor(region, map)), guidePage(region, map, allDocs, threats));
   });
   fs.writeFileSync(path.join(outDir, 'index.html'), hubPage(allDocs));
   fs.writeFileSync(path.join(__dirname, 'sitemap.xml'), mergeSitemap(allDocs));
